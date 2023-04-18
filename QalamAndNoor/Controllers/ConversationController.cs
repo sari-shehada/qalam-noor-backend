@@ -1,0 +1,40 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using QalamAndNoor.Manager;
+using QalamAndNoor.Models;
+
+namespace QalamAndNoor.Controllers
+{
+    public class ConversationController : ControllerBase
+    {
+        [Route("ConversationController/InsertConversation")]
+        [HttpPost]
+        public int InsertConversation(Conversation conversation)
+        {
+            return ConversationManager.InsertConversation(conversation);
+        }
+        [Route("ConversationController/UpdateConversation")]
+        [HttpPost]
+        public int UpdateConversation(Conversation conversation)
+        {
+            return ConversationManager.UpdateConversation(conversation);
+        }
+        [Route("ConversationController/DeleteConvesation")]
+        [HttpPost]
+        public int DeleteConvesation(Conversation conversation)
+        {
+            return ConversationManager.DeleteConvesation(conversation);
+        }
+        [Route("ConversationController/GetConversations")]
+        [HttpGet]
+        public List<Conversation> GetConversations()
+        {
+            return ConversationManager.GetConversations();
+        }
+        [Route("ConversationController/GetConverstionById")]
+        [HttpGet]
+        public Conversation GetConversationById(int id)
+        {
+            return ConversationManager.GetConverstionById(id);
+        }
+    }
+}

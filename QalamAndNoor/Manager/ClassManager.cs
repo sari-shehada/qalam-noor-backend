@@ -1,0 +1,50 @@
+﻿using QalamAndNoor.DataManager;
+using QalamAndNoor.Models;
+
+namespace QalamAndNoor.Manager
+{
+    public abstract class ClassManager
+    {
+        public static List<Class> GetClasses()
+        {
+            return ClassDataManager.GetClasses().ToList();
+        }
+        public static int InsertClass(Class cls)
+        {
+            return ClassDataManager.InsertClass(cls);
+        }
+        public static int UpdateClass(Class cls)
+        {
+            return ClassDataManager.UpdateClass(cls);
+        }
+        public static int DeleteClass(Class cls)
+        {
+            return ClassDataManager.DeleteClass(cls);
+        }
+        public static Class GetClassById(int id)
+        {
+            List<Class> classes = GetClasses();
+            foreach (Class cls in classes)
+            {
+                if (cls.ID==id)
+                {
+                    return cls;
+                }
+            }
+            return null;
+        }
+        public static List<Class> GetClassesByName(string name)
+        {
+            List<Class> classes = GetClasses();
+            List<Class> result = new List<Class>();
+            foreach (Class item in classes)
+            {
+                if (item.Name.ToLower().Trim().Contains(name.ToLower().Trim()))
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
+        }
+    }
+}
