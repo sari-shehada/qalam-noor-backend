@@ -8,19 +8,19 @@ namespace QalamAndNoor.Controllers
     {
         [Route("TokenVaccineController/InsertTokenVaccine")]
         [HttpPost]
-        public int InsertTokenVaccine(TokenVaccine tokenVaccine)
+        public int InsertTokenVaccine([FromBody] TokenVaccine tokenVaccine)
         {
             return TokenVaccineManager.InsertTokenVaccine(tokenVaccine);
         }
         [Route("TokenVaccineController/UpdateTokenVaccine")]
         [HttpPost]
-        public int UpdateTokenVaccine(TokenVaccine tokenVaccine)
+        public int UpdateTokenVaccine([FromBody] TokenVaccine tokenVaccine)
         {
             return TokenVaccineManager.UpdateTokenVaccine(tokenVaccine);
         }
         [Route("TokenVaccineController/DeleteTokenVaccine")]
         [HttpPost]
-        public int DeleteTokenVaccine(TokenVaccine tokenVaccine)
+        public int DeleteTokenVaccine([FromBody] TokenVaccine tokenVaccine)
         {
             return TokenVaccineManager.DeleteTokenVaccine(tokenVaccine);
         }

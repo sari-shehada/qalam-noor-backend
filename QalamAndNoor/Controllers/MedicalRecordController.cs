@@ -8,19 +8,19 @@ namespace QalamAndNoor.Controllers
     {
         [Route("MedicalRecordController/InsertMedicalRecord")]
         [HttpPost]
-        public int InsertMedicalRecord(MedicalRecord medicalRecord)
+        public int InsertMedicalRecord([FromBody] MedicalRecord medicalRecord)
         {
             return MedicalRecordManager.InsertMedicalRecord(medicalRecord);
         }
         [Route("MedicalRecordController/UpdateMedicalRecord")]
         [HttpPost]
-        public int UpdateMedicalRecord(MedicalRecord medicalRecord)
+        public int UpdateMedicalRecord([FromBody] MedicalRecord medicalRecord)
         {
             return MedicalRecordManager.UpdateMedicalRecord(medicalRecord);
         }
         [Route("MedicalRecordController/DeleteMedicalRecord")]
         [HttpPost]
-        public int DeleteMedicalRecord(MedicalRecord medicalRecord)
+        public int DeleteMedicalRecord([FromBody] MedicalRecord medicalRecord)
         {
             return MedicalRecordManager.DeleteMedicalRecord(medicalRecord);
         }

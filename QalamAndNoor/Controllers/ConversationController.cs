@@ -8,19 +8,19 @@ namespace QalamAndNoor.Controllers
     {
         [Route("ConversationController/InsertConversation")]
         [HttpPost]
-        public int InsertConversation(Conversation conversation)
+        public int InsertConversation([FromBody] Conversation conversation)
         {
             return ConversationManager.InsertConversation(conversation);
         }
         [Route("ConversationController/UpdateConversation")]
         [HttpPost]
-        public int UpdateConversation(Conversation conversation)
+        public int UpdateConversation([FromBody] Conversation conversation)
         {
             return ConversationManager.UpdateConversation(conversation);
         }
         [Route("ConversationController/DeleteConvesation")]
         [HttpPost]
-        public int DeleteConvesation(Conversation conversation)
+        public int DeleteConvesation([FromBody] Conversation conversation)
         {
             return ConversationManager.DeleteConvesation(conversation);
         }

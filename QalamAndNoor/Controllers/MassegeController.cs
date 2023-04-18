@@ -8,19 +8,19 @@ namespace QalamAndNoor.Controllers
     {
         [Route("MassegeController/InsertMassege")]
         [HttpPost]
-        public int InsertMassege(Massege massege)
+        public int InsertMassege([FromBody] Massege massege)
         {
             return MassegeManager.InsertMassege(massege);
         }
         [Route("MassegeController/UpdateMassege")]
         [HttpPost]
-        public int UpdateMassege(Massege massege)
+        public int UpdateMassege([FromBody] Massege massege)
         {
             return MassegeManager.UpdateMassege(massege);
         }
         [Route("MassegeController/DeleteMassege")]
         [HttpPost]
-        public int DeleteMassege(Massege massege)
+        public int DeleteMassege([FromBody] Massege massege)
         {
             return MassegeManager.DeleteMassege(massege);
         }

@@ -9,19 +9,19 @@ namespace QalamAndNoor.Controllers
     {
         [Route("ClassRoomSchoolYearController/InsertClassRoomSchoolYear")]
         [HttpPost]
-        public int InsertClassRoomSchoolYear(ClassRoomSchoolYear classRoomSchoolYear)
+        public int InsertClassRoomSchoolYear([FromBody] ClassRoomSchoolYear classRoomSchoolYear)
         {
             return ClassRoomSchoolYearManager.InsertClassRoomSchoolYear(classRoomSchoolYear);
         }
         [Route("ClassRoomSchoolYearController/UpdateClassRoomSchoolYear")]
         [HttpPost]
-        public int UpdateClassRoomSchoolYear(ClassRoomSchoolYear classRoomSchoolYear)
+        public int UpdateClassRoomSchoolYear([FromBody] ClassRoomSchoolYear classRoomSchoolYear)
         {
             return ClassRoomSchoolYearManager.UpdateClassRoomSchoolYear(classRoomSchoolYear);
         }
         [Route("ClassRoomSchoolYearController/DeleteClassRoomSchoolYear")]
         [HttpPost]
-        public int DeleteClassRoomSchoolYear(ClassRoomSchoolYear classRoomSchoolYear)
+        public int DeleteClassRoomSchoolYear([FromBody] ClassRoomSchoolYear classRoomSchoolYear)
         {
             return ClassRoomSchoolYearManager.DeleteClassRoomSchoolYear(classRoomSchoolYear);
         }
