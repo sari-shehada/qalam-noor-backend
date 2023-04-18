@@ -8,19 +8,19 @@ namespace QalamAndNoor.Controllers
     {
         [Route("ExamController/InsertExam")]
         [HttpPost]
-        public int InsertExam(Exam exam)
+        public int InsertExam([FromBody] Exam exam)
         {
             return ExamManager.InsertExam(exam);
         }
         [Route("ExamController/UpdateExam")]
         [HttpPost]
-        public int UpdateExam(Exam exam)
+        public int UpdateExam([FromBody] Exam exam)
         {
             return ExamManager.UpdateExam(exam);
         }
         [Route("ExamController/DeleteExam")]
         [HttpPost]
-        public int DeleteExam(Exam exam)
+        public int DeleteExam([FromBody] Exam exam)
         {
             return ExamManager.DeleteExam(exam);
         }

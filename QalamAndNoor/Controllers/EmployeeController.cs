@@ -8,19 +8,19 @@ namespace QalamAndNoor.Controllers
     {
         [Route("EmployeeController/InsertEmployee")]
         [HttpPost]
-        public int InsertEmployee(Employee employee)
+        public int InsertEmployee([FromBody] Employee employee)
         {
             return EmployeeManager.InsertEmployee(employee);
         }
         [Route("EmployeeController/UpdateEmployee")]
         [HttpPost]
-        public int UpdateEmployee(Employee employee)
+        public int UpdateEmployee([FromBody] Employee employee)
         {
             return EmployeeManager.UpdateEmployee(employee);
         }
         [Route("EmployeeController/DeleteEmployee")]
         [HttpPost]
-        public int DeleteEmployee(Employee employee)
+        public int DeleteEmployee([FromBody] Employee employee)
         {
             return EmployeeManager.DeleteEmployee(employee);
         }

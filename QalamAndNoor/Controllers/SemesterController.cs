@@ -8,19 +8,19 @@ namespace QalamAndNoor.Controllers
     {
         [Route("SemesterController/InsertSemester")]
         [HttpPost]
-        public int InsertSemester(Semester semester)
+        public int InsertSemester([FromBody] Semester semester)
         {
             return SemesterManager.InsertSemester(semester);
         }
         [Route("SemesterController/UpdateSemester")]
         [HttpPost]
-        public int UpdateSemester(Semester semester)
+        public int UpdateSemester([FromBody] Semester semester)
         {
             return SemesterManager.UpdateSemester(semester);
         }
         [Route("SemesterController/DeleteSemester")]
         [HttpPost]
-        public int DeleteSemester(Semester semester)
+        public int DeleteSemester([FromBody] Semester semester)
         {
             return SemesterManager.DeleteSemester(semester);
         }

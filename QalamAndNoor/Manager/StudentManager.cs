@@ -103,19 +103,7 @@ namespace QalamAndNoor.Manager
             return result;
         }
 
-        public static List<Student> GetStudentsByMedicalRecordId(int medicalRecordId)
-        {
-            List<Student> students = GetStudents();
-            List<Student> result=new List<Student>();
-            foreach (Student item in students)
-            {
-                if (item.MedicalRecordId==medicalRecordId)
-                {
-                    result.Add(item);
-                }
-            }
-            return result;
-        }
+       
 
     }
 }

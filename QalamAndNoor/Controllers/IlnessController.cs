@@ -8,19 +8,19 @@ namespace QalamAndNoor.Controllers
     {
         [Route("IlnessController/InsertIlness")]
         [HttpPost]
-        public int InsertIlness(Ilness ilness)
+        public int InsertIlness([FromBody] Ilness ilness)
         {
             return IlnessManager.InsertIlness(ilness);
         }
         [Route("IlnessController/UpdateIlness")]
         [HttpPost]
-        public int UpdateIlness(Ilness ilness)
+        public int UpdateIlness([FromBody] Ilness ilness)
         {
             return IlnessManager.UpdateIlness(ilness);
         }
         [Route("IlnessController/DeleteIlness")]
         [HttpPost]
-        public int DeleteIlness(Ilness ilness)
+        public int DeleteIlness([FromBody] Ilness ilness)
         {
             return IlnessManager.DeleteIlness(ilness);
         }

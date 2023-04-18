@@ -55,12 +55,7 @@ namespace QalamAndNoor.Controllers
         {
             return StudentManager.GetStudentsByFamilyId(familyId);
         }
-        [Route("StudentController/GetStudentsByMedicalRecordId")]
-        [HttpGet]
-        public List<Student> GetStudentsByMedicalRecordId(int medicalRecordId)
-        {
-            return StudentManager.GetStudentsByMedicalRecordId(medicalRecordId);
-        }
+        
         [Route("StudentController/GetStudentsByAddressId")]
         [HttpGet]
         public List<Student> GetStudentsByAddressId(int adressId)

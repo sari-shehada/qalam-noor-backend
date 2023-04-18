@@ -13,6 +13,7 @@ namespace QalamAndNoor.DataManager
             {
                 ID = Convert.ToInt32(dataReader["ID"].ToString()),
                 Name = dataReader["Name"].ToString(),
+                PreviousClassId = Convert.ToInt32(dataReader["PreviousClassId"].ToString()),
             };
             return tempClass;
         }
@@ -38,8 +39,8 @@ namespace QalamAndNoor.DataManager
         {
             if (cls == null) return 0;
 
-            string sqlStatement = "INSERT INTO  [dbo].[Class] (Name) " +
-                                  "VALUES (@name)";
+            string sqlStatement = "INSERT INTO  [dbo].[Class] (Name,PreviousClassId) " +
+                                  "VALUES (@name,@previousClassId)";
 
 
             SqlCommand sqlCommand = new SqlCommand()
@@ -48,6 +49,7 @@ namespace QalamAndNoor.DataManager
                 CommandType = CommandType.Text,
             };
             sqlCommand.Parameters.Add(new SqlParameter("@name", cls.Name));
+            sqlCommand.Parameters.Add(new SqlParameter("@previousClassId", cls.PreviousClassId));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             if (result == 1)
@@ -63,7 +65,7 @@ namespace QalamAndNoor.DataManager
             if (cls == null) return 0;
 
             string sqlStatement = "UPDATE  [dbo].[Class] SET " +
-                                  "Name=@name " +
+                                  "Name=@name,PreviousClassId=@previousClassId " +
                                   "WHERE ID=@id;";
 
 
@@ -75,6 +77,7 @@ namespace QalamAndNoor.DataManager
 
             sqlCommand.Parameters.Add(new SqlParameter("@id", cls.ID));
             sqlCommand.Parameters.Add(new SqlParameter("@name", cls.Name));
+            sqlCommand.Parameters.Add(new SqlParameter("@previousClassId", cls.PreviousClassId));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             return result;

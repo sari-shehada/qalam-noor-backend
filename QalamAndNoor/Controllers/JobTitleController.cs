@@ -8,19 +8,19 @@ namespace QalamAndNoor.Controllers
     {
         [Route("JobTitleController/InsertJobTitle")]
         [HttpPost]
-        public int InsertJobTitle(JobTitle jobTitle)
+        public int InsertJobTitle([FromBody] JobTitle jobTitle)
         {
             return JobTitleManager.InsertJobTitle(jobTitle);
         }
         [Route("JobTitleController/UpdateJobTitle")]
         [HttpPost]
-        public int UpdateJobTitle(JobTitle jobTitle)
+        public int UpdateJobTitle([FromBody] JobTitle jobTitle)
         {
             return JobTitleManager.UpdateJobTitle(jobTitle);
         }
         [Route("JobTitleController/DeleteJobTitle")]
         [HttpPost]
-        public int DeleteJobTitle(JobTitle jobTitle)
+        public int DeleteJobTitle([FromBody] JobTitle jobTitle)
         {
             return JobTitleManager.DeleteJobTitle(jobTitle);
         }

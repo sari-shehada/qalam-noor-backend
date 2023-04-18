@@ -26,7 +26,7 @@ namespace QalamAndNoor.Manager
             List<MedicalRecord> records = GetMedicalRecords();
             foreach (MedicalRecord record in records)
             {
-                if (record.ID == id)
+                if (record.StudentId == id)
                 {
                     return record;
                 }
