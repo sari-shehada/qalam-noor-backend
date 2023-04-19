@@ -17,7 +17,7 @@ namespace QalamAndNoor.Models
         public string WhatsappPhoneNumber { get; set; }
         public string LandLine { get; set; }
         public DateTime JoinDate { get; set; }
-        public DateTime LeaveDate { get; set; }
+        public DateTime? LeaveDate { get; set; }
         public int AddressId { get; set; }
         public int FamilyId { get; set; }
 

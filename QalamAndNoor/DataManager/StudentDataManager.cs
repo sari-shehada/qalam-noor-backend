@@ -2,6 +2,7 @@
 using QalamAndNoor.Shared;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace QalamAndNoor.DataManager
 {
@@ -10,6 +11,7 @@ namespace QalamAndNoor.DataManager
         #region Mappers
         private static Student StudentMapper(IDataReader dataReader)
         {
+
             Student tempStudent = new Student()
             {
                 ID = Convert.ToInt32(dataReader["ID"].ToString()),
@@ -25,9 +27,9 @@ namespace QalamAndNoor.DataManager
                 WhatsappPhoneNumber = dataReader["WhatsappPhoneNumber"].ToString(),
                 LandLine = dataReader["LandLine"].ToString(),
                 JoinDate = Convert.ToDateTime(dataReader["JoinDate"].ToString()),
-                LeaveDate = Convert.ToDateTime(dataReader["LeaveDate"].ToString()),
+                LeaveDate = dataReader["LeaveDate"].ToString().Trim() == string.Empty ? null : Convert.ToDateTime(dataReader["LeaveDate"].ToString()),
                 AddressId = Convert.ToInt32(dataReader["AddressId"].ToString()),
-                FamilyId =Convert.ToInt32( dataReader["FamilyId"].ToString()),
+                FamilyId = Convert.ToInt32(dataReader["FamilyId"].ToString()),
             };
             return tempStudent;
         }
@@ -51,7 +53,7 @@ namespace QalamAndNoor.DataManager
         public static int InsertStudent(Student student)
         {
             if (student == null) return 0;
-
+            Debug.WriteLine(student.LeaveDate == null);
             string sqlStatement = "INSERT INTO  [dbo].[Student] (FirstName,IsMale,DateOfBirth," +
                                   "PlaceOfBirth,Religion,IncidentNumber,IncidentDate," +
                                   "PublicRecordId,PhoneNumber,WhatsappPhoneNumber,LandLine," +
@@ -79,11 +81,12 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@whatsappPhoneNumber", student.WhatsappPhoneNumber));
             sqlCommand.Parameters.Add(new SqlParameter("@landLine", student.LandLine));
             sqlCommand.Parameters.Add(new SqlParameter("@joinDate", student.JoinDate));
-            sqlCommand.Parameters.Add(new SqlParameter("@leaveDate", student.LeaveDate));
+            sqlCommand.Parameters.Add(new SqlParameter("@leaveDate", student.LeaveDate == null ? DBNull.Value : student.LeaveDate));
+
             sqlCommand.Parameters.Add(new SqlParameter("@addressId", student.AddressId));
             sqlCommand.Parameters.Add(new SqlParameter("@familyId", student.FamilyId));
 
-
+            Debug.WriteLine(sqlCommand.CommandText);
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             if (result == 1)
             {
@@ -117,7 +120,7 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@firstName", student.FirstName));
             sqlCommand.Parameters.Add(new SqlParameter("@isMale", student.IsMale ? "1" : "0"));
             sqlCommand.Parameters.Add(new SqlParameter("@dateOfBirth", student.DateOfBirth));
-            sqlCommand.Parameters.Add(new SqlParameter("@rlaceOfBirth", student.PlaceOfBirth));
+            sqlCommand.Parameters.Add(new SqlParameter("@placeOfBirth", student.PlaceOfBirth));
             sqlCommand.Parameters.Add(new SqlParameter("@religion", (int)student.Religion));
             sqlCommand.Parameters.Add(new SqlParameter("@incidentNumber", student.IncidentNumber));
             sqlCommand.Parameters.Add(new SqlParameter("@incidentDate", student.IncidentDate));

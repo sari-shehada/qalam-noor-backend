@@ -13,6 +13,7 @@ namespace QalamAndNoor.DataManager
             {
                 ID = Convert.ToInt32(dataReader["ID"].ToString()),
                 Name = dataReader["Name"].ToString(),
+                Details = dataReader["Details"].ToString(),
             };
             return tempJobTitle;
         }
@@ -37,8 +38,8 @@ namespace QalamAndNoor.DataManager
         {
             if (jobTitle == null) return 0;
 
-            string sqlStatement = "INSERT INTO  [dbo].[JobTitle] (Name) " +
-                                  "VALUES (@name)";
+            string sqlStatement = "INSERT INTO  [dbo].[JobTitle] (Name,Details) " +
+                                  "VALUES (@name,@details)";
 
 
             SqlCommand sqlCommand = new SqlCommand()
@@ -47,6 +48,7 @@ namespace QalamAndNoor.DataManager
                 CommandType = CommandType.Text,
             };
             sqlCommand.Parameters.Add(new SqlParameter("@name", jobTitle.Name));
+            sqlCommand.Parameters.Add(new SqlParameter("@details", jobTitle.Details));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             if (result == 1)
@@ -62,7 +64,7 @@ namespace QalamAndNoor.DataManager
             if (jobTitle == null) return 0;
 
             string sqlStatement = "UPDATE  [dbo].[JobTitle] SET " +
-                                  "Name=@name " +
+                                  "Name=@name,Details=@details " +
                                   "WHERE ID=@id;";
 
             SqlCommand sqlCommand = new SqlCommand()
@@ -72,6 +74,8 @@ namespace QalamAndNoor.DataManager
             };
             sqlCommand.Parameters.Add(new SqlParameter("@id", jobTitle.ID));
             sqlCommand.Parameters.Add(new SqlParameter("@name", jobTitle.Name));
+            sqlCommand.Parameters.Add(new SqlParameter("@details", jobTitle.Details));
+
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             return result;

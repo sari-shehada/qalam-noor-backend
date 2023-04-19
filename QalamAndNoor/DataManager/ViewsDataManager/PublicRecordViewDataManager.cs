@@ -28,7 +28,6 @@ namespace QalamAndNoor.DataManager.ViewsDataManager
                 CityName = dataReader["CityName"].ToString(),
                 AreaName = dataReader["AreaName"].ToString(),
                 AddressName = dataReader["AddressName"].ToString(),
-                YearRecord = Convert.ToInt32(dataReader["YearRecord"].ToString())
             };
             return tempPublicRecordView;
         }

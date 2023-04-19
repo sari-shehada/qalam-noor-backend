@@ -34,5 +34,21 @@ namespace QalamAndNoor.Manager
             return null;
         }
 
+        public static List<Course> GetCoursesByClassId(int classId)
+        {
+            List<Course> courses = GetCourses();
+            List<Course> result = new List<Course>();
+            foreach (Course course in courses)
+            {
+                if (course.ClassId==classId)
+                {
+                    result.Add(course);
+                }
+            }
+            return result;
+             
+        }
+
+
     }
 }

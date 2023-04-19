@@ -36,6 +36,13 @@ namespace QalamAndNoor.Controllers
         {
             return CourseManager.GetCourseById(id);
         }
+        [Route("CourseController/GetCoursesByClassId")]
+        [HttpGet]
+        public List<Course> GetCoursesByClassId(int classId)
+        {
+            return CourseManager.GetCoursesByClassId(classId);
+        }
+
 
     }
 }
