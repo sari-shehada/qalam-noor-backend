@@ -6,13 +6,15 @@ namespace QalamAndNoor.DataManager
 {
     public abstract class BaseDataManager
     {
-        private const string connectionString = @"Data Source=DESKTOP-TNMF32K;Integrated Security=True;
-                                                Initial Catalog=KalamAndNoor;
-                                                Connect Timeout=30;Encrypt=False;
-                                                TrustServerCertificate=False;
-                                                ApplicationIntent=ReadWrite;
-                                                MultiSubnetFailover=False";
+        //private const string connectionString = @"Data Source=DESKTOP-TNMF32K;Integrated Security=True;
+        //                                        Initial Catalog=KalamAndNoor;
+        //                                        Connect Timeout=30;Encrypt=False;
+        //                                        TrustServerCertificate=False;
+        //                                        ApplicationIntent=ReadWrite;
+        //                                        MultiSubnetFailover=False";
 
+        private const string connectionString = "Data Source=SQL8005.site4now.net;Initial Catalog=db_a982d3_qalamnoor1;" +
+                                                "User Id=db_a982d3_qalamnoor1_admin;Password=qalam123";
         public static int ExecuteNonQuery(SqlCommand command)
         {
             try
