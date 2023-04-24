@@ -12,6 +12,8 @@ namespace QalamAndNoor.DataManager.ViewsDataManager
         {
             PublicRecordView tempPublicRecordView = new PublicRecordView()
             {
+                PublicRecordId = Convert.ToInt32(dataReader["PublicRecordId"].ToString()),
+                ClassId =Convert.ToInt32( dataReader["Class"].ToString()),
                 StudentFirstName = dataReader["StudentFirstName"].ToString(),
                 FatherName = dataReader["FatherName"].ToString(),
                 GrandFatherName = dataReader["GranFatherName"].ToString(),

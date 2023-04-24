@@ -9,5 +9,18 @@ namespace QalamAndNoor.Manager.ViewsManager
         {
             return PublicRecordViewDataManager.GetPublicRecordViews().ToList();
         }
+        public static List<PublicRecordView> GetPublicRecordViewsByClassId(int cls)
+        {
+            List<PublicRecordView> publicRecordViews = GetPublicRecordViews();
+            List<PublicRecordView>result=new List<PublicRecordView>();
+            foreach (PublicRecordView recordView in publicRecordViews)
+            {
+                if (recordView.ClassId==cls)
+                {
+                    result.Add(recordView);
+                }
+            }
+            return result;
+        }
     }
 }

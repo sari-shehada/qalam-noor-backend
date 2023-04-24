@@ -12,5 +12,11 @@ namespace QalamAndNoor.Controllers.ViewsController
         {
             return PublicRecordViewManager.GetPublicRecordViews();
         }
+        [Route("PublicRecordViewController/GetPublicRecordViewsByClassId")]
+        [HttpGet]
+        public List<PublicRecordView> GetPublicRecordViewsByClassId(int cls)
+        {
+            return PublicRecordViewManager.GetPublicRecordViewsByClassId(cls);
+        }
     }
 }

@@ -18,14 +18,14 @@ namespace QalamAndNoor.MyViews
         public string StudentLandLine { get; set; }
         public string TieNumber { get; set; }
         public string TiePlace { get; set; }
-        public int YearRecord { get; set; }
+     
         public string CityName { get; set; }
         public string AreaName { get; set; }
         public string AddressName { get; set; }
 
+        public int ClassId { get; set; }
 
-
-
+        public int PublicRecordId { get; set; }
 
     }
 }
