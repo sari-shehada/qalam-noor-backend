@@ -37,6 +37,11 @@ namespace QalamAndNoor.Controllers
         {
             return FamilyManager.GetFamilyById(id);
         }
-
+        [Route("FamilyController/GetFamiliesByFatherTieNumber")]
+        [HttpGet]
+        public List<Family> GetFamiliesByFatherTieNumber([FromQuery] string tieNumber)
+        {
+            return FamilyManager.GetFamiliesByFatherTieNumber(tieNumber);
+        }
     }
 }

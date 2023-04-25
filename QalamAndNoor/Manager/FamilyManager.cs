@@ -34,5 +34,31 @@ namespace QalamAndNoor.Manager
             }
             return null;
         }
+
+        public static List<Family> GetFamiliesByFatherId(int fatherId)
+        {
+            List<Family> families = GetFamilies();
+            List<Family> result = new List<Family>();
+            foreach (Family family in families)
+            {
+                if (family.FatherId==fatherId)
+                {
+                    result.Add(family);
+                }
+            }
+            return result;
+        }
+
+        public static List<Family> GetFamiliesByFatherTieNumber(string fatherTieNumber)
+        {
+            List <Father> fathers= FatherManager.GetFathersByTieNumber(fatherTieNumber);
+            List<Family> families = GetFamilies();
+            List<Family> result = new List<Family>();
+            foreach (var item in fathers)
+            {
+                result.Add(families.First((x) => x.FatherId == item.ID));
+            }
+            return result;
+        }
     }
 }

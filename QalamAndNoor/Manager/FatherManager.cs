@@ -26,12 +26,26 @@ namespace QalamAndNoor.Manager
             List<Father> fathers = GetFathers();
             foreach (Father father in fathers)
             {
-                if (father.ID==id)
+                if (father.ID == id)
                 {
                     return father;
                 }
             }
             return null;
+        }
+
+        public static List<Father> GetFathersByTieNumber(string tieNumber)
+        {
+            List<Father> fathers = GetFathers();
+            List<Father> result = new List<Father>();
+            foreach (Father father in fathers)
+            {
+                if (father.TieNumber==tieNumber)
+                {
+                    result.Add(father);
+                }
+            }
+            return result;
         }
     }
 }
