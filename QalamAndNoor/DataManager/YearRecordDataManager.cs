@@ -14,7 +14,7 @@ namespace QalamAndNoor.DataManager
                 ID = Convert.ToInt32(dataReader["ID"].ToString()),
                 StudentId = Convert.ToInt32(dataReader["StudentId"].ToString()),
                 ClassId = Convert.ToInt32(dataReader["ClassId"].ToString()),
-                ClassRoomSchoolYearId = Convert.ToInt32(dataReader["ClassRoomSchoolYearId"].ToString()),
+                ClassRoomSchoolYearId = dataReader["ClassRoomSchoolYearId"].ToString().Trim() == string.Empty ? null : Convert.ToInt32(dataReader["ClassRoomSchoolYearId"].ToString()),
                 DidPass = Convert.ToBoolean(dataReader["DidPass"].ToString()),
             };
             return tempYearRecord;
@@ -53,7 +53,7 @@ namespace QalamAndNoor.DataManager
             };
             sqlCommand.Parameters.Add(new SqlParameter("@studentId", yearRecord.StudentId));
             sqlCommand.Parameters.Add(new SqlParameter("@classId", yearRecord.ClassId));
-            sqlCommand.Parameters.Add(new SqlParameter("@classRoomSchoolYearId", yearRecord.ClassRoomSchoolYearId));
+            sqlCommand.Parameters.Add(new SqlParameter("@classRoomSchoolYearId", yearRecord.ClassRoomSchoolYearId == null ? DBNull.Value :yearRecord.ClassRoomSchoolYearId));
             sqlCommand.Parameters.Add(new SqlParameter("@didPass", yearRecord.DidPass ? "1" : "0"));
 
 
@@ -84,7 +84,7 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@id", yearRecord.ID));
             sqlCommand.Parameters.Add(new SqlParameter("@studentId", yearRecord.StudentId));
             sqlCommand.Parameters.Add(new SqlParameter("@classId", yearRecord.ClassId));
-            sqlCommand.Parameters.Add(new SqlParameter("@classRoomSchoolYearId", yearRecord.ClassRoomSchoolYearId));
+            sqlCommand.Parameters.Add(new SqlParameter("@classRoomSchoolYearId", yearRecord.ClassRoomSchoolYearId == null ? DBNull.Value : yearRecord.ClassRoomSchoolYearId));
             sqlCommand.Parameters.Add(new SqlParameter("@didPass", yearRecord.DidPass ? "1" : "0"));
 
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QalamAndNoor.Manager;
 using QalamAndNoor.Models;
+using QalamAndNoor.Models.HelperModels;
 
 namespace QalamAndNoor.Controllers
 {
@@ -45,6 +46,21 @@ namespace QalamAndNoor.Controllers
         {
             return CityManager.GetCitiesByName(name);
 
+        }
+        [Route("CityController/GetCitiesToAddressesCount")]
+        [HttpGet]
+
+        public List<CityToDescendentCount> GetCitiesToAddressesCount()
+        {
+            return CityManager.GetCitiesToAddressesCount();
+
+        }
+        [Route("CityController/GetCitiesToAreasCount")]
+        [HttpGet]
+
+        public List<CityToDescendentCount> GetCitiesToAreasCount()
+        {
+            return CityManager.GetCitiesToAreasCount();
         }
     }
 }

@@ -7,6 +7,6 @@
         public string Password { get; set; }
         public int FatherId { get; set; }
         public int MotherId { get; set; }
-        public int ResponsiblePersonId { get; set; }
+        public int? ResponsiblePersonId { get; set; }
     }
 }

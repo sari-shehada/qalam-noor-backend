@@ -17,7 +17,7 @@ namespace QalamAndNoor.DataManager
                 Password = dataReader["Password"].ToString(),
                 FatherId = Convert.ToInt32(dataReader["FatherId"].ToString()),
                 MotherId = Convert.ToInt32(dataReader["MotherId"].ToString()),
-                ResponsiblePersonId = Convert.ToInt32(dataReader["ResponsiblePersonId"].ToString()),
+                ResponsiblePersonId = dataReader["ResponsiblePersonId"].ToString().Trim() == string.Empty ? null : Convert.ToInt32(dataReader["ResponsiblePersonId"].ToString()),
             };
             return tempFamily;
         }
@@ -54,7 +54,7 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@password", family.Password));
             sqlCommand.Parameters.Add(new SqlParameter("@fatherId", family.FatherId));
             sqlCommand.Parameters.Add(new SqlParameter("@motherId", family.MotherId));
-            sqlCommand.Parameters.Add(new SqlParameter("@responsiblePersonId", family.ResponsiblePersonId));
+            sqlCommand.Parameters.Add(new SqlParameter("@responsiblePersonId", family.ResponsiblePersonId == null ? DBNull.Value :family.ResponsiblePersonId));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             if (result == 1)
@@ -84,7 +84,7 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@password", family.Password));
             sqlCommand.Parameters.Add(new SqlParameter("@fatherId", family.FatherId));
             sqlCommand.Parameters.Add(new SqlParameter("@motherId", family.MotherId));
-            sqlCommand.Parameters.Add(new SqlParameter("@responsiblePersonId", family.ResponsiblePersonId));
+            sqlCommand.Parameters.Add(new SqlParameter("@responsiblePersonId", family.ResponsiblePersonId == null ? DBNull.Value : family.ResponsiblePersonId));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             return result;

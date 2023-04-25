@@ -15,7 +15,7 @@ namespace QalamAndNoor.DataManager
                 ID = Convert.ToInt32(dataReader["ID"].ToString()),
                 StudentId = Convert.ToInt32(dataReader["StudentId"].ToString()),
                 PreviousSchoolId = Convert.ToInt32(dataReader["PreviousSchoolId"].ToString()),
-                Note = dataReader["Note"].ToString(),
+                Note = dataReader["Note"].ToString().Trim() == string.Empty ? null : dataReader["Note"].ToString(),
             };
             return tempStudentPreviousSchool;
         }
@@ -51,7 +51,7 @@ namespace QalamAndNoor.DataManager
             };
             sqlCommand.Parameters.Add(new SqlParameter("@studentId", studentPreviousSchool.StudentId));
             sqlCommand.Parameters.Add(new SqlParameter("@previousSchoolId", studentPreviousSchool.PreviousSchoolId));
-            sqlCommand.Parameters.Add(new SqlParameter("@note", studentPreviousSchool.Note));
+            sqlCommand.Parameters.Add(new SqlParameter("@note", studentPreviousSchool.Note == null ? DBNull.Value :studentPreviousSchool.Note));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             if (result == 1)
@@ -79,7 +79,7 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@id", studentPreviousSchool.ID));
             sqlCommand.Parameters.Add(new SqlParameter("@studentId", studentPreviousSchool.StudentId));
             sqlCommand.Parameters.Add(new SqlParameter("@previousSchoolId", studentPreviousSchool.PreviousSchoolId));
-            sqlCommand.Parameters.Add(new SqlParameter("@note", studentPreviousSchool.Note));
+            sqlCommand.Parameters.Add(new SqlParameter("@note", studentPreviousSchool.Note == null ? DBNull.Value : studentPreviousSchool.Note));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             return result;

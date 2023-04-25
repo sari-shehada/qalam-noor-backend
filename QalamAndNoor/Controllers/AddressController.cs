@@ -65,6 +65,12 @@ namespace QalamAndNoor.Controllers
         {
             return AddressManager.GetAddresesCountByCityId(cityId);
         }
+        [Route("AddressController/GetAddresesCount")]
+        [HttpGet]
+        public int GetAddresesCount()
+        {
+            return AddressManager.GetAddresses().Count;
+        }
 
     }
 }

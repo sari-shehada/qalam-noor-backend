@@ -72,7 +72,7 @@ namespace QalamAndNoor.DataManager
             if (psychologicalStatusMedicalRecord == null) return 0;
             //SQL Statement
             string sqlStatement = "UPDATE  [dbo].[PsychologicalStatusMedicalRecord] SET " +
-                                  "Name=@name,AreaId=@areaId,Details=@details" +
+                                  "Name=@name,AreaId=@areaId,Details=@details " +
                                   "WHERE ID=@id;";
 
             //Preparing SQL Command

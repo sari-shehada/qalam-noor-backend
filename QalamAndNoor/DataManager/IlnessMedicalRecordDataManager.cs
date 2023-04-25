@@ -14,7 +14,7 @@ namespace QalamAndNoor.DataManager
                 ID = Convert.ToInt32(dataReader["ID"].ToString()),
                 IlnessId = Convert.ToInt32(dataReader["IlnessId"].ToString()),
                 MedicalRecordId = Convert.ToInt32(dataReader["MedicalRecordId"].ToString()),
-                Note = dataReader["Note"].ToString(),
+                Note = dataReader["Note"].ToString().Trim() == string.Empty ? null : dataReader["Note"].ToString(),
             };
             return tempIlnessMedicalRecord;
         }
@@ -50,7 +50,7 @@ namespace QalamAndNoor.DataManager
             };
             sqlCommand.Parameters.Add(new SqlParameter("@ilnessId", ilnessMedical.IlnessId));
             sqlCommand.Parameters.Add(new SqlParameter("@medicalRecordId", ilnessMedical.MedicalRecordId));
-            sqlCommand.Parameters.Add(new SqlParameter("@note", ilnessMedical.Note));
+            sqlCommand.Parameters.Add(new SqlParameter("@note", ilnessMedical.Note == null ? DBNull.Value : ilnessMedical.Note));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             if (result == 1)
@@ -78,7 +78,7 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@id", ilnessMedical.ID));
             sqlCommand.Parameters.Add(new SqlParameter("@ilnessId", ilnessMedical.IlnessId));
             sqlCommand.Parameters.Add(new SqlParameter("@medicalRecordId", ilnessMedical.MedicalRecordId));
-            sqlCommand.Parameters.Add(new SqlParameter("@note", ilnessMedical.Note));
+            sqlCommand.Parameters.Add(new SqlParameter("@note", ilnessMedical.Note == null ? DBNull.Value : ilnessMedical.Note));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             return result;

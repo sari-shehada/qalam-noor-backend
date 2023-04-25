@@ -15,7 +15,7 @@ namespace QalamAndNoor.DataManager
                 VaccineId = Convert.ToInt32(dataReader["VaccineId"].ToString()),
                 MedicalRecordId = Convert.ToInt32(dataReader["MedicalRecordId"].ToString()),
                 ShotDate =Convert.ToDateTime( dataReader["ShotDate"].ToString()),
-                Note = dataReader["Note"].ToString(),
+                Note = dataReader["Note"].ToString().Trim() == string.Empty ? null : dataReader["Note"].ToString(),
 
             };
             return tempTokenVaccine;
@@ -54,7 +54,7 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@vaccineId", tokenVaccine.VaccineId));
             sqlCommand.Parameters.Add(new SqlParameter("@medicalRecordId", tokenVaccine.MedicalRecordId));
             sqlCommand.Parameters.Add(new SqlParameter("@shotDate", tokenVaccine.ShotDate));
-            sqlCommand.Parameters.Add(new SqlParameter("@note", tokenVaccine.Note));
+            sqlCommand.Parameters.Add(new SqlParameter("@note", tokenVaccine.Note == null ? DBNull.Value : tokenVaccine.Note));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             if (result == 1)
@@ -85,7 +85,7 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@vaccineId", tokenVaccine.VaccineId));
             sqlCommand.Parameters.Add(new SqlParameter("@medicalRecordId", tokenVaccine.MedicalRecordId));
             sqlCommand.Parameters.Add(new SqlParameter("@shotDate", tokenVaccine.ShotDate));
-            sqlCommand.Parameters.Add(new SqlParameter("@note", tokenVaccine.Note));
+            sqlCommand.Parameters.Add(new SqlParameter("@note", tokenVaccine.Note == null ? DBNull.Value : tokenVaccine.Note));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             return result;

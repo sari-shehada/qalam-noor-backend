@@ -1,5 +1,6 @@
 ﻿using QalamAndNoor.DataManager;
 using QalamAndNoor.Models;
+using QalamAndNoor.Models.HelperModels;
 
 namespace QalamAndNoor.Manager
 {
@@ -48,6 +49,30 @@ namespace QalamAndNoor.Manager
                 }
             }
             return result;
+        }
+
+        public static List<CityToDescendentCount> GetCitiesToAreasCount()
+        {
+            List<CityToDescendentCount> cityToDescendentCounts = new List<CityToDescendentCount>();
+            List<City> cities = GetCities();
+            foreach (City city in cities)
+            {
+                int count = AreaManager.GetAreasByCityId(city.ID).Count;
+                cityToDescendentCounts.Add(new CityToDescendentCount() {City=city,DescendentCount=count });
+            }
+            return cityToDescendentCounts;
+        }
+
+        public static List<CityToDescendentCount> GetCitiesToAddressesCount()
+        {
+            List<CityToDescendentCount> cityToDescendentCounts = new List<CityToDescendentCount>();
+            List<City> cities = GetCities();
+            foreach (City city in cities)
+            {
+                int count = AddressManager.GetAddresesCountByCityId(city.ID);
+                cityToDescendentCounts.Add(new CityToDescendentCount() {City=city,DescendentCount=count });
+            }
+            return cityToDescendentCounts;
         }
     }
 }

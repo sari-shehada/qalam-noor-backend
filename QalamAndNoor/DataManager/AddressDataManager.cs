@@ -68,7 +68,7 @@ namespace QalamAndNoor.DataManager
             if (address == null) return 0;
             //SQL Statement
             string sqlStatement = "UPDATE  [dbo].[Address] SET " +
-                                  "Name=@name,AreaId=@areaId,Details=@details" +
+                                  "Name=@name,AreaId=@areaId,Details=@details " +
                                   "WHERE ID=@id;";
 
             //Preparing SQL Command

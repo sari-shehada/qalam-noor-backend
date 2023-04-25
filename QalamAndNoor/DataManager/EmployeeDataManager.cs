@@ -19,7 +19,7 @@ namespace QalamAndNoor.DataManager
                 DateOfBirth = Convert.ToDateTime(dataReader["DateOfBirth"].ToString()),
                 PlaceOfBirth = (dataReader["PlaceOfOfBirdth"].ToString()),
                 StartDate = Convert.ToDateTime(dataReader["StartDate"].ToString()),
-                NumberOfChildren = Convert.ToInt32(dataReader["NumberOfChildren"].ToString()),
+                NumberOfChildren = dataReader["NumberOfChildren"].ToString().Trim() == string.Empty ? null : Convert.ToInt32(dataReader["NumberOfChildren"].ToString()),
                 AddressId = Convert.ToInt32(dataReader["AddressId"].ToString()),
                 JobTitleId = Convert.ToInt32(dataReader["JobTitleId"].ToString()),
                 IsMale = Convert.ToBoolean(dataReader["Salary"].ToString()),
@@ -67,7 +67,7 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@dateOfBirth", employee.DateOfBirth));
             sqlCommand.Parameters.Add(new SqlParameter("@placeOfBirth", employee.PlaceOfBirth));
             sqlCommand.Parameters.Add(new SqlParameter("@startDate", employee.StartDate));
-            sqlCommand.Parameters.Add(new SqlParameter("@numberOfChildren", employee.NumberOfChildren));
+            sqlCommand.Parameters.Add(new SqlParameter("@numberOfChildren", employee.NumberOfChildren == null ? DBNull.Value :employee.NumberOfChildren));
             sqlCommand.Parameters.Add(new SqlParameter("@addressId", employee.AddressId));
             sqlCommand.Parameters.Add(new SqlParameter("@jobTitleId", employee.JobTitleId));
             sqlCommand.Parameters.Add(new SqlParameter("@isMale", employee.IsMale ? "1" : "0"));
@@ -108,7 +108,7 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@dateOfBirth", employee.DateOfBirth));
             sqlCommand.Parameters.Add(new SqlParameter("@placeOfBirth", employee.PlaceOfBirth));
             sqlCommand.Parameters.Add(new SqlParameter("@startDate", employee.StartDate));
-            sqlCommand.Parameters.Add(new SqlParameter("@numberOfChildren", employee.NumberOfChildren));
+            sqlCommand.Parameters.Add(new SqlParameter("@numberOfChildren", employee.NumberOfChildren == null ? DBNull.Value : employee.NumberOfChildren));
             sqlCommand.Parameters.Add(new SqlParameter("@addressId", employee.AddressId));
             sqlCommand.Parameters.Add(new SqlParameter("@jobTitleId", employee.JobTitleId));
             sqlCommand.Parameters.Add(new SqlParameter("@isMale", employee.IsMale ? "1" : "0"));
