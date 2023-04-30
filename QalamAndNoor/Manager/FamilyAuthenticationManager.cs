@@ -11,18 +11,18 @@ namespace QalamAndNoor.Manager
             Family? filterResult = FamilyManager.GetFamilies().FirstOrDefault(e => e.UserName == userName);
             if (filterResult == null)
             {
-                message = "Username Does Not Exist";
+                message = "اسم المستخدم غير موجود";
             }
             else
             {
                 if (filterResult.Password == password)
                 {
-                    message = "Logged In Successfully";
+                    message = "تمت عملية تسجيل الدخول بنجاح";
                     familyResult = filterResult;
                 }
                 else
                 {
-                    message = "Password Incorrect";
+                    message = "كلمة المرور خاطئة";
                 }
             }
 

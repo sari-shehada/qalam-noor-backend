@@ -36,6 +36,18 @@ namespace QalamAndNoor.Controllers
         {
             return JobTitleManager.GetJobTitleById(id);
         }
+        [Route("JobTitleController/GetTeachersJobTitles")]
+        [HttpGet]
+        public List<JobTitle> GetTeachersJobTitles()
+        {
+            return JobTitleManager.GetTeachersJobTitles();
+        }
+        [Route("JobTitleController/GetTeachersJobTitlesByDetails")]
+        [HttpGet]
+        public List<JobTitle> GetTeachersJobTitlesByDetails(string details)
+        {
+            return JobTitleManager.GetTeachersJobTitlesByDetails(details);
+        }
 
     }
 }

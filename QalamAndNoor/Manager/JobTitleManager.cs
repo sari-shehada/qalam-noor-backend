@@ -33,5 +33,34 @@ namespace QalamAndNoor.Manager
             }
             return null;
         }
+
+        public static List<JobTitle> GetTeachersJobTitles()
+        {
+            List<JobTitle> jobTitles = GetJobTitles();
+            List<JobTitle> result = new List<JobTitle>();
+            foreach (JobTitle jobTitle in jobTitles)
+            {
+                if (jobTitle.Name.ToLower().Trim().Contains("مدرس".ToLower().Trim()))
+                {
+                    result.Add(jobTitle);
+                }
+            }
+            return result;
+        }
+
+        public static List<JobTitle>GetTeachersJobTitlesByDetails(string details)
+        {
+            List<JobTitle> jobTitles = GetTeachersJobTitles();
+            List<JobTitle> result=new List<JobTitle>();
+            foreach(JobTitle jobTitle in jobTitles)
+            {
+                if (jobTitle.Details.Trim().ToLower().Contains(details.Trim().ToLower()))
+                {
+                    result.Add(jobTitle);
+                }
+            }
+            return result;
+
+        }
     }
 }

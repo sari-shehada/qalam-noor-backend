@@ -36,7 +36,25 @@ namespace QalamAndNoor.Controllers
         {
             return EmployeeManager.GetEmployeeById(id);
         }
+        [Route("EmployeeController/GetEmployeesByJobTitleId")]
+        [HttpGet]
+        public List<Employee> GetEmployeesByJobTitleId(int jobTitleId)
+        {
+            return EmployeeManager.GetEmployeesByJobTitleId(jobTitleId);
+        }
+        [Route("EmployeeController/GetTeachers")]
+        [HttpGet]
+        public List<Employee> GetTeachers( )
+        {
+            return EmployeeManager.GetTeachers();
+        }
 
+        [Route("EmployeeController/GetTeachersByJobTitleId")]
+        [HttpGet]
+        public List<Employee> GetTeachersByJobTitleId(int jobTitleId)
+        {
+            return EmployeeManager.GetTeachersByJobTitleId(jobTitleId);
+        }
 
     }
 }
