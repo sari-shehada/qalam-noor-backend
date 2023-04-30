@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace QalamAndNoor.DataManager
 {
@@ -12,10 +13,8 @@ namespace QalamAndNoor.DataManager
         //                                        TrustServerCertificate=False;
         //                                        ApplicationIntent=ReadWrite;
         //                                        MultiSubnetFailover=False";
-        private const string connectionString = "Data Source=SQL8005.site4now.net;Initial Catalog=db_a982d3_qalamnoor2;User Id=db_a982d3_qalamnoor2_admin;Password=qalam123";
+        private const string connectionString = "Data Source=SQL8005.site4now.net;Initial Catalog=db_a985cf_qalamandnoor1;User Id=db_a985cf_qalamandnoor1_admin;Password=Qalam1234";
 
-       // private const string connectionString = "Data Source=SQL8005.site4now.net;Initial Catalog=db_a982d3_qalamnoor2;" +
-                          //                      "User Id=db_a982d3_qalamnoor1_admin;Password=qalam123";
         public static int ExecuteNonQuery(SqlCommand command)
         {
             try

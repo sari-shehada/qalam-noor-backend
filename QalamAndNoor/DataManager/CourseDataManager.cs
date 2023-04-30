@@ -70,7 +70,7 @@ namespace QalamAndNoor.DataManager
 
             string sqlStatement = "UPDATE  [dbo].[Course] SET " +
                                   "Name=@name,TotalGrade=@totalGrade,TeacherId=@teacherId," +
-                                  "IsEnriching=@isEnriching,ClassId=@classIs " +
+                                  "IsEnriching=@isEnriching,ClassId=@classId " +
                                   "WHERE ID=@id;";
 
             SqlCommand sqlCommand = new SqlCommand()

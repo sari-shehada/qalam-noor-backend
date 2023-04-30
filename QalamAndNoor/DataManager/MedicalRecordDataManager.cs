@@ -12,7 +12,7 @@ namespace QalamAndNoor.DataManager
             MedicalRecord tempMedicalRecord = new MedicalRecord()
             {
                 StudentId = Convert.ToInt32(dataReader["StudentId"].ToString()),
-                StudentHight = Convert.ToDouble(dataReader["StudentHight"].ToString()),
+                StudentHight = Convert.ToDouble(dataReader["StudentHeight"].ToString()),
                 StudentWeight = Convert.ToDouble(dataReader["StudentWeight"].ToString()),
             };
             return tempMedicalRecord;
@@ -39,8 +39,8 @@ namespace QalamAndNoor.DataManager
         {
             if (medicalRecord == null) return 0;
 
-            string sqlStatement = "INSERT INTO  [dbo].[MedicalRecord] (StudentId,StudentHight,StudentWeight) " +
-                                  "VALUES (@studentId,@studentHight,@studentWeight)";
+            string sqlStatement = "INSERT INTO  [dbo].[MedicalRecord] (StudentId,StudentHeight,StudentWeight) " +
+                                  "VALUES (@studentId,@studentHeight,@studentWeight)";
 
 
             SqlCommand sqlCommand = new SqlCommand()
@@ -49,7 +49,7 @@ namespace QalamAndNoor.DataManager
                 CommandType = CommandType.Text,
             };
             sqlCommand.Parameters.Add(new SqlParameter("@studentId", medicalRecord.StudentId));
-            sqlCommand.Parameters.Add(new SqlParameter("@studentHight", medicalRecord.StudentHight));
+            sqlCommand.Parameters.Add(new SqlParameter("@studentHeight", medicalRecord.StudentHight));
             sqlCommand.Parameters.Add(new SqlParameter("@studentWeight", medicalRecord.StudentWeight));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
@@ -67,7 +67,7 @@ namespace QalamAndNoor.DataManager
             if (medicalRecord == null) return 0;
 
             string sqlStatement = "UPDATE  [dbo].[MedicalRecord] SET " +
-                                  "StudentHight=@studentHight,StudentWeight=@studentWeight " +
+                                  "StudentHeight=@studentHeight,StudentWeight=@studentWeight " +
                                   "WHERE StudentId=@studentId;";
 
 
@@ -77,7 +77,7 @@ namespace QalamAndNoor.DataManager
                 CommandType = CommandType.Text,
             };
             sqlCommand.Parameters.Add(new SqlParameter("@studentId", medicalRecord.StudentId));
-            sqlCommand.Parameters.Add(new SqlParameter("@studentHight", medicalRecord.StudentHight));
+            sqlCommand.Parameters.Add(new SqlParameter("@studentHeight", medicalRecord.StudentHight));
             sqlCommand.Parameters.Add(new SqlParameter("@studentWeight", medicalRecord.StudentWeight));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);

@@ -17,12 +17,12 @@ namespace QalamAndNoor.DataManager
                 FatherName = (dataReader["FatherName"].ToString()),
                 MotherName = (dataReader["MotherName"].ToString()),
                 DateOfBirth = Convert.ToDateTime(dataReader["DateOfBirth"].ToString()),
-                PlaceOfBirth = (dataReader["PlaceOfOfBirdth"].ToString()),
+                PlaceOfBirth = (dataReader["PlaceOfBirth"].ToString()),
                 StartDate = Convert.ToDateTime(dataReader["StartDate"].ToString()),
                 NumberOfChildren = dataReader["NumberOfChildren"].ToString().Trim() == string.Empty ? null : Convert.ToInt32(dataReader["NumberOfChildren"].ToString()),
                 AddressId = Convert.ToInt32(dataReader["AddressId"].ToString()),
-                JobTitleId = Convert.ToInt32(dataReader["JobTitleId"].ToString()),
-                IsMale = Convert.ToBoolean(dataReader["Salary"].ToString()),
+                JobTitleId = Convert.ToInt32(dataReader["JoinDateId"].ToString()),
+                IsMale = Convert.ToBoolean(dataReader["IsMale"].ToString()),
             };
             return tempEmployee;
         }
@@ -49,9 +49,9 @@ namespace QalamAndNoor.DataManager
         {
             if (employee == null) return 0;
 
-            string sqlStatement = "INSERT INTO  [dbo].[Employee](FirstName,LastName,FatherName,MotherName,DateOfBirth,PlaceOfBirth" +
-                                  "StartDate,NumberOfChildren,AddressId,JobTitleId,IsMale) " +
-                                  "VALUES (@firstName,@lastName,@fatherName,@motherName,@dateOfBirth,@placeOfBirth,@startDate" +
+            string sqlStatement = "INSERT INTO  [dbo].[Employee](FirstName,LastName,FatherName,MotherName,DateOfBirth,PlaceOfBirth," +
+                                  "StartDate,NumberOfChildren,AddressId,JoinDateId,IsMale) " +
+                                  "VALUES (@firstName,@lastName,@fatherName,@motherName,@dateOfBirth,@placeOfBirth,@startDate," +
                                   "@numberOfChildren,@addressId,@jobTitleId,@isMale)";
 
 
@@ -91,7 +91,7 @@ namespace QalamAndNoor.DataManager
                                   "FirstName=@firstName,LastName=@lastName,FatherName=@fatherName," +
                                   "MotherName=@motherName,DateOfBirth=@dateOfBirth,PlaceOfBirth=@placeOfBirth," +
                                   "StartDate=@startDate,NumberOfChildren=@numberOfChildren,AddressId=@addressId," +
-                                  "JobTitleId=@jobTitleId,IsMale=@isMale " +
+                                  "JoinDateId=@jobTitleId,IsMale=@isMale " +
                                   "WHERE ID=@id;";
 
 

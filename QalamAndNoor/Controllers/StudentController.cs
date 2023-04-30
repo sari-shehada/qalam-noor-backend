@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using QalamAndNoor.DataManager;
 using QalamAndNoor.Manager;
 using QalamAndNoor.Models;
 
@@ -18,6 +19,12 @@ namespace QalamAndNoor.Controllers
         public int UpdateStudent([FromBody] Student student)
         {
             return StudentManager.UpdateStudent(student);
+        }
+        [Route("StudentController/DeleteStudent")]
+        [HttpPost]
+        public int DeleteStudent([FromBody] Student student)
+        {
+            return StudentDataManager.DeleteStudent(student);
         }
         [Route("StudentController/GetStudents")]
         [HttpGet]

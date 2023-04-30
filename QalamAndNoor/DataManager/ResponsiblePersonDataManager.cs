@@ -15,8 +15,9 @@ namespace QalamAndNoor.DataManager
                 FirstName = dataReader["FirstName"].ToString(),
                 LastName = dataReader["LastName"].ToString(),
                 RelationToStudent = dataReader["RelationToStudent"].ToString(),
-                Career = dataReader["Career"].ToString(),
-                Address = dataReader["Address"].ToString(),
+                PhoneNumber = dataReader["PhoneNumber"].ToString(),
+                DateOfBirth =Convert.ToDateTime( dataReader["DateOfBirth"].ToString()),
+                PlaceOfBirth = dataReader["PlaceOfBirth"].ToString(),
             };
             return tempResponsiblePerson;
         }
@@ -42,8 +43,8 @@ namespace QalamAndNoor.DataManager
         {
             if (responsiblePerson == null) return 0;
 
-            string sqlStatement = "INSERT INTO  [dbo].[ResponsiblePerson] (FirstName,LastName,RelationToStudent,Career,Address) " +
-                                  "VALUES (@firstName,@lastName,@relationToStudent,@career,@address)";
+            string sqlStatement = "INSERT INTO  [dbo].[ResponsiblePerson] (FirstName,LastName,RelationToStudent,PhoneNumber,DateOfBirth,PlaceOfBirth) " +
+                                  "VALUES (@firstName,@lastName,@relationToStudent,@phoneNumber,@dateOfBirth,@placeOfBirth)";
 
 
             SqlCommand sqlCommand = new SqlCommand()
@@ -54,8 +55,10 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@firstName", responsiblePerson.FirstName));
             sqlCommand.Parameters.Add(new SqlParameter("@lastName", responsiblePerson.LastName));
             sqlCommand.Parameters.Add(new SqlParameter("@relationToStudent", responsiblePerson.RelationToStudent));
-            sqlCommand.Parameters.Add(new SqlParameter("@career", responsiblePerson.Career));
-            sqlCommand.Parameters.Add(new SqlParameter("@address", responsiblePerson.Address));
+            sqlCommand.Parameters.Add(new SqlParameter("@phoneNumber", responsiblePerson.PhoneNumber));
+            sqlCommand.Parameters.Add(new SqlParameter("@dateOfBirth", responsiblePerson.DateOfBirth));
+            sqlCommand.Parameters.Add(new SqlParameter("@placeOfBirth", responsiblePerson.PlaceOfBirth));
+
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             if (result == 1)
@@ -73,7 +76,7 @@ namespace QalamAndNoor.DataManager
 
             string sqlStatement = "UPDATE  [dbo].[ResponsiblePerson] SET " +
                                   "FirstName=@firstName,LastName=@lastName,RelationToStudent=@relationToStudent," +
-                                  "Career=@career,Address=@address " +
+                                  "PhoneNumber=@phoneNumber,DateOfBirht=@dateOfBirth,PlaceOfBirth=@placeOfBirth " +
                                   "WHERE ID=@id;";
 
 
@@ -86,8 +89,9 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@firstName", responsiblePerson.FirstName));
             sqlCommand.Parameters.Add(new SqlParameter("@lastName", responsiblePerson.LastName));
             sqlCommand.Parameters.Add(new SqlParameter("@relationToStudent", responsiblePerson.RelationToStudent));
-            sqlCommand.Parameters.Add(new SqlParameter("@career", responsiblePerson.Career));
-            sqlCommand.Parameters.Add(new SqlParameter("@address", responsiblePerson.Address));
+            sqlCommand.Parameters.Add(new SqlParameter("@phoneNumber", responsiblePerson.PhoneNumber));
+            sqlCommand.Parameters.Add(new SqlParameter("@dateOfBirth", responsiblePerson.DateOfBirth));
+            sqlCommand.Parameters.Add(new SqlParameter("@placeOfBirth", responsiblePerson.PlaceOfBirth));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             return result;
