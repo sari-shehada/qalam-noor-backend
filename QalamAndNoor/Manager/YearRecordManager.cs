@@ -33,6 +33,32 @@ namespace QalamAndNoor.Manager
             }
             return null;
         }
-
+        public static List<YearRecord> GetYearRecordsByClassId(int classId)
+        {
+            List<YearRecord> yearRecords = GetYearRecords();
+            List<YearRecord> result = new List<YearRecord>();
+            foreach (YearRecord yearRecord in yearRecords)
+            {
+                if (yearRecord.ClassId==classId)
+                {
+                    result.Add(yearRecord);
+                }
+            }
+            return result;
+        }
+         
+        public static List<YearRecord>GetYearRecordsByClassRoomSchoolRearId(int classRoomSchoolYearId)
+        {
+            List<YearRecord> yearRecords = GetYearRecords();
+            List<YearRecord> result = new List<YearRecord>();
+            foreach (YearRecord yearRecord in yearRecords)
+            {
+                if (yearRecord.ClassRoomSchoolYearId==classRoomSchoolYearId)
+                {
+                    result.Add(yearRecord);
+                }
+            }
+            return result;
+        }
     }
 }
