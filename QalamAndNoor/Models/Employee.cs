@@ -14,6 +14,8 @@
         public int AddressId { get; set; }
         public int JobTitleId { get; set; }
         public bool IsMale { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
     }
 
 }

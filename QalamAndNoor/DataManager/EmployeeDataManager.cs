@@ -12,17 +12,19 @@ namespace QalamAndNoor.DataManager
             Employee tempEmployee = new Employee()
             {
                 ID = Convert.ToInt32(dataReader["ID"].ToString()),
-                FirstName = (dataReader["FirstName"].ToString()),
-                LastName = (dataReader["LastName"].ToString()),
-                FatherName = (dataReader["FatherName"].ToString()),
-                MotherName = (dataReader["MotherName"].ToString()),
+                FirstName = dataReader["FirstName"].ToString(),
+                LastName = dataReader["LastName"].ToString(),
+                FatherName = dataReader["FatherName"].ToString(),
+                MotherName = dataReader["MotherName"].ToString(),
                 DateOfBirth = Convert.ToDateTime(dataReader["DateOfBirth"].ToString()),
-                PlaceOfBirth = (dataReader["PlaceOfBirth"].ToString()),
+                PlaceOfBirth = dataReader["PlaceOfBirth"].ToString(),
                 StartDate = Convert.ToDateTime(dataReader["StartDate"].ToString()),
                 NumberOfChildren = dataReader["NumberOfChildren"].ToString().Trim() == string.Empty ? null : Convert.ToInt32(dataReader["NumberOfChildren"].ToString()),
                 AddressId = Convert.ToInt32(dataReader["AddressId"].ToString()),
                 JobTitleId = Convert.ToInt32(dataReader["JoinDateId"].ToString()),
                 IsMale = Convert.ToBoolean(dataReader["IsMale"].ToString()),
+                UserName = dataReader["UserName"].ToString(),
+                Password = dataReader["Password"].ToString(),
             };
             return tempEmployee;
         }
@@ -50,9 +52,9 @@ namespace QalamAndNoor.DataManager
             if (employee == null) return 0;
 
             string sqlStatement = "INSERT INTO  [dbo].[Employee](FirstName,LastName,FatherName,MotherName,DateOfBirth,PlaceOfBirth," +
-                                  "StartDate,NumberOfChildren,AddressId,JoinDateId,IsMale) " +
+                                  "StartDate,NumberOfChildren,AddressId,JoinDateId,IsMale,UserName,Password) " +
                                   "VALUES (@firstName,@lastName,@fatherName,@motherName,@dateOfBirth,@placeOfBirth,@startDate," +
-                                  "@numberOfChildren,@addressId,@jobTitleId,@isMale)";
+                                  "@numberOfChildren,@addressId,@jobTitleId,@isMale,@userName,@password)";
 
 
             SqlCommand sqlCommand = new SqlCommand()
@@ -71,7 +73,8 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@addressId", employee.AddressId));
             sqlCommand.Parameters.Add(new SqlParameter("@jobTitleId", employee.JobTitleId));
             sqlCommand.Parameters.Add(new SqlParameter("@isMale", employee.IsMale ? "1" : "0"));
-
+            sqlCommand.Parameters.Add(new SqlParameter("@userName", employee.UserName));
+            sqlCommand.Parameters.Add(new SqlParameter("@password", employee.Password));
 
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
@@ -91,7 +94,7 @@ namespace QalamAndNoor.DataManager
                                   "FirstName=@firstName,LastName=@lastName,FatherName=@fatherName," +
                                   "MotherName=@motherName,DateOfBirth=@dateOfBirth,PlaceOfBirth=@placeOfBirth," +
                                   "StartDate=@startDate,NumberOfChildren=@numberOfChildren,AddressId=@addressId," +
-                                  "JoinDateId=@jobTitleId,IsMale=@isMale " +
+                                  "JoinDateId=@jobTitleId,IsMale=@isMale,UserName=@userName,Password=@password " +
                                   "WHERE ID=@id;";
 
 
@@ -112,6 +115,8 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@addressId", employee.AddressId));
             sqlCommand.Parameters.Add(new SqlParameter("@jobTitleId", employee.JobTitleId));
             sqlCommand.Parameters.Add(new SqlParameter("@isMale", employee.IsMale ? "1" : "0"));
+            sqlCommand.Parameters.Add(new SqlParameter("@userName", employee.UserName));
+            sqlCommand.Parameters.Add(new SqlParameter("@password", employee.Password));
 
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
