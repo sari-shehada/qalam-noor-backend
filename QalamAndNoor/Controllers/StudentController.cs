@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using QalamAndNoor.DataManager;
 using QalamAndNoor.Manager;
 using QalamAndNoor.Models;
+using QalamAndNoor.Models.HelperModels;
 
 namespace QalamAndNoor.Controllers
 {

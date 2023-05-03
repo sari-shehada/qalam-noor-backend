@@ -26,7 +26,7 @@ namespace QalamAndNoor.Manager
             List<YearRecord> yearRecords = GetYearRecords();
             foreach (YearRecord yearRecord in yearRecords)
             {
-                if (yearRecord.ID==id)
+                if (yearRecord.ID == id)
                 {
                     return yearRecord;
                 }
@@ -39,26 +39,39 @@ namespace QalamAndNoor.Manager
             List<YearRecord> result = new List<YearRecord>();
             foreach (YearRecord yearRecord in yearRecords)
             {
-                if (yearRecord.ClassId==classId)
+                if (yearRecord.ClassId == classId)
                 {
                     result.Add(yearRecord);
                 }
             }
             return result;
         }
-         
-        public static List<YearRecord>GetYearRecordsByClassRoomSchoolRearId(int classRoomSchoolYearId)
+
+        public static List<YearRecord> GetYearRecordsByClassRoomSchoolRearId(int classRoomSchoolYearId)
         {
             List<YearRecord> yearRecords = GetYearRecords();
             List<YearRecord> result = new List<YearRecord>();
             foreach (YearRecord yearRecord in yearRecords)
             {
-                if (yearRecord.ClassRoomSchoolYearId==classRoomSchoolYearId)
+                if (yearRecord.ClassRoomSchoolYearId == classRoomSchoolYearId)
                 {
                     result.Add(yearRecord);
                 }
             }
             return result;
         }
+
+        public static List<YearRecord> GetYearRecordsBySchoolyearId(int schoolYearId)
+        {
+            List<ClassRoomSchoolYear> classRoomSchoolYears = ClassRoomSchoolYearManager.GetClassRoomSchoolYearsBySchoolYearId(schoolYearId);
+            List<YearRecord> yearRecords = GetYearRecords();
+            List<YearRecord> result = new List<YearRecord>();
+            foreach (var item in classRoomSchoolYears)
+            {
+                result.Add(yearRecords.First((x) => x.ClassRoomSchoolYearId == item.ID));
+            }
+            return result;
+        }
+
     }
 }
