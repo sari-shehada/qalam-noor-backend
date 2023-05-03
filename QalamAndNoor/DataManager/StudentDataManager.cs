@@ -1,5 +1,7 @@
 ﻿using QalamAndNoor.Models;
 using QalamAndNoor.Shared;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
@@ -85,8 +87,6 @@ namespace QalamAndNoor.DataManager
 
             sqlCommand.Parameters.Add(new SqlParameter("@addressId", student.AddressId));
             sqlCommand.Parameters.Add(new SqlParameter("@familyId", student.FamilyId));
-
-            Debug.WriteLine(sqlCommand.CommandText);
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             if (result == 1)
             {

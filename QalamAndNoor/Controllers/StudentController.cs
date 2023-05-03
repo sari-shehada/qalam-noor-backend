@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 using QalamAndNoor.DataManager;
 using QalamAndNoor.Manager;
 using QalamAndNoor.Models;
@@ -13,6 +14,12 @@ namespace QalamAndNoor.Controllers
         public int InsertStudent([FromBody] Student student)
         {
             return StudentManager.InsertStudent(student);
+        }
+        [Route("StudentController/RegisterStudent")]
+        [HttpPost]
+        public object RegisterStudent([FromBody] StudentRegistrationModel registrationModel)
+        {
+            return StudentManager.RegisterStudent(registrationModel);
         }
         [Route("StudentController/UpdateStudent")]
         [HttpPost]
@@ -62,7 +69,7 @@ namespace QalamAndNoor.Controllers
         {
             return StudentManager.GetStudentsByFamilyId(familyId);
         }
-        
+
         [Route("StudentController/GetStudentsByAddressId")]
         [HttpGet]
         public List<Student> GetStudentsByAddressId(int adressId)

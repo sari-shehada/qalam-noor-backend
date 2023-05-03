@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{4BBF107D-4079-4D27-B8BC-87243B4769AC}|https">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.QalamAndNoor PreferredExecutionTarget="/Applications/Firefox.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="QalamAndNoor/DataManager/FatherDataManager.cs">
+    <Files>
+      <File FileName="QalamAndNoor/Manager/StudentManager.cs" Line="19" Column="32" />
+      <File FileName="QalamAndNoor/Models/Student.cs" />
+      <File FileName="QalamAndNoor/Models/Family.cs" />
+      <File FileName="QalamAndNoor/Models/HelperModels/ItemOr.cs" />
+      <File FileName="QalamAndNoor/Controllers/StudentController.cs" Line="22" Column="10" />
+      <File FileName="QalamAndNoor/Models/StudentRegistrationModel.cs" Line="27" Column="29" />
+      <File FileName="QalamAndNoor/DataManager/BaseDataManager.cs" Line="27" Column="31" />
+      <File FileName="QalamAndNoor/DataManager/StudentDataManager.cs" Line="87" Column="88" />
+      <File FileName="QalamAndNoor/DataManager/FatherDataManager.cs" Line="58" Column="44" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="QalamAndNoor" expanded="True">
+            <Node name="QalamAndNoor" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
