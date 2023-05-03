@@ -48,6 +48,18 @@ namespace QalamAndNoor.Controllers
         {
             return YearRecordManager.GetYearRecordsByClassRoomSchoolRearId(classRoomSchoolYearId);
         }
+        [Route("YearRecordController/GetYearRecordsBySchoolYearIdAndClassId")]
+        [HttpGet]
+        public List<YearRecord> GetYearRecordsBySchoolYearIdAndClassId(int schoolYearId,int classId)
+        {
+            return YearRecordManager.GetYearRecordsBySchoolYearIdAndClassId(schoolYearId,classId);
+        }
+        [Route("YearRecordController/GetYearRecordsByStudentId")]
+        [HttpGet]
+        public List<YearRecord> GetYearRecordsByStudentId(int studentId)
+        {
+            return YearRecordManager.GetYearRecordsByStudentId(studentId);
+        }
 
     }
 }

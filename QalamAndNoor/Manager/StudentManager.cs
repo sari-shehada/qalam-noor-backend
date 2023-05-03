@@ -175,6 +175,39 @@ namespace QalamAndNoor.Manager
             };
         }
 
+        public static List<Student> GetStudentsBySchoolYearIdAndClassId(int schoolYearId, int classId)
+        {
+            List<YearRecord> yearRecords = YearRecordManager.GetYearRecordsBySchoolYearIdAndClassId(schoolYearId, classId);
+            List<Student> students = GetStudents();
+            List<Student> result = new List<Student>();
+            foreach (var item in yearRecords)
+            {
+                result.Add(students.First((x) => x.ID == item.StudentId));
+            }
+            return result;
+        }
+
+        public static List<Student> GetStudentsBySchoolYearId(int schoolYearId)
+        {
+            List<YearRecord> yearRecords = YearRecordManager.GetYearRecordsBySchoolyearId(schoolYearId);
+            List<Student> students = GetStudents();
+            List<Student> result = new List<Student>();
+            foreach (var item in yearRecords)
+            {
+                result.Add(students.First((x) => x.ID == item.StudentId));
+            }
+            return result;
+        }
+
+
+
+
+
+
+
+
+
+
 
         #region Private Helper Methods
         private static ItemOr _addNewFamily(

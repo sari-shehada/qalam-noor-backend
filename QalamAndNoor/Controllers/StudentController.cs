@@ -77,5 +77,18 @@ namespace QalamAndNoor.Controllers
         {
             return StudentManager.GetStudentsByAddressId(adressId);
         }
+        [Route("StudentController/GetStudentsBySchoolYearId")]
+        [HttpGet]
+        public List<Student> GetStudentsBySchoolYearId(int schoolYearId)
+        {
+            return StudentManager.GetStudentsBySchoolYearId(schoolYearId);
+        }
+        [Route("StudentController/GetStudentsBySchoolYearIdAndClassId")]
+        [HttpGet]
+        public List<Student> GetStudentsBySchoolYearIdAndClassId(int schoolYearId,int classId)
+        {
+            return StudentManager.GetStudentsBySchoolYearIdAndClassId(schoolYearId,classId);
+        }
+
     }
 }

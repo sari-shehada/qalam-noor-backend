@@ -12,7 +12,7 @@ namespace QalamAndNoor.DataManager
             SchoolYear tempSchoolYear = new SchoolYear()
             {
                 ID = Convert.ToInt32(dataReader["ID"].ToString()),
-                Name = dataReader["Name"].ToString(),
+                Name = dataReader["Details"].ToString(),
             };
             return tempSchoolYear;
         }
@@ -37,7 +37,7 @@ namespace QalamAndNoor.DataManager
         {
             if (schoolYear == null) return 0;
 
-            string sqlStatement = "INSERT INTO  [dbo].[SchoolYear] (Name) " +
+            string sqlStatement = "INSERT INTO  [dbo].[SchoolYear] (Details) " +
                                   "VALUES (@name)";
 
 
@@ -62,7 +62,7 @@ namespace QalamAndNoor.DataManager
             if (schoolYear == null) return 0;
 
             string sqlStatement = "UPDATE  [dbo].[SchoolYear] SET " +
-                                  "Name=@name " +
+                                  "Details=@name " +
                                   "WHERE ID=@id;";
 
             SqlCommand sqlCommand = new SqlCommand()
