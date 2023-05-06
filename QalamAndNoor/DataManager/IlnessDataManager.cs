@@ -61,7 +61,7 @@ namespace QalamAndNoor.DataManager
         {
             if (ilness == null) return 0;
 
-            string sqlStatement = "UPDATE  [dbo].[City] SET " +
+            string sqlStatement = "UPDATE  [dbo].[Ilness] SET " +
                                   "Name=@name " +
                                   "WHERE ID=@id;";
 
@@ -80,7 +80,7 @@ namespace QalamAndNoor.DataManager
         {
             if (ilness == null) return 0;
 
-            string sqlStatement = "DELETE FROM [dbo].[City] WHERE ID=@id;";
+            string sqlStatement = "DELETE FROM [dbo].[Ilness] WHERE ID=@id;";
 
             SqlCommand sqlCommand = new SqlCommand()
             {
