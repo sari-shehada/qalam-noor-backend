@@ -55,6 +55,12 @@ namespace QalamAndNoor.Controllers
         {
             return EmployeeManager.GetTeachersByJobTitleId(jobTitleId);
         }
+        [Route("EmployeeController/GetEmployeesByName")]
+        [HttpGet]
+        public List<Employee> GetEmployeesByName(string name)
+        {
+            return EmployeeManager.GetEmployeesByName(name);
+        }
 
     }
 }

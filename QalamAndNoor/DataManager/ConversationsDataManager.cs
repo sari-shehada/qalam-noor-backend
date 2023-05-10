@@ -16,7 +16,7 @@ namespace QalamAndNoor.DataManager
                 StudentId = Convert.ToInt32(dataReader["StudentId"].ToString()),
                 Title = dataReader["Title"].ToString(),
                 Status = (ConversationStatusEnum)Convert.ToInt32(dataReader["Status"].ToString()),
-                OrginalIssuer = (ConversationPartyEnum)Convert.ToInt32(dataReader["OrginalIssuer"].ToString()),
+                OrginalIssuer = (ConversationPartyEnum)Convert.ToInt32(dataReader["OriginalIssuer"].ToString()),
             };
             return tempConversation;
         }

@@ -65,13 +65,28 @@ namespace QalamAndNoor.Manager
             List<Employee> result = new List<Employee>();
             foreach (Employee employee in employees)
             {
-                if (employee.JobTitleId==jobTitleId)
+                if (employee.JobTitleId == jobTitleId)
                 {
                     result.Add(employee);
                 }
             }
             return result;
 
+        }
+
+        public static List<Employee> GetEmployeesByName(string name)
+        {
+            List<Employee> employees = GetEmployees();
+            List<Employee> result = new List<Employee>();
+            foreach (Employee employee in employees)
+            {
+                if (employee.FirstName.ToLower().Trim().Contains(name.ToLower().Trim()))
+
+                {
+                    result.Add(employee);
+                }
+            }
+            return result;
         }
 
     }
