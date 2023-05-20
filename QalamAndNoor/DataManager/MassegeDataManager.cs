@@ -1,30 +1,29 @@
-﻿using QalamAndNoor.Models;
+﻿using QalamAndNoor.Manager;
+using QalamAndNoor.Models;
 using QalamAndNoor.Shared;
 using System.Data;
 using System.Data.SqlClient;
 
 namespace QalamAndNoor.DataManager
 {
-    public abstract class MassegeDataManager
+    public abstract class MessageDataManager
     {
         #region Mappers
-        private static Massege MassegeMapper(IDataReader dataReader)
+        private static Message MassegeMapper(IDataReader dataReader)
         {
-            Massege tempMassege = new Massege()
+            Message tempMassege = new Message()
             {
                 ID = Convert.ToInt32(dataReader["ID"].ToString()),
-                Title = dataReader["Title"].ToString(),
-                Body = dataReader["Body"].ToString(),
-                Sender = (MassegeSenderEnum)Convert.ToInt32(dataReader["Sender"].ToString()),
-                Sequence = Convert.ToInt32(dataReader["Sequence"].ToString()),
-                Date = Convert.ToDateTime(dataReader["Date"].ToString()),
+                Body = dataReader["Body"].ToString()!,
+                Sender = (MessageSenderEnum)Convert.ToInt32(dataReader["Sender"].ToString()),
+                Date = dataReader["Date"].ToString()!,
                 ConversationId = Convert.ToInt32(dataReader["ConversationId"].ToString()),
             };
             return tempMassege;
         }
         #endregion
         #region PublicMethods
-        public static List<Massege> GetMasseges()
+        public static List<Message> GetMasseges()
         {
             //SQL Statement
             string sqlStatement = "SELECT * FROM  [dbo].[Massege]";
@@ -35,13 +34,25 @@ namespace QalamAndNoor.DataManager
                 CommandType = CommandType.Text,
             };
             //Execute Query
-            List<Massege> result = BaseDataManager.GetSPItems<Massege>(sqlCommand, MassegeMapper);
+            List<Message> result = BaseDataManager.GetSPItems<Message>(sqlCommand, MassegeMapper);
             return result;
         }
-        public static int InsertMassege(Massege massege)
-        {
-            if (massege == null) return 0;
 
+        public static int InsertMassege(Message message)
+        {
+            if (message == null) return 0;
+            //TODO: Get Convo by id
+
+            var conversation = ConversationManager.GetConverstionById(message.ConversationId);
+            conversation!.IsReadParent = message.Sender != MessageSenderEnum.parents;
+            conversation.IsReadOther = message.Sender == MessageSenderEnum.parents;
+            //Update Convo
+            ConversationManager.UpdateConversation(conversation);
+
+
+            message.Date = DateTimeOffset.Now.ToUnixTimeSeconds().ToString(); //Date Time Since Epoch
+
+            //TODO: Edit Query
             string sqlStatement = "INSERT INTO  [dbo].[Massege] (Title,Body,Sender,Sequence,Date,ConversationId) " +
                                   "VALUES (@title,@body,@sender,@sequence,@date,@conversationId)";
 
@@ -51,24 +62,25 @@ namespace QalamAndNoor.DataManager
                 CommandText = sqlStatement,
                 CommandType = CommandType.Text,
             };
-            sqlCommand.Parameters.Add(new SqlParameter("@title", massege.Title));
-            sqlCommand.Parameters.Add(new SqlParameter("@body", massege.Body));
-            sqlCommand.Parameters.Add(new SqlParameter("@sender", (int)massege.Sender));
-            sqlCommand.Parameters.Add(new SqlParameter("@sequence", massege.Sequence));
-            sqlCommand.Parameters.Add(new SqlParameter("@date", massege.Date));
-            sqlCommand.Parameters.Add(new SqlParameter("@conversationId",massege.ConversationId));
+            sqlCommand.Parameters.Add(new SqlParameter("@title", message.Title));
+            sqlCommand.Parameters.Add(new SqlParameter("@body", message.Body));
+            sqlCommand.Parameters.Add(new SqlParameter("@sender", (int)message.Sender));
+            sqlCommand.Parameters.Add(new SqlParameter("@sequence", message.Sequence));
+            sqlCommand.Parameters.Add(new SqlParameter("@date", message.Date));
+            sqlCommand.Parameters.Add(new SqlParameter("@conversationId", message.ConversationId));
 
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             if (result == 1)
             {
-                List<Massege> masseges = GetMasseges();
+                List<Message> masseges = GetMasseges();
                 return masseges.Max(x => x.ID);
 
             }
             return 0;
         }
-        public static int UpdateMassege(Massege massege)
+
+        public static int UpdateMassege(Message massege)
         {
             if (massege == null) return 0;
 
@@ -95,7 +107,8 @@ namespace QalamAndNoor.DataManager
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             return result;
         }
-        public static int DeleteMassege(Massege massege)
+
+        public static int DeleteMassege(Message massege)
         {
             if (massege == null) return 0;
 
@@ -112,7 +125,6 @@ namespace QalamAndNoor.DataManager
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             return result;
         }
-
 
         #endregion
     }

@@ -5,28 +5,36 @@ namespace QalamAndNoor.Manager
 {
     public abstract class MassegeManager
     {
-        public static List<Massege> GetMasseges()
+        public static List<Message> GetMasseges()
         {
-            return MassegeDataManager.GetMasseges().ToList();
+            return MessageDataManager.GetMasseges().ToList();
         }
-        public static int InsertMassege(Massege massege)
+        //TODO: Build an endpoint for this data manager message
+        public static List<Message> GetMessagesByConversationID(int conversationId)
         {
-            return MassegeDataManager.InsertMassege(massege);
+            return MessageDataManager.GetMasseges()
+                .Where(x => x.ConversationId == conversationId)
+                .OrderBy(x => x.Date)
+                .ToList();
         }
-        public static int UpdateMassege(Massege massege)
+        public static int InsertMassege(Message massege)
         {
-            return MassegeDataManager.UpdateMassege(massege);
+            return MessageDataManager.InsertMassege(massege);
         }
-        public static int DeleteMassege(Massege massege)
+        public static int UpdateMassege(Message massege)
         {
-            return MassegeDataManager.DeleteMassege(massege);
+            return MessageDataManager.UpdateMassege(massege);
         }
-        public static Massege GetMassegeById(int id)
+        public static int DeleteMassege(Message massege)
         {
-            List<Massege> masseges = GetMasseges();
-            foreach (Massege massege  in masseges)
+            return MessageDataManager.DeleteMassege(massege);
+        }
+        public static Message GetMassegeById(int id)
+        {
+            List<Message> masseges = GetMasseges();
+            foreach (Message massege in masseges)
             {
-                if (massege.ID==id)
+                if (massege.ID == id)
                 {
                     return massege;
                 }

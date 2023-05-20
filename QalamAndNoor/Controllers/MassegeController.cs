@@ -8,31 +8,31 @@ namespace QalamAndNoor.Controllers
     {
         [Route("MassegeController/InsertMassege")]
         [HttpPost]
-        public int InsertMassege([FromBody] Massege massege)
+        public int InsertMassege([FromBody] Message massege)
         {
             return MassegeManager.InsertMassege(massege);
         }
         [Route("MassegeController/UpdateMassege")]
         [HttpPost]
-        public int UpdateMassege([FromBody] Massege massege)
+        public int UpdateMassege([FromBody] Message massege)
         {
             return MassegeManager.UpdateMassege(massege);
         }
         [Route("MassegeController/DeleteMassege")]
         [HttpPost]
-        public int DeleteMassege([FromBody] Massege massege)
+        public int DeleteMassege([FromBody] Message massege)
         {
             return MassegeManager.DeleteMassege(massege);
         }
         [Route("MassegeController/GetMasseges")]
         [HttpGet]
-        public List<Massege> GetMasseges()
+        public List<Message> GetMasseges()
         {
             return MassegeManager.GetMasseges();
         }
         [Route("MassegeController/GetMassegeById")]
         [HttpGet]
-        public Massege GetMassegeById(int id)
+        public Message GetMassegeById(int id)
         {
             return MassegeManager.GetMassegeById(id);
         }

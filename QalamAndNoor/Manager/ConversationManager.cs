@@ -17,11 +17,11 @@ namespace QalamAndNoor.Manager
         {
             return ConversationsDataManager.UpdateConversation(conversation);
         }
-        public static int DeleteConvesation(Conversation conversation) 
+        public static int DeleteConvesation(Conversation conversation)
         {
             return ConversationsDataManager.DeleteConversation(conversation);
         }
-        public static Conversation GetConverstionById(int id)
+        public static Conversation? GetConverstionById(int id)
         {
             List<Conversation> conversations = GetConversations();
             foreach (Conversation conversation in conversations)

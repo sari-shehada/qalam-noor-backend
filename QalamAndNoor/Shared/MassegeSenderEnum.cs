@@ -1,7 +1,10 @@
 ﻿namespace QalamAndNoor.Shared
 {
-    public enum MassegeSenderEnum
+    public enum MessageSenderEnum
     {
-        x=0,
+        other,
+        secretKeeper,
+        teacher,
+        parents,
     }
 }
