@@ -17,6 +17,8 @@ namespace QalamAndNoor.DataManager
                 Title = dataReader["Title"].ToString(),
                 Status = (ConversationStatusEnum)Convert.ToInt32(dataReader["Status"].ToString()),
                 OrginalIssuer = (ConversationPartyEnum)Convert.ToInt32(dataReader["OriginalIssuer"].ToString()),
+                IsReadOther = Convert.ToBoolean(dataReader["IsReadOther"].ToString()),
+                IsReadParent = Convert.ToBoolean(dataReader["IsReadParent"].ToString())
             };
             return tempConversation;
         }
@@ -41,8 +43,8 @@ namespace QalamAndNoor.DataManager
         {
             if (conversation == null) return 0;
 
-            string sqlStatement = "INSERT INTO  [dbo].[Conversation] (StudentId,Title,Status,OriginalIssuer) " +
-                                  "VALUES (@studentId,@title,@status,@originalIssuer)";
+            string sqlStatement = "INSERT INTO  [dbo].[Conversation] (StudentId,Title,Status,OriginalIssuer,IsReadParent,IsReadOther) " +
+                                  "VALUES (@studentId,@title,@status,@originalIssuer,@isReadParent,@isReadOther)";
 
 
             SqlCommand sqlCommand = new SqlCommand()
@@ -54,6 +56,8 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@title", conversation.Title));
             sqlCommand.Parameters.Add(new SqlParameter("@status", (int)conversation.Status));
             sqlCommand.Parameters.Add(new SqlParameter("@originalIssuer", (int)conversation.OrginalIssuer));
+            sqlCommand.Parameters.Add(new SqlParameter("@isReadParent", conversation.IsReadParent ? "1" : "0"));
+            sqlCommand.Parameters.Add(new SqlParameter("@isReadOther", conversation.IsReadOther ? "1" : "0"));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             if (result == 1)
@@ -69,7 +73,7 @@ namespace QalamAndNoor.DataManager
             if (conversation == null) return 0;
 
             string sqlStatement = "UPDATE  [dbo].[Conversation] SET " +
-                                  "StudentId=@studentId,Title=@title,Status=@status,OriginalIssuer=@originalIssuer " +
+                                  "StudentId=@studentId,Title=@title,Status=@status,OriginalIssuer=@originalIssuer,IsReadOther=@isReadOther,IsReadParent=@isReadParent " +
                                   "WHERE ID=@id;";
 
 
@@ -84,6 +88,8 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@title", conversation.Title));
             sqlCommand.Parameters.Add(new SqlParameter("@status", (int)conversation.Status));
             sqlCommand.Parameters.Add(new SqlParameter("@originalIssuer", (int)conversation.OrginalIssuer));
+            sqlCommand.Parameters.Add(new SqlParameter("@isReadParent", conversation.IsReadParent ? "1" : "0"));
+            sqlCommand.Parameters.Add(new SqlParameter("@isReadOther", conversation.IsReadOther ? "1" : "0"));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             return result;

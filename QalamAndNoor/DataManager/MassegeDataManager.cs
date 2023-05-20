@@ -26,7 +26,7 @@ namespace QalamAndNoor.DataManager
         public static List<Message> GetMasseges()
         {
             //SQL Statement
-            string sqlStatement = "SELECT * FROM  [dbo].[Massege]";
+            string sqlStatement = "SELECT * FROM  [dbo].[Massage]";
             //Preparing SQL Command
             SqlCommand sqlCommand = new SqlCommand()
             {
@@ -44,8 +44,8 @@ namespace QalamAndNoor.DataManager
             //TODO: Get Convo by id
 
             var conversation = ConversationManager.GetConverstionById(message.ConversationId);
-            conversation!.IsReadParent = message.Sender != MessageSenderEnum.parents;
-            conversation.IsReadOther = message.Sender == MessageSenderEnum.parents;
+            conversation!.IsReadParent = message.Sender == MessageSenderEnum.parents;
+            conversation.IsReadOther = message.Sender != MessageSenderEnum.parents;
             //Update Convo
             ConversationManager.UpdateConversation(conversation);
 
@@ -53,8 +53,8 @@ namespace QalamAndNoor.DataManager
             message.Date = DateTimeOffset.Now.ToUnixTimeSeconds().ToString(); //Date Time Since Epoch
 
             //TODO: Edit Query
-            string sqlStatement = "INSERT INTO  [dbo].[Massege] (Title,Body,Sender,Sequence,Date,ConversationId) " +
-                                  "VALUES (@title,@body,@sender,@sequence,@date,@conversationId)";
+            string sqlStatement = "INSERT INTO  [dbo].[Massage] (Body,Sender,Date,ConversationId) " +
+                                  "VALUES (@body,@sender,@date,@conversationId)";
 
 
             SqlCommand sqlCommand = new SqlCommand()
@@ -62,10 +62,8 @@ namespace QalamAndNoor.DataManager
                 CommandText = sqlStatement,
                 CommandType = CommandType.Text,
             };
-            sqlCommand.Parameters.Add(new SqlParameter("@title", message.Title));
             sqlCommand.Parameters.Add(new SqlParameter("@body", message.Body));
             sqlCommand.Parameters.Add(new SqlParameter("@sender", (int)message.Sender));
-            sqlCommand.Parameters.Add(new SqlParameter("@sequence", message.Sequence));
             sqlCommand.Parameters.Add(new SqlParameter("@date", message.Date));
             sqlCommand.Parameters.Add(new SqlParameter("@conversationId", message.ConversationId));
 
@@ -84,9 +82,9 @@ namespace QalamAndNoor.DataManager
         {
             if (massege == null) return 0;
 
-            string sqlStatement = "UPDATE  [dbo].[Massege] SET " +
-                                  "Title=@title,Body=@body,Sender=@sender" +
-                                  "Sequence=@sequence,Date=@date,ConversationId=@conversationId " +
+            string sqlStatement = "UPDATE  [dbo].[Massage] SET " +
+                                  "Body=@body,Sender=@sender" +
+                                  ",Date=@date,ConversationId=@conversationId " +
                                   "WHERE ID=@id;";
 
 
@@ -96,10 +94,8 @@ namespace QalamAndNoor.DataManager
                 CommandType = CommandType.Text,
             };
             sqlCommand.Parameters.Add(new SqlParameter("@id", massege.ID));
-            sqlCommand.Parameters.Add(new SqlParameter("@title", massege.Title));
             sqlCommand.Parameters.Add(new SqlParameter("@body", massege.Body));
             sqlCommand.Parameters.Add(new SqlParameter("@sender", (int)massege.Sender));
-            sqlCommand.Parameters.Add(new SqlParameter("@sequence", massege.Sequence));
             sqlCommand.Parameters.Add(new SqlParameter("@date", massege.Date));
             sqlCommand.Parameters.Add(new SqlParameter("@conversationId", massege.ConversationId));
 
@@ -112,7 +108,7 @@ namespace QalamAndNoor.DataManager
         {
             if (massege == null) return 0;
 
-            string sqlStatement = "DELETE FROM [dbo].[Massege] WHERE ID=@id;";
+            string sqlStatement = "DELETE FROM [dbo].[Massage] WHERE ID=@id;";
 
             SqlCommand sqlCommand = new SqlCommand()
             {
