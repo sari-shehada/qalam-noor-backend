@@ -22,5 +22,7 @@ namespace QalamAndNoor.Manager.ViewsManager
             }
             return result;
         }
+
+      
     }
 }

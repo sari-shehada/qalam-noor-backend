@@ -50,15 +50,21 @@ namespace QalamAndNoor.Controllers
         }
         [Route("YearRecordController/GetYearRecordsBySchoolYearIdAndClassId")]
         [HttpGet]
-        public List<YearRecord> GetYearRecordsBySchoolYearIdAndClassId(int schoolYearId,int classId)
+        public List<YearRecord> GetYearRecordsBySchoolYearIdAndClassId(int schoolYearId, int classId)
         {
-            return YearRecordManager.GetYearRecordsBySchoolYearIdAndClassId(schoolYearId,classId);
+            return YearRecordManager.GetYearRecordsBySchoolYearIdAndClassId(schoolYearId, classId);
         }
         [Route("YearRecordController/GetYearRecordsByStudentId")]
         [HttpGet]
         public List<YearRecord> GetYearRecordsByStudentId(int studentId)
         {
             return YearRecordManager.GetYearRecordsByStudentId(studentId);
+        }
+        [Route("YearRecordController/GetDidPassedYearRecordsByStudentId")]
+        [HttpGet]
+        public List<YearRecord> GetDidPassedYearRecordsByStudentId(int studentId)
+        {
+            return YearRecordManager.GetDidPassedYearRecordsByStudentId(studentId);
         }
 
     }

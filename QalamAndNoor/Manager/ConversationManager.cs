@@ -34,5 +34,19 @@ namespace QalamAndNoor.Manager
             return null;
         }
 
+        public static List<Conversation> GetConversationsByStudentId(int studentId)
+        {
+            List<Conversation> conversations = GetConversations();
+            List<Conversation>result = new List<Conversation>();
+            foreach (Conversation conversation in conversations)
+            {
+                if (conversation.StudentId==studentId)
+                {
+                    result.Add(conversation);
+                }
+            }
+            return result;
+        }
+
     }
 }

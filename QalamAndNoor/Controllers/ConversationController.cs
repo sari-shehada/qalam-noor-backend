@@ -36,5 +36,11 @@ namespace QalamAndNoor.Controllers
         {
             return ConversationManager.GetConverstionById(id);
         }
+        [Route("ConversationController/GetConversationsByStudentId")]
+        [HttpGet]
+        public List<Conversation> GetConversationsByStudentId(int studentId)
+        {
+            return ConversationManager.GetConversationsByStudentId(studentId);
+        }
     }
 }

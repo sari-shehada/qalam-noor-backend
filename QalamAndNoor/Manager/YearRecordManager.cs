@@ -46,7 +46,6 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
-
         public static List<YearRecord> GetYearRecordsByClassRoomSchoolRearId(int classRoomSchoolYearId)
         {
             List<YearRecord> yearRecords = GetYearRecords();
@@ -60,7 +59,6 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
-
         public static List<YearRecord> GetYearRecordsBySchoolyearId(int schoolYearId)
         {
             List<ClassRoomSchoolYear> classRoomSchoolYears = ClassRoomSchoolYearManager.GetClassRoomSchoolYearsBySchoolYearId(schoolYearId);
@@ -72,28 +70,52 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
-
-        public static List<YearRecord> GetYearRecordsBySchoolYearIdAndClassId(int schoolYearId,int classId)
+        public static List<YearRecord> GetYearRecordsBySchoolYearIdAndClassId(int schoolYearId, int classId)
         {
             List<YearRecord> yearRecords = GetYearRecordsBySchoolyearId(schoolYearId);
             List<YearRecord> result = new List<YearRecord>();
             foreach (YearRecord yearRecord in yearRecords)
             {
-                if (yearRecord.ClassId==classId)
+                if (yearRecord.ClassId == classId)
                 {
                     result.Add(yearRecord);
                 }
             }
             return result;
         }
-
         public static List<YearRecord> GetYearRecordsByStudentId(int studentId)
         {
             List<YearRecord> yearRecords = GetYearRecords();
             List<YearRecord> result = new List<YearRecord>();
             foreach (YearRecord yearRecord in yearRecords)
             {
-                if (yearRecord.StudentId==studentId)
+                if (yearRecord.StudentId == studentId)
+                {
+                    result.Add(yearRecord);
+                }
+            }
+            return result;
+        }
+        public static List<YearRecord> GetDidPassedYearRescord()
+        {
+            List<YearRecord> yearRecords = GetYearRecords();
+            List<YearRecord> result = new List<YearRecord>();
+            foreach (YearRecord yearRecord in yearRecords)
+            {
+                if (yearRecord.DidPass == true)
+                {
+                    result.Add(yearRecord);
+                }
+            }
+            return result;
+        }
+        public static List<YearRecord> GetDidPassedYearRecordsByStudentId(int studentId)
+        {
+            List<YearRecord> yearRecords = GetDidPassedYearRescord();
+            List<YearRecord> result = new List<YearRecord>();
+            foreach (YearRecord yearRecord in yearRecords)
+            {
+                if (yearRecord.StudentId == studentId)
                 {
                     result.Add(yearRecord);
                 }
