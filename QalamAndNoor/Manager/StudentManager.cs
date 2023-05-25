@@ -199,7 +199,10 @@ namespace QalamAndNoor.Manager
             return result;
         }
 
-
+        public static List<Student> GetStudentsWhoDontHavePsychologicalStatus()
+        {
+            return StudentDataManager.GetStudentsWhoDontHavePsychologicalStatus();
+        }
 
 
 

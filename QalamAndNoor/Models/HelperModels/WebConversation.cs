@@ -15,5 +15,6 @@ namespace QalamAndNoor.Models.HelperModels
         public string FatherName { get; set; }
         public string LastName { get; set; }
         public string MotherName { get; set; }
+        public int PublicRecordId { get; set; }
     }
 }

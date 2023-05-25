@@ -25,7 +25,7 @@ namespace QalamAndNoor.DataManager.ViewsDataManager
                 FatherName = dataReader["FatherName"].ToString(),
                 LastName = dataReader["LastName"].ToString(),
                 MotherName = dataReader["MotherName"].ToString(),
-                
+                PublicRecordId = Convert.ToInt32(dataReader["PublicRecordId"].ToString())
             };
             return tempWebConversation;
         }

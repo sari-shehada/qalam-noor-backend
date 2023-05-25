@@ -155,6 +155,21 @@ namespace QalamAndNoor.DataManager
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             return result;
         }
-        #endregion
+        public static List<Student> GetStudentsWhoDontHavePsychologicalStatus()
+        {
+            //SQL Statement
+            string sqlStatement =
+                "SELECT *  from Student  where Student.ID not in (SELECT distinct(MedicalRecordId) from PsychologicalStatusMedicalRecord)";
+            //Preparing SQL Command
+            SqlCommand sqlCommand = new SqlCommand()
+            {
+                CommandText = sqlStatement,
+                CommandType = CommandType.Text,
+            };
+            //Execute Query
+            List<Student> result = BaseDataManager.GetSPItems<Student>(sqlCommand, StudentMapper);
+            return result;
+            #endregion
+        }
     }
 }

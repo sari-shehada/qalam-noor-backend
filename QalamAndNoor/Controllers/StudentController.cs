@@ -89,6 +89,12 @@ namespace QalamAndNoor.Controllers
         {
             return StudentManager.GetStudentsBySchoolYearIdAndClassId(schoolYearId,classId);
         }
+        [Route("StudentController/GetStudentsWhoDontHavePsychologicalStatus")]
+        [HttpGet]
+        public List<Student> GetStudentsWhoDontHavePsychologicalStatus()
+        {
+            return StudentManager.GetStudentsWhoDontHavePsychologicalStatus();
+        }
 
     }
 }

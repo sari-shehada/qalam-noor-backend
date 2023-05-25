@@ -36,5 +36,11 @@ namespace QalamAndNoor.Controllers
         {
             return PsychologicalStatusMedicalRecordManager.GetPsychologicalStatusMedicalRecordById(id);
         }
+        [Route("PsychologicalStatusMedicalRecordController/GetPsychologicalStatusMedicalRecordsByMedicalRecordId")]
+        [HttpGet]
+        public List<PsychologicalStatusMedicalRecord> GetPsychologicalStatusMedicalRecordsByMedicalRecordId(int medicalRecordId)
+        {
+            return PsychologicalStatusMedicalRecordManager.GetPsychologicalStatusMedicalRecordsByMedicalRecordId(medicalRecordId);
+        }
     }
 }
