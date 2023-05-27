@@ -41,5 +41,11 @@ namespace QalamAndNoor.Manager
             }
             return null;
         }
+
+        public static int DeleteAllMassege()
+        {
+            return MessageDataManager.DeleteAllMassege();
+        }
+
     }
 }

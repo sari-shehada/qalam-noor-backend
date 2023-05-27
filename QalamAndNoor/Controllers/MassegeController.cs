@@ -37,11 +37,17 @@ namespace QalamAndNoor.Controllers
             return MassegeManager.GetMassegeById(id);
         }
         
-               [Route("MassegeController/GetMessagesByConversationID")]
+        [Route("MassegeController/GetMessagesByConversationID")]
         [HttpGet]
         public List<Message> GetMessagesByConversationID(int conversationId)
         {
             return MassegeManager.GetMessagesByConversationID(conversationId);
+        }
+        [Route("MassegeController/DeleteAllMassege")]
+        [HttpGet]
+        public int DeleteAllMassege()
+        {
+            return MassegeManager.DeleteAllMassege();
         }
     }
 }

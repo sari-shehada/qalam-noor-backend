@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using QalamAndNoor.DataManager;
 using QalamAndNoor.Manager;
 using QalamAndNoor.Models;
 
@@ -41,6 +42,12 @@ namespace QalamAndNoor.Controllers
         public List<Conversation> GetConversationsByStudentId(int studentId)
         {
             return ConversationManager.GetConversationsByStudentId(studentId);
+        }
+        [Route("ConversationController/DeleteAllConversation")]
+        [HttpGet]
+        public int DeleteAllConversation()
+        {
+            return ConversationsDataManager.DeleteAllConversation();
         }
     }
 }

@@ -33,5 +33,17 @@ namespace QalamAndNoor.Manager
             }
             return null;
         }
+
+        public static List<MedicalRecord> GetMedicalRecordsByPsychologicalStatusId(int psychologicalStatusId)
+        {
+            List<PsychologicalStatusMedicalRecord> psychologicalStatusMedicalRecords = PsychologicalStatusMedicalRecordManager.GetPsychologicalStatusMedicalRecordsByPsychologicalStatusId(psychologicalStatusId);
+            List<MedicalRecord> medicalRecords = GetMedicalRecords();
+            List<MedicalRecord> result=new List<MedicalRecord>();
+            foreach (var item in psychologicalStatusMedicalRecords)
+            {
+                result.Add(medicalRecords.First((x) => x.StudentId == item.MedicalRecordId));
+            }
+            return result;
+        }
     }
 }

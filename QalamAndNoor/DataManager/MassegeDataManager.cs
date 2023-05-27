@@ -121,6 +121,22 @@ namespace QalamAndNoor.DataManager
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             return result;
         }
+        public static int DeleteAllMassege()
+        {
+          
+
+            string sqlStatement = "DELETE FROM [dbo].[Massage]";
+
+            SqlCommand sqlCommand = new SqlCommand()
+            {
+                CommandText = sqlStatement,
+                CommandType = CommandType.Text,
+            };
+
+
+            int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
+            return result;
+        }
 
         #endregion
     }

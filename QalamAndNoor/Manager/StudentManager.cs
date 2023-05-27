@@ -203,7 +203,17 @@ namespace QalamAndNoor.Manager
         {
             return StudentDataManager.GetStudentsWhoDontHavePsychologicalStatus();
         }
-
+        public static List<Student> GetStudentsByPsychologicalStatusId(int psychologicalStatusId)
+        {
+            List<MedicalRecord> medicalRecords = MedicalRecordManager.GetMedicalRecordsByPsychologicalStatusId(psychologicalStatusId);
+            List<Student> students = GetStudents();
+            List<Student> result = new List<Student>();
+            foreach (var item in medicalRecords)
+            {
+                result.Add(students.First((x) => x.ID == item.StudentId));
+            }
+            return result;
+        }
 
 
 
