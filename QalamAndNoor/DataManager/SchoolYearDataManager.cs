@@ -12,7 +12,10 @@ namespace QalamAndNoor.DataManager
             SchoolYear tempSchoolYear = new SchoolYear()
             {
                 ID = Convert.ToInt32(dataReader["ID"].ToString()),
-                Name = dataReader["Details"].ToString(),
+                Name = dataReader["Details"].ToString()!,
+                IsFinished = dataReader["IsDone"].ToString() == "1",
+                PreviousSchoolYearId = dataReader["PreviousSchoolYearId"] == null ?
+                                        null : (int)dataReader["PreviousSchoolYearId"],
             };
             return tempSchoolYear;
         }
@@ -37,16 +40,18 @@ namespace QalamAndNoor.DataManager
         {
             if (schoolYear == null) return 0;
 
-            string sqlStatement = "INSERT INTO  [dbo].[SchoolYear] (Details) " +
-                                  "VALUES (@name)";
+            string sqlStatement = "INSERT INTO  [dbo].[SchoolYear] (Details,IsDone,PreviousSchoolYearId) " +
+                                  "VALUES (@name,@isDone,@previousSchoolYearId)";
 
 
             SqlCommand sqlCommand = new SqlCommand()
             {
                 CommandText = sqlStatement,
-                CommandType = CommandType.Text,
+                CommandType = CommandType.Text
             };
             sqlCommand.Parameters.Add(new SqlParameter("@name", schoolYear.Name));
+            sqlCommand.Parameters.Add(new SqlParameter("@isDone", schoolYear.IsFinished ? '1' : '0'));
+            sqlCommand.Parameters.Add(new SqlParameter("@previousSchoolYearId", schoolYear.PreviousSchoolYearId));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             if (result == 1)
@@ -62,7 +67,7 @@ namespace QalamAndNoor.DataManager
             if (schoolYear == null) return 0;
 
             string sqlStatement = "UPDATE  [dbo].[SchoolYear] SET " +
-                                  "Details=@name " +
+                                  "Details=@name, IsDone=@isDone, PreviousSchoolYearId=@previousSchoolYearId " +
                                   "WHERE ID=@id;";
 
             SqlCommand sqlCommand = new SqlCommand()
@@ -72,6 +77,9 @@ namespace QalamAndNoor.DataManager
             };
             sqlCommand.Parameters.Add(new SqlParameter("@id", schoolYear.ID));
             sqlCommand.Parameters.Add(new SqlParameter("@name", schoolYear.Name));
+            sqlCommand.Parameters.Add(new SqlParameter("@isDone", schoolYear.IsFinished ? '1' : '0'));
+            sqlCommand.Parameters.Add(new SqlParameter("@previousSchoolYearId", schoolYear.PreviousSchoolYearId == null
+                                                                                ? DBNull.Value : schoolYear.PreviousSchoolYearId));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             return result;

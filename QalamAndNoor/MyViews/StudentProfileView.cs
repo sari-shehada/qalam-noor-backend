@@ -5,7 +5,7 @@ namespace QalamAndNoor.MyViews
     public class StudentProfileView
     {
         public int StudentId { get; set; }
-        public string StudentFirstName { get; set; }
+        public string StudentFirstName { get; set; } = string.Empty;
         public DateTime StudentDateOfBirth { get; set; }
         public string StudentPlaceOfBirth { get; set; }
         public bool Gender { get; set; }
@@ -18,7 +18,7 @@ namespace QalamAndNoor.MyViews
         public DateTime JoinDate { get; set; }
         public DateTime? LeaveDate { get; set; }
         public ReligionEnum StudentReligion { get; set; }
-   //.............................................
+        //.............................................
         public string FatherFirstName { get; set; }
         public string LastName { get; set; }
         public string GrandFatherName { get; set; }
@@ -33,7 +33,7 @@ namespace QalamAndNoor.MyViews
         public EducationalStatusEnum EducationalStatus { get; set; }
         public string FatherPhoneNumber { get; set; }
         public string FatherPermenantAddress { get; set; }
-       //.............................
+        //.............................
         public string MotherName { get; set; }
         public string MotherLastName { get; set; }
         public string MotherFatherName { get; set; }
@@ -47,7 +47,7 @@ namespace QalamAndNoor.MyViews
         public ReligionEnum MotherReligion { get; set; }
         public EducationalStatusEnum MotherEducationalStatus { get; set; }
         public string MotherPhoneNumber { get; set; }
-      //....................
+        //....................
         public string UserName { get; set; }
         public string Password { get; set; }
         //......................
