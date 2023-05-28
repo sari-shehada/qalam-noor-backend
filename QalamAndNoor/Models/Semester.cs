@@ -8,6 +8,6 @@ namespace QalamAndNoor.Models
         public string Name { get; set; }
         public int SchoolYearId { get; set; }
         public bool IsDone { get; set; }
-
+        public int? PreviousSemesterId { get; set; }
     }
 }

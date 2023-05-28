@@ -14,8 +14,7 @@ namespace QalamAndNoor.DataManager
                 ID = Convert.ToInt32(dataReader["ID"].ToString()),
                 Name = dataReader["Details"].ToString()!,
                 IsFinished = dataReader["IsDone"].ToString() == "1",
-                PreviousSchoolYearId = dataReader["PreviousSchoolYearId"] == null ?
-                                        null : (int)dataReader["PreviousSchoolYearId"],
+                PreviousSchoolYearId = dataReader["PreviousSchoolYearId"].ToString().Trim() == string.Empty ? null : Convert.ToInt32(dataReader["PreviousSchoolYearId"].ToString()),
             };
             return tempSchoolYear;
         }
@@ -51,8 +50,7 @@ namespace QalamAndNoor.DataManager
             };
             sqlCommand.Parameters.Add(new SqlParameter("@name", schoolYear.Name));
             sqlCommand.Parameters.Add(new SqlParameter("@isDone", schoolYear.IsFinished ? '1' : '0'));
-            sqlCommand.Parameters.Add(new SqlParameter("@previousSchoolYearId", schoolYear.PreviousSchoolYearId));
-
+            sqlCommand.Parameters.Add(new SqlParameter("@previousSchoolYearId", schoolYear.PreviousSchoolYearId == null ? DBNull.Value : schoolYear.PreviousSchoolYearId));
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             if (result == 1)
             {

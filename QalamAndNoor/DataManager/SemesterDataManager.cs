@@ -15,7 +15,8 @@ namespace QalamAndNoor.DataManager
                 ID = Convert.ToInt32(dataReader["ID"].ToString()),
                 Name = dataReader["Name"].ToString(),
                 SchoolYearId = (int)(dataReader["SchoolYearId"]),
-                IsDone = Convert.ToBoolean(dataReader["IsDone"].ToString())
+                IsDone = Convert.ToBoolean(dataReader["IsDone"].ToString()),
+                PreviousSemesterId  = dataReader["PreviousSemesterId"].ToString().Trim() == string.Empty ? null : Convert.ToInt32(dataReader["PreviousSemesterId"].ToString()),
             };
             return tempSemester;
         }
@@ -40,8 +41,8 @@ namespace QalamAndNoor.DataManager
         {
             if (semester == null) return 0;
 
-            string sqlStatement = "INSERT INTO  [dbo].[Semester] (Name,SchoolYearId,IsDone) " +
-                                  "VALUES (@name,@schoolYearId,@isDone)";
+            string sqlStatement = "INSERT INTO  [dbo].[Semester] (Name,SchoolYearId,IsDone,PreviousSemesterId) " +
+                                  "VALUES (@name,@schoolYearId,@isDone,@previousSemesterId)";
 
 
             SqlCommand sqlCommand = new SqlCommand()
@@ -53,6 +54,7 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@schoolYearId", semester.SchoolYearId));
             sqlCommand.Parameters.Add(new SqlParameter("@schoolYearId", semester.SchoolYearId));
             sqlCommand.Parameters.Add(new SqlParameter("@isDone", semester.IsDone ? "1" : "0"));
+            sqlCommand.Parameters.Add(new SqlParameter("@previousSemesterId", semester.PreviousSemesterId == null ? DBNull.Value : semester.PreviousSemesterId));
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             if (result == 1)
             {
@@ -67,7 +69,7 @@ namespace QalamAndNoor.DataManager
             if (semester == null) return 0;
 
             string sqlStatement = "UPDATE  [dbo].[Semester] SET " +
-                                  "Name=@name,SchoolYearId=@schoolYearId,IsDone=@isDone " +
+                                  "Name=@name,SchoolYearId=@schoolYearId,IsDone=@isDone,PreviousSemesterId=@previousSemesterId " +
                                   "WHERE ID=@id;";
 
             SqlCommand sqlCommand = new SqlCommand()
@@ -80,6 +82,7 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@schoolYearId", semester.SchoolYearId));
             sqlCommand.Parameters.Add(new SqlParameter("@schoolYearId", semester.SchoolYearId));
             sqlCommand.Parameters.Add(new SqlParameter("@isDone", semester.IsDone ? "1" : "0"));
+            sqlCommand.Parameters.Add(new SqlParameter("@previousSemesterId", semester.PreviousSemesterId == null ? DBNull.Value : semester.PreviousSemesterId));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             return result;

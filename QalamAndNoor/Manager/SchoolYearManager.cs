@@ -52,14 +52,21 @@ namespace QalamAndNoor.Manager
             return null;
         }
 
-        public static int GetPreviousSchoolYearID(int? id = null)
+        public static int? GetPreviousSchoolYearID(int? id = null)
         {
-            SchoolYear? result = GetSchoolByPreviousSchoolYearById(id);
-            if (result == null)
+            try
             {
-                return id!.Value;
+                SchoolYear? result = GetSchoolByPreviousSchoolYearById(id);
+                if (result == null)
+                {
+                    return id!.Value;
+                }
+                return GetPreviousSchoolYearID(result!.ID);
             }
-            return GetPreviousSchoolYearID(result!.ID);
+            catch
+            {
+                return null;
+            }
         }
 
     }
