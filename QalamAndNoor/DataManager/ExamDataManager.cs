@@ -16,6 +16,7 @@ namespace QalamAndNoor.DataManager
                 Type =(ExamTypeEnum)Convert.ToInt32( dataReader["Type"].ToString()),
                 Percentage = Convert.ToInt32(dataReader["Percentage"].ToString()),
                 ClassId = Convert.ToInt32(dataReader["ClassId"].ToString()),
+                Sequence = (int)(dataReader["Sequence"] )
             };
             return tempExam;
         }
@@ -39,8 +40,8 @@ namespace QalamAndNoor.DataManager
         {
             if (exam == null) return 0;
 
-            string sqlStatement = "INSERT INTO  [dbo].[Exam] (Type,Percentage,ClassId) " +
-                                  "VALUES (@type,@percentage,@classId)";
+            string sqlStatement = "INSERT INTO  [dbo].[Exam] (Type,Percentage,ClassId,Sequence) " +
+                                  "VALUES (@type,@percentage,@classId,@sequence)";
 
 
             SqlCommand sqlCommand = new SqlCommand()
@@ -51,6 +52,7 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@type",(int) exam.Type));
             sqlCommand.Parameters.Add(new SqlParameter("@percentage",exam.Percentage));
             sqlCommand.Parameters.Add(new SqlParameter("@classId",(int) exam.ClassId));
+            sqlCommand.Parameters.Add(new SqlParameter("@sequence", (int) exam.Sequence));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             if (result == 1)
@@ -66,7 +68,7 @@ namespace QalamAndNoor.DataManager
             if (exam == null) return 0;
 
             string sqlStatement = "UPDATE  [dbo].[Exam] SET " +
-                                  "Type=@type,Percentage=@percentage,ClassId=@classId " +
+                                  "Type=@type,Percentage=@percentage,ClassId=@classId,Sequence=@sequence " +
                                   "WHERE ID=@id;";
 
 
@@ -80,6 +82,7 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@type", (int)exam.Type));
             sqlCommand.Parameters.Add(new SqlParameter("@percentage", exam.Percentage));
             sqlCommand.Parameters.Add(new SqlParameter("@classId", (int)exam.ClassId));
+            sqlCommand.Parameters.Add(new SqlParameter("@sequence", (int)exam.Sequence));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             return result;

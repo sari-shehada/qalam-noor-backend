@@ -8,5 +8,6 @@ namespace QalamAndNoor.Models
         public ExamTypeEnum  Type { get; set; }
         public int Percentage { get; set; }
         public int ClassId { get; set; }
+        public int Sequence { get; set; }
     }
 }

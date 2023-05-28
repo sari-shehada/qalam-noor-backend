@@ -13,8 +13,9 @@ namespace QalamAndNoor.DataManager
             Semester tempSemester = new Semester()
             {
                 ID = Convert.ToInt32(dataReader["ID"].ToString()),
-                Type = (SemesterTypeEnum)Convert.ToInt32( dataReader["Type"].ToString()),
-                YearRecordId = Convert.ToInt32(dataReader["YearRecordId"].ToString()),
+                Name = dataReader["Name"].ToString(),
+                SchoolYearId = (int)(dataReader["SchoolYearId"]),
+                IsDone = Convert.ToBoolean(dataReader["IsDone"].ToString())
             };
             return tempSemester;
         }
@@ -39,8 +40,8 @@ namespace QalamAndNoor.DataManager
         {
             if (semester == null) return 0;
 
-            string sqlStatement = "INSERT INTO  [dbo].[Semester] (Type,YearRecordId) " +
-                                  "VALUES (@type,@yearRecordId)";
+            string sqlStatement = "INSERT INTO  [dbo].[Semester] (Name,SchoolYearId,IsDone) " +
+                                  "VALUES (@name,@schoolYearId,@isDone)";
 
 
             SqlCommand sqlCommand = new SqlCommand()
@@ -48,9 +49,10 @@ namespace QalamAndNoor.DataManager
                 CommandText = sqlStatement,
                 CommandType = CommandType.Text,
             };
-            sqlCommand.Parameters.Add(new SqlParameter("@type", (int)semester.Type));
-            sqlCommand.Parameters.Add(new SqlParameter("@yearRecordId", semester.YearRecordId));
-
+            sqlCommand.Parameters.Add(new SqlParameter("@name", semester.Name));
+            sqlCommand.Parameters.Add(new SqlParameter("@schoolYearId", semester.SchoolYearId));
+            sqlCommand.Parameters.Add(new SqlParameter("@schoolYearId", semester.SchoolYearId));
+            sqlCommand.Parameters.Add(new SqlParameter("@isDone", semester.IsDone ? "1" : "0"));
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             if (result == 1)
             {
@@ -65,7 +67,7 @@ namespace QalamAndNoor.DataManager
             if (semester == null) return 0;
 
             string sqlStatement = "UPDATE  [dbo].[Semester] SET " +
-                                  "Type=@type,YearRecordId=@yearRecordId " +
+                                  "Name=@name,SchoolYearId=@schoolYearId,IsDone=@isDone " +
                                   "WHERE ID=@id;";
 
             SqlCommand sqlCommand = new SqlCommand()
@@ -74,8 +76,10 @@ namespace QalamAndNoor.DataManager
                 CommandType = CommandType.Text,
             };
             sqlCommand.Parameters.Add(new SqlParameter("@id", semester.ID));
-            sqlCommand.Parameters.Add(new SqlParameter("@type", (int)semester.Type));
-            sqlCommand.Parameters.Add(new SqlParameter("@yearRecordId", semester.YearRecordId));
+            sqlCommand.Parameters.Add(new SqlParameter("@name", semester.Name));
+            sqlCommand.Parameters.Add(new SqlParameter("@schoolYearId", semester.SchoolYearId));
+            sqlCommand.Parameters.Add(new SqlParameter("@schoolYearId", semester.SchoolYearId));
+            sqlCommand.Parameters.Add(new SqlParameter("@isDone", semester.IsDone ? "1" : "0"));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             return result;

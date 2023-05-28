@@ -38,7 +38,6 @@ namespace QalamAndNoor.Manager
             }
             return null;
         }
-
         public static List<Student> GetStudentByName(string name)
         {
             List<Student> students = GetStudents();
@@ -78,7 +77,6 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
-
         public static List<Student> GetStudentsByFamilyId(int familyId)
         {
             List<Student> students = GetStudents();
@@ -92,7 +90,6 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
-
         public static List<Student> GetStudentsByAddressId(int addressId)
         {
             List<Student> students = GetStudents();
@@ -174,7 +171,6 @@ namespace QalamAndNoor.Manager
                 Message = "تم تسجيل طالب جديد بنجاح",
             };
         }
-
         public static List<Student> GetStudentsBySchoolYearIdAndClassId(int schoolYearId, int classId)
         {
             List<YearRecord> yearRecords = YearRecordManager.GetYearRecordsBySchoolYearIdAndClassId(schoolYearId, classId);
@@ -186,7 +182,6 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
-
         public static List<Student> GetStudentsBySchoolYearId(int schoolYearId)
         {
             List<YearRecord> yearRecords = YearRecordManager.GetYearRecordsBySchoolyearId(schoolYearId);
@@ -198,7 +193,6 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
-
         public static List<Student> GetStudentsWhoDontHavePsychologicalStatus()
         {
             return StudentDataManager.GetStudentsWhoDontHavePsychologicalStatus();
@@ -214,12 +208,6 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
-
-
-
-
-
-
 
 
         #region Private Helper Methods

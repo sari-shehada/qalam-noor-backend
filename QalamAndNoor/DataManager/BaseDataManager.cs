@@ -13,7 +13,7 @@ namespace QalamAndNoor.DataManager
         //                                        TrustServerCertificate=False;
         //                                        ApplicationIntent=ReadWrite;
         //                                        MultiSubnetFailover=False";
-        private const string connectionString = "Data Source=SQL8005.site4now.net;Initial Catalog=db_a985cf_qalamandnoor1;User Id=db_a985cf_qalamandnoor1_admin;Password=Qalam1234";
+        private const string connectionString = "Data Source=SQL8005.site4now.net;Initial Catalog=db_a9a059_qalamnoorschool1;User Id=db_a9a059_qalamnoorschool1_admin;Password=Qq100200300";
 
         public static int ExecuteNonQuery(SqlCommand command)
         {
