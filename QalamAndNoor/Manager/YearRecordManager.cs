@@ -33,56 +33,6 @@ namespace QalamAndNoor.Manager
             }
             return null;
         }
-        public static List<YearRecord> GetYearRecordsByClassId(int classId)
-        {
-            List<YearRecord> yearRecords = GetYearRecords();
-            List<YearRecord> result = new List<YearRecord>();
-            foreach (YearRecord yearRecord in yearRecords)
-            {
-                if (yearRecord.ClassId == classId)
-                {
-                    result.Add(yearRecord);
-                }
-            }
-            return result;
-        }
-        public static List<YearRecord> GetYearRecordsByClassRoomSchoolRearId(int classRoomSchoolYearId)
-        {
-            List<YearRecord> yearRecords = GetYearRecords();
-            List<YearRecord> result = new List<YearRecord>();
-            foreach (YearRecord yearRecord in yearRecords)
-            {
-                if (yearRecord.ClassRoomSchoolYearId == classRoomSchoolYearId)
-                {
-                    result.Add(yearRecord);
-                }
-            }
-            return result;
-        }
-        public static List<YearRecord> GetYearRecordsBySchoolyearId(int schoolYearId)
-        {
-            List<ClassRoomSchoolYear> classRoomSchoolYears = ClassRoomSchoolYearManager.GetClassRoomSchoolYearsBySchoolYearId(schoolYearId);
-            List<YearRecord> yearRecords = GetYearRecords();
-            List<YearRecord> result = new List<YearRecord>();
-            foreach (var item in classRoomSchoolYears)
-            {
-                result.Add(yearRecords.First((x) => x.ClassRoomSchoolYearId == item.ID));
-            }
-            return result;
-        }
-        public static List<YearRecord> GetYearRecordsBySchoolYearIdAndClassId(int schoolYearId, int classId)
-        {
-            List<YearRecord> yearRecords = GetYearRecordsBySchoolyearId(schoolYearId);
-            List<YearRecord> result = new List<YearRecord>();
-            foreach (YearRecord yearRecord in yearRecords)
-            {
-                if (yearRecord.ClassId == classId)
-                {
-                    result.Add(yearRecord);
-                }
-            }
-            return result;
-        }
         public static List<YearRecord> GetYearRecordsByStudentId(int studentId)
         {
             List<YearRecord> yearRecords = GetYearRecords();
@@ -122,5 +72,34 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
+        public static List<YearRecord> GetNewYearRecords()
+        {
+            Dictionary<int, YearRecord> uniqueStudents = new Dictionary<int,YearRecord>();
+            List<YearRecord> yearRecords = GetYearRecords();
+            
+            foreach (YearRecord yearRecord in yearRecords)
+            {
+                if(uniqueStudents.ContainsKey(yearRecord.StudentId))
+                {
+                    uniqueStudents.Remove(yearRecord.StudentId);
+                }
+                else{
+                    uniqueStudents.Add(yearRecord.StudentId,yearRecord);
+                }
+            }
+            return uniqueStudents.Values.ToList();
+        }
+        public static List<YearRecord> GetNewYearRecordsBYClassID(int classID)
+        {
+            return GetNewYearRecords().Where((e) => e.ClassId == classID).ToList();
+        }
+      
+
+     
+
+        //public static YearRecord GetHighestYearRecordForStudentByStudentId(int studentId)
+        //{
+        //    return 
+        //}
     }
 }

@@ -77,18 +77,8 @@ namespace QalamAndNoor.Controllers
         {
             return StudentManager.GetStudentsByAddressId(adressId);
         }
-        [Route("StudentController/GetStudentsBySchoolYearId")]
-        [HttpGet]
-        public List<Student> GetStudentsBySchoolYearId(int schoolYearId)
-        {
-            return StudentManager.GetStudentsBySchoolYearId(schoolYearId);
-        }
-        [Route("StudentController/GetStudentsBySchoolYearIdAndClassId")]
-        [HttpGet]
-        public List<Student> GetStudentsBySchoolYearIdAndClassId(int schoolYearId,int classId)
-        {
-            return StudentManager.GetStudentsBySchoolYearIdAndClassId(schoolYearId,classId);
-        }
+      
+    
         [Route("StudentController/GetStudentsWhoDontHavePsychologicalStatus")]
         [HttpGet]
         public List<Student> GetStudentsWhoDontHavePsychologicalStatus()
@@ -101,6 +91,25 @@ namespace QalamAndNoor.Controllers
         {
             return StudentManager.GetStudentsByPsychologicalStatusId(psychologicalStatusId);
         }
+        [Route("StudentController/GetSuccessfulStudentsByClassId")]
+        [HttpGet]
+        public List<Student> GetSuccessfulStudentsByClassId(int classId)
+        {
+            return StudentManager.GetSuccessfulStudentsByClassId(classId);
+        }
+        [Route("StudentController/GetFailingStudentsByClassId")]
+        [HttpGet]
+        public List<Student> GetFailingStudentsByClassId(int classId)
+        {
+            return StudentManager.GetFailingStudentsByClassId(classId);
+        }
+        [Route("StudentController/GetNewStudentsByClassId")]
+        [HttpGet]
+        public List<NewStudentSchoolYear> GetNewStudentsByClassId(int classId)
+        {
+            return StudentManager.GetNewStudentsByClassId(classId);
+        }
+
 
     }
 }

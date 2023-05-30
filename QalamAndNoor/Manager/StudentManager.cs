@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using QalamAndNoor.DataManager;
+using QalamAndNoor.DataManager.Helper;
 using QalamAndNoor.Models;
 using QalamAndNoor.Models.HelperModels;
 
@@ -171,28 +172,6 @@ namespace QalamAndNoor.Manager
                 Message = "تم تسجيل طالب جديد بنجاح",
             };
         }
-        public static List<Student> GetStudentsBySchoolYearIdAndClassId(int schoolYearId, int classId)
-        {
-            List<YearRecord> yearRecords = YearRecordManager.GetYearRecordsBySchoolYearIdAndClassId(schoolYearId, classId);
-            List<Student> students = GetStudents();
-            List<Student> result = new List<Student>();
-            foreach (var item in yearRecords)
-            {
-                result.Add(students.First((x) => x.ID == item.StudentId));
-            }
-            return result;
-        }
-        public static List<Student> GetStudentsBySchoolYearId(int schoolYearId)
-        {
-            List<YearRecord> yearRecords = YearRecordManager.GetYearRecordsBySchoolyearId(schoolYearId);
-            List<Student> students = GetStudents();
-            List<Student> result = new List<Student>();
-            foreach (var item in yearRecords)
-            {
-                result.Add(students.First((x) => x.ID == item.StudentId));
-            }
-            return result;
-        }
         public static List<Student> GetStudentsWhoDontHavePsychologicalStatus()
         {
             return StudentDataManager.GetStudentsWhoDontHavePsychologicalStatus();
@@ -209,6 +188,43 @@ namespace QalamAndNoor.Manager
             return result;
         }
 
+        public static List<Student> GetSuccessfulStudentsByClassId(int classId)
+        {
+            List<StudentIdYearRecord> studentIdYearRecords = StudentIdYearRecordDataManager.GetSuccessfulStudentIdsByClassId(classId);
+            List<Student> students = GetStudents();
+            List<Student> result = new List<Student>();
+            foreach (var item in studentIdYearRecords)
+            {
+                result.Add(students.First((x) => x.ID == item.StudentId));
+            }
+            return result;
+        }
+        public static List<Student> GetFailingStudentsByClassId(int classId)
+        {
+            List<StudentIdYearRecord> studentIdYearRecords = StudentIdYearRecordDataManager.GetFailingStudentIdsByClassId(classId);
+            List<Student> students = GetStudents();
+            List<Student> result = new List<Student>();
+            foreach (var item in studentIdYearRecords)
+            {
+                result.Add(students.First((x) => x.ID == item.StudentId));
+            }
+            return result;
+        }
+        public static List<NewStudentSchoolYear> GetNewStudentsByClassId(int classId)
+        {
+            List<YearRecord> yearRecords = YearRecordManager.GetNewYearRecordsBYClassID(classId);
+            List<Student> students = GetStudents();
+            List<NewStudentSchoolYear> result = new List<NewStudentSchoolYear>();
+            foreach (var item in yearRecords)
+            {
+                result.Add(new NewStudentSchoolYear()
+                {
+                    YearRecord = item,
+                    Student = students.First((x) => x.ID == item.StudentId)
+                });
+            }
+            return result;
+        }
 
         #region Private Helper Methods
         private static ItemOr _addNewFamily(
@@ -278,5 +294,16 @@ namespace QalamAndNoor.Manager
         };
         #endregion
 
+
     }
 }
+
+
+
+
+
+
+
+
+
+

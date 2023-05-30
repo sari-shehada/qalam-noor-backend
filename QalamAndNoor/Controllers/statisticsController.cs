@@ -19,5 +19,17 @@ namespace QalamAndNoor.Controllers
         {
             return PsychologicalStatusStudentCountDataManager.GetPsychologicalStatusStudentCount();
         }
+        [Route("statisticsController/GetPsychologicalStatusMaleStudentCount")]
+        [HttpGet]
+        public List<PsychologicalStatusStudentCount> GetPsychologicalStatusMaleStudentCount()
+        {
+            return PsychologicalStatusStudentCountDataManager.GetPsychologicalStatusMaleStudentCount();
+        }
+        [Route("statisticsController/GetPsychologicalStatusFemaleStudentCount")]
+        [HttpGet]
+        public List<PsychologicalStatusStudentCount> GetPsychologicalStatusFemaleStudentCount()
+        {
+            return PsychologicalStatusStudentCountDataManager.GetPsychologicalStatusFemaleStudentCount();
+        }
     }
 }

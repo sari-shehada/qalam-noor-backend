@@ -46,5 +46,15 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
+
+        public static Class GetPreceedingClassByClassId(int classID)
+        {
+            Class thisClass = GetClassById(classID);
+            if (thisClass.PreviousClassId == null)
+            {
+                return thisClass;
+            }
+            return GetClassById(thisClass.PreviousClassId.Value);
+        }
     }
 }
