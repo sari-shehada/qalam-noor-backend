@@ -20,6 +20,7 @@ namespace QalamAndNoor.Models
         public DateTime? LeaveDate { get; set; }
         public int AddressId { get; set; }
         public int FamilyId { get; set; }
+        public bool? IsActive { get; set; }
 
     }
 }

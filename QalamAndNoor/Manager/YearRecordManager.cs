@@ -94,8 +94,19 @@ namespace QalamAndNoor.Manager
             return GetNewYearRecords().Where((e) => e.ClassId == classID).ToList();
         }
       
+        public static List<YearRecord> GetYearRecordsInCurrentSchoolYear()
+        {
+            List<ClassRoomSchoolYear> classRoomSchoolYears = ClassRoomSchoolYearManager.GetClassRoomSchoolYearsInCurrentSchoolYear();
+            List<YearRecord> yearRecords = GetYearRecords();
+            List<YearRecord> result= new List<YearRecord>();
+            foreach (var item in classRoomSchoolYears)
+            {
+                result.Add(yearRecords.First((x) => x.ClassRoomSchoolYearId == item.ID));
+            }
+            return result;
 
-     
+        }
+
 
         //public static YearRecord GetHighestYearRecordForStudentByStudentId(int studentId)
         //{

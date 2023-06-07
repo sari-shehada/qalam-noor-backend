@@ -32,6 +32,7 @@ namespace QalamAndNoor.DataManager
                 LeaveDate = dataReader["LeaveDate"].ToString().Trim() == string.Empty ? null : Convert.ToDateTime(dataReader["LeaveDate"].ToString()),
                 AddressId = Convert.ToInt32(dataReader["AddressId"].ToString()),
                 FamilyId = Convert.ToInt32(dataReader["FamilyId"].ToString()),
+                IsActive= dataReader["IsActive"].ToString().Trim() == string.Empty ? null : Convert.ToBoolean(dataReader["IsActive"].ToString()),
             };
             return tempStudent;
         }
@@ -59,11 +60,11 @@ namespace QalamAndNoor.DataManager
             string sqlStatement = "INSERT INTO  [dbo].[Student] (FirstName,IsMale,DateOfBirth," +
                                   "PlaceOfBirth,Religion,IncidentNumber,IncidentDate," +
                                   "PublicRecordId,PhoneNumber,WhatsappPhoneNumber,LandLine," +
-                                  "JoinDate,LeaveDate,AddressId,FamilyId) " +
+                                  "JoinDate,LeaveDate,AddressId,FamilyId,IsActive) " +
                                   "VALUES (@firstName,@isMale,@dateOfBirth," +
                                   "@placeOfBirth,@religion,@incidentNumber,@incidentDate," +
                                   "@publicRecordId,@phoneNumber,@whatsappPhoneNumber,@landLine," +
-                                  "@joinDate,@leaveDate,@addressId,@familyId)";
+                                  "@joinDate,@leaveDate,@addressId,@familyId,@isActive)";
 
 
             SqlCommand sqlCommand = new SqlCommand()
@@ -84,9 +85,9 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@landLine", student.LandLine));
             sqlCommand.Parameters.Add(new SqlParameter("@joinDate", student.JoinDate));
             sqlCommand.Parameters.Add(new SqlParameter("@leaveDate", student.LeaveDate == null ? DBNull.Value : student.LeaveDate));
-
             sqlCommand.Parameters.Add(new SqlParameter("@addressId", student.AddressId));
             sqlCommand.Parameters.Add(new SqlParameter("@familyId", student.FamilyId));
+            sqlCommand.Parameters.Add(new SqlParameter("@isActive", student.IsActive == null ? DBNull.Value : student.IsActive ));
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             if (result == 1)
             {
@@ -105,7 +106,7 @@ namespace QalamAndNoor.DataManager
                                   "Religion=@religion,IncidentNumber=@incidentNumber,IncidentDate=@incidentDate," +
                                   "PublicRecordId=@publicRecordId,PhoneNumber=@phoneNumber,WhatsappPhoneNumber=@whatsappPhoneNumber,LandLine=@landLine," +
                                   "JoinDate=@joinDate,LeaveDate=@leaveDate,AddressId=@addressId," +
-                                  "FamilyId=@familyId " +
+                                  "FamilyId=@familyId,IsActive=@isActive " +
                                   "WHERE ID=@id;";
 
             //                      "JoinDate,LeaveDate,AddressId,MedicalRecordId,FamilyId) " +
@@ -129,9 +130,10 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@whatsappPhoneNumber", student.WhatsappPhoneNumber));
             sqlCommand.Parameters.Add(new SqlParameter("@landLine", student.LandLine));
             sqlCommand.Parameters.Add(new SqlParameter("@joinDate", student.JoinDate));
-            sqlCommand.Parameters.Add(new SqlParameter("@leaveDate", student.LeaveDate));
+            sqlCommand.Parameters.Add(new SqlParameter("@leaveDate", student.LeaveDate == null ? DBNull.Value : student.LeaveDate));
             sqlCommand.Parameters.Add(new SqlParameter("@addressId", student.AddressId));
             sqlCommand.Parameters.Add(new SqlParameter("@familyId", student.FamilyId));
+            sqlCommand.Parameters.Add(new SqlParameter("@isActive", student.IsActive == null ? DBNull.Value : student.IsActive));
 
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
@@ -159,7 +161,7 @@ namespace QalamAndNoor.DataManager
         {
             //SQL Statement
             string sqlStatement =
-                "SELECT *  from Student  where Student.ID not in (SELECT distinct(MedicalRecordId) from PsychologicalStatusMedicalRecord)";
+                "SELECT *  from Student  where Student.IsActive=1 AND Student.ID not in (SELECT distinct(MedicalRecordId) from PsychologicalStatusMedicalRecord)";
             //Preparing SQL Command
             SqlCommand sqlCommand = new SqlCommand()
             {
@@ -172,6 +174,23 @@ namespace QalamAndNoor.DataManager
             #endregion
         }
 
-       
+        public static int UpdateIsActiveStudent()
+        {
+          
+
+            string sqlStatement = "UPDATE [dbo].[Student] SET IsActive=1 ;";
+
+
+
+            SqlCommand sqlCommand = new SqlCommand()
+            {
+                CommandText = sqlStatement,
+                CommandType = CommandType.Text,
+            };
+
+            int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
+            return result;
+        }
+
     }
 }

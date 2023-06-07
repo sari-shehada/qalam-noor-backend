@@ -49,6 +49,20 @@ namespace QalamAndNoor.Manager
              
         }
 
+        public static List<Course> GetCoursesByTeacherId(int teacherId)
+        {
+            List<Course> courses = GetCourses();
+            List<Course> result = new List<Course>();
+            foreach (Course item in courses)
+            {
+                if (item.TeacherId==teacherId)
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
+        }
+
 
     }
 }

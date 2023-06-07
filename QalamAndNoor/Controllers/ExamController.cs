@@ -36,6 +36,12 @@ namespace QalamAndNoor.Controllers
         {
             return ExamManager.GetExamById(id);
         }
+        [Route("ExamController/GetExamsByClassId")]
+        [HttpGet]
+        public List<Exam> GetExamsByClassId(int classId)
+        {
+            return ExamManager.GetExamsByClassId(classId);
+        }
 
     }
 }

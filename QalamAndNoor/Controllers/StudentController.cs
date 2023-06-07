@@ -109,6 +109,24 @@ namespace QalamAndNoor.Controllers
         {
             return StudentManager.GetNewStudentsByClassId(classId);
         }
+        [Route("StudentController/UpdateIsActiveStudent")]
+        [HttpPost]
+        public int UpdateIsActiveStudent()
+        {
+            return StudentDataManager.UpdateIsActiveStudent();
+        }
+        [Route("StudentController/GetIsActiveStudent")]
+        [HttpGet]
+        public List<Student> GetIsActiveStudent()
+        {
+            return StudentManager.GetIsActiveStudent();
+        }
+        [Route("StudentController/GetActiveStudentsInCurrentSchoolYear")]
+        [HttpGet]
+        public List<Student> GetActiveStudentsInCurrentSchoolYear()
+        {
+            return StudentManager.GetIsActiveStudentsInCurrentSchoolYear();
+        }
 
 
     }

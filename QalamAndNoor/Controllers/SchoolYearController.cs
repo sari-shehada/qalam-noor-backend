@@ -37,6 +37,13 @@ namespace QalamAndNoor.Controllers
         {
             return SchoolYearManager.GetSchoolYearById(id);
         }
+        [Route("SchoolYearController/GetCurrentSchoolYear")]
+        [HttpGet]
+        public SchoolYear GetCurrentSchoolYear()
+
+        {
+            return SchoolYearManager.GetCurrentSchoolYear();
+        }
 
 
     }

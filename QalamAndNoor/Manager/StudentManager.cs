@@ -176,10 +176,23 @@ namespace QalamAndNoor.Manager
         {
             return StudentDataManager.GetStudentsWhoDontHavePsychologicalStatus();
         }
+        public static List<Student> GetIsActiveStudent()
+        {
+            List<Student> students = GetStudents();
+            List<Student> result = new List<Student>();
+            foreach (Student student in students)
+            {
+                if (student.IsActive==true)
+                {
+                    result.Add(student);
+                }
+            }
+            return result;
+        }
         public static List<Student> GetStudentsByPsychologicalStatusId(int psychologicalStatusId)
         {
             List<MedicalRecord> medicalRecords = MedicalRecordManager.GetMedicalRecordsByPsychologicalStatusId(psychologicalStatusId);
-            List<Student> students = GetStudents();
+            List<Student> students = GetIsActiveStudent();
             List<Student> result = new List<Student>();
             foreach (var item in medicalRecords)
             {
@@ -191,7 +204,7 @@ namespace QalamAndNoor.Manager
         public static List<Student> GetSuccessfulStudentsByClassId(int classId)
         {
             List<StudentIdYearRecord> studentIdYearRecords = StudentIdYearRecordDataManager.GetSuccessfulStudentIdsByClassId(classId);
-            List<Student> students = GetStudents();
+            List<Student> students = GetIsActiveStudent();
             List<Student> result = new List<Student>();
             foreach (var item in studentIdYearRecords)
             {
@@ -202,7 +215,7 @@ namespace QalamAndNoor.Manager
         public static List<Student> GetFailingStudentsByClassId(int classId)
         {
             List<StudentIdYearRecord> studentIdYearRecords = StudentIdYearRecordDataManager.GetFailingStudentIdsByClassId(classId);
-            List<Student> students = GetStudents();
+            List<Student> students = GetIsActiveStudent();
             List<Student> result = new List<Student>();
             foreach (var item in studentIdYearRecords)
             {
@@ -213,7 +226,7 @@ namespace QalamAndNoor.Manager
         public static List<NewStudentSchoolYear> GetNewStudentsByClassId(int classId)
         {
             List<YearRecord> yearRecords = YearRecordManager.GetNewYearRecordsBYClassID(classId);
-            List<Student> students = GetStudents();
+            List<Student> students = GetIsActiveStudent();
             List<NewStudentSchoolYear> result = new List<NewStudentSchoolYear>();
             foreach (var item in yearRecords)
             {
@@ -226,6 +239,17 @@ namespace QalamAndNoor.Manager
             return result;
         }
 
+       public static List<Student> GetIsActiveStudentsInCurrentSchoolYear()
+        {
+            List<YearRecord> yearRecords = YearRecordManager.GetYearRecordsInCurrentSchoolYear();
+            List<Student> students = GetIsActiveStudent();
+            List <Student> result = new List<Student>();
+            foreach (var item in yearRecords)
+            {
+                result.Add(students.First((x) => x.ID == item.StudentId));
+            }
+            return result;
+        }
         #region Private Helper Methods
         private static ItemOr _addNewFamily(
             Mother mother, Father father,

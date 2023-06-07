@@ -69,6 +69,16 @@ namespace QalamAndNoor.Manager
             }
         }
 
+        private static int GetMaxSchoolYearID()
+        {
+            List<SchoolYear> schoolYears = GetSchoolYears();
+            return schoolYears.Max(x => x.ID);
+        }
+        public static SchoolYear GetCurrentSchoolYear()
+        {
+            return GetSchoolYearById(GetMaxSchoolYearID());
+        }
+
     }
 }
 

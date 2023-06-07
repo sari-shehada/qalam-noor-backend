@@ -98,7 +98,7 @@ namespace QalamAndNoor.DataManager
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             return result;
         }
-
+      
 
         #endregion
     }
