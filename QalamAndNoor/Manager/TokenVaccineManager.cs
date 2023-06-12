@@ -33,6 +33,20 @@ namespace QalamAndNoor.Manager
             }
             return null;
         }
+
+        public static List<TokenVaccine> GetTokenVaccinesByMedicalRecordId(int medId)
+        {
+            List<TokenVaccine> tokenVaccines = GetTokenVaccines();
+            List<TokenVaccine> result = new List<TokenVaccine>();
+            foreach (TokenVaccine item in tokenVaccines)
+            {
+                if (item.MedicalRecordId==medId)
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
+        }
     }
 }
 

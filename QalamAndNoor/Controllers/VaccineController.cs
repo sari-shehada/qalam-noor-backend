@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using QalamAndNoor.DataManager.Helper;
 using QalamAndNoor.Manager;
 using QalamAndNoor.Models;
+using QalamAndNoor.Models.HelperModels;
 
 namespace QalamAndNoor.Controllers
 {
@@ -39,6 +41,19 @@ namespace QalamAndNoor.Controllers
         {
             return VaccineManager.GetVaccineById(id);
         }
+        [Route("VaccineController/GetTakenVaccinesByStudentId")]
+        [HttpGet]
+        public List<Vaccine> GetTakenVaccinesByStudentId(int studentId)
+        {
+            return VaccineManager.GetTakenVaccinesByStudentId(studentId);
+        }
+        [Route("VaccineController/GetStudentTakenVaccinesByStudentId")]
+        [HttpGet]
+        public List<StudentTakenVaccine> GetStudentTakenVaccinesByStudentId(int studentId)
+        {
+            return StudentTakenVaccineDataManager.GetStudentTakenVaccinesByStudentId(studentId);
+        }
+
 
     }
 }

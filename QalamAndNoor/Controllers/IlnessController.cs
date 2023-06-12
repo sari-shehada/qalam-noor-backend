@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using QalamAndNoor.DataManager.Helper;
 using QalamAndNoor.Manager;
 using QalamAndNoor.Models;
+using QalamAndNoor.Models.HelperModels;
 
 namespace QalamAndNoor.Controllers
 {
@@ -35,6 +37,12 @@ namespace QalamAndNoor.Controllers
         public Ilness GetIlnessById(int id)
         {
             return IlnessManager.GetIlnessById(id);
+        }
+        [Route("IlnessController/GetStudentIllnessesByStudentId")]
+        [HttpGet]
+        public List<StudentIllnesses> GetStudentIllnessesByStudentId(int studentId)
+        {
+            return StudentIllnessesDataManager.GetStudentIllnessesByStudentId(studentId);
         }
     }
 }

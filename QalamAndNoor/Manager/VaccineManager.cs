@@ -34,5 +34,16 @@ namespace QalamAndNoor.Manager
             return null;
         }
 
+        public static List<Vaccine> GetTakenVaccinesByStudentId(int studentId)
+        {
+            List<TokenVaccine> tokenVaccines = TokenVaccineManager.GetTokenVaccinesByMedicalRecordId(studentId);
+            List<Vaccine> vaccines = GetVaccines();
+            List<Vaccine> result = new List<Vaccine>();
+            foreach (var item in tokenVaccines)
+            {
+                result.Add(vaccines.First((x) => x.ID == item.VaccineId));
+            }
+            return result;
+        }
     }
 }
