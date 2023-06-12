@@ -104,6 +104,24 @@ namespace QalamAndNoor.DataManager
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             return result;
         }
+        public static int UpdateAllCourses()
+        {
+           
+
+            string sqlStatement = "UPDATE  [dbo].[Course] SET " +
+                                  "TotalGrade=100 ";
+                                 
+
+            SqlCommand sqlCommand = new SqlCommand()
+            {
+                CommandText = sqlStatement,
+                CommandType = CommandType.Text,
+            };
+         
+
+            int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
+            return result;
+        }
         #endregion
     }
 }

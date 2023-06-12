@@ -5,7 +5,6 @@
         Verbal,
         Homework,
         Activity,
-        Exam,
         FirstExam,
         SecondExam,
         FinalExam

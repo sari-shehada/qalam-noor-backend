@@ -1,6 +1,7 @@
 ﻿using QalamAndNoor.Models;
 using System.Data.SqlClient;
 using System.Data;
+using QalamAndNoor.Manager;
 
 namespace QalamAndNoor.DataManager
 {
@@ -35,30 +36,52 @@ namespace QalamAndNoor.DataManager
             List<SchoolYear> result = BaseDataManager.GetSPItems<SchoolYear>(sqlCommand, SchoolYearMapper);
             return result;
         }
-        public static int InsertSchoolYear(SchoolYear schoolYear)
+        public static object InsertSchoolYear(SchoolYear schoolYear)
         {
-            if (schoolYear == null) return 0;
-
-            string sqlStatement = "INSERT INTO  [dbo].[SchoolYear] (Details,IsDone,PreviousSchoolYearId) " +
-                                  "VALUES (@name,@isDone,@previousSchoolYearId)";
-
-
-            SqlCommand sqlCommand = new SqlCommand()
+            if (SchoolYearManager.GetCurrentSchoolYear().IsFinished == true)
             {
-                CommandText = sqlStatement,
-                CommandType = CommandType.Text
-            };
-            sqlCommand.Parameters.Add(new SqlParameter("@name", schoolYear.Name));
-            sqlCommand.Parameters.Add(new SqlParameter("@isDone", schoolYear.IsFinished ? '1' : '0'));
-            sqlCommand.Parameters.Add(new SqlParameter("@previousSchoolYearId", schoolYear.PreviousSchoolYearId == null ? DBNull.Value : schoolYear.PreviousSchoolYearId));
-            int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
-            if (result == 1)
-            {
-                List<SchoolYear> schoolYears = GetSchoolYears();
-                return schoolYears.Max(x => x.ID);
 
+
+
+                if (schoolYear == null) return 0;
+
+                string sqlStatement = "INSERT INTO  [dbo].[SchoolYear] (Details,IsDone,PreviousSchoolYearId) " +
+                                      "VALUES (@name,@isDone,@previousSchoolYearId)";
+
+
+                SqlCommand sqlCommand = new SqlCommand()
+                {
+                    CommandText = sqlStatement,
+                    CommandType = CommandType.Text
+                };
+                sqlCommand.Parameters.Add(new SqlParameter("@name", schoolYear.Name));
+                sqlCommand.Parameters.Add(new SqlParameter("@isDone", schoolYear.IsFinished ? '1' : '0'));
+                sqlCommand.Parameters.Add(new SqlParameter("@previousSchoolYearId", schoolYear.PreviousSchoolYearId == null ? DBNull.Value : schoolYear.PreviousSchoolYearId));
+                int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
+                if (result == 1)
+                {
+                    List<SchoolYear> schoolYears = GetSchoolYears();
+
+                    return new
+                    {
+                        message = "تمت اضافة عام دراسي جديد بنجاح",
+                        schoolYearId = schoolYears.Max(x => x.ID)
+                    };
+
+                }
+                return new
+                {
+                    message = " فشلت عملية اضافة عام دراسي جديد ",
+                    schoolYearId =0
+                };
             }
-            return 0;
+            return new
+            {
+                message = " لا يمكن اضافة عام دراسي قبل انتهاء العام الحالي",
+                schoolYearId = 0
+            };
+
+
         }
         public static int UpdateSchoolYear(SchoolYear schoolYear)
         {

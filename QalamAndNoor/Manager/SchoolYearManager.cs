@@ -7,10 +7,11 @@ namespace QalamAndNoor.Manager
     {
         public static List<SchoolYear> GetSchoolYears()
         {
+          
             return SchoolYearDataManager.GetSchoolYears().ToList();
         }
 
-        public static int InsertSchoolYear(SchoolYear schoolYear)
+        public static object InsertSchoolYear(SchoolYear schoolYear)
         {
             schoolYear.PreviousSchoolYearId = GetPreviousSchoolYearID();
             return SchoolYearDataManager.InsertSchoolYear(schoolYear);

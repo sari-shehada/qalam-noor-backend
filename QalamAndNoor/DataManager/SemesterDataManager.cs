@@ -52,7 +52,6 @@ namespace QalamAndNoor.DataManager
             };
             sqlCommand.Parameters.Add(new SqlParameter("@name", semester.Name));
             sqlCommand.Parameters.Add(new SqlParameter("@schoolYearId", semester.SchoolYearId));
-            sqlCommand.Parameters.Add(new SqlParameter("@schoolYearId", semester.SchoolYearId));
             sqlCommand.Parameters.Add(new SqlParameter("@isDone", semester.IsDone ? "1" : "0"));
             sqlCommand.Parameters.Add(new SqlParameter("@previousSemesterId", semester.PreviousSemesterId == null ? DBNull.Value : semester.PreviousSemesterId));
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);

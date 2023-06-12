@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using QalamAndNoor.DataManager;
 using QalamAndNoor.Manager;
+using QalamAndNoor.Manager.ViewsManager;
 using QalamAndNoor.Models;
 using QalamAndNoor.Models.HelperModels;
 
@@ -126,6 +127,18 @@ namespace QalamAndNoor.Controllers
         public List<Student> GetActiveStudentsInCurrentSchoolYear()
         {
             return StudentManager.GetIsActiveStudentsInCurrentSchoolYear();
+        }
+        [Route("StudentController/GetStudentInfo")]
+        [HttpGet]
+        public List<StudentInfo> GetStudentInfo()
+        {
+            return StudentInfoViewManager.GetStudentInfo();
+        }
+        [Route("StudentController/GetStudentInfoByStudentId")]
+        [HttpGet]
+        public List<StudentInfo> GetStudentInfoByStudentId(int studentId)
+        {
+            return StudentInfoViewManager.GetStudentInfoByStudentId(studentId);
         }
 
 

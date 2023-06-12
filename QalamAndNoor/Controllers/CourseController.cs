@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using QalamAndNoor.DataManager;
 using QalamAndNoor.Manager;
 using QalamAndNoor.Models;
 
@@ -47,6 +48,12 @@ namespace QalamAndNoor.Controllers
         public List<Course> GetCoursesByTeacherId(int teacherId)
         {
             return CourseManager.GetCoursesByTeacherId(teacherId);
+        }
+        [Route("CourseController/UpdateAllCourses")]
+        [HttpPost]
+        public int UpdateAllCourses()
+        {
+            return CourseDataManager.UpdateAllCourses();
         }
 
 

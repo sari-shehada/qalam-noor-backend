@@ -8,7 +8,7 @@ namespace QalamAndNoor.Controllers
     {
         [Route("SchoolYearController/InsertSchoolYear")]
         [HttpPost]
-        public int InsertSchoolYear([FromBody]SchoolYear schoolYear)
+        public object InsertSchoolYear([FromBody]SchoolYear schoolYear)
 
         {
             return SchoolYearManager.InsertSchoolYear(schoolYear);
