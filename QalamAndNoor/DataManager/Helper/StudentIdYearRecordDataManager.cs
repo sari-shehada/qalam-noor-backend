@@ -32,7 +32,7 @@ namespace QalamAndNoor.DataManager.Helper
         public static List<StudentIdYearRecord> GetFailingStudentIdsByClassId(int classId)
         {
             //SQL Statement
-            string sqlStatement = $"select YearRecord.StudentId as StudentId from YearRecord where YearRecord.DidPass= 0 group by YearRecord.StudentId having MAX(YearRecord.ClassID) = {classId}";
+            string sqlStatement = $"select YearRecord.StudentId as StudentId from YearRecord where YearRecord.DidPass= 0  group by YearRecord.StudentId having MAX(YearRecord.ClassID) = {classId}";
             //Preparing SQL Command
             SqlCommand sqlCommand = new SqlCommand()
             {

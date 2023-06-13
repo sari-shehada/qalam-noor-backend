@@ -33,6 +33,20 @@ namespace QalamAndNoor.Manager
             }
             return null;
         }
+       
+        public static List<YearRecord> GetNewYearRecordNullClassRoomSchoolYearId()
+        {
+            List<YearRecord> yearRecords = GetYearRecords();
+            List<YearRecord> result = new List<YearRecord>();
+            foreach (YearRecord item in yearRecords)
+            {
+                if (item.ClassRoomSchoolYearId==null)
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
+        }
         public static List<YearRecord> GetYearRecordsByStudentId(int studentId)
         {
             List<YearRecord> yearRecords = GetYearRecords();
@@ -75,7 +89,7 @@ namespace QalamAndNoor.Manager
         public static List<YearRecord> GetNewYearRecords()
         {
             Dictionary<int, YearRecord> uniqueStudents = new Dictionary<int,YearRecord>();
-            List<YearRecord> yearRecords = GetYearRecords();
+            List<YearRecord> yearRecords = GetNewYearRecordNullClassRoomSchoolYearId();
             
             foreach (YearRecord yearRecord in yearRecords)
             {
@@ -91,7 +105,7 @@ namespace QalamAndNoor.Manager
         }
         public static List<YearRecord> GetNewYearRecordsBYClassID(int classID)
         {
-            return GetNewYearRecords().Where((e) => e.ClassId == classID).ToList();
+            return GetNewYearRecords().Where((e) => e.ClassId == classID && e.ClassRoomSchoolYearId==null).ToList();
         }
       
         public static List<YearRecord> GetYearRecordsInCurrentSchoolYear()

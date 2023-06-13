@@ -35,6 +35,21 @@ namespace QalamAndNoor.Manager
             return null;
         }
 
+
+        public static List<Semester> GetSemestersBySchoolYearId(int schoolYearId)
+        {
+            List<Semester> semesters = GetSemesters();
+            List<Semester> result = new List<Semester>();
+            foreach (Semester item in semesters)
+            {
+                if (item.SchoolYearId==schoolYearId)
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
+        }
+
         private static Semester? GetSemesterByPreviousSemesterId(int? previousSemsterId)
         {
             List<Semester> semesters = GetSemesters();

@@ -140,6 +140,12 @@ namespace QalamAndNoor.Controllers
         {
             return StudentInfoViewManager.GetStudentInfoByStudentId(studentId);
         }
+        [Route("StudentController/GetStudentYearRecordsByStudentId")]
+        [HttpGet]
+        public List<StudentYearRecords> GetStudentYearRecordsByStudentId(int studentId)
+        {
+            return StudentYearRecordsManager.GetStudentYearRecordsByStudentId(studentId);
+        }
 
 
     }
