@@ -2,6 +2,7 @@
 using QalamAndNoor.DataManager;
 using QalamAndNoor.Manager;
 using QalamAndNoor.Models;
+using QalamAndNoor.Models.HelperModels;
 
 namespace QalamAndNoor.Controllers
 {
@@ -48,6 +49,12 @@ namespace QalamAndNoor.Controllers
         public List<ClassRoomSchoolYear> GetClassRoomSchoolYearsByClassRoomId(int classRoomId)
         {
             return ClassRoomSchoolYearManager.GetClassRoomSchoolYearsByClassRoomId(classRoomId);
+        }
+        [Route("ClassRoomSchoolYearController/OpenCLassRoomsInSchoolYear")]
+        [HttpPost]
+        public List<ItemOr> OpenCLassRoomsInSchoolYear([FromBody] List<int> CLassRoomIds)
+        {
+            return ClassRoomSchoolYearManager.OpenCLassRoomsInSchoolYear(CLassRoomIds);
         }
     }
 }

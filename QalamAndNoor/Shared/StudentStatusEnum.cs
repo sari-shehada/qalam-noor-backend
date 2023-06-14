@@ -4,7 +4,8 @@
     {
         New,
         Fail,
-        Pass
+        Pass,
+        NotDefined
         
     }
 }

@@ -1,10 +1,13 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using QalamAndNoor.DataManager;
 using QalamAndNoor.DataManager.Helper;
 using QalamAndNoor.Models;
 using QalamAndNoor.Models.HelperModels;
+using QalamAndNoor.Shared;
 
 namespace QalamAndNoor.Manager
 {
@@ -182,7 +185,7 @@ namespace QalamAndNoor.Manager
             List<Student> result = new List<Student>();
             foreach (Student student in students)
             {
-                if (student.IsActive==true)
+                if (student.IsActive == true)
                 {
                     result.Add(student);
                 }
@@ -239,11 +242,11 @@ namespace QalamAndNoor.Manager
             return result;
         }
 
-       public static List<Student> GetIsActiveStudentsInCurrentSchoolYear()
+        public static List<Student> GetIsActiveStudentsInCurrentSchoolYear()
         {
             List<YearRecord> yearRecords = YearRecordManager.GetYearRecordsInCurrentSchoolYear();
             List<Student> students = GetIsActiveStudent();
-            List <Student> result = new List<Student>();
+            List<Student> result = new List<Student>();
             foreach (var item in yearRecords)
             {
                 result.Add(students.First((x) => x.ID == item.StudentId));
@@ -317,6 +320,87 @@ namespace QalamAndNoor.Manager
             "Password"+new Random().NextInt64(1000000,9999999),
         };
         #endregion
+
+
+        public static object RegistrationNewStudentInSchoolYear(NewStudentRegistrationInSchoolYear newStudentRegistrationInSchoolYear)
+        {
+            List<YearRecord> yearRecords = new List<YearRecord>();
+            List<int> semesterIds = new List<int>();
+            try
+            {
+                ClassRoomSchoolYear classRoomSchoolYear = ClassRoomSchoolYearManager.GetClassRoomSchoolYearByClassRoomIdAndSchoolYearId(newStudentRegistrationInSchoolYear.ClassRoomId, newStudentRegistrationInSchoolYear.SchoolYearId);
+                foreach (var item in newStudentRegistrationInSchoolYear.YearRecordId)
+                {
+                    YearRecordManager.UpdateYearRecord(new YearRecord()
+                    {
+                        ID = item,
+                        ClassRoomSchoolYearId = classRoomSchoolYear.ID,
+                        ClassId = YearRecordManager.GetYearRecordById(item).ClassId,
+                        StudentId = YearRecordManager.GetYearRecordById(item).StudentId,
+                        Status = StudentStatusEnum.NotDefined
+
+                    });
+                    yearRecords.Add(YearRecordManager.GetYearRecordById(item));
+                    semesterIds.Add(SemesterYearRecordManager.InsertSemsterYearRecord(new SemesterYearRecord()
+                    {
+                        ID = -1,
+                        SemesterId = newStudentRegistrationInSchoolYear.SemesterId,
+                        YearRecordId = item
+                    })
+                    );
+                   
+                    
+
+                }
+                return new
+                {
+                    message = "تمت عملية تسجيل الطلاب بنجاح",
+                    success=true,
+                };
+            }
+            catch (Exception)
+            {
+                RollBackOnRegistrationNewStudentInSchoolYear(semesterIds, yearRecords);
+                return new
+                {
+                    message = "فشلت عملية تسجيل الطلاب ",
+                    success = false,
+                };
+            }
+        }
+        private static bool RollBackOnRegistrationNewStudentInSchoolYear
+            (List<int> semsterYearRecordIds, List<YearRecord> yearRecords)
+        {
+           
+            try
+            {
+                if (semsterYearRecordIds.Count == 0 && yearRecords.Count == 0) return true;
+                foreach (int item in semsterYearRecordIds)
+                {
+                    SemesterYearRecordManager.DeleteSemesterYearRecord
+                        (SemesterYearRecordManager.GetSemesterYearById(item));
+                }
+                foreach (YearRecord item in yearRecords)
+                {
+                    item.ClassRoomSchoolYearId = null;
+                    item.Status = StudentStatusEnum.New;
+                    YearRecordManager.UpdateYearRecord(item);
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                return false;
+            }
+
+        }
+
+
+
+
+
+
 
 
     }

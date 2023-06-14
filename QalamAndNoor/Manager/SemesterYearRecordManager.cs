@@ -5,6 +5,10 @@ namespace QalamAndNoor.Manager
 {
     public abstract class SemesterYearRecordManager
     {
+        public static SemesterYearRecord GetSemesterYearById(int id)
+        {
+            return SemesterYearRecordDataManager.GetSemesterYearRecords().First((e)=>e.ID == id)!;
+        }
         public static List<SemesterYearRecord> GetSemesterYearRecords()
         {
             return SemesterYearRecordDataManager.GetSemesterYearRecords();

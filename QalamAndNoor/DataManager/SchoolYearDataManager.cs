@@ -14,7 +14,7 @@ namespace QalamAndNoor.DataManager
             {
                 ID = Convert.ToInt32(dataReader["ID"].ToString()),
                 Name = dataReader["Details"].ToString()!,
-                IsFinished = dataReader["IsDone"].ToString() == "1",
+                IsFinished = Convert.ToBoolean(dataReader["IsDone"].ToString()),
                 PreviousSchoolYearId = dataReader["PreviousSchoolYearId"].ToString().Trim() == string.Empty ? null : Convert.ToInt32(dataReader["PreviousSchoolYearId"].ToString()),
             };
             return tempSchoolYear;

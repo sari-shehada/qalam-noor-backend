@@ -1,5 +1,6 @@
 ﻿using QalamAndNoor.DataManager;
 using QalamAndNoor.Models;
+using QalamAndNoor.Models.HelperModels;
 
 namespace QalamAndNoor.Manager
 {
@@ -46,13 +47,13 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
-        public static List<ClassRoomSchoolYear>GetClassRoomSchoolYearsByClassRoomId(int classRoomId)
+        public static List<ClassRoomSchoolYear> GetClassRoomSchoolYearsByClassRoomId(int classRoomId)
         {
             List<ClassRoomSchoolYear> classRoomSchoolYears = GetClassRoomSchoolYears();
             List<ClassRoomSchoolYear> result = new List<ClassRoomSchoolYear>();
             foreach (ClassRoomSchoolYear item in classRoomSchoolYears)
             {
-                if (item.ClassRoomId==classRoomId)
+                if (item.ClassRoomId == classRoomId)
                 {
                     result.Add(item);
                 }
@@ -73,6 +74,54 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
-    
+
+        public static List<ItemOr> OpenCLassRoomsInSchoolYear(List<int> ClassRoomIds)
+        {
+            List<ItemOr> itemOrs = new List<ItemOr>();
+            foreach (var item in ClassRoomIds)
+            {
+                int CurrentSchoolYear = SchoolYearManager.GetCurrentSchoolYear().ID;
+                var result = InsertClassRoomSchoolYear(new ClassRoomSchoolYear()
+                {
+                    ClassRoomId = item,
+                    SchoolYearId = CurrentSchoolYear
+                });
+                if (result != 0)
+                {
+                    itemOrs.Add(new ItemOr()
+                    {
+                        Item = GetClassRoomSchoolYearById(result),
+                        Success = true
+                    }
+                    );
+                }
+                else
+                {
+                    itemOrs.Add(new ItemOr()
+                    {
+                        Item = null,
+                        Success = false
+                    }
+                       );
+                }
+
+            }
+            return itemOrs;
+        }
+
+        public static ClassRoomSchoolYear GetClassRoomSchoolYearByClassRoomIdAndSchoolYearId(int classRoomId, int schoolYearId)
+        {
+            List<ClassRoomSchoolYear> classRoomSchoolYears = GetClassRoomSchoolYears();
+            List<ClassRoomSchoolYear> result = new List<ClassRoomSchoolYear>();
+            foreach (ClassRoomSchoolYear item in classRoomSchoolYears)
+            {
+                if (item.SchoolYearId==schoolYearId&&item.ClassRoomId==classRoomId)
+                {
+                    return item;
+                }
+            }
+            return null;
+           
+        }
     }
 }
