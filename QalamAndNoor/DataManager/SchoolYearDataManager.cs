@@ -39,7 +39,7 @@ namespace QalamAndNoor.DataManager
         public static object InsertSchoolYear(SchoolYear schoolYear)
         {
             if (SchoolYearManager.GetCurrentSchoolYear().IsFinished == true)
-            {
+          {
 
 
 
@@ -74,7 +74,7 @@ namespace QalamAndNoor.DataManager
                     message = " فشلت عملية اضافة عام دراسي جديد ",
                     schoolYearId =0
                 };
-            }
+           }
             return new
             {
                 message = " لا يمكن اضافة عام دراسي قبل انتهاء العام الحالي",

@@ -1,6 +1,7 @@
 ﻿using QalamAndNoor.Models;
 using System.Data.SqlClient;
 using System.Data;
+using QalamAndNoor.Shared;
 
 namespace QalamAndNoor.DataManager
 {
@@ -15,7 +16,7 @@ namespace QalamAndNoor.DataManager
                 StudentId = Convert.ToInt32(dataReader["StudentId"].ToString()),
                 ClassId = Convert.ToInt32(dataReader["ClassId"].ToString()),
                 ClassRoomSchoolYearId = dataReader["ClassRoomSchoolYearId"].ToString().Trim() == string.Empty ? null : Convert.ToInt32(dataReader["ClassRoomSchoolYearId"].ToString()),
-                DidPass = Convert.ToBoolean(dataReader["DidPass"].ToString()),
+                Status = (StudentStatusEnum)Convert.ToInt32(dataReader["Status"].ToString())
             };
             return tempYearRecord;
         }
@@ -42,8 +43,8 @@ namespace QalamAndNoor.DataManager
             if (yearRecord == null) return 0;
 
             string sqlStatement = "INSERT INTO  [dbo].[YearRecord](StudentId,ClassId," +
-                                  "ClassRoomSchoolYearId,DidPass) " +
-                                  "VALUES (@studentId,@classId,@classRoomSchoolYearId,@didPass)";
+                                  "ClassRoomSchoolYearId,Status) " +
+                                  "VALUES (@studentId,@classId,@classRoomSchoolYearId,@status)";
 
 
             SqlCommand sqlCommand = new SqlCommand()
@@ -54,7 +55,7 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@studentId", yearRecord.StudentId));
             sqlCommand.Parameters.Add(new SqlParameter("@classId", yearRecord.ClassId));
             sqlCommand.Parameters.Add(new SqlParameter("@classRoomSchoolYearId", yearRecord.ClassRoomSchoolYearId == null ? DBNull.Value :yearRecord.ClassRoomSchoolYearId));
-            sqlCommand.Parameters.Add(new SqlParameter("@didPass", yearRecord.DidPass ? "1" : "0"));
+            sqlCommand.Parameters.Add(new SqlParameter("@status", (int)yearRecord.Status));
 
 
 
@@ -72,7 +73,7 @@ namespace QalamAndNoor.DataManager
 
             string sqlStatement = "UPDATE[dbo].[YearRecord] SET " +
                                   "StudentId=@studentId,ClassId=@classId," +
-                                  "ClassRoomSchoolYearId=@classRoomSchoolYearId,DidPass=@didPass " +
+                                  "ClassRoomSchoolYearId=@classRoomSchoolYearId,Status=@status " +
                                   "WHERE ID=@id;";
 
 
@@ -85,7 +86,7 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@studentId", yearRecord.StudentId));
             sqlCommand.Parameters.Add(new SqlParameter("@classId", yearRecord.ClassId));
             sqlCommand.Parameters.Add(new SqlParameter("@classRoomSchoolYearId", yearRecord.ClassRoomSchoolYearId == null ? DBNull.Value : yearRecord.ClassRoomSchoolYearId));
-            sqlCommand.Parameters.Add(new SqlParameter("@didPass", yearRecord.DidPass ? "1" : "0"));
+            sqlCommand.Parameters.Add(new SqlParameter("@status", (int)yearRecord.Status));
 
 
 

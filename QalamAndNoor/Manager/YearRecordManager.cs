@@ -60,32 +60,32 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
-        public static List<YearRecord> GetDidPassedYearRescord()
-        {
-            List<YearRecord> yearRecords = GetYearRecords();
-            List<YearRecord> result = new List<YearRecord>();
-            foreach (YearRecord yearRecord in yearRecords)
-            {
-                if (yearRecord.DidPass == true)
-                {
-                    result.Add(yearRecord);
-                }
-            }
-            return result;
-        }
-        public static List<YearRecord> GetDidPassedYearRecordsByStudentId(int studentId)
-        {
-            List<YearRecord> yearRecords = GetDidPassedYearRescord();
-            List<YearRecord> result = new List<YearRecord>();
-            foreach (YearRecord yearRecord in yearRecords)
-            {
-                if (yearRecord.StudentId == studentId)
-                {
-                    result.Add(yearRecord);
-                }
-            }
-            return result;
-        }
+        //public static List<YearRecord> GetDidPassedYearRescord()
+        //{
+        //    List<YearRecord> yearRecords = GetYearRecords();
+        //    List<YearRecord> result = new List<YearRecord>();
+        //    foreach (YearRecord yearRecord in yearRecords)
+        //    {
+        //        if (yearRecord.DidPass == true)
+        //        {
+        //            result.Add(yearRecord);
+        //        }
+        //    }
+        //    return result;
+        //}
+        //public static List<YearRecord> GetDidPassedYearRecordsByStudentId(int studentId)
+        //{
+        //    List<YearRecord> yearRecords = GetDidPassedYearRescord();
+        //    List<YearRecord> result = new List<YearRecord>();
+        //    foreach (YearRecord yearRecord in yearRecords)
+        //    {
+        //        if (yearRecord.StudentId == studentId)
+        //        {
+        //            result.Add(yearRecord);
+        //        }
+        //    }
+        //    return result;
+        //}
         public static List<YearRecord> GetNewYearRecords()
         {
             Dictionary<int, YearRecord> uniqueStudents = new Dictionary<int,YearRecord>();

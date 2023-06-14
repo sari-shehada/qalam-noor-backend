@@ -44,12 +44,12 @@ namespace QalamAndNoor.Controllers
         {
             return YearRecordManager.GetYearRecordsByStudentId(studentId);
         }
-        [Route("YearRecordController/GetDidPassedYearRecordsByStudentId")]
-        [HttpGet]
-        public List<YearRecord> GetDidPassedYearRecordsByStudentId(int studentId)
-        {
-            return YearRecordManager.GetDidPassedYearRecordsByStudentId(studentId);
-        }
+        //[Route("YearRecordController/GetDidPassedYearRecordsByStudentId")]
+        //[HttpGet]
+        //public List<YearRecord> GetDidPassedYearRecordsByStudentId(int studentId)
+        //{
+        //    return YearRecordManager.GetDidPassedYearRecordsByStudentId(studentId);
+        //}
 
     }
 }

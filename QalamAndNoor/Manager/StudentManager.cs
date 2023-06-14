@@ -161,7 +161,7 @@ namespace QalamAndNoor.Manager
                 ID = -1,
                 StudentId = obj.Student.ID,
                 ClassId = obj.EnrolledClass.ID,
-                DidPass = false,
+                Status = 0,
                 ClassRoomSchoolYearId = -1,
             });
             #endregion

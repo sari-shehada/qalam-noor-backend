@@ -1,4 +1,6 @@
-﻿namespace QalamAndNoor.Models
+﻿using QalamAndNoor.Shared;
+
+namespace QalamAndNoor.Models
 {
     public class YearRecord
     {
@@ -6,6 +8,6 @@
         public int StudentId { get; set; }
         public int ClassId { get; set; }
         public int? ClassRoomSchoolYearId { get; set; }
-        public bool DidPass { get; set; }
+        public StudentStatusEnum  Status { get; set; }
     }
 }

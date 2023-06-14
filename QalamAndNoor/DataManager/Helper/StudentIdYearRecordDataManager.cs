@@ -1,4 +1,5 @@
-﻿using QalamAndNoor.Models;
+﻿using QalamAndNoor.Manager;
+using QalamAndNoor.Models;
 using QalamAndNoor.Models.HelperModels;
 using System.Data;
 using System.Data.SqlClient;
@@ -17,8 +18,10 @@ namespace QalamAndNoor.DataManager.Helper
         }
         public static List<StudentIdYearRecord> GetSuccessfulStudentIdsByClassId(int classId)
         {
+            Class cls = ClassManager.GetClassById(classId);
+
             //SQL Statement
-            string sqlStatement = $"select YearRecord.StudentId as StudentId from YearRecord where YearRecord.DidPass= 1 group by YearRecord.StudentId having MAX(YearRecord.ClassID) = {classId}";
+            string sqlStatement = $"select YearRecord.StudentId as StudentId from YearRecord where YearRecord.Status= 2 group by YearRecord.StudentId having MAX(YearRecord.ClassID) = {cls.PreviousClassId}";
             //Preparing SQL Command
             SqlCommand sqlCommand = new SqlCommand()
             {
@@ -32,7 +35,7 @@ namespace QalamAndNoor.DataManager.Helper
         public static List<StudentIdYearRecord> GetFailingStudentIdsByClassId(int classId)
         {
             //SQL Statement
-            string sqlStatement = $"select YearRecord.StudentId as StudentId from YearRecord where YearRecord.DidPass= 0  group by YearRecord.StudentId having MAX(YearRecord.ClassID) = {classId}";
+            string sqlStatement = $"select YearRecord.StudentId as StudentId from YearRecord where YearRecord.Status= 1  group by YearRecord.StudentId having MAX(YearRecord.ClassID) = {classId}";
             //Preparing SQL Command
             SqlCommand sqlCommand = new SqlCommand()
             {
