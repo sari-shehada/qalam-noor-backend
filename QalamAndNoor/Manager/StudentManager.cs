@@ -329,6 +329,14 @@ namespace QalamAndNoor.Manager
             try
             {
                 ClassRoomSchoolYear classRoomSchoolYear = ClassRoomSchoolYearManager.GetClassRoomSchoolYearByClassRoomIdAndSchoolYearId(newStudentRegistrationInSchoolYear.ClassRoomId, currentSchoolYearId);
+                if (classRoomSchoolYear == null)
+                {
+                    return new
+                    {
+                        message = "هذه الشعبة غير متاحة في هذا العام الدراسي",
+                        success = false,
+                    };
+                }
                 foreach (var item in newStudentRegistrationInSchoolYear.YearRecordId)
                 {
                     YearRecordManager.UpdateYearRecord(new YearRecord()
@@ -348,14 +356,14 @@ namespace QalamAndNoor.Manager
                         YearRecordId = item
                     })
                     );
-                   
-                    
+
+
 
                 }
                 return new
                 {
                     message = "تمت عملية تسجيل الطلاب بنجاح",
-                    success=true,
+                    success = true,
                 };
             }
             catch (Exception)
@@ -368,10 +376,68 @@ namespace QalamAndNoor.Manager
                 };
             }
         }
+
+        public static object RegistrationOldStudentInSchoolYear(OldStudentRegistration oldStudentRegistration)
+        {
+            List<int> semesterYearRecordIds = new List<int>();
+            List<int> yearRecordIds = new List<int>();
+            try
+            {
+                int currentSchoolYearId = SchoolYearManager.GetCurrentSchoolYear().ID;
+              
+                ClassRoomSchoolYear classRoomSchoolYear = ClassRoomSchoolYearManager.GetClassRoomSchoolYearByClassRoomIdAndSchoolYearId(oldStudentRegistration.ClassRoomId, currentSchoolYearId);
+                if (classRoomSchoolYear==null)
+                {
+                    return new
+                    {
+                        message = "هذه الشعبة غير متاحة في هذا العام الدراسي",
+                        success = false,
+                    };
+                }
+                
+                foreach (var item in oldStudentRegistration.StudentIds)
+                {
+                    int yearRecordId = YearRecordManager.InsertYearRecord(new YearRecord
+                    {
+
+                        ClassId = oldStudentRegistration.ClassId,
+                        ClassRoomSchoolYearId = classRoomSchoolYear.ID,
+                        StudentId = item,
+                        Status = StudentStatusEnum.NotDefined
+                    });
+                    int semesterYearRecordId = SemesterYearRecordManager.InsertSemsterYearRecord(new SemesterYearRecord
+                    {
+                        YearRecordId = yearRecordId,
+                        SemesterId = oldStudentRegistration.SemesterId
+                    });
+                    yearRecordIds.Add(yearRecordId);
+                    semesterYearRecordIds.Add(semesterYearRecordId);
+                }
+
+                return new
+                {
+                    message = "تمت عملية تسجيل الطلاب بنجاح",
+                    success = true,
+                };
+            }
+            catch (Exception)
+            {
+
+                RollBackOnRegistrationOldStudentInSchoolYear(semesterYearRecordIds, yearRecordIds);
+                return new
+                {
+                    message = "فشلت عملية تسجيل الطلاب ",
+                    success = false,
+                };
+            }
+
+
+        }
+
         private static bool RollBackOnRegistrationNewStudentInSchoolYear
             (List<int> semsterYearRecordIds, List<YearRecord> yearRecords)
         {
-           
+
             try
             {
                 if (semsterYearRecordIds.Count == 0 && yearRecords.Count == 0) return true;
@@ -398,7 +464,31 @@ namespace QalamAndNoor.Manager
 
 
 
+        private static bool RollBackOnRegistrationOldStudentInSchoolYear
+          (List<int> semsterYearRecordIds, List<int> yearRecordIds)
+        {
 
+            try
+            {
+                if (semsterYearRecordIds.Count == 0 && yearRecordIds.Count == 0) return true;
+                foreach (int item in semsterYearRecordIds)
+                {
+                    SemesterYearRecordManager.DeleteSemesterYearRecord
+                        (SemesterYearRecordManager.GetSemesterYearById(item));
+                }
+                foreach (int item in yearRecordIds)
+                {
+                    YearRecordManager.DeleteYearRecord(YearRecordManager.GetYearRecordById(item));
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                return false;
+            }
+
+        }
 
 
 

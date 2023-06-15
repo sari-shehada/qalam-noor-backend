@@ -152,6 +152,12 @@ namespace QalamAndNoor.Controllers
         {
             return StudentManager.RegistrationNewStudentInSchoolYear(newStudent);
         }
+        [Route("StudentController/RegistrationOldStudentInSchoolYear")]
+        [HttpPost]
+        public object RegistrationOldStudentInSchoolYear([FromBody] OldStudentRegistration oldStudent)
+        {
+            return StudentManager.RegistrationOldStudentInSchoolYear(oldStudent);
+        }
 
     }
 }
