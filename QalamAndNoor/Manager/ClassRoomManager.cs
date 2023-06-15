@@ -59,5 +59,18 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
+
+
+        public static List<ClassRoom> GetAvailableClassRoomsByClassId(int classId)
+        {
+            List<ClassRoomSchoolYear> classRoomSchoolYears = ClassRoomSchoolYearManager.GetClassRoomSchoolYears();
+            List<ClassRoom> classRooms = GetClassRoomsByClassId(classId);
+            List<ClassRoom> result = new List<ClassRoom>();
+            foreach (var item in classRoomSchoolYears)
+            {
+                result.Add(classRooms.First((x)=>x.ID!=item.ClassRoomId));
+            }
+            return result;
+        }
     }
 }

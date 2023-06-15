@@ -93,6 +93,30 @@ namespace QalamAndNoor.DataManager
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             return result;
         }
+        public static int UpdateNullCLassRoomSchoolYearYearRecord(YearRecord yearRecord)
+        {
+            if (yearRecord == null) return 0;
+
+            string sqlStatement = "UPDATE[dbo].[YearRecord] SET " +
+                                  "ClassRoomSchoolYearId=Null;";
+
+
+            SqlCommand sqlCommand = new SqlCommand()
+            {
+                CommandText = sqlStatement,
+                CommandType = CommandType.Text,
+            };
+            sqlCommand.Parameters.Add(new SqlParameter("@id", yearRecord.ID));
+            sqlCommand.Parameters.Add(new SqlParameter("@studentId", yearRecord.StudentId));
+            sqlCommand.Parameters.Add(new SqlParameter("@classId", yearRecord.ClassId));
+            sqlCommand.Parameters.Add(new SqlParameter("@classRoomSchoolYearId", yearRecord.ClassRoomSchoolYearId == null ? DBNull.Value : yearRecord.ClassRoomSchoolYearId));
+            sqlCommand.Parameters.Add(new SqlParameter("@status", (int)yearRecord.Status));
+
+
+
+            int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
+            return result;
+        }
         public static int DeleteYearRecord(YearRecord yearRecord)
         {
             if (yearRecord == null) return 0;

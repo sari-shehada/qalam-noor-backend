@@ -13,17 +13,21 @@ namespace QalamAndNoor.Manager
             List<StudentYearRecords> studentYearRecords = new List<StudentYearRecords>();
             foreach (var item in yearRecords)
             {
-                ClassRoomSchoolYear classRoomSchoolYear =
-                   ClassRoomSchoolYearManager.GetClassRoomSchoolYearById(item.ClassRoomSchoolYearId!.Value)!;
-
-                studentYearRecords.Add(new StudentYearRecords()
+                if (item.ClassRoomSchoolYearId != null)
                 {
-                    SchoolYear = SchoolYearManager.GetSchoolYearById(classRoomSchoolYear.SchoolYearId)!,
-                    Semsters = SemesterManager.GetSemestersBySchoolYearId(classRoomSchoolYear.SchoolYearId),
-                    Class = ClassManager.GetClassById(item.ClassId),
-                    ClassRoom = ClassRoomManager.GetClassRoomById(classRoomSchoolYear.ClassRoomId),
-                    YearRecord = YearRecordManager.GetYearRecordById(item.ID)
-                });
+
+                    ClassRoomSchoolYear classRoomSchoolYear =
+                       ClassRoomSchoolYearManager.GetClassRoomSchoolYearById(item.ClassRoomSchoolYearId!.Value)!;
+
+                    studentYearRecords.Add(new StudentYearRecords()
+                    {
+                        SchoolYear = SchoolYearManager.GetSchoolYearById(classRoomSchoolYear.SchoolYearId)!,
+                        Semsters = SemesterManager.GetSemestersBySchoolYearId(classRoomSchoolYear.SchoolYearId),
+                        Class = ClassManager.GetClassById(item.ClassId),
+                        ClassRoom = ClassRoomManager.GetClassRoomById(classRoomSchoolYear.ClassRoomId),
+                        YearRecord = YearRecordManager.GetYearRecordById(item.ID)
+                    });
+                }
             }
             return studentYearRecords;
         }

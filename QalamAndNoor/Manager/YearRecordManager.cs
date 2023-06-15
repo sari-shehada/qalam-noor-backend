@@ -121,7 +121,19 @@ namespace QalamAndNoor.Manager
 
         }
 
-
+        public static List<YearRecord> GetYearRecordsByClassRoomSchoolYearId(int id)
+        {
+            List<YearRecord> yearRecords = GetYearRecords();
+            List<YearRecord> result = new List<YearRecord>();
+            foreach (YearRecord item in yearRecords)
+            {
+                if (item.ClassRoomSchoolYearId==id)
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
+        }
         //public static YearRecord GetHighestYearRecordForStudentByStudentId(int studentId)
         //{
         //    return 

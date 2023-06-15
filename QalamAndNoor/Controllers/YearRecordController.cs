@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using QalamAndNoor.DataManager;
 using QalamAndNoor.Manager;
 using QalamAndNoor.Models;
 
@@ -50,6 +51,12 @@ namespace QalamAndNoor.Controllers
         //{
         //    return YearRecordManager.GetDidPassedYearRecordsByStudentId(studentId);
         //}
+        [Route("YearRecordController/UpdateNullCLassRoomSchoolYearYearRecord")]
+        [HttpPost]
+        public int UpdateNullCLassRoomSchoolYearYearRecord([FromBody] YearRecord record)
+        {
+            return YearRecordDataManager.UpdateNullCLassRoomSchoolYearYearRecord(record);
+        }
 
     }
 }

@@ -56,5 +56,17 @@ namespace QalamAndNoor.Controllers
         {
             return ClassRoomSchoolYearManager.OpenCLassRoomsInSchoolYear(CLassRoomIds);
         }
+        [Route("ClassRoomSchoolYearController/GetClassRoomSchoolYearByClassRoomIdAndSchoolYearId")]
+        [HttpGet]
+        public ClassRoomSchoolYear GetClassRoomSchoolYearByClassRoomIdAndSchoolYearId(int classRoomId,int schoolYearId)
+        {
+            return ClassRoomSchoolYearManager.GetClassRoomSchoolYearByClassRoomIdAndSchoolYearId(classRoomId,schoolYearId);
+        }
+        [Route("ClassRoomSchoolYearController/CloseClassRoomInSchoolYearByClassRoomId")]
+        [HttpGet]
+        public object CloseClassRoomInSchoolYearByClassRoomId(int classRoomId)
+        {
+            return ClassRoomSchoolYearManager.CloseClassRoomInSchoolYearByClassRoomId(classRoomId);
+        }
     }
 }

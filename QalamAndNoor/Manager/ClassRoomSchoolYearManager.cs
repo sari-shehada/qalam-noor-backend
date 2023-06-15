@@ -115,13 +115,44 @@ namespace QalamAndNoor.Manager
             List<ClassRoomSchoolYear> result = new List<ClassRoomSchoolYear>();
             foreach (ClassRoomSchoolYear item in classRoomSchoolYears)
             {
-                if (item.SchoolYearId==schoolYearId&&item.ClassRoomId==classRoomId)
+                if (item.SchoolYearId == schoolYearId && item.ClassRoomId == classRoomId)
                 {
                     return item;
                 }
             }
             return null;
-           
+        }
+
+        public static object CloseClassRoomInSchoolYearByClassRoomId(int classRoomId)
+        {
+            ClassRoomSchoolYear classRoomSchoolYear =
+                GetClassRoomSchoolYearByClassRoomIdAndSchoolYearId(classRoomId, SchoolYearManager.GetCurrentSchoolYear().ID);
+            if (classRoomSchoolYear != null)
+            {
+
+                List<YearRecord> yearRecords = YearRecordManager.GetYearRecordsByClassRoomSchoolYearId(classRoomSchoolYear.ID);
+                if (yearRecords.Count == 0)
+                {
+                    DeleteClassRoomSchoolYear(classRoomSchoolYear);
+                    return new
+                    {
+                        message = "تمت عملبة اغلاق الشعبةالمحددة بنجاح",
+                        Success = true
+                    };
+                }
+                return new
+                {
+                    Message = "تعذرت عملية اغلاق الشعبة المحددة لانها تحوي طلاب",
+                    Success = false
+
+                };
+            }
+
+            return new
+            {
+                Message = "هذه الشعبة غير متاحة في العام الدراسي الحالي",
+                Success=false
+            };
         }
     }
 }
