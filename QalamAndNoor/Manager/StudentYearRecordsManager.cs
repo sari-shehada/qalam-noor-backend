@@ -22,7 +22,7 @@ namespace QalamAndNoor.Manager
                     studentYearRecords.Add(new StudentYearRecords()
                     {
                         SchoolYear = SchoolYearManager.GetSchoolYearById(classRoomSchoolYear.SchoolYearId)!,
-                        Semsters = SemesterManager.GetSemestersBySchoolYearId(classRoomSchoolYear.SchoolYearId),
+                        Semesters = SemesterManager.GetSemestersBySchoolYearId(classRoomSchoolYear.SchoolYearId),
                         Class = ClassManager.GetClassById(item.ClassId),
                         ClassRoom = ClassRoomManager.GetClassRoomById(classRoomSchoolYear.ClassRoomId),
                         YearRecord = YearRecordManager.GetYearRecordById(item.ID)

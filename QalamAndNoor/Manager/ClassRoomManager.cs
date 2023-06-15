@@ -63,14 +63,45 @@ namespace QalamAndNoor.Manager
 
         public static List<ClassRoom> GetAvailableClassRoomsByClassId(int classId)
         {
-            List<ClassRoomSchoolYear> classRoomSchoolYears = ClassRoomSchoolYearManager.GetClassRoomSchoolYears();
-            List<ClassRoom> classRooms = GetClassRoomsByClassId(classId);
-            List<ClassRoom> result = new List<ClassRoom>();
-            foreach (var item in classRoomSchoolYears)
+            List<ClassRoomSchoolYear> classRoomSchoolYears = ClassRoomSchoolYearManager.
+                GetClassRoomSchoolYearsBySchoolYearId(SchoolYearManager.GetCurrentSchoolYear().ID);
+            List<ClassRoom> classroomsInClass = GetClassRoomsByClassId(classId);
+            List<ClassRoom> alreadyOpenClassrooms=new List<ClassRoom>();
+            foreach (var classroomSchoolYear in classRoomSchoolYears)
             {
-                result.Add(classRooms.First((x)=>x.ID!=item.ClassRoomId));
+                foreach (ClassRoom classroom in classroomsInClass)
+                {
+                    if(classroom.ID!= classroomSchoolYear.ClassRoomId)
+                    {
+                        continue;
+                    }
+                    alreadyOpenClassrooms.Add(classroom);
+                }
+                
             }
-            return result;
+            List<ClassRoom> readyToOpenClassrooms = classroomsInClass.Where((e) => !alreadyOpenClassrooms.Contains(e)).ToList();
+            return readyToOpenClassrooms;
+        }
+
+        public static List<ClassRoom> GetAlreadyOpenClassRoomsByClassId(int classId)
+        {
+            List<ClassRoomSchoolYear> classRoomSchoolYears = ClassRoomSchoolYearManager.
+                GetClassRoomSchoolYearsBySchoolYearId(SchoolYearManager.GetCurrentSchoolYear().ID);
+            List<ClassRoom> classroomsInClass = GetClassRoomsByClassId(classId);
+            List<ClassRoom> alreadyOpenClassrooms = new List<ClassRoom>();
+            foreach (var classroomSchoolYear in classRoomSchoolYears)
+            {
+                foreach (ClassRoom classroom in classroomsInClass)
+                {
+                    if (classroom.ID != classroomSchoolYear.ClassRoomId)
+                    {
+                        continue;
+                    }
+                    alreadyOpenClassrooms.Add(classroom);
+                }
+
+            }
+            return alreadyOpenClassrooms;
         }
     }
 }

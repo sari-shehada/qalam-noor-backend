@@ -203,7 +203,6 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
-
         public static List<Student> GetSuccessfulStudentsByClassId(int classId)
         {
             List<StudentIdYearRecord> studentIdYearRecords = StudentIdYearRecordDataManager.GetSuccessfulStudentIdsByClassId(classId);
@@ -324,11 +323,12 @@ namespace QalamAndNoor.Manager
 
         public static object RegistrationNewStudentInSchoolYear(NewStudentRegistrationInSchoolYear newStudentRegistrationInSchoolYear)
         {
+            int currentSchoolYearId = SchoolYearManager.GetCurrentSchoolYear().ID;
             List<YearRecord> yearRecords = new List<YearRecord>();
             List<int> semesterIds = new List<int>();
             try
             {
-                ClassRoomSchoolYear classRoomSchoolYear = ClassRoomSchoolYearManager.GetClassRoomSchoolYearByClassRoomIdAndSchoolYearId(newStudentRegistrationInSchoolYear.ClassRoomId, newStudentRegistrationInSchoolYear.SchoolYearId);
+                ClassRoomSchoolYear classRoomSchoolYear = ClassRoomSchoolYearManager.GetClassRoomSchoolYearByClassRoomIdAndSchoolYearId(newStudentRegistrationInSchoolYear.ClassRoomId, currentSchoolYearId);
                 foreach (var item in newStudentRegistrationInSchoolYear.YearRecordId)
                 {
                     YearRecordManager.UpdateYearRecord(new YearRecord()

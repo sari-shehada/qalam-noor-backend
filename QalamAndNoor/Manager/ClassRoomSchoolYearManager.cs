@@ -75,9 +75,9 @@ namespace QalamAndNoor.Manager
             return result;
         }
 
-        public static List<ItemOr> OpenCLassRoomsInSchoolYear(List<int> ClassRoomIds)
+        public static bool OpenCLassRoomsInSchoolYear(List<int> ClassRoomIds)
         {
-            List<ItemOr> itemOrs = new List<ItemOr>();
+            bool didSucceed = true;
             foreach (var item in ClassRoomIds)
             {
                 int CurrentSchoolYear = SchoolYearManager.GetCurrentSchoolYear().ID;
@@ -86,27 +86,13 @@ namespace QalamAndNoor.Manager
                     ClassRoomId = item,
                     SchoolYearId = CurrentSchoolYear
                 });
-                if (result != 0)
+                if (result == 0)
                 {
-                    itemOrs.Add(new ItemOr()
-                    {
-                        Item = GetClassRoomSchoolYearById(result),
-                        Success = true
-                    }
-                    );
+                    didSucceed = false;
                 }
-                else
-                {
-                    itemOrs.Add(new ItemOr()
-                    {
-                        Item = null,
-                        Success = false
-                    }
-                       );
-                }
-
             }
-            return itemOrs;
+
+            return didSucceed;
         }
 
         public static ClassRoomSchoolYear GetClassRoomSchoolYearByClassRoomIdAndSchoolYearId(int classRoomId, int schoolYearId)
@@ -151,7 +137,7 @@ namespace QalamAndNoor.Manager
             return new
             {
                 Message = "هذه الشعبة غير متاحة في العام الدراسي الحالي",
-                Success=false
+                Success = false
             };
         }
     }

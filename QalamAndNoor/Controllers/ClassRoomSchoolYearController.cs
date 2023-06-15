@@ -52,7 +52,7 @@ namespace QalamAndNoor.Controllers
         }
         [Route("ClassRoomSchoolYearController/OpenCLassRoomsInSchoolYear")]
         [HttpPost]
-        public List<ItemOr> OpenCLassRoomsInSchoolYear([FromBody] List<int> CLassRoomIds)
+        public bool OpenCLassRoomsInSchoolYear([FromBody] List<int> CLassRoomIds)
         {
             return ClassRoomSchoolYearManager.OpenCLassRoomsInSchoolYear(CLassRoomIds);
         }

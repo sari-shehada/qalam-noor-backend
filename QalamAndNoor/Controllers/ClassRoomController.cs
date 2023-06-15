@@ -56,5 +56,11 @@ namespace QalamAndNoor.Controllers
         {
             return ClassRoomManager.GetAvailableClassRoomsByClassId(classId);
         }
+        [Route("ClassRoomController/GetAlreadyOpenClassRoomsByClassId")]
+        [HttpGet]
+        public List<ClassRoom> GetAlreadyOpenClassRoomsByClassId(int classId)
+        {
+            return ClassRoomManager.GetAlreadyOpenClassRoomsByClassId(classId);
+        }
     }
 }

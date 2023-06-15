@@ -2,7 +2,6 @@
 {
     public class NewStudentRegistrationInSchoolYear
     {
-        public int SchoolYearId { get; set; }
         public int ClassRoomId { get; set; }
         public List<int> YearRecordId { get; set; } = new List<int>();
         public int SemesterId { get; set; }
