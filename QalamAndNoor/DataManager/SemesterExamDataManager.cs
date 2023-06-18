@@ -1,4 +1,6 @@
-﻿using QalamAndNoor.Models;
+﻿using QalamAndNoor.Manager;
+using QalamAndNoor.Models;
+using QalamAndNoor.Models.HelperModels.DbHelper;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -99,6 +101,21 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@id", semesterExam.ID));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
+            return result;
+        }
+
+        public static List<SemesterExam> GetIsDoneSemesterExams()
+        {
+            //SQL Statement
+            string sqlStatement = $"select * from SemesterExam\r\nwhere SemesterExam.SemesterId in (\r\n\tselect SemesterYearRecord.id \r\n\tfrom SemesterYearRecord \r\n\twhere SemesterYearRecord.SemesterId = {SemesterManager.GetCurrentSemesterInCurrentSchoolYear().ID})\r\n";
+            //Preparing SQL Command
+            SqlCommand sqlCommand = new SqlCommand()
+            {
+                CommandText = sqlStatement,
+                CommandType = CommandType.Text,
+            };
+            //Execute Query
+            List<SemesterExam> result = BaseDataManager.GetSPItems<SemesterExam>(sqlCommand, SemesterExamMapper);
             return result;
         }
 

@@ -528,7 +528,7 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
-        public static ItemOr InsertStudentsMark(StudentExamMarkInsertion studentExamMarkInsertion)
+        public static object InsertStudentsMark(StudentExamMarkInsertion studentExamMarkInsertion)
         {
             ItemOr itemOr = new ItemOr();
             Debug.WriteLine(studentExamMarkInsertion.StudentMark);
@@ -544,17 +544,17 @@ namespace QalamAndNoor.Manager
                 });
                 if (res == 0)
                 {
-                    return  new ItemOr()
+                    return  new 
                     {
-                        Item = null,
+                        Message = "فشلت عملية ادخال العلامات",
                         Success = false
                     };
                 }
             }
-            return new ItemOr
+            return new 
             {
-                Item= "",
-                Success = true,
+                Message = "تمت عملية ادخال العلامات بنجاح",
+                Success = true
             };
 
 

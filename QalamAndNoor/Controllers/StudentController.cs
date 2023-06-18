@@ -172,7 +172,7 @@ namespace QalamAndNoor.Controllers
         }
         [Route("StudentController/InsertStudentsMark")]
         [HttpPost]
-        public ItemOr InsertStudentsMark([FromBody]StudentExamMarkInsertion studentExamMarkInsertion)
+        public object InsertStudentsMark([FromBody]StudentExamMarkInsertion studentExamMarkInsertion)
         {
             return StudentManager.InsertStudentsMark(studentExamMarkInsertion);
         }
