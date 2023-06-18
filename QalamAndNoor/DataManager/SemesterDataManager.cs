@@ -103,6 +103,24 @@ namespace QalamAndNoor.DataManager
             return result;
         }
 
+        public static int FinishSemester(Semester semester)
+        {
+            if (semester == null) return 0;
+
+            string sqlStatement = "UPDATE  [dbo].[Semester] SET " +
+                                  "IsDone=1 " +
+                                  "WHERE ID=@id;";
+
+            SqlCommand sqlCommand = new SqlCommand()
+            {
+                CommandText = sqlStatement,
+                CommandType = CommandType.Text,
+            };
+            sqlCommand.Parameters.Add(new SqlParameter("@id", semester.ID));
+
+            int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
+            return result;
+        }
 
         #endregion
     }

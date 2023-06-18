@@ -1,5 +1,7 @@
 ﻿using QalamAndNoor.DataManager;
+using QalamAndNoor.DataManager.ViewsDataManager;
 using QalamAndNoor.Models;
+using QalamAndNoor.Models.HelperModels.DbHelper;
 
 namespace QalamAndNoor.Manager
 {
@@ -87,7 +89,7 @@ namespace QalamAndNoor.Manager
             List<Semester> result = new List<Semester>();
             foreach (Semester item in semesters)
             {
-                if (item.SchoolYearId==schoolYearId)
+                if (item.SchoolYearId == schoolYearId)
                 {
                     result.Add(item);
                 }
@@ -98,18 +100,39 @@ namespace QalamAndNoor.Manager
         {
             return GetSemesterById(GetCurrentSemesterIdInCurrentSchoolYear());
         }
-       
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
         private static int GetCurrentSemesterIdInCurrentSchoolYear()
         {
             List<Semester> semesters = GetSemestersInCurrentSchoolYear();
             return semesters.Max(x => x.ID);
+        }
+        public static object FinishedCurrentSemester()
+        {
+            Semester semester = GetCurrentSemesterInCurrentSchoolYear();
+            List<StudentReport> studentReports = StudentReportViewDataManager.GetStudentReports();
+            if (studentReports.Count == 0)
+            {
+                SemesterDataManager.FinishSemester(semester);
+                return new
+                {
+                    Message = "تم انهاء الفصل الحالي بنجاح",
+                    Success = true
+                };
+            }
+            return new
+            {
+                Message = "تعذرت عملية انهاء الفصل الحالي ",
+                Success = false,
+                Reports= StudentReportViewDataManager.GetStudentReports()
+        };
+
         }
     }
 }

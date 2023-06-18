@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using QalamAndNoor.DataManager;
+using QalamAndNoor.DataManager.ViewsDataManager;
 using QalamAndNoor.Manager;
 using QalamAndNoor.Manager.ViewsManager;
 using QalamAndNoor.Models;
 using QalamAndNoor.Models.HelperModels;
+using QalamAndNoor.Models.HelperModels.DbHelper;
 
 namespace QalamAndNoor.Controllers
 {
@@ -175,6 +177,12 @@ namespace QalamAndNoor.Controllers
         public object InsertStudentsMark([FromBody]StudentExamMarkInsertion studentExamMarkInsertion)
         {
             return StudentManager.InsertStudentsMark(studentExamMarkInsertion);
+        }
+        [Route("StudentController/GetStudentReports")]
+        [HttpGet]
+        public List<StudentReport> GetStudentReports()
+        {
+            return StudentReportViewDataManager.GetStudentReports();
         }
 
     }
