@@ -40,12 +40,17 @@ namespace QalamAndNoor.Manager
             List<Father> result = new List<Father>();
             foreach (Father father in fathers)
             {
-                if (father.TieNumber==tieNumber)
+                if (father.TieNumber == tieNumber)
                 {
                     result.Add(father);
                 }
             }
             return result;
+        }
+        public static Father GetFatherByStudentId(int studentId)
+        {
+            Family family = FamilyManager.GetFamilyByStudentId(studentId);
+            return GetFatherById(family.FatherId);
         }
     }
 }

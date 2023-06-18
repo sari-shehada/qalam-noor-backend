@@ -21,7 +21,7 @@ namespace QalamAndNoor.Manager
         {
             return SemesterExamDataManager.DeleteSemesterExam(semesterExam);
         }
-        public static SemesterExam GetSemesterExamById(int id)
+        public static SemesterExam? GetSemesterExamById(int id)
         {
             List<SemesterExam> semesterExams = GetSemesterExams();
             foreach (SemesterExam semesterExam in semesterExams)
@@ -29,6 +29,18 @@ namespace QalamAndNoor.Manager
                 if (semesterExam.ID==id)
                 {
                     return semesterExam;
+                }
+            }
+            return null;
+        }
+        public static SemesterExam? GetSemesterExamByExamIdAndCourseIdAndSemesterYearRecordId(int examId,int semesterYearRecordId,int courseId)
+        {
+            List<SemesterExam> semesterExams = GetSemesterExams();
+            foreach (SemesterExam item in semesterExams)
+            {
+                if (item.ExamId==examId&&item.CourseId==courseId&&item.SemesterYearecordId==semesterYearRecordId)
+                {
+                    return item;
                 }
             }
             return null;

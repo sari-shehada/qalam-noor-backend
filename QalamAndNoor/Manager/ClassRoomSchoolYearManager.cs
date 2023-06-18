@@ -22,7 +22,7 @@ namespace QalamAndNoor.Manager
         {
             return ClassRoomSchoolYearDataManager.DeleteClassRoomSchoolYear(cls);
         }
-        public static ClassRoomSchoolYear GetClassRoomSchoolYearById(int id)
+        public static ClassRoomSchoolYear? GetClassRoomSchoolYearById(int id)
         {
             List<ClassRoomSchoolYear> classRoomSchoolYears = GetClassRoomSchoolYears();
             foreach (ClassRoomSchoolYear cls in classRoomSchoolYears)
@@ -95,7 +95,7 @@ namespace QalamAndNoor.Manager
             return didSucceed;
         }
 
-        public static ClassRoomSchoolYear GetClassRoomSchoolYearByClassRoomIdAndSchoolYearId(int classRoomId, int schoolYearId)
+        public static ClassRoomSchoolYear? GetClassRoomSchoolYearByClassRoomIdAndSchoolYearId(int classRoomId, int schoolYearId)
         {
             List<ClassRoomSchoolYear> classRoomSchoolYears = GetClassRoomSchoolYears();
             List<ClassRoomSchoolYear> result = new List<ClassRoomSchoolYear>();

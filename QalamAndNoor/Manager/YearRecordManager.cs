@@ -33,14 +33,14 @@ namespace QalamAndNoor.Manager
             }
             return null;
         }
-       
+
         public static List<YearRecord> GetNewYearRecordNullClassRoomSchoolYearId()
         {
             List<YearRecord> yearRecords = GetYearRecords();
             List<YearRecord> result = new List<YearRecord>();
             foreach (YearRecord item in yearRecords)
             {
-                if (item.ClassRoomSchoolYearId==null)
+                if (item.ClassRoomSchoolYearId == null)
                 {
                     result.Add(item);
                 }
@@ -88,31 +88,32 @@ namespace QalamAndNoor.Manager
         //}
         public static List<YearRecord> GetNewYearRecords()
         {
-            Dictionary<int, YearRecord> uniqueStudents = new Dictionary<int,YearRecord>();
+            Dictionary<int, YearRecord> uniqueStudents = new Dictionary<int, YearRecord>();
             List<YearRecord> yearRecords = GetNewYearRecordNullClassRoomSchoolYearId();
-            
+
             foreach (YearRecord yearRecord in yearRecords)
             {
-                if(uniqueStudents.ContainsKey(yearRecord.StudentId))
+                if (uniqueStudents.ContainsKey(yearRecord.StudentId))
                 {
                     uniqueStudents.Remove(yearRecord.StudentId);
                 }
-                else{
-                    uniqueStudents.Add(yearRecord.StudentId,yearRecord);
+                else
+                {
+                    uniqueStudents.Add(yearRecord.StudentId, yearRecord);
                 }
             }
             return uniqueStudents.Values.ToList();
         }
         public static List<YearRecord> GetNewYearRecordsBYClassID(int classID)
         {
-            return GetNewYearRecords().Where((e) => e.ClassId == classID && e.ClassRoomSchoolYearId==null).ToList();
+            return GetNewYearRecords().Where((e) => e.ClassId == classID && e.ClassRoomSchoolYearId == null).ToList();
         }
-      
+
         public static List<YearRecord> GetYearRecordsInCurrentSchoolYear()
         {
             List<ClassRoomSchoolYear> classRoomSchoolYears = ClassRoomSchoolYearManager.GetClassRoomSchoolYearsInCurrentSchoolYear();
             List<YearRecord> yearRecords = GetYearRecords();
-            List<YearRecord> result= new List<YearRecord>();
+            List<YearRecord> result = new List<YearRecord>();
             foreach (var item in classRoomSchoolYears)
             {
                 result.Add(yearRecords.First((x) => x.ClassRoomSchoolYearId == item.ID));
@@ -127,16 +128,41 @@ namespace QalamAndNoor.Manager
             List<YearRecord> result = new List<YearRecord>();
             foreach (YearRecord item in yearRecords)
             {
-                if (item.ClassRoomSchoolYearId==id)
+                if (item.ClassRoomSchoolYearId == id)
                 {
                     result.Add(item);
                 }
             }
             return result;
         }
-        //public static YearRecord GetHighestYearRecordForStudentByStudentId(int studentId)
-        //{
-        //    return 
-        //}
+        public static List<YearRecord> GetYearRecordsByClassRoomIdAndSchoolYearId(int classRoomId, int schoolYearId)
+        {
+            ClassRoomSchoolYear classRoomSchoolYear = ClassRoomSchoolYearManager.
+                GetClassRoomSchoolYearByClassRoomIdAndSchoolYearId(classRoomId, schoolYearId);
+            if (classRoomSchoolYear == null)
+            {
+                return new List<YearRecord>();
+            }
+            List<YearRecord> yearRecords = GetYearRecords();
+            List<YearRecord> result = new List<YearRecord>();
+            foreach (YearRecord item in yearRecords)
+            {
+                if (item.ClassRoomSchoolYearId == classRoomSchoolYear.ID)
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
+        }
+        public static List<YearRecord> GetYearRecordsinCurrentSchoolYear()
+        {
+            int schoolYearId = SchoolYearManager.GetCurrentSchoolYear().ID;
+            List<int> classRoomSchoolYearsIds = ClassRoomSchoolYearManager.
+                GetClassRoomSchoolYearsBySchoolYearId(schoolYearId).Select((e) => e.ID).ToList();
+            List<YearRecord> yearRecords = GetYearRecords();
+            List<YearRecord> result = new List<YearRecord>();
+            result = yearRecords.Where((e) => classRoomSchoolYearsIds.Contains(e.ClassRoomSchoolYearId ?? -1)).ToList();
+            return result;
+        }
     }
 }

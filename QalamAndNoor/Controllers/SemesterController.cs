@@ -36,6 +36,12 @@ namespace QalamAndNoor.Controllers
         {
             return SemesterManager.GetSemesterById(id);
         }
+        [Route("SemesterController/GetCurrentSemesterInCurrentSchoolYear")]
+        [HttpGet]
+        public Semester GetCurrentSemesterInCurrentSchoolYear()
+        {
+            return SemesterManager.GetCurrentSemesterInCurrentSchoolYear();
+        }
 
     }
 }

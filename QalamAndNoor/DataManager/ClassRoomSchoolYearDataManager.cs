@@ -9,6 +9,8 @@ namespace QalamAndNoor.DataManager
         #region Mappers
         private static ClassRoomSchoolYear ClassRoomSchoolYearMapper(IDataReader dataReader)
         {
+            
+            
             ClassRoomSchoolYear tempClassRoomSchoolYear = new ClassRoomSchoolYear()
             {
                 ID = Convert.ToInt32(dataReader["ID"].ToString()),

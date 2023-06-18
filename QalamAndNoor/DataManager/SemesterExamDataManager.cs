@@ -13,7 +13,7 @@ namespace QalamAndNoor.DataManager
             {
                 ID = Convert.ToInt32(dataReader["ID"].ToString()),
                 ExamId = Convert.ToInt32(dataReader["ExamId"].ToString()),
-                SemesterId = Convert.ToInt32(dataReader["SemesterId"].ToString()),
+                SemesterYearecordId = Convert.ToInt32(dataReader["SemesterId"].ToString()),
                 ObtainedGrade = Convert.ToDouble(dataReader["ObtainedGrade"].ToString()),
                 CourseId = Convert.ToInt32(dataReader["CourseId"].ToString()),
             };
@@ -51,7 +51,7 @@ namespace QalamAndNoor.DataManager
                 CommandType = CommandType.Text,
             };
             sqlCommand.Parameters.Add(new SqlParameter("@examId", semesterExam.ExamId));
-            sqlCommand.Parameters.Add(new SqlParameter("@semesterId", semesterExam.SemesterId));
+            sqlCommand.Parameters.Add(new SqlParameter("@semesterId", semesterExam.SemesterYearecordId));
             sqlCommand.Parameters.Add(new SqlParameter("@obtainedGrade", semesterExam.ObtainedGrade));
             sqlCommand.Parameters.Add(new SqlParameter("@courseId", semesterExam.CourseId));
 
@@ -79,7 +79,7 @@ namespace QalamAndNoor.DataManager
             };
             sqlCommand.Parameters.Add(new SqlParameter("@id", semesterExam.ID));
             sqlCommand.Parameters.Add(new SqlParameter("@examId", semesterExam.ExamId));
-            sqlCommand.Parameters.Add(new SqlParameter("@semesterId", semesterExam.SemesterId));
+            sqlCommand.Parameters.Add(new SqlParameter("@semesterId", semesterExam.SemesterYearecordId));
             sqlCommand.Parameters.Add(new SqlParameter("@obtainedGrade", semesterExam.ObtainedGrade));
             sqlCommand.Parameters.Add(new SqlParameter("@courseId", semesterExam.CourseId));
 

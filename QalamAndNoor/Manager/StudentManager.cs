@@ -29,7 +29,7 @@ namespace QalamAndNoor.Manager
         {
             return StudentDataManager.DeleteStudent(student);
         }
-        public static Student GetStudentById(int id)
+        public static Student? GetStudentById(int id)
         {
             List<Student> students = GetStudents();
             foreach (Student student in students)
@@ -241,9 +241,25 @@ namespace QalamAndNoor.Manager
             return result;
         }
 
-        public static List<Student> GetIsActiveStudentsInCurrentSchoolYear()
+        public static List<Student> GetStudentsInCurrentSchoolYear()
+
+
         {
-            List<YearRecord> yearRecords = YearRecordManager.GetYearRecordsInCurrentSchoolYear();
+            List<YearRecord> yearRecords = YearRecordManager.GetYearRecordsinCurrentSchoolYear();
+            List<Student> students = GetStudents();
+            List<Student> result = new List<Student>();
+            foreach (var item in yearRecords)
+            {
+                result.Add(students.First((x) => x.ID == item.StudentId));
+            }
+            return result;
+        }
+
+        public static List<Student> GetActiceStudentsInSchoolYearByClassRoomId(int classRoomId)
+        {
+            int schoolYearId = SchoolYearManager.GetCurrentSchoolYear().ID;
+            List<YearRecord> yearRecords = YearRecordManager.
+                GetYearRecordsByClassRoomIdAndSchoolYearId(classRoomId, schoolYearId);
             List<Student> students = GetIsActiveStudent();
             List<Student> result = new List<Student>();
             foreach (var item in yearRecords)
@@ -384,9 +400,9 @@ namespace QalamAndNoor.Manager
             try
             {
                 int currentSchoolYearId = SchoolYearManager.GetCurrentSchoolYear().ID;
-              
+
                 ClassRoomSchoolYear classRoomSchoolYear = ClassRoomSchoolYearManager.GetClassRoomSchoolYearByClassRoomIdAndSchoolYearId(oldStudentRegistration.ClassRoomId, currentSchoolYearId);
-                if (classRoomSchoolYear==null)
+                if (classRoomSchoolYear == null)
                 {
                     return new
                     {
@@ -394,7 +410,7 @@ namespace QalamAndNoor.Manager
                         success = false,
                     };
                 }
-                
+
                 foreach (var item in oldStudentRegistration.StudentIds)
                 {
                     int yearRecordId = YearRecordManager.InsertYearRecord(new YearRecord
@@ -491,7 +507,58 @@ namespace QalamAndNoor.Manager
         }
 
 
+        public static List<StudentExamMark> GetStudentExamMarks(int courseId, int examId, int classRoomId)
+        {
 
+            List<StudentExamMark> result = new List<StudentExamMark>();
+            int schoolYearId = SchoolYearManager.GetCurrentSchoolYear().ID;
+            List<YearRecord> yearRecords = YearRecordManager.
+                GetYearRecordsByClassRoomIdAndSchoolYearId(classRoomId, schoolYearId);
+            foreach (var item in yearRecords)
+            {
+                result.Add(new StudentExamMark
+                {
+                    Student = GetStudentById(item.StudentId),
+                    YearRecord = item,
+                    SemesterExam = SemesterExamManager.GetSemesterExamByExamIdAndCourseIdAndSemesterYearRecordId
+                    (examId, SemesterYearRecordManager.GetSemesterYearRecordByYearRecordIdInCurrentSemester(item.ID).ID, courseId),
+                    Father = FatherManager.GetFatherByStudentId(item.StudentId)
+                }
+                );
+            }
+            return result;
+        }
+        public static ItemOr InsertStudentsMark(StudentExamMarkInsertion studentExamMarkInsertion)
+        {
+            ItemOr itemOr = new ItemOr();
+            Debug.WriteLine(studentExamMarkInsertion.StudentMark);
+            foreach (int item in studentExamMarkInsertion.StudentMark.Keys)
+            {
+                int res = SemesterExamManager.InsertSemesterExam(new SemesterExam
+                {
+                    ID = -1,
+                    CourseId = studentExamMarkInsertion.CourseId,
+                    ExamId = studentExamMarkInsertion.ExamId,
+                    SemesterYearecordId = SemesterYearRecordManager.GetSemesterYearRecordByYearRecordIdInCurrentSemester(item).ID,
+                    ObtainedGrade = studentExamMarkInsertion.StudentMark[item]
+                });
+                if (res == 0)
+                {
+                    return  new ItemOr()
+                    {
+                        Item = null,
+                        Success = false
+                    };
+                }
+            }
+            return new ItemOr
+            {
+                Item= "",
+                Success = true,
+            };
+
+
+        }
 
     }
 }

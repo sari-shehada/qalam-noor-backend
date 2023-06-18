@@ -25,5 +25,19 @@ namespace QalamAndNoor.Manager
         {
             return SemesterYearRecordDataManager.DeleteSemesterYearRecord(semesterYearRecord);
         }
+        public static SemesterYearRecord? GetSemesterYearRecordByYearRecordIdInCurrentSemester(int yearRecordId)
+        {
+            int currentSemesterId = SemesterManager.GetCurrentSemesterInCurrentSchoolYear().ID;
+            List<SemesterYearRecord> semesterYearRecords = GetSemesterYearRecords();
+            foreach (SemesterYearRecord item in semesterYearRecords)
+            {
+                if (item.YearRecordId==yearRecordId&&item.SemesterId==currentSemesterId)
+                {
+                    return item;
+                }
+
+            }
+            return null;
+        }
     }
 }

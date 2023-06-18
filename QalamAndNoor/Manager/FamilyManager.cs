@@ -60,5 +60,13 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
+
+        public static Family GetFamilyByStudentId(int studentId)
+        {
+
+            Student student = StudentManager.GetStudentById(studentId);
+
+            return GetFamilyById(student.FamilyId);
+        }
     }
 }

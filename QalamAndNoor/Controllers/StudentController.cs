@@ -122,11 +122,11 @@ namespace QalamAndNoor.Controllers
         {
             return StudentManager.GetIsActiveStudent();
         }
-        [Route("StudentController/GetActiveStudentsInCurrentSchoolYear")]
+        [Route("StudentController/GetStudentsInCurrentSchoolYear")]
         [HttpGet]
-        public List<Student> GetActiveStudentsInCurrentSchoolYear()
+        public List<Student> GetStudentsInCurrentSchoolYear()
         {
-            return StudentManager.GetIsActiveStudentsInCurrentSchoolYear();
+            return StudentManager.GetStudentsInCurrentSchoolYear();
         }
         [Route("StudentController/GetStudentInfo")]
         [HttpGet]
@@ -157,6 +157,24 @@ namespace QalamAndNoor.Controllers
         public object RegistrationOldStudentInSchoolYear([FromBody] OldStudentRegistration oldStudent)
         {
             return StudentManager.RegistrationOldStudentInSchoolYear(oldStudent);
+        }
+        [Route("StudentController/GetActiveStudentsInSchoolYearByClassRoomId")]
+        [HttpGet]
+        public List<Student> GetActiceStudentsInSchoolYearByClassRoomId(int clasRoomId)
+        {
+            return StudentManager.GetActiceStudentsInSchoolYearByClassRoomId(clasRoomId);
+        }
+        [Route("StudentController/GetStudentExamMarks")]
+        [HttpGet]
+        public List<StudentExamMark> GetStudentExamMarks(int examId,int courseId,int clasRoomId)
+        {
+            return StudentManager.GetStudentExamMarks(courseId,examId,clasRoomId);
+        }
+        [Route("StudentController/InsertStudentsMark")]
+        [HttpPost]
+        public ItemOr InsertStudentsMark([FromBody]StudentExamMarkInsertion studentExamMarkInsertion)
+        {
+            return StudentManager.InsertStudentsMark(studentExamMarkInsertion);
         }
 
     }

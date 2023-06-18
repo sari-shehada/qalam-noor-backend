@@ -22,7 +22,7 @@ namespace QalamAndNoor.Manager
         {
             return SemesterDataManager.DeleteSemester(semester);
         }
-        public static Semester GetSemesterById(int id)
+        public static Semester? GetSemesterById(int id)
         {
             List<Semester> semesters = GetSemesters();
             foreach (Semester semester in semesters)
@@ -42,7 +42,7 @@ namespace QalamAndNoor.Manager
             List<Semester> result = new List<Semester>();
             foreach (Semester item in semesters)
             {
-                if (item.SchoolYearId==schoolYearId)
+                if (item.SchoolYearId == schoolYearId)
                 {
                     result.Add(item);
                 }
@@ -78,6 +78,38 @@ namespace QalamAndNoor.Manager
             {
                 return null;
             }
+        }
+
+        public static List<Semester> GetSemestersInCurrentSchoolYear()
+        {
+            int schoolYearId = SchoolYearManager.GetCurrentSchoolYear().ID;
+            List<Semester> semesters = GetSemesters();
+            List<Semester> result = new List<Semester>();
+            foreach (Semester item in semesters)
+            {
+                if (item.SchoolYearId==schoolYearId)
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
+        }
+        public static Semester GetCurrentSemesterInCurrentSchoolYear()
+        {
+            return GetSemesterById(GetCurrentSemesterIdInCurrentSchoolYear());
+        }
+       
+        
+        
+        
+        
+        
+        
+        
+        private static int GetCurrentSemesterIdInCurrentSchoolYear()
+        {
+            List<Semester> semesters = GetSemestersInCurrentSchoolYear();
+            return semesters.Max(x => x.ID);
         }
     }
 }

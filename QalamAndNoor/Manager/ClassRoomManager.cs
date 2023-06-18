@@ -21,7 +21,7 @@ namespace QalamAndNoor.Manager
         {
             return ClassRoomDataManager.DeleteClassRoom(classRoom);
         }
-        public static ClassRoom GetClassRoomById(int id)
+        public static ClassRoom? GetClassRoomById(int id)
         {
             List<ClassRoom> classRooms = GetClassRooms();
             foreach (ClassRoom classRoom in classRooms)
