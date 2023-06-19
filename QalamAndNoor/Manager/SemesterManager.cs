@@ -134,16 +134,16 @@ namespace QalamAndNoor.Manager
             };
 
         }
-        //public static List<ClassReportsDto> GetClassReports()
-        //{
-        //    List<StudentReport> studentReports = StudentReportViewDataManager.GetStudentReports();
-        //    List<ClassReportsDto> classReports = new List<ClassReportsDto>();
-        //    studentReports.Sort((a, b) => a.ClassId);
-        //    foreach (var item in studentReports)
-        //    {
+        public static List<ClassReportsDto> GetClassReports()
+        {
+            List<StudentReport> studentReports = StudentReportViewDataManager.GetStudentReports();
+            List<ClassReportsDto> classReports = new List<ClassReportsDto>();
+            studentReports.Sort((a, b) => a.ClassId);
+            foreach (var item in studentReports)
+            {
 
-        //    }
-          
-        //}
+            }
+
+        }
     }
 }
