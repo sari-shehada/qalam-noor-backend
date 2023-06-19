@@ -116,7 +116,7 @@ namespace QalamAndNoor.Manager
         public static object FinishedCurrentSemester()
         {
             Semester semester = GetCurrentSemesterInCurrentSchoolYear();
-            List<StudentReport> studentReports = StudentReportViewDataManager.GetStudentReports();
+            List<ClassReportsDto> studentReports = GetClassReports();
             if (studentReports.Count == 0)
             {
                 SemesterDataManager.FinishSemester(semester);
@@ -130,9 +130,66 @@ namespace QalamAndNoor.Manager
             {
                 Message = "تعذرت عملية انهاء الفصل الحالي ",
                 Success = false,
-                Reports= StudentReportViewDataManager.GetStudentReports()
-        };
+                Reports = studentReports
+            };
 
+        }
+        public static List<ClassReportsDto> GetClassReports()
+        {
+            List<StudentReport> studentReports = StudentReportViewDataManager.GetStudentReports();
+            List<ClassReportsDto> classReports = new List<ClassReportsDto>();
+            studentReports.Sort((a, b) => a.ClassId);
+            List<int> classIds = new List<int>();
+            foreach (var classReport in studentReports)
+            {
+                if(classIds.Contains(classReport.ClassId))
+                {
+                    continue;
+                }
+                classIds.Add(classReport.ClassId);
+            }
+            Dictionary<int,List<int>>classIdsToListOfCourses= new Dictionary<int,List<int>>();
+            foreach (int classId in classIds)
+            {
+                classIdsToListOfCourses[classId] = studentReports.Where((e) => e.ClassId == classId).Select((e) => e.CourseId).ToList();
+            }
+            Dictionary<int,List<int>>courseIdsToListOfClassrooms= new Dictionary<int,List<int>>();
+            foreach (int classId in classIdsToListOfCourses.Keys)
+            {
+                foreach (int courseId in classIdsToListOfCourses[classId])
+                {
+                    courseIdsToListOfClassrooms[courseId] = studentReports.Where((e) => e.CourseId == courseId).Select((a) => a.ClassRoomId).ToList();
+                }
+            }
+            Dictionary<int, List<int>> classroomIdsToListOfexams = new Dictionary<int, List<int>>();
+            foreach (int classId in classIdsToListOfCourses.Keys)
+            {
+                foreach (int courseId in classIdsToListOfCourses[classId])
+                {
+                    foreach (int classroomId in courseIdsToListOfClassrooms[courseId])
+                    {
+                        classroomIdsToListOfexams[classroomId] = studentReports.Where((e) => e.ClassRoomId == classroomId).Select((a) => a.ExamId).ToList();
+                    }
+                    
+                }
+            }
+            foreach (int classId in classIds)
+            {
+                classReports.Add(new ClassReportsDto()
+                {
+                    CLass= ClassManager.GetClassById(classId),
+                    CourseReports= classIdsToListOfCourses[classId].Select((e)=>new CourseReportsDto() {
+                        Course=CourseManager.GetCourseById(e),
+                        ClassroomReports = courseIdsToListOfClassrooms[e].Select((c)=>new ClassroomReportsDto() { 
+                            Classroom=ClassRoomManager.GetClassRoomById(c),
+                            ExamsReports = classroomIdsToListOfexams[c].Select((e) =>new ExamsReportsDto(){
+                                Exam=ExamManager.GetExamById(e),
+                            }).ToList(),
+                        }).ToList(),
+                    }).ToList(),
+                });
+            }
+            return classReports;
         }
     }
 }
