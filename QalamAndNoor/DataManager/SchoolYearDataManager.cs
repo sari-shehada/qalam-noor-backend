@@ -121,7 +121,20 @@ namespace QalamAndNoor.DataManager
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             return result;
         }
-      
+        public static List<SchoolYear> GetSchoolYearsByStudentId(int studentId)
+        {
+            //SQL Statement
+            string sqlStatement = $"select * from SchoolYear where SchoolYear.ID in (select ClassRoomSchoolYear.SchoolYearId from ClassRoomSchoolYear where ClassRoomSchoolYear.SchoolYearId=SchoolYear.ID and ClassRoomSchoolYear.ID in (select YearRecord.ClassRoomSchoolYearId from YearRecord where YearRecord.ClassRoomSchoolYearId=ClassRoomSchoolYear.ID and YearRecord.StudentId={studentId}))";
+            //Preparing SQL Command
+            SqlCommand sqlCommand = new SqlCommand()
+            {
+                CommandText = sqlStatement,
+                CommandType = CommandType.Text,
+            };
+            //Execute Query
+            List<SchoolYear> result = BaseDataManager.GetSPItems<SchoolYear>(sqlCommand, SchoolYearMapper);
+            return result;
+        }
 
         #endregion
     }

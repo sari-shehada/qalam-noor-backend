@@ -34,6 +34,19 @@ namespace QalamAndNoor.Manager
             }
             return null;
         }
+        public static List<PreviousSchool> GetPreviousSchoolsByStudentId(int studentId)
+        {
+            List<StudentPreviousSchool> studentPreviousSchools = StudentPreviousSchoolManager.GetStudentPreviousSchoolsByStudentId(studentId);
+            List<PreviousSchool> previousSchools = GetPreviousSchools();
+            List<PreviousSchool> result = new List<PreviousSchool>();
+            foreach (var item in studentPreviousSchools)
+            {
+                result.Add(previousSchools.First((x) => x.ID == item.PreviousSchoolId));
+            }
+            return result;
+          
+        }
+
 
     }
 }

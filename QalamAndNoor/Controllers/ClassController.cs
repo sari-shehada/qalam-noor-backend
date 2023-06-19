@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using QalamAndNoor.DataManager;
 using QalamAndNoor.Manager;
 using QalamAndNoor.Models;
 
@@ -43,6 +44,13 @@ namespace QalamAndNoor.Controllers
         public List<Class> GetClassesByName(string name)
         {
             return ClassManager.GetClassesByName(name);
+        }
+
+        [Route("ClassController/GetOpentClassesinCurrentSchoolYear")]
+        [HttpGet]
+        public List<Class> GetOpentClassesinCurrentSchoolYear()
+        {
+            return ClassDataManager.GetOpentClassesinCurrentSchoolYear();
         }
     }
 }

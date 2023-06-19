@@ -80,5 +80,11 @@ namespace QalamAndNoor.Manager
         {
             return GetAddressByCityId(cityId).Count;
         }
+
+        public static Address GetAddressByStudentId(int studentId) {
+            Student student = StudentManager.GetStudentById(studentId);
+            return GetAddressById(student.AddressId);
+        
+        }
     }
 }

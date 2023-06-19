@@ -79,6 +79,10 @@ namespace QalamAndNoor.Manager
         {
             return GetSchoolYearById(GetMaxSchoolYearID());
         }
+        public static List<SchoolYear> GetSchoolYearsByStudentId(int studentId)
+        {
+            return SchoolYearDataManager.GetSchoolYearsByStudentId(studentId);
+        }
 
     }
 }

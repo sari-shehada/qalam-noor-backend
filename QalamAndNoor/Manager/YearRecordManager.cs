@@ -164,5 +164,17 @@ namespace QalamAndNoor.Manager
             result = yearRecords.Where((e) => classRoomSchoolYearsIds.Contains(e.ClassRoomSchoolYearId ?? -1)).ToList();
             return result;
         }
+        public static YearRecord? GetYearRecordsinCurrentSchoolYearByStudentId(int studentId)
+        {
+            List<YearRecord> yearRecords = GetYearRecordsinCurrentSchoolYear();
+            foreach (YearRecord item in yearRecords)
+            {
+                if (item.StudentId==studentId)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
     }
 }

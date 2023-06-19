@@ -66,18 +66,18 @@ namespace QalamAndNoor.Manager
             List<ClassRoomSchoolYear> classRoomSchoolYears = ClassRoomSchoolYearManager.
                 GetClassRoomSchoolYearsBySchoolYearId(SchoolYearManager.GetCurrentSchoolYear().ID);
             List<ClassRoom> classroomsInClass = GetClassRoomsByClassId(classId);
-            List<ClassRoom> alreadyOpenClassrooms=new List<ClassRoom>();
+            List<ClassRoom> alreadyOpenClassrooms = new List<ClassRoom>();
             foreach (var classroomSchoolYear in classRoomSchoolYears)
             {
                 foreach (ClassRoom classroom in classroomsInClass)
                 {
-                    if(classroom.ID!= classroomSchoolYear.ClassRoomId)
+                    if (classroom.ID != classroomSchoolYear.ClassRoomId)
                     {
                         continue;
                     }
                     alreadyOpenClassrooms.Add(classroom);
                 }
-                
+
             }
             List<ClassRoom> readyToOpenClassrooms = classroomsInClass.Where((e) => !alreadyOpenClassrooms.Contains(e)).ToList();
             return readyToOpenClassrooms;
@@ -102,6 +102,20 @@ namespace QalamAndNoor.Manager
 
             }
             return alreadyOpenClassrooms;
+        }
+        public static ClassRoom? GetCurrentClassRoomInCurrentSchoolYearByStudentId(int studentId)
+        {
+            YearRecord? yearRecord = YearRecordManager.GetYearRecordsinCurrentSchoolYearByStudentId(studentId);
+            if (yearRecord is null)
+            {
+                return null;
+            }
+            ClassRoomSchoolYear? classRoomSchoolYear = ClassRoomSchoolYearManager.GetClassRoomSchoolYearById(yearRecord.ClassRoomSchoolYearId.Value);
+            if (classRoomSchoolYear is null)
+            {
+                return null;
+            }
+            return GetClassRoomById(classRoomSchoolYear.ClassRoomId);
         }
     }
 }

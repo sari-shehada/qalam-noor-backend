@@ -60,6 +60,12 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
+        public static Area GetAreaByStudentId (int studentId)
+        {
+            Address address=AddressManager.GetAddressByStudentId(studentId);
+            return GetAreaById(address.AreaId);
+
+        }
 
     }
 }

@@ -26,13 +26,29 @@ namespace QalamAndNoor.Manager
             List<StudentPreviousSchool> studentPreviousSchools = GetStudentPreviousSchools();
             foreach (StudentPreviousSchool item in studentPreviousSchools)
             {
-                if (item.ID==id)
+                if (item.ID == id)
 
                 {
                     return item;
                 }
             }
             return null;
+        }
+
+        public static List<StudentPreviousSchool> GetStudentPreviousSchoolsByStudentId(int studentId)
+        {
+            List<StudentPreviousSchool> studentPreviousSchools = GetStudentPreviousSchools();
+            List<StudentPreviousSchool> result = new List<StudentPreviousSchool>();
+            foreach (StudentPreviousSchool item in studentPreviousSchools)
+            {
+                if (item.StudentId==studentId)
+                {
+                    result.Add(item);
+
+                }
+            }
+            return result;
+
         }
     }
 }

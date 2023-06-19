@@ -21,7 +21,7 @@ namespace QalamAndNoor.Manager
         {
             return ClassDataManager.DeleteClass(cls);
         }
-        public static Class GetClassById(int id)
+        public static Class? GetClassById(int id)
         {
             List<Class> classes = GetClasses();
             foreach (Class cls in classes)
@@ -55,6 +55,16 @@ namespace QalamAndNoor.Manager
                 return thisClass;
             }
             return GetClassById(thisClass.PreviousClassId.Value);
+        }
+
+        public static Class? GetCurrentClassInCurrentSchoolYearByStudentId(int studentId)
+        {
+            YearRecord yearRecord=YearRecordManager.GetYearRecordsinCurrentSchoolYearByStudentId(studentId);
+            if (yearRecord is null)
+            {
+                return null;
+            }
+            return GetClassById(yearRecord.ClassId);
         }
     }
 }

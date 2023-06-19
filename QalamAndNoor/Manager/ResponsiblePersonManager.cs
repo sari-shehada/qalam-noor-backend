@@ -21,7 +21,7 @@ namespace QalamAndNoor.Manager
         {
             return ResponsiblePersonDataManager.DeleteResponsiblePerson(person);
         }
-        public static ResponsiblePerson GetResponsiblePersonById(int id)
+        public static ResponsiblePerson? GetResponsiblePersonById(int id)
         {
             List<ResponsiblePerson> responsibles = GetResponsiblePersons();
             foreach (ResponsiblePerson person in responsibles)
@@ -32,6 +32,12 @@ namespace QalamAndNoor.Manager
                 }
             }
             return null;
+        }
+
+        public static ResponsiblePerson? GetResponsiblePersonByStudentId(int studentId)
+        {
+            Family family=FamilyManager.GetFamilyByStudentId(studentId);
+            return GetResponsiblePersonById(family.ResponsiblePersonId.Value);
         }
     }
 }

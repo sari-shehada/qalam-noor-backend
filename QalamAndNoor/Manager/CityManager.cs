@@ -74,5 +74,10 @@ namespace QalamAndNoor.Manager
             }
             return cityToDescendentCounts;
         }
+        public static City GetCityByStudentId(int studentId)
+        {
+            Area area = AreaManager.GetAreaByStudentId(studentId);
+            return GetCitById(area.CityId);
+        }
     }
 }

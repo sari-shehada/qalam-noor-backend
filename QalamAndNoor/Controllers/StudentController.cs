@@ -184,6 +184,12 @@ namespace QalamAndNoor.Controllers
         {
             return StudentReportViewDataManager.GetStudentReports();
         }
+        [Route("StudentController/GetStudentProfileByStudentId")]
+        [HttpGet]
+        public StudentProfileDto GetStudentProfileByStudentId(int studentId)
+        {
+            return StudentManager.GetStudentProfileByStudentId(studentId);
+        }
 
     }
 }
