@@ -49,7 +49,12 @@ namespace QalamAndNoor.Controllers
         {
             return SemesterManager.FinishedCurrentSemester();
         }
-       
+        [Route("SemesterController/GetSemestersBySchoolYearId")]
+        [HttpGet]
+        public List<Semester> GetSemestersBySchoolYearId(int schoolYearId)
+        {
+            return SemesterManager.GetSemestersBySchoolYearId(schoolYearId);
+        }
 
     }
 }
