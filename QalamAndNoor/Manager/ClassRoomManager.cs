@@ -117,5 +117,23 @@ namespace QalamAndNoor.Manager
             }
             return GetClassRoomById(classRoomSchoolYear.ClassRoomId);
         }
+
+        public static List<ClassRoom> GetClassRoomsInCurrentSchoolYear()
+        {
+            int schoolYearId = SchoolYearManager.GetCurrentSchoolYear().ID;
+            List<ClassRoomSchoolYear> classRoomSchoolYears = ClassRoomSchoolYearManager.GetClassRoomSchoolYearsBySchoolYearId(schoolYearId);
+            List<ClassRoom> classRooms = GetClassRooms();
+            List<ClassRoom> result = new List<ClassRoom>();
+            foreach (var item in classRoomSchoolYears)
+            {
+                result.Add(classRooms.First((x) => x.ID == item.ClassRoomId));
+            }
+            return result;
+        }
+
+        public static int GetClassRoomsCountInCurrentSchoolYear()
+        {
+          return  GetClassRoomsInCurrentSchoolYear().Count;
+        }
     }
 }

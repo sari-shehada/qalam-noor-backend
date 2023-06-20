@@ -62,5 +62,17 @@ namespace QalamAndNoor.Controllers
         {
             return ClassRoomManager.GetAlreadyOpenClassRoomsByClassId(classId);
         }
+        [Route("ClassRoomController/GetClassRoomsInCurrentSchoolYear")]
+        [HttpGet]
+        public List<ClassRoom> GetClassRoomsInCurrentSchoolYear()
+        {
+            return ClassRoomManager.GetClassRoomsInCurrentSchoolYear();
+        }
+        [Route("ClassRoomController/GetClassRoomsCountInCurrentSchoolYear")]
+        [HttpGet]
+        public int GetClassRoomsCountInCurrentSchoolYear()
+        {
+            return ClassRoomManager.GetClassRoomsCountInCurrentSchoolYear();
+        }
     }
 }

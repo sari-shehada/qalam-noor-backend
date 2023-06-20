@@ -56,5 +56,6 @@ namespace QalamAndNoor.Controllers
             return SemesterManager.GetSemestersBySchoolYearId(schoolYearId);
         }
 
+      
     }
 }
