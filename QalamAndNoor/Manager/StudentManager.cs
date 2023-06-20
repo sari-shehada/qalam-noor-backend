@@ -489,7 +489,7 @@ namespace QalamAndNoor.Manager
             {
                 return null;
             }
-            
+
             List<Student> sibling = GetStudentsByFamilyId(student.FamilyId);
             sibling = sibling.Where(x => x.ID != student.ID).ToList();
             StudentProfileDto studentProfile = new StudentProfileDto
@@ -501,14 +501,14 @@ namespace QalamAndNoor.Manager
                 Address = AddressManager.GetAddressByStudentId(student.ID),
                 Area = AreaManager.GetAreaByStudentId(student.ID),
                 City = CityManager.GetCityByStudentId(student.ID),
-                Sibling =sibling,
+                Sibling = sibling,
                 PreviousSchools = PreviousSchoolManager.GetPreviousSchoolsByStudentId(student.ID),
                 Vaccines = StudentTakenVaccineDataManager.GetStudentTakenVaccinesByStudentId(student.ID),
                 Illnesses = StudentIllnessesDataManager.GetStudentIllnessesByStudentId(student.ID),
                 PsychologicalStatuses = StudentPsychologicalStatusInfoDataManager.GetStudentStudentPsychologicalStatusInfoByStudentId(student.ID),
                 StudentSchoolYears = SchoolYearManager.GetSchoolYearsByStudentId(student.ID),
-                CurrentClass=ClassManager.GetCurrentClassInCurrentSchoolYearByStudentId(student.ID),
-                CurrentClaasRoom=ClassRoomManager.GetCurrentClassRoomInCurrentSchoolYearByStudentId(student.ID)
+                CurrentClass = ClassManager.GetCurrentClassInCurrentSchoolYearByStudentId(student.ID),
+                CurrentClaasRoom = ClassRoomManager.GetCurrentClassRoomInCurrentSchoolYearByStudentId(student.ID)
             };
             return studentProfile;
 
@@ -528,6 +528,19 @@ namespace QalamAndNoor.Manager
                 });
             }
             return result;
+        }
+
+        public static List<Score> GetStudentScoresBySchoolYearIdAndSemesterIdAndStudentId
+            (int semesterId, int schoolYearId, int StudentId)
+        {
+            List<SemesterExam> semesterExams = SemesterExamDataManager.
+                GetStudentSemesterExamsBySchoolYearIdAndSemesterIdAndStudentId(schoolYearId, semesterId, StudentId);
+            return semesterExams.GroupBy(x => x.CourseId).Select(obj => new Score
+            {
+                CourseName = CourseManager.GetCourseById(obj.FirstOrDefault()!.CourseId).Name,
+                TotalGrade = CourseManager.GetCourseById(obj.FirstOrDefault()!.CourseId).TotalGrade,
+                Grades = obj.ToDictionary(g => (int)ExamManager.GetExamById(g.ExamId).Type, g => g.ObtainedGrade)
+            }).ToList();
         }
 
         #region Private Helper Methods

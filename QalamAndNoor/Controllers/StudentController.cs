@@ -80,8 +80,8 @@ namespace QalamAndNoor.Controllers
         {
             return StudentManager.GetStudentsByAddressId(adressId);
         }
-      
-    
+
+
         [Route("StudentController/GetStudentsWhoDontHavePsychologicalStatus")]
         [HttpGet]
         public List<Student> GetStudentsWhoDontHavePsychologicalStatus()
@@ -150,7 +150,7 @@ namespace QalamAndNoor.Controllers
         }
         [Route("StudentController/RegistrationNewStudentInSchoolYear")]
         [HttpPost]
-        public object RegistrationNewStudentInSchoolYear([FromBody]NewStudentRegistrationInSchoolYear newStudent)
+        public object RegistrationNewStudentInSchoolYear([FromBody] NewStudentRegistrationInSchoolYear newStudent)
         {
             return StudentManager.RegistrationNewStudentInSchoolYear(newStudent);
         }
@@ -168,13 +168,13 @@ namespace QalamAndNoor.Controllers
         }
         [Route("StudentController/GetStudentExamMarks")]
         [HttpGet]
-        public List<StudentExamMark> GetStudentExamMarks(int examId,int courseId,int clasRoomId)
+        public List<StudentExamMark> GetStudentExamMarks(int examId, int courseId, int clasRoomId)
         {
-            return StudentManager.GetStudentExamMarks(courseId,examId,clasRoomId);
+            return StudentManager.GetStudentExamMarks(courseId, examId, clasRoomId);
         }
         [Route("StudentController/InsertStudentsMark")]
         [HttpPost]
-        public object InsertStudentsMark([FromBody]StudentExamMarkInsertion studentExamMarkInsertion)
+        public object InsertStudentsMark([FromBody] StudentExamMarkInsertion studentExamMarkInsertion)
         {
             return StudentManager.InsertStudentsMark(studentExamMarkInsertion);
         }
@@ -198,5 +198,13 @@ namespace QalamAndNoor.Controllers
             return StudentManager.GetStudentsInfo();
         }
 
+        [Route("StudentController/GetStudentScoresBySchoolYearIdAndSemesterIdAndStudentId")]
+        [HttpGet]
+        public List<Score> GetStudentScoresBySchoolYearIdAndSemesterIdAndStudentId
+                    (int semesterId, int schoolYearId, int StudentId)
+        {
+            return StudentManager.GetStudentScoresBySchoolYearIdAndSemesterIdAndStudentId
+            (semesterId, schoolYearId, StudentId);
+        }
     }
 }

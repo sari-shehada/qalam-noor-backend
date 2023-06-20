@@ -118,6 +118,24 @@ namespace QalamAndNoor.DataManager
             List<SemesterExam> result = BaseDataManager.GetSPItems<SemesterExam>(sqlCommand, SemesterExamMapper);
             return result;
         }
+        public static List<SemesterExam> GetStudentSemesterExamsBySchoolYearIdAndSemesterIdAndStudentId(int schoolYearId,int SemesterId,int StudentId)
+        {
+            //SQL Statement
+            string sqlStatement = $"select * from SemesterExam where SemesterExam.SemesterId" +
+                $" in (Select SemesterYearRecord.ID " +
+                $"from SemesterYearRecord,YearRecord,Student,ClassRoomSchoolYear,SchoolYear,Semester " +
+                $"where SemesterYearRecord.YearRecordId =YearRecord.ID and YearRecord.StudentId=Student.ID and " +
+                $"YearRecord.ClassRoomSchoolYearId=ClassRoomSchoolYear.ID and ClassRoomSchoolYear.SchoolYearId=SchoolYear.ID  and SemesterYearRecord.SemesterId=Semester.ID and Semester.ID={SemesterId} and SchoolYear.ID={schoolYearId} and Student.ID={StudentId})\r\n";
+            //Preparing SQL Command
+            SqlCommand sqlCommand = new SqlCommand()
+            {
+                CommandText = sqlStatement,
+                CommandType = CommandType.Text,
+            };
+            //Execute Query
+            List<SemesterExam> result = BaseDataManager.GetSPItems<SemesterExam>(sqlCommand, SemesterExamMapper);
+            return result;
+        }
 
         #endregion
     }
