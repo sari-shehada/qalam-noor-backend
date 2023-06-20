@@ -514,6 +514,22 @@ namespace QalamAndNoor.Manager
 
         }
 
+        public static List<FullStudentInfo> GetStudentsInfo()
+        {
+            List<Student> students = GetStudents();
+            List<FullStudentInfo> result = new List<FullStudentInfo>();
+            foreach (Student item in students)
+            {
+                result.Add(new FullStudentInfo
+                {
+                    Student = item,
+                    Father = FatherManager.GetFatherByStudentId(item.ID)
+
+                });
+            }
+            return result;
+        }
+
         #region Private Helper Methods
         private static ItemOr _addNewFamily(
             Mother mother, Father father,

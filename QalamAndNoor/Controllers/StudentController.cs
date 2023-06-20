@@ -191,5 +191,12 @@ namespace QalamAndNoor.Controllers
             return StudentManager.GetStudentProfileByStudentId(studentId);
         }
 
+        [Route("StudentController/GetFullStudentsInfo")]
+        [HttpGet]
+        public List<FullStudentInfo> GetFullStudentsInfo()
+        {
+            return StudentManager.GetStudentsInfo();
+        }
+
     }
 }

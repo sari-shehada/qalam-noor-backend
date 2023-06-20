@@ -37,6 +37,10 @@ namespace QalamAndNoor.Manager
         public static ResponsiblePerson? GetResponsiblePersonByStudentId(int studentId)
         {
             Family family=FamilyManager.GetFamilyByStudentId(studentId);
+            if (family.ResponsiblePersonId is null)
+            {
+                return null;
+            }
             return GetResponsiblePersonById(family.ResponsiblePersonId.Value);
         }
     }

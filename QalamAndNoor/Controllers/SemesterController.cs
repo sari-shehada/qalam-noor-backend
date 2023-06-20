@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QalamAndNoor.Manager;
 using QalamAndNoor.Models;
+using QalamAndNoor.Models.HelperModels.DbHelper;
 
 namespace QalamAndNoor.Controllers
 {
@@ -48,6 +49,7 @@ namespace QalamAndNoor.Controllers
         {
             return SemesterManager.FinishedCurrentSemester();
         }
+       
 
     }
 }

@@ -115,9 +115,10 @@ namespace QalamAndNoor.Manager
         }
         public static object FinishedCurrentSemester()
         {
-            Semester semester = GetCurrentSemesterInCurrentSchoolYear();
-            List<StudentReport> studentReports = StudentReportViewDataManager.GetStudentReports();
-            if (studentReports.Count == 0)
+            Semester semester= 
+            GetCurrentSemesterInCurrentSchoolYear();
+            List<ClassReportDTO> classReportDTOs = GetClassReports();
+            if (classReportDTOs.Count == 0)
             {
                 SemesterDataManager.FinishSemester(semester);
                 return new
@@ -130,20 +131,39 @@ namespace QalamAndNoor.Manager
             {
                 Message = "تعذرت عملية انهاء الفصل الحالي ",
                 Success = false,
-                Reports = studentReports
+                Reports = classReportDTOs,
             };
 
         }
-        //public static List<ClassReportsDto> GetClassReports()
-        //{
-        //    List<StudentReport> studentReports = StudentReportViewDataManager.GetStudentReports();
-        //    List<ClassReportsDto> classReports = new List<ClassReportsDto>();
-        //    studentReports.Sort((a, b) => a.ClassId);
-        //    foreach (var item in studentReports)
-        //    {
 
-        //    }
+        private static List<ClassReportDTO> GetClassReports()
+        {
+            List<StudentReport> studentReports = StudentReportViewDataManager.GetStudentReports();
+            return studentReports.GroupBy(x => x.ClassId)
+                                .Select(g => new ClassReportDTO
+                                {
+                                    ClassId = g.Key,
+                                    ClassName = g.FirstOrDefault()?.ClassName!,
+                                    CourseReports = g.GroupBy(x => x.CourseId)
+                                        .Select(c => new CourseReportDTO
+                                        {
+                                            CourseId = c.Key,
+                                            CourseName = c.FirstOrDefault()?.CourseName!,
+                                            ClassroomReports = c.GroupBy(x => x.ClassRoomId)
+                                                .Select(cr => new ClassroomReportDTO
+                                                {
+                                                    ClassroomId = cr.Key,
+                                                    ClassroomName = cr.FirstOrDefault()?.ClassRoomName!,
+                                                    ExamReports = cr.Select(x => new ExamReportDTO
+                                                    {
+                                                        ExamId = x.ExamId,
+                                                        ExamType = x.ExamType,
+                                                    }).ToList()
+                                                }).ToList()
+                                        }).ToList()
+                                }).ToList();
+        
+    }
 
-        //}
     }
 }
