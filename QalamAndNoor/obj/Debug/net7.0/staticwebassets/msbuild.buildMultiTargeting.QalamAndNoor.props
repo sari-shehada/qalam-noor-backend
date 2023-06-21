@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\QalamAndNoor.props" />
-</Project>

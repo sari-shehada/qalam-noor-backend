@@ -125,7 +125,8 @@ namespace QalamAndNoor.DataManager
                 $" in (Select SemesterYearRecord.ID " +
                 $"from SemesterYearRecord,YearRecord,Student,ClassRoomSchoolYear,SchoolYear,Semester " +
                 $"where SemesterYearRecord.YearRecordId =YearRecord.ID and YearRecord.StudentId=Student.ID and " +
-                $"YearRecord.ClassRoomSchoolYearId=ClassRoomSchoolYear.ID and ClassRoomSchoolYear.SchoolYearId=SchoolYear.ID  and SemesterYearRecord.SemesterId=Semester.ID and Semester.ID={SemesterId} and SchoolYear.ID={schoolYearId} and Student.ID={StudentId})\r\n";
+                $"YearRecord.ClassRoomSchoolYearId=ClassRoomSchoolYear.ID and ClassRoomSchoolYear.SchoolYearId=SchoolYear.ID " +
+                $" and SemesterYearRecord.SemesterId=Semester.ID and Semester.ID={SemesterId} and SchoolYear.ID={schoolYearId} and Student.ID={StudentId})\r\n";
             //Preparing SQL Command
             SqlCommand sqlCommand = new SqlCommand()
             {

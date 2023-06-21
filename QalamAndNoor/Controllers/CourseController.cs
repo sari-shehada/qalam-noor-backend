@@ -55,6 +55,18 @@ namespace QalamAndNoor.Controllers
         {
             return CourseDataManager.UpdateAllCourses();
         }
+        [Route("CourseController/IsOnlyDropByCourseId")]
+        [HttpGet]
+        public bool IsOnlyDropByCourseId(int courseId)
+        {
+            return CourseManager.IsOnlyDropByCourseId(courseId);
+        }
+        [Route("CourseController/GetRequiredToPassCourses")]
+        [HttpGet]
+        public List<Course> GetRequiredToPassCourses()
+        {
+            return CourseManager.GetRequiredToPassCurses();
+        }
 
 
     }

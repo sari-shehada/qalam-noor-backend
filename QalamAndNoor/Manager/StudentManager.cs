@@ -1,8 +1,4 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
+﻿using System.Diagnostics;
 using QalamAndNoor.DataManager;
 using QalamAndNoor.DataManager.Helper;
 using QalamAndNoor.Models;
@@ -285,16 +281,18 @@ namespace QalamAndNoor.Manager
                 }
                 foreach (var item in newStudentRegistrationInSchoolYear.YearRecordId)
                 {
-                    YearRecordManager.UpdateYearRecord(new YearRecord()
+                    YearRecord currentRecord = YearRecordManager.GetYearRecordById(item);
+                    currentRecord = new YearRecord()
                     {
                         ID = item,
                         ClassRoomSchoolYearId = classRoomSchoolYear.ID,
-                        ClassId = YearRecordManager.GetYearRecordById(item).ClassId,
-                        StudentId = YearRecordManager.GetYearRecordById(item).StudentId,
-                        Status = StudentStatusEnum.NotDefined
-
-                    });
-                    yearRecords.Add(YearRecordManager.GetYearRecordById(item));
+                        ClassId = currentRecord.ClassId,
+                        StudentId = currentRecord.StudentId,
+                        Status = StudentStatusEnum.NotDefined,
+                        YearGrade = currentRecord.YearGrade,
+                    };
+                    YearRecordManager.UpdateYearRecord(currentRecord);
+                    yearRecords.Add(currentRecord);
                     semesterIds.Add(SemesterYearRecordManager.InsertSemsterYearRecord(new SemesterYearRecord()
                     {
                         ID = -1,
@@ -530,17 +528,44 @@ namespace QalamAndNoor.Manager
             return result;
         }
 
-        public static List<Score> GetStudentScoresBySchoolYearIdAndSemesterIdAndStudentId
+        public static StudentSemesterScore GetStudentScoresBySchoolYearIdAndSemesterIdAndStudentId
             (int semesterId, int schoolYearId, int StudentId)
         {
+
+
             List<SemesterExam> semesterExams = SemesterExamDataManager.
                 GetStudentSemesterExamsBySchoolYearIdAndSemesterIdAndStudentId(schoolYearId, semesterId, StudentId);
-            return semesterExams.GroupBy(x => x.CourseId).Select(obj => new Score
+
+            List<StudentSemesterGrades> studentSemesterGrades = semesterExams.GroupBy(x => x.CourseId).Select(obj =>
+              {
+                  Course course = CourseManager.GetCourseById(obj.FirstOrDefault()!.CourseId);
+                  Dictionary<int, double> grades = obj.ToDictionary(g => (int)ExamManager.GetExamById(g.ExamId).Type, g => g.ObtainedGrade);
+                  bool checkCourse = CourseManager.IsOnlyDropByCourseId(obj.FirstOrDefault()!.CourseId);
+
+                  double avgGrades = grades.Select(x => x.Value).Sum();
+                  return new StudentSemesterGrades
+                  {
+                      CourseName = course.Name,
+                      TotalGrade = course.TotalGrade,
+                      Grades = grades,
+                      CourseGrade = avgGrades,
+                      DidPassCourse = avgGrades >= course.RequiredGradeToPass,
+                      IsOnlyDrop = checkCourse
+                  };
+              }).ToList();
+            bool didNotPassSemester = studentSemesterGrades.Any(x => x.IsOnlyDrop && !x.DidPassCourse);
+            bool failedCourses = studentSemesterGrades.Count(x => !x.DidPassCourse) >= ClassManager.GetClassByCoureseId(semesterExams.FirstOrDefault()!.CourseId).YearDropCourseCount;
+            bool didPassSemester = !(didNotPassSemester || failedCourses);
+
+            double avgSemesterGrade = studentSemesterGrades.Sum(x => x.CourseGrade);
+
+            return new StudentSemesterScore
             {
-                CourseName = CourseManager.GetCourseById(obj.FirstOrDefault()!.CourseId).Name,
-                TotalGrade = CourseManager.GetCourseById(obj.FirstOrDefault()!.CourseId).TotalGrade,
-                Grades = obj.ToDictionary(g => (int)ExamManager.GetExamById(g.ExamId).Type, g => g.ObtainedGrade)
-            }).ToList();
+
+                StudentSemesterGrades = studentSemesterGrades,
+                TotalSemesterGrade = avgSemesterGrade,
+                DidPassSemester = didPassSemester
+            };
         }
 
         #region Private Helper Methods
@@ -609,6 +634,8 @@ namespace QalamAndNoor.Manager
             "Family-"+Guid.NewGuid().ToString().Substring(0,4),
             "Password"+new Random().NextInt64(1000000,9999999),
         };
+
+
         #endregion
     }
 }

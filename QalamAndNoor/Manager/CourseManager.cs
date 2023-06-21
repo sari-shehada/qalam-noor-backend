@@ -63,6 +63,32 @@ namespace QalamAndNoor.Manager
             return result;
         }
 
-
+        public static List<Course> GetRequiredToPassCurses()
+        {
+            List<Course> courses = GetCourses();
+            List<Course> result=new List<Course>();
+            foreach (Course item in courses)
+            {
+                if (item.RequiredToPass==true)
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
+        }
+        public static bool IsOnlyDropByCourseId(int courseId)
+        {
+            List<Course> courses = GetRequiredToPassCurses();
+            
+            foreach (Course item in courses)
+            {
+                if (item.ID==courseId)
+                {
+                    return true;
+                }
+            }
+            return false;
+          
+        }
     }
 }

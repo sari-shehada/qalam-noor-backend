@@ -198,9 +198,9 @@ namespace QalamAndNoor.Controllers
             return StudentManager.GetStudentsInfo();
         }
 
-        [Route("StudentController/GetStudentScoresBySchoolYearIdAndSemesterIdAndStudentId")]
+        [Route("StudentController/GetStudentSemesterScoreScoresBySchoolYearIdAndSemesterIdAndStudentId")]
         [HttpGet]
-        public List<Score> GetStudentScoresBySchoolYearIdAndSemesterIdAndStudentId
+        public StudentSemesterScore GetStudentSemesterScoreScoresBySchoolYearIdAndSemesterIdAndStudentId
                     (int semesterId, int schoolYearId, int StudentId)
         {
             return StudentManager.GetStudentScoresBySchoolYearIdAndSemesterIdAndStudentId

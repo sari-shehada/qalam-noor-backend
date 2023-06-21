@@ -9,5 +9,6 @@
         public bool IsEnriching { get; set; }
         public int ClassId { get; set; }
         public bool RequiredToPass { get; set; }
+        public int RequiredGradeToPass { get; set; }
     }
 }

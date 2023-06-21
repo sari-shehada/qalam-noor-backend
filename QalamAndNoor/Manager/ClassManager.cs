@@ -26,7 +26,7 @@ namespace QalamAndNoor.Manager
             List<Class> classes = GetClasses();
             foreach (Class cls in classes)
             {
-                if (cls.ID==id)
+                if (cls.ID == id)
                 {
                     return cls;
                 }
@@ -59,12 +59,17 @@ namespace QalamAndNoor.Manager
 
         public static Class? GetCurrentClassInCurrentSchoolYearByStudentId(int studentId)
         {
-            YearRecord yearRecord=YearRecordManager.GetYearRecordsinCurrentSchoolYearByStudentId(studentId);
+            YearRecord yearRecord = YearRecordManager.GetYearRecordsinCurrentSchoolYearByStudentId(studentId);
             if (yearRecord is null)
             {
                 return null;
             }
             return GetClassById(yearRecord.ClassId);
+        }
+        public static Class GetClassByCoureseId(int coureseId)
+        {
+            Course course = CourseManager.GetCourseById(coureseId);
+            return GetClassById(course.ClassId)!;
         }
     }
 }

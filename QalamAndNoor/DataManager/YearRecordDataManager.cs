@@ -55,105 +55,109 @@ namespace QalamAndNoor.DataManager
             };
             sqlCommand.Parameters.Add(new SqlParameter("@studentId", yearRecord.StudentId));
             sqlCommand.Parameters.Add(new SqlParameter("@classId", yearRecord.ClassId));
-            sqlCommand.Parameters.Add(new SqlParameter("@classRoomSchoolYearId", yearRecord.ClassRoomSchoolYearId == null ? DBNull.Value :yearRecord.ClassRoomSchoolYearId));
-            sqlCommand.Parameters.Add(new SqlParameter("@yearGrade", yearRecord.ClassRoomSchoolYearId == null ? DBNull.Value :yearRecord.YearGrade));
+            sqlCommand.Parameters.Add(new SqlParameter("@classRoomSchoolYearId", yearRecord.ClassRoomSchoolYearId == null ? DBNull.Value : yearRecord.ClassRoomSchoolYearId));
+            sqlCommand.Parameters.Add(new SqlParameter("@yearGrade", yearRecord.YearGrade == null ? DBNull.Value : yearRecord.YearGrade));
             sqlCommand.Parameters.Add(new SqlParameter("@status", (int)yearRecord.Status));
 
 
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
-            if (result==1)
+            if (result == 1)
             {
-                List<YearRecord> yearRecords = GetYearRecords();
-                return yearRecords.Max(x => x.ID);
+                {
+                    List<YearRecord> yearRecords = GetYearRecords();
+                    return yearRecords.Max(x => x.ID);
+                }
             }
-            return 0;
-        }
-        public static int UpdateYearRecord(YearRecord yearRecord)
-        {
-            if (yearRecord == null) return 0;
-
-            string sqlStatement = "UPDATE[dbo].[YearRecord] SET " +
-                                  "StudentId=@studentId,ClassId=@classId," +
-                                  "ClassRoomSchoolYearId=@classRoomSchoolYearId,Status=@status,YearGrade=@yearGrade " +
-                                  "WHERE ID=@id;";
-
-
-            SqlCommand sqlCommand = new SqlCommand()
+                return 0;
+            }
+        
+        
+            public static int UpdateYearRecord(YearRecord yearRecord)
             {
-                CommandText = sqlStatement,
-                CommandType = CommandType.Text,
-            };
-            sqlCommand.Parameters.Add(new SqlParameter("@id", yearRecord.ID));
-            sqlCommand.Parameters.Add(new SqlParameter("@studentId", yearRecord.StudentId));
-            sqlCommand.Parameters.Add(new SqlParameter("@classId", yearRecord.ClassId));
-            sqlCommand.Parameters.Add(new SqlParameter("@classRoomSchoolYearId", yearRecord.ClassRoomSchoolYearId == null ? DBNull.Value : yearRecord.ClassRoomSchoolYearId));
-            sqlCommand.Parameters.Add(new SqlParameter("@yearGrade", yearRecord.ClassRoomSchoolYearId == null ? DBNull.Value : yearRecord.YearGrade));
-            sqlCommand.Parameters.Add(new SqlParameter("@status", (int)yearRecord.Status));
+                if (yearRecord == null) return 0;
+
+                string sqlStatement = "UPDATE[dbo].[YearRecord] SET " +
+                                      "StudentId=@studentId,ClassId=@classId," +
+                                      "ClassRoomSchoolYearId=@classRoomSchoolYearId,Status=@status,YearGrade=@yearGrade " +
+                                      "WHERE ID=@id;";
+
+
+                SqlCommand sqlCommand = new SqlCommand()
+                {
+                    CommandText = sqlStatement,
+                    CommandType = CommandType.Text,
+                };
+                sqlCommand.Parameters.Add(new SqlParameter("@id", yearRecord.ID));
+                sqlCommand.Parameters.Add(new SqlParameter("@studentId", yearRecord.StudentId));
+                sqlCommand.Parameters.Add(new SqlParameter("@classId", yearRecord.ClassId));
+                sqlCommand.Parameters.Add(new SqlParameter("@classRoomSchoolYearId", yearRecord.ClassRoomSchoolYearId == null ? DBNull.Value : yearRecord.ClassRoomSchoolYearId));
+                sqlCommand.Parameters.Add(new SqlParameter("@yearGrade", yearRecord.YearGrade == null ? DBNull.Value : yearRecord.YearGrade));
+                sqlCommand.Parameters.Add(new SqlParameter("@status", (int)yearRecord.Status));
 
 
 
-            int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
-            return result;
-        }
-        public static int UpdateNullCLassRoomSchoolYearYearRecord(YearRecord yearRecord)
-        {
-            if (yearRecord == null) return 0;
-
-            string sqlStatement = "UPDATE[dbo].[YearRecord] SET " +
-                                  "ClassRoomSchoolYearId=Null;";
-
-
-            SqlCommand sqlCommand = new SqlCommand()
+                int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
+                return result;
+            }
+            public static int UpdateNullCLassRoomSchoolYearYearRecord(YearRecord yearRecord)
             {
-                CommandText = sqlStatement,
-                CommandType = CommandType.Text,
-            };
-            sqlCommand.Parameters.Add(new SqlParameter("@id", yearRecord.ID));
-            sqlCommand.Parameters.Add(new SqlParameter("@studentId", yearRecord.StudentId));
-            sqlCommand.Parameters.Add(new SqlParameter("@classId", yearRecord.ClassId));
-            sqlCommand.Parameters.Add(new SqlParameter("@classRoomSchoolYearId", yearRecord.ClassRoomSchoolYearId == null ? DBNull.Value : yearRecord.ClassRoomSchoolYearId));
-            sqlCommand.Parameters.Add(new SqlParameter("@status", (int)yearRecord.Status));
+                if (yearRecord == null) return 0;
+
+                string sqlStatement = "UPDATE[dbo].[YearRecord] SET " +
+                                      "ClassRoomSchoolYearId=Null;";
+
+
+                SqlCommand sqlCommand = new SqlCommand()
+                {
+                    CommandText = sqlStatement,
+                    CommandType = CommandType.Text,
+                };
+                sqlCommand.Parameters.Add(new SqlParameter("@id", yearRecord.ID));
+                sqlCommand.Parameters.Add(new SqlParameter("@studentId", yearRecord.StudentId));
+                sqlCommand.Parameters.Add(new SqlParameter("@classId", yearRecord.ClassId));
+                sqlCommand.Parameters.Add(new SqlParameter("@classRoomSchoolYearId", yearRecord.ClassRoomSchoolYearId == null ? DBNull.Value : yearRecord.ClassRoomSchoolYearId));
+                sqlCommand.Parameters.Add(new SqlParameter("@status", (int)yearRecord.Status));
 
 
 
-            int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
-            return result;
-        }
-        public static int DeleteYearRecord(YearRecord yearRecord)
-        {
-            if (yearRecord == null) return 0;
-            //SQL Statement
-            string sqlStatement = "DELETE FROM [dbo].[YearRecord] WHERE ID=@id;";
-
-            //Preparing SQL Command
-            SqlCommand sqlCommand = new SqlCommand()
+                int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
+                return result;
+            }
+            public static int DeleteYearRecord(YearRecord yearRecord)
             {
-                CommandText = sqlStatement,
-                CommandType = CommandType.Text,
-            };
+                if (yearRecord == null) return 0;
+                //SQL Statement
+                string sqlStatement = "DELETE FROM [dbo].[YearRecord] WHERE ID=@id;";
+
+                //Preparing SQL Command
+                SqlCommand sqlCommand = new SqlCommand()
+                {
+                    CommandText = sqlStatement,
+                    CommandType = CommandType.Text,
+                };
 
 
-            sqlCommand.Parameters.Add(new SqlParameter("@id", yearRecord.ID));
-            int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
-            return result;
-        }
-        public static List<YearRecord> GetYearRecordsInSchoolYear()
-        {
-            //SQL Statement
-            string sqlStatement = "select * from YearRecord where YearRecord.ClassRoomSchoolYearId in (select ClassRoomSchoolYear.ID from ClassRoomSchoolYear where ClassRoomSchoolYear.SchoolYearId = (select max(SchoolYear.ID)from SchoolYear));\r\n";
-            //Preparing SQL Command
-            SqlCommand sqlCommand = new SqlCommand()
+                sqlCommand.Parameters.Add(new SqlParameter("@id", yearRecord.ID));
+                int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
+                return result;
+            }
+            public static List<YearRecord> GetYearRecordsInSchoolYear()
             {
-                CommandText = sqlStatement,
-                CommandType = CommandType.Text,
-            };
-            //Execute Query
-            List<YearRecord> result = BaseDataManager.GetSPItems<YearRecord>(sqlCommand, YearRecordMapper);
-            return result;
+                //SQL Statement
+                string sqlStatement = "select * from YearRecord where YearRecord.ClassRoomSchoolYearId in (select ClassRoomSchoolYear.ID from ClassRoomSchoolYear where ClassRoomSchoolYear.SchoolYearId = (select max(SchoolYear.ID)from SchoolYear));\r\n";
+                //Preparing SQL Command
+                SqlCommand sqlCommand = new SqlCommand()
+                {
+                    CommandText = sqlStatement,
+                    CommandType = CommandType.Text,
+                };
+                //Execute Query
+                List<YearRecord> result = BaseDataManager.GetSPItems<YearRecord>(sqlCommand, YearRecordMapper);
+                return result;
+            }
+
+            #endregion
+
         }
-
-        #endregion
-
     }
-}

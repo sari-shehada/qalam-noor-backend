@@ -2,11 +2,14 @@
 
 namespace QalamAndNoor.Models.HelperModels.DbHelper
 {
-    public class Score
+    public class StudentSemesterGrades
     {
         public string CourseName { get; set; } = string.Empty;
         public double TotalGrade { get; set; }
         public Dictionary<int, double> Grades { get; set; } = new Dictionary<int, double>();
+        public double CourseGrade { get; set; }
+        public bool DidPassCourse { get; set; }
+        public bool IsOnlyDrop { get; set; }
 
     }
 }
