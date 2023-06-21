@@ -8,5 +8,6 @@
         public int TeacherId { get; set; }
         public bool IsEnriching { get; set; }
         public int ClassId { get; set; }
+        public bool RequiredToPass { get; set; }
     }
 }

@@ -14,6 +14,7 @@ namespace QalamAndNoor.DataManager
                 ID = Convert.ToInt32(dataReader["ID"].ToString()),
                 Name = dataReader["Name"].ToString(),
                 PreviousClassId = dataReader["PreviousClassId"].ToString().Trim() == string.Empty ? null : Convert.ToInt32(dataReader["PreviousClassId"].ToString()),
+                YearDropCourseCount = Convert.ToInt32(dataReader["YearDropCourseCount"].ToString())
             };
             return tempClass;
         }
@@ -39,8 +40,8 @@ namespace QalamAndNoor.DataManager
         {
             if (cls == null) return 0;
 
-            string sqlStatement = "INSERT INTO  [dbo].[Class] (Name,PreviousClassId) " +
-                                  "VALUES (@name,@previousClassId)";
+            string sqlStatement = "INSERT INTO  [dbo].[Class] (Name,PreviousClassId,YearDropCourseCount) " +
+                                  "VALUES (@name,@previousClassId,@yearDropCourseCount)";
 
 
             SqlCommand sqlCommand = new SqlCommand()
@@ -50,6 +51,7 @@ namespace QalamAndNoor.DataManager
             };
             sqlCommand.Parameters.Add(new SqlParameter("@name", cls.Name));
             sqlCommand.Parameters.Add(new SqlParameter("@previousClassId", cls.PreviousClassId == null ? DBNull.Value :cls.PreviousClassId));
+            sqlCommand.Parameters.Add(new SqlParameter("@yearDropCourseCount", cls.YearDropCourseCount));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             if (result == 1)
@@ -65,7 +67,7 @@ namespace QalamAndNoor.DataManager
             if (cls == null) return 0;
 
             string sqlStatement = "UPDATE  [dbo].[Class] SET " +
-                                  "Name=@name,PreviousClassId=@previousClassId " +
+                                  "Name=@name,PreviousClassId=@previousClassId,YearDropCourseCount=@yearDropCourseCount " +
                                   "WHERE ID=@id;";
 
 
@@ -78,6 +80,7 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@id", cls.ID));
             sqlCommand.Parameters.Add(new SqlParameter("@name", cls.Name));
             sqlCommand.Parameters.Add(new SqlParameter("@previousClassId", cls.PreviousClassId == null ? DBNull.Value : cls.PreviousClassId));
+            sqlCommand.Parameters.Add(new SqlParameter("@yearDropCourseCount", cls.YearDropCourseCount));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             return result;

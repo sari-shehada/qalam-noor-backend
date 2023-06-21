@@ -9,5 +9,6 @@ namespace QalamAndNoor.Models
         public int ClassId { get; set; }
         public int? ClassRoomSchoolYearId { get; set; }
         public StudentStatusEnum  Status { get; set; }
+        public int? YearGrade { get; set; }
     }
 }

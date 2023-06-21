@@ -17,6 +17,7 @@ namespace QalamAndNoor.DataManager
                 TeacherId = Convert.ToInt32(dataReader["TeacherId"].ToString()),
                 IsEnriching = Convert.ToBoolean(dataReader["IsEnriching"].ToString()),
                 ClassId = Convert.ToInt32(dataReader["ClassId"].ToString()),
+                RequiredToPass = Convert.ToBoolean(dataReader["RequiredToPass"].ToString())
             };
             return tempCourse;
         }
@@ -40,8 +41,8 @@ namespace QalamAndNoor.DataManager
         {
             if (course == null) return 0;
 
-            string sqlStatement = "INSERT INTO  [dbo].[Course] (Name,TotalGrade,TeacherId,IsEnriching,ClassId) " +
-                                  "VALUES (@name,@totalGrade,@teacherId,@isEnriching,@classId)";
+            string sqlStatement = "INSERT INTO  [dbo].[Course] (Name,TotalGrade,TeacherId,IsEnriching,ClassId,RequiredToPass) " +
+                                  "VALUES (@name,@totalGrade,@teacherId,@isEnriching,@classId,@requiredToPass)";
 
 
             SqlCommand sqlCommand = new SqlCommand()
@@ -53,6 +54,7 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@totalGrade", course.TotalGrade));
             sqlCommand.Parameters.Add(new SqlParameter("@teacherId", course.TeacherId));
             sqlCommand.Parameters.Add(new SqlParameter("@isEnriching", course.IsEnriching ?"1": "0"));
+            sqlCommand.Parameters.Add(new SqlParameter("@requiredToPass", course.IsEnriching ?"1": "0"));
             sqlCommand.Parameters.Add(new SqlParameter("@classId", course.ClassId));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
@@ -70,7 +72,7 @@ namespace QalamAndNoor.DataManager
 
             string sqlStatement = "UPDATE  [dbo].[Course] SET " +
                                   "Name=@name,TotalGrade=@totalGrade,TeacherId=@teacherId," +
-                                  "IsEnriching=@isEnriching,ClassId=@classId " +
+                                  "IsEnriching=@isEnriching,ClassId=@classId,RequiredToPass=@requiredToPass " +
                                   "WHERE ID=@id;";
 
             SqlCommand sqlCommand = new SqlCommand()
@@ -84,6 +86,7 @@ namespace QalamAndNoor.DataManager
             sqlCommand.Parameters.Add(new SqlParameter("@teacherId", course.TeacherId));
             sqlCommand.Parameters.Add(new SqlParameter("@isEnriching", course.IsEnriching ? "1" : "0"));
             sqlCommand.Parameters.Add(new SqlParameter("@classId", course.ClassId));
+            sqlCommand.Parameters.Add(new SqlParameter("@requiredToPass", course.IsEnriching ? "1" : "0"));
 
             int result = BaseDataManager.ExecuteNonQuery(sqlCommand);
             return result;
