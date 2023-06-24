@@ -539,12 +539,15 @@ namespace QalamAndNoor.Manager
             List<StudentSemesterGrades> studentSemesterGrades = semesterExams.GroupBy(x => x.CourseId).Select(obj =>
               {
                   Course course = CourseManager.GetCourseById(obj.FirstOrDefault()!.CourseId);
+                  Employee employee = EmployeeManager.GetEmployeeByCourseId(course.ID);
                   Dictionary<int, double> grades = obj.ToDictionary(g => (int)ExamManager.GetExamById(g.ExamId).Type, g => g.ObtainedGrade);
                   bool checkCourse = CourseManager.IsOnlyDropByCourseId(obj.FirstOrDefault()!.CourseId);
 
                   double avgGrades = grades.Select(x => x.Value).Sum();
                   return new StudentSemesterGrades
                   {
+                      Teacher = employee,
+                      CourseId = course.ID,
                       CourseName = course.Name,
                       TotalGrade = course.TotalGrade,
                       Grades = grades,
@@ -553,8 +556,26 @@ namespace QalamAndNoor.Manager
                       IsOnlyDrop = checkCourse
                   };
               }).ToList();
-            bool didNotPassSemester = studentSemesterGrades.Any(x => x.IsOnlyDrop && !x.DidPassCourse);
-            bool failedCourses = studentSemesterGrades.Count(x => !x.DidPassCourse) >= ClassManager.GetClassByCoureseId(semesterExams.FirstOrDefault()!.CourseId).YearDropCourseCount;
+            Class cls = ClassManager.GetClassByCoureseId(semesterExams.FirstOrDefault()!.CourseId);
+            List<Course> courses = CourseManager.GetCoursesByClassId(cls.ID);
+            List<StudentSemesterGrades> temp = courses.Where(x =>
+                !studentSemesterGrades.Select(y => y.CourseId).Contains(x.ID))
+                .Select(item => new StudentSemesterGrades()
+                {
+                    Teacher = EmployeeManager.GetEmployeeByCourseId(item.ID),
+                    CourseId = item.ID,
+                    CourseName = item.Name,
+                    TotalGrade = item.TotalGrade,
+
+                    DidPassCourse = null,
+                    IsOnlyDrop = CourseManager.IsOnlyDropByCourseId(item.ID),
+                }).ToList();
+            foreach (var item in temp)
+            {
+                studentSemesterGrades.Add(item);
+            }
+            bool didNotPassSemester = studentSemesterGrades.Any(x => (x.DidPassCourse.HasValue) && x.IsOnlyDrop && !x.DidPassCourse.Value);
+            bool failedCourses = studentSemesterGrades.Count(x => (x.DidPassCourse.HasValue) && !x.DidPassCourse!.Value) >= ClassManager.GetClassByCoureseId(semesterExams.FirstOrDefault()!.CourseId).YearDropCourseCount;
             bool didPassSemester = !(didNotPassSemester || failedCourses);
 
             double avgSemesterGrade = studentSemesterGrades.Sum(x => x.CourseGrade);
@@ -567,6 +588,22 @@ namespace QalamAndNoor.Manager
                 DidPassSemester = didPassSemester
             };
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         #region Private Helper Methods
         private static ItemOr _addNewFamily(

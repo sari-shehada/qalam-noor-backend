@@ -12,5 +12,7 @@ namespace QalamAndNoor.Models.HelperModels.DbHelper
         public string ClassRoomName { get; set; }
         public int CourseId { get; set; }
         public string CourseName { get; set; }
+        public int ActualCount { get; set; }
+        public int ExpectedCount { get; set; }
     }
 }

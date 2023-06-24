@@ -115,7 +115,7 @@ namespace QalamAndNoor.Manager
         }
         public static object FinishedCurrentSemester()
         {
-            Semester semester= 
+            Semester semester =
             GetCurrentSemesterInCurrentSchoolYear();
             List<ClassReportDTO> classReportDTOs = GetClassReports();
             if (classReportDTOs.Count == 0)
@@ -158,14 +158,56 @@ namespace QalamAndNoor.Manager
                                                     {
                                                         ExamId = x.ExamId,
                                                         ExamType = x.ExamType,
+                                                        ActualCount = x.ActualCount,
+                                                        ExpectedCount = x.ExpectedCount
                                                     }).ToList()
                                                 }).ToList()
                                         }).ToList()
                                 }).ToList();
-        
-    }
 
-      
+        }
+
+
+        public static object StartNewSemesterInCurrentSchoolYear(string semsterName)
+        {
+            int schoolYearId = SchoolYearManager.GetCurrentSchoolYear().ID;
+            int semesterId = InsertSemester(new Semester
+            {
+                ID = -1,
+                SchoolYearId = schoolYearId,
+                Name = semsterName,
+                IsDone = false,
+                PreviousSemesterId = 1
+            });
+            if (semesterId == 0)
+            {
+                return new
+                {
+                    Message = "تعذرت عملية بدء فصل جديد ",
+                    Success = false,
+
+                };
+            }
+            Semester semester = GetSemesterById(semesterId);
+            List<YearRecord> yearRecords = YearRecordManager.GetYearRecordsBySemesterId(semester!.PreviousSemesterId!.Value);
+            foreach (var item in yearRecords)
+            {
+                SemesterYearRecordManager.InsertSemsterYearRecord(new SemesterYearRecord
+                {
+                    ID = -1,
+                    SemesterId = semesterId,
+                    YearRecordId = item.ID
+                });
+            }
+            return new
+            {
+                Message = "تمت عملية بدء فصل جديد بنجاح ",
+                Success = true,
+            };
+
+        }
+
+
 
     }
 }

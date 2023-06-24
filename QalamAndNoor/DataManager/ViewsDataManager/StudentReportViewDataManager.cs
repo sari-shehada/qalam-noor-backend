@@ -19,14 +19,16 @@ namespace QalamAndNoor.DataManager.ViewsDataManager
                 ExamId = Convert.ToInt32(dataReader["ExamId"].ToString()),
                 ExamType= (ExamTypeEnum)Convert.ToInt32(dataReader["ExamType"].ToString()),
                 CourseId = Convert.ToInt32(dataReader["CourseId"].ToString()),
-                CourseName = dataReader["CourseName"].ToString()
+                CourseName = dataReader["CourseName"].ToString(),
+                ActualCount = Convert.ToInt32(dataReader["ActualCount"].ToString()),
+                ExpectedCount = Convert.ToInt32(dataReader["ExpectedCount"].ToString())
             };
             return tempStudentReport;
         }
         public static List<StudentReport> GetStudentReports()
         {
             //SQL Statement
-            string sqlStatement = "SELECT * FROM  [dbo].[StudentReportView]";
+            string sqlStatement = "SELECT * FROM  [dbo].[ExamReportView]";
             //Preparing SQL Command
             SqlCommand sqlCommand = new SqlCommand()
             {

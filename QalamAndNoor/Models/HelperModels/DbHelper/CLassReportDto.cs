@@ -32,5 +32,7 @@ namespace QalamAndNoor.Models.HelperModels.DbHelper
     {
         public int ExamId { get; set; }
         public ExamTypeEnum ExamType { get; set; }
+        public int ExpectedCount { get; set; }
+        public int ActualCount { get; set; }
     }
 }

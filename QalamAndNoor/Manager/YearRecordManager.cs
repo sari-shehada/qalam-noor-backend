@@ -176,5 +176,18 @@ namespace QalamAndNoor.Manager
             }
             return null;
         }
+
+        public static List<YearRecord> GetYearRecordsBySemesterId(int semesterId)
+        {
+            List<SemesterYearRecord> semesterYearRecords = SemesterYearRecordManager.GetSemesterYearRecordsBySemesterId(semesterId);
+            List<YearRecord> yearRecords = GetYearRecords();
+            List<YearRecord> result = new List<YearRecord>();
+            foreach (var item in semesterYearRecords)
+            {
+                result.Add(yearRecords.First((x) => x.ID == item.YearRecordId));
+            }
+            return result;
+        }
+
     }
 }

@@ -71,5 +71,10 @@ namespace QalamAndNoor.Manager
             Course course = CourseManager.GetCourseById(coureseId);
             return GetClassById(course.ClassId)!;
         }
+        public static Class GetClassByExamId(int examId)
+        {
+            Exam exam = ExamManager.GetExamById(examId);
+            return GetClassById(exam.ClassId)!;
+        }
     }
 }

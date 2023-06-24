@@ -88,6 +88,12 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
+        public static Employee GetEmployeeByCourseId(int courseId)
+        {
+            Course course = CourseManager.GetCourseById(courseId);
+            return GetEmployeeById(course.TeacherId);
+
+        }
 
     }
 }
