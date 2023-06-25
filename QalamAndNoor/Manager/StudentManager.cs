@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using System.Reflection.Metadata.Ecma335;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using QalamAndNoor.DataManager;
 using QalamAndNoor.DataManager.Helper;
 using QalamAndNoor.Models;
@@ -566,7 +568,6 @@ namespace QalamAndNoor.Manager
                     CourseId = item.ID,
                     CourseName = item.Name,
                     TotalGrade = item.TotalGrade,
-
                     DidPassCourse = null,
                     IsOnlyDrop = CourseManager.IsOnlyDropByCourseId(item.ID),
                 }).ToList();
@@ -575,7 +576,8 @@ namespace QalamAndNoor.Manager
                 studentSemesterGrades.Add(item);
             }
             bool didNotPassSemester = studentSemesterGrades.Any(x => (x.DidPassCourse.HasValue) && x.IsOnlyDrop && !x.DidPassCourse.Value);
-            bool failedCourses = studentSemesterGrades.Count(x => (x.DidPassCourse.HasValue) && !x.DidPassCourse!.Value) >= ClassManager.GetClassByCoureseId(semesterExams.FirstOrDefault()!.CourseId).YearDropCourseCount;
+            bool failedCourses = studentSemesterGrades.Count(x => (x.DidPassCourse.HasValue) && !x.DidPassCourse!.Value) >=
+                ClassManager.GetClassByCoureseId(semesterExams.FirstOrDefault()!.CourseId).YearDropCourseCount;
             bool didPassSemester = !(didNotPassSemester || failedCourses);
 
             double avgSemesterGrade = studentSemesterGrades.Sum(x => x.CourseGrade);
@@ -591,9 +593,49 @@ namespace QalamAndNoor.Manager
 
 
 
+        public static StudentSchoolYearScore GetStudentSchoolYearScoreByStudentIdAndSchoolYearId(int studentId, int schoolYearId)
+        {
+            List<Semester> semesters = SemesterManager.GetSemestersBySchoolYearId(schoolYearId);
+            List<SemesterExam> semesterExams = SemesterExamDataManager.GetStudentSemesterExamsBySchoolYearIdAndStudentId(schoolYearId, studentId);
+            List<StudentSemesterScore> studentSemesterScores = new List<StudentSemesterScore>();
+
+            foreach (var item in semesters)
+            {
+                StudentSemesterScore studentSemesterScore = GetStudentScoresBySchoolYearIdAndSemesterIdAndStudentId(item.ID, schoolYearId, studentId);
+                studentSemesterScores.Add(studentSemesterScore);
+
+            }
+            List<Dictionary<int, double>> totalCourseGrade = studentSemesterScores.
+                Select(x => x.StudentSemesterGrades.
+                GroupBy(c => c.CourseId).
+                Select(z =>
+            {
+                return new { Key = z.FirstOrDefault()!.CourseId, Value = z.Sum(w => w.CourseGrade) };
+            }).ToDictionary(i => i.Key, i => i.Value)).ToList();
+
+            Dictionary<int, double> temp = totalCourseGrade.First().ToDictionary(x => x.Key, x => totalCourseGrade.Sum(e => e[x.Key]) / semesters.Count);
+
+            return new StudentSchoolYearScore
+            {
+
+                StudentSemesterScores = studentSemesterScores,
+                TotalSchoolYearGrade = studentSemesterScores.Sum(x => x.TotalSemesterGrade) / semesters.Count,
+                TotalCourseGrades = temp,
+                DidPassSchoolYear = temp.Count(a =>
+                {
+                    Course course = CourseManager.GetCourseById(a.Key);
+                    bool res = (course.RequiredToPass && a.Value < course.RequiredGradeToPass);
+                    Debug.WriteLine($"On Course ID: {course.ID},{course.Name} Student Got:{a.Value} When Required Grade To Pass Was {course.RequiredGradeToPass} and RequiredToPass: {course.RequiredToPass}");
+                    return res;
+                }) == 0
+                && temp.Count(z => z.Value < CourseManager.GetCourseById(z.Key).RequiredGradeToPass)
+                 < ClassManager.GetClassByCoureseId(temp.First().Key).YearDropCourseCount
+
+            };
 
 
 
+        }
 
 
 

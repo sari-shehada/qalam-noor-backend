@@ -1,5 +1,7 @@
 ﻿using QalamAndNoor.DataManager;
 using QalamAndNoor.Models;
+using QalamAndNoor.Models.HelperModels.DbHelper;
+using QalamAndNoor.Shared;
 
 namespace QalamAndNoor.Manager
 {
@@ -7,7 +9,7 @@ namespace QalamAndNoor.Manager
     {
         public static List<SchoolYear> GetSchoolYears()
         {
-          
+
             return SchoolYearDataManager.GetSchoolYears().ToList();
         }
 
@@ -82,6 +84,50 @@ namespace QalamAndNoor.Manager
         public static List<SchoolYear> GetSchoolYearsByStudentId(int studentId)
         {
             return SchoolYearDataManager.GetSchoolYearsByStudentId(studentId);
+        }
+
+        public static object FinshedCurrentScoolYear()
+        {
+            SchoolYear schoolYear = GetCurrentSchoolYear();
+            int finshedSchoolyear = UpdateSchoolYear(new SchoolYear
+            {
+                ID = schoolYear.ID,
+                Name = schoolYear.Name,
+                PreviousSchoolYearId = schoolYear.PreviousSchoolYearId,
+                IsFinished = true
+            });
+            if (finshedSchoolyear==0)
+            {
+                return new 
+                
+                { 
+                    Message="تعذرت عملية انهاء العام الدراسي ",
+                    Success = false
+                };
+            }
+            List<YearRecord> yearRecords = YearRecordManager.GetYearRecordsInCurrentSchoolYear();
+            
+            foreach (var item in yearRecords)
+            {
+                FinalStudentScore finalStudentScore = FinalStudentScoreManager.GetFinalStudentScoreByStudentIdInCurrentSchoolYear(item.StudentId);
+                YearRecordManager.UpdateYearRecord(new YearRecord
+                {
+                    ID = item.ID,
+                    StudentId = item.StudentId,
+                    ClassId = item.ClassId,
+                    ClassRoomSchoolYearId = item.ClassRoomSchoolYearId,
+                    YearGrade = Convert.ToInt32(finalStudentScore.TotalGrade.ToString()),
+                    Status = finalStudentScore.DidPassYear == true ? StudentStatusEnum.Pass : StudentStatusEnum.Fail,
+                });
+                
+            }
+            return new
+            {
+                Message = $"تمت بنجاح عملية انهاء العام الدراسي ${schoolYear.Name}",
+                Success = true
+            };
+
+
         }
 
     }

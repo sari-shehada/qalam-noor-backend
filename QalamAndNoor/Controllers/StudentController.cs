@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using QalamAndNoor.DataManager;
+using QalamAndNoor.DataManager.Helper;
 using QalamAndNoor.DataManager.ViewsDataManager;
 using QalamAndNoor.Manager;
 using QalamAndNoor.Manager.ViewsManager;
@@ -206,5 +207,25 @@ namespace QalamAndNoor.Controllers
             return StudentManager.GetStudentScoresBySchoolYearIdAndSemesterIdAndStudentId
             (semesterId, schoolYearId, StudentId);
         }
+
+        [Route("StudentController/GetStudentSchoolYearScoreByStudentIdAndSchoolYearId")]
+        [HttpGet]
+        public StudentSchoolYearScore GetStudentSchoolYearScoreByStudentIdAndSchoolYearId(int schoolYearId,int studentId)
+        {
+            return StudentManager.GetStudentSchoolYearScoreByStudentIdAndSchoolYearId(studentId, schoolYearId);
+        }
+        [Route("StudentController/GetTotalStudentMarksByStudentIdAndSchoolYearId")]
+        [HttpGet]
+        public List<TotalStudentMark> GetTotalStudentMarksByStudentIdAndSchoolYearId(int schoolYearId,int studentId)
+        {
+            return TotalStudentMarkDataManager.GetTotalStudentMarksByStudentIdAndSchoolYearId(schoolYearId, studentId);
+        }
+        [Route("StudentController/GetFinalStudentScoreByStudentIdInCurrentSchoolYear")]
+        [HttpGet]
+        public FinalStudentScore GetFinalStudentScoreByStudentIdInCurrentSchoolYear(int studentId)
+        {
+            return FinalStudentScoreManager.GetFinalStudentScoreByStudentIdInCurrentSchoolYear(studentId);
+        }
+
     }
 }

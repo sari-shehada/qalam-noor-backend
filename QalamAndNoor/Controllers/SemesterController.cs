@@ -55,7 +55,11 @@ namespace QalamAndNoor.Controllers
         {
             return SemesterManager.GetSemestersBySchoolYearId(schoolYearId);
         }
-
-      
+        [Route("SemesterController/StartNewSemesterInCurrentSchoolYear")]
+        [HttpGet]
+        public object StartNewSemesterInCurrentSchoolYear(string semesterName)
+        {
+            return SemesterManager.StartNewSemesterInCurrentSchoolYear(semesterName);
+        }
     }
 }
