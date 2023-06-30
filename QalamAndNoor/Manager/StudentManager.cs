@@ -530,13 +530,18 @@ namespace QalamAndNoor.Manager
             return result;
         }
 
-        public static StudentSemesterScore GetStudentScoresBySchoolYearIdAndSemesterIdAndStudentId
+        public static StudentSemesterScore? GetStudentScoresBySchoolYearIdAndSemesterIdAndStudentId
             (int semesterId, int schoolYearId, int StudentId)
         {
+            int currentSchoolYearId = SchoolYearManager.GetCurrentSchoolYear().ID;
 
-
+            List<int> students = GetStudentsInCurrentSchoolYear().Select((e)=> e.ID).ToList();
+            if (!students.Contains(StudentId) && currentSchoolYearId==schoolYearId)
+            {
+                return null;
+            }
             List<SemesterExam> semesterExams = SemesterExamDataManager.
-                GetStudentSemesterExamsBySchoolYearIdAndSemesterIdAndStudentId(schoolYearId, semesterId, StudentId);
+                GetStudentSemesterExamsBySchoolYearIdAndSemesterIdAndStudentId(semesterId, schoolYearId, StudentId);
 
             List<StudentSemesterGrades> studentSemesterGrades = semesterExams.GroupBy(x => x.CourseId).Select(obj =>
               {
@@ -579,7 +584,6 @@ namespace QalamAndNoor.Manager
             bool failedCourses = studentSemesterGrades.Count(x => (x.DidPassCourse.HasValue) && !x.DidPassCourse!.Value) >=
                 ClassManager.GetClassByCoureseId(semesterExams.FirstOrDefault()!.CourseId).YearDropCourseCount;
             bool didPassSemester = !(didNotPassSemester || failedCourses);
-
             double avgSemesterGrade = studentSemesterGrades.Sum(x => x.CourseGrade);
 
             return new StudentSemesterScore
@@ -589,6 +593,8 @@ namespace QalamAndNoor.Manager
                 TotalSemesterGrade = avgSemesterGrade,
                 DidPassSemester = didPassSemester
             };
+
+            
         }
 
 

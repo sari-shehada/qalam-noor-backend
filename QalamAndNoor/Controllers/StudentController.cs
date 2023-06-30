@@ -201,7 +201,7 @@ namespace QalamAndNoor.Controllers
 
         [Route("StudentController/GetStudentSemesterScoreScoresBySchoolYearIdAndSemesterIdAndStudentId")]
         [HttpGet]
-        public StudentSemesterScore GetStudentSemesterScoreScoresBySchoolYearIdAndSemesterIdAndStudentId
+        public object? GetStudentSemesterScoreScoresBySchoolYearIdAndSemesterIdAndStudentId
                     (int semesterId, int schoolYearId, int StudentId)
         {
             return StudentManager.GetStudentScoresBySchoolYearIdAndSemesterIdAndStudentId
@@ -220,11 +220,11 @@ namespace QalamAndNoor.Controllers
         {
             return TotalStudentMarkDataManager.GetTotalStudentMarksByStudentIdAndSchoolYearId(schoolYearId, studentId);
         }
-        [Route("StudentController/GetFinalStudentScoreByStudentIdInCurrentSchoolYear")]
+        [Route("StudentController/GetFinalStudentScoreByStudentIdAndSchoolYearId")]
         [HttpGet]
-        public FinalStudentScore GetFinalStudentScoreByStudentIdInCurrentSchoolYear(int studentId)
+        public FinalStudentScore GetFinalStudentScoreByStudentIdAndSchoolYearId(int studentId,int schoolyearId)
         {
-            return FinalStudentScoreManager.GetFinalStudentScoreByStudentIdInCurrentSchoolYear(studentId);
+            return FinalStudentScoreManager.GetFinalStudentScoreByStudentIdAndSchoolYearId(studentId,schoolyearId);
         }
 
     }

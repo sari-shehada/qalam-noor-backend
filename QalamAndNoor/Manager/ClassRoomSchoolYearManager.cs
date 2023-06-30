@@ -63,11 +63,13 @@ namespace QalamAndNoor.Manager
 
         public static List<ClassRoomSchoolYear> GetClassRoomSchoolYearsInCurrentSchoolYear()
         {
+            int schoolYearId = SchoolYearManager.GetCurrentSchoolYear().ID;
+          
             List<ClassRoomSchoolYear> classRoomSchoolYears = GetClassRoomSchoolYears();
             List<ClassRoomSchoolYear> result = new List<ClassRoomSchoolYear>();
             foreach (ClassRoomSchoolYear classRoomSchoolYear in classRoomSchoolYears)
             {
-                if (classRoomSchoolYear.SchoolYearId == SchoolYearManager.GetCurrentSchoolYear().ID)
+                if (classRoomSchoolYear.SchoolYearId == schoolYearId)
                 {
                     result.Add(classRoomSchoolYear);
                 }

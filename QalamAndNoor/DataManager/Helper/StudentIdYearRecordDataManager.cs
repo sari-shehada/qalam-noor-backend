@@ -18,13 +18,13 @@ namespace QalamAndNoor.DataManager.Helper
         }
         public static List<StudentIdYearRecord> GetSuccessfulStudentIdsByClassId(int classId)
         {
-            Class cls = ClassManager.GetClassById(classId);
+            Class cls = ClassManager.GetClassById(classId)!;
             if (cls == null || cls.PreviousClassId == null)
             {
                 return new List<StudentIdYearRecord>();
             }
             //SQL Statement
-            string sqlStatement = $"select YearRecord.StudentId as StudentId from YearRecord where YearRecord.Status= 2 group by YearRecord.StudentId having MAX(YearRecord.ClassID) = {cls.PreviousClassId}";
+            string sqlStatement = $"select YearRecord.StudentId as StudentId  from YearRecord group by YearRecord.StudentId having max(YearRecord.ID) in (select YearRecord.ID from YearRecord where YearRecord.Status = 2 and YearRecord.ClassId = {cls.PreviousClassId})";
             //Preparing SQL Command
             SqlCommand sqlCommand = new SqlCommand()
             {
@@ -38,7 +38,8 @@ namespace QalamAndNoor.DataManager.Helper
         public static List<StudentIdYearRecord> GetFailingStudentIdsByClassId(int classId)
         {
             //SQL Statement
-            string sqlStatement = $"select YearRecord.StudentId as StudentId from YearRecord where YearRecord.Status= 1  group by YearRecord.StudentId having MAX(YearRecord.ClassID) = {classId}";
+            string sqlStatement = $"select YearRecord.StudentId from YearRecord group by YearRecord.StudentId having max(YearRecord.ID) in (select YearRecord.ID from YearRecord where YearRecord.Status = 1 and YearRecord.ClassId = {classId})";
+
             //Preparing SQL Command
             SqlCommand sqlCommand = new SqlCommand()
             {

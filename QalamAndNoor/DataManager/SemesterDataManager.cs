@@ -68,7 +68,8 @@ namespace QalamAndNoor.DataManager
             if (semester == null) return 0;
 
             string sqlStatement = "UPDATE  [dbo].[Semester] SET " +
-                                  "Name=@name,SchoolYearId=@schoolYearId,IsDone=@isDone,PreviousSemesterId=@previousSemesterId " +
+                                  "Name=@name,SchoolYearId=@schoolYearId," +
+                                  "IsDone=@isDone,PreviousSemesterId=@previousSemesterId " +
                                   "WHERE ID=@id;";
 
             SqlCommand sqlCommand = new SqlCommand()
@@ -78,7 +79,6 @@ namespace QalamAndNoor.DataManager
             };
             sqlCommand.Parameters.Add(new SqlParameter("@id", semester.ID));
             sqlCommand.Parameters.Add(new SqlParameter("@name", semester.Name));
-            sqlCommand.Parameters.Add(new SqlParameter("@schoolYearId", semester.SchoolYearId));
             sqlCommand.Parameters.Add(new SqlParameter("@schoolYearId", semester.SchoolYearId));
             sqlCommand.Parameters.Add(new SqlParameter("@isDone", semester.IsDone ? "1" : "0"));
             sqlCommand.Parameters.Add(new SqlParameter("@previousSemesterId", semester.PreviousSemesterId == null ? DBNull.Value : semester.PreviousSemesterId));

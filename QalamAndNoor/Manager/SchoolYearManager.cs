@@ -105,18 +105,18 @@ namespace QalamAndNoor.Manager
                     Success = false
                 };
             }
-            List<YearRecord> yearRecords = YearRecordManager.GetYearRecordsInCurrentSchoolYear();
+            List<YearRecord> yearRecords = YearRecordManager.GetYearRecordsinCurrentSchoolYear();
             
             foreach (var item in yearRecords)
             {
-                FinalStudentScore finalStudentScore = FinalStudentScoreManager.GetFinalStudentScoreByStudentIdInCurrentSchoolYear(item.StudentId);
+                FinalStudentScore finalStudentScore = FinalStudentScoreManager.GetFinalStudentScoreByStudentIdAndSchoolYearId(item.StudentId,schoolYear.ID);
                 YearRecordManager.UpdateYearRecord(new YearRecord
                 {
                     ID = item.ID,
                     StudentId = item.StudentId,
                     ClassId = item.ClassId,
                     ClassRoomSchoolYearId = item.ClassRoomSchoolYearId,
-                    YearGrade = Convert.ToInt32(finalStudentScore.TotalGrade.ToString()),
+                    YearGrade = Convert.ToInt32(Math.Ceiling((finalStudentScore.TotalGrade))),
                     Status = finalStudentScore.DidPassYear == true ? StudentStatusEnum.Pass : StudentStatusEnum.Fail,
                 });
                 

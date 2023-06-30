@@ -4,13 +4,12 @@ using QalamAndNoor.Models.HelperModels.DbHelper;
 
 namespace QalamAndNoor.Manager
 {
-    public class FinalStudentScoreManager
+    public abstract class FinalStudentScoreManager
     {
-        public static FinalStudentScore GetFinalStudentScoreByStudentIdInCurrentSchoolYear(int studentId)
+        public static FinalStudentScore GetFinalStudentScoreByStudentIdAndSchoolYearId(int studentId,int schoolyearId)
         {
-            int schoolYearId = SchoolYearManager.GetCurrentSchoolYear().ID;
             List<TotalStudentMark> totalStudentMarks = TotalStudentMarkDataManager.
-                GetTotalStudentMarksByStudentIdAndSchoolYearId(schoolYearId, studentId);
+                GetTotalStudentMarksByStudentIdAndSchoolYearId(schoolyearId, studentId);
 
 
             Class schoolClass = ClassManager.GetClassByCoureseId(totalStudentMarks.First().CourseId);

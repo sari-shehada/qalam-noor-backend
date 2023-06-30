@@ -44,7 +44,7 @@ namespace QalamAndNoor.Controllers
         {
             return SchoolYearManager.GetCurrentSchoolYear();
         }
-        [Route("SchoolYearController/FinshedCurrentScoolYear")]
+        [Route("SchoolYearController/EndingCurrentScoolYear")]
         [HttpGet]
         public object FinshedCurrentScoolYear()
         {

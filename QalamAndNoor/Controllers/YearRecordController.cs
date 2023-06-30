@@ -57,6 +57,12 @@ namespace QalamAndNoor.Controllers
         {
             return YearRecordDataManager.UpdateNullCLassRoomSchoolYearYearRecord(record);
         }
+        [Route("YearRecordController/GetYearRecordsInCurrentSchoolYear")]
+        [HttpGet]
+        public List<YearRecord> GetYearRecordsInCurrentSchoolYear()
+        {
+            return YearRecordManager.GetYearRecordsinCurrentSchoolYear();
+        }
 
     }
 }
