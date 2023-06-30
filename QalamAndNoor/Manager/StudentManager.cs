@@ -453,8 +453,6 @@ namespace QalamAndNoor.Manager
         }
         public static object InsertStudentsMark(StudentExamMarkInsertion studentExamMarkInsertion)
         {
-            ItemOr itemOr = new ItemOr();
-            Debug.WriteLine(studentExamMarkInsertion.StudentMark);
             foreach (int item in studentExamMarkInsertion.StudentMark.Keys)
             {
                 int res = SemesterExamManager.InsertSemesterExam(new SemesterExam
@@ -535,8 +533,8 @@ namespace QalamAndNoor.Manager
         {
             int currentSchoolYearId = SchoolYearManager.GetCurrentSchoolYear().ID;
 
-            List<int> students = GetStudentsInCurrentSchoolYear().Select((e)=> e.ID).ToList();
-            if (!students.Contains(StudentId) && currentSchoolYearId==schoolYearId)
+            List<int> students = GetStudentsInCurrentSchoolYear().Select((e) => e.ID).ToList();
+            if (!students.Contains(StudentId) && currentSchoolYearId == schoolYearId)
             {
                 return null;
             }
@@ -594,7 +592,7 @@ namespace QalamAndNoor.Manager
                 DidPassSemester = didPassSemester
             };
 
-            
+
         }
 
 
@@ -646,9 +644,77 @@ namespace QalamAndNoor.Manager
 
 
 
+        public static object RegistrationLateStudent(int yearRecordId, int classRoomId)
+        {
+            int previousSemesterId = SemesterManager.GetCurrentSemesterInCurrentSchoolYear().PreviousSemesterId.Value;
+            int schoolYearId = SchoolYearManager.GetCurrentSchoolYear().ID;
+            YearRecord yearRecord = YearRecordManager.GetYearRecordById(yearRecordId);
+            ClassRoomSchoolYear classRoomSchoolYear = ClassRoomSchoolYearManager.GetClassRoomSchoolYearByClassRoomIdAndSchoolYearId(classRoomId, schoolYearId);
+            if (classRoomSchoolYear is null)
+            {
+                return new
+                {
+                    message = "هذه الشعبة غير متاحة في هذا العام الدراسي",
+                    success = false,
+                };
+            }
+            YearRecord currentRecord = YearRecordManager.GetYearRecordById(yearRecordId);
+            currentRecord = new YearRecord()
+            {
+                ID = yearRecordId,
+                ClassRoomSchoolYearId = classRoomSchoolYear.ID,
+                ClassId = currentRecord.ClassId,
+                StudentId = currentRecord.StudentId,
+                Status = StudentStatusEnum.NotDefined,
+                YearGrade = currentRecord.YearGrade,
+            };
+            YearRecordManager.UpdateYearRecord(currentRecord);
+
+            SemesterYearRecordManager.InsertSemsterYearRecord(new SemesterYearRecord
+            {
+                ID = -1,
+                SemesterId = previousSemesterId,
+                YearRecordId = yearRecordId
+            });
+            return new
+            {
+                message = "تمت عملية تسجيل الطالب بنجاح",
+                success = true,
+            };
+
+        }
+
+        public static object InsertLateStudentsMark(StudentExamMarkInsertion studentExamMarkInsertion)
+        {
+            int previouseSemesterId = SemesterManager.GetCurrentSemesterInCurrentSchoolYear().PreviousSemesterId.Value;
+            foreach (int item in studentExamMarkInsertion.StudentMark.Keys)
+            {
+                int semesterYearecordId = SemesterYearRecordManager.GetSemesterYearRecordByYearRecordIdAndSemesterId(item, previouseSemesterId).ID;
+                int res = SemesterExamManager.InsertSemesterExam(new SemesterExam
+                {
+                    ID = -1,
+                    CourseId = studentExamMarkInsertion.CourseId,
+                    ExamId = studentExamMarkInsertion.ExamId,
+                    SemesterYearecordId =semesterYearecordId,
+                    ObtainedGrade = studentExamMarkInsertion.StudentMark[item]
+                });
+                if (res == 0)
+                {
+                    return new
+                    {
+                        Message = "فشلت عملية ادخال العلامات",
+                        Success = false
+                    };
+                }
+            }
+            return new
+            {
+                Message = "تمت عملية ادخال العلامات بنجاح",
+                Success = true
+            };
 
 
-
+        }
 
 
 

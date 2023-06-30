@@ -226,6 +226,17 @@ namespace QalamAndNoor.Controllers
         {
             return FinalStudentScoreManager.GetFinalStudentScoreByStudentIdAndSchoolYearId(studentId,schoolyearId);
         }
-
+        [Route("StudentController/RegistrationLateStudent")]
+        [HttpGet]
+        public object RegistrationLateStudent( int yearRecordId,int classRoomId)
+        {
+            return StudentManager.RegistrationLateStudent(yearRecordId,classRoomId);
+        }
+        [Route("StudentController/InsertLateStudentsMark")]
+        [HttpPost]
+        public object InsertLateStudentsMark([FromBody]StudentExamMarkInsertion studentExamMarkInsertion)
+        {
+            return StudentManager.InsertLateStudentsMark(studentExamMarkInsertion);
+        }
     }
 }

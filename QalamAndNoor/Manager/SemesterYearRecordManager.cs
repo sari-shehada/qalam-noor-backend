@@ -53,6 +53,19 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
-        
+        public static SemesterYearRecord? GetSemesterYearRecordByYearRecordIdAndSemesterId(int yearRecordId,int semesterID)
+        {
+            List<SemesterYearRecord> semesterYearRecords = GetSemesterYearRecords();
+            foreach (SemesterYearRecord item in semesterYearRecords)
+            {
+                if (item.YearRecordId == yearRecordId && item.SemesterId == semesterID)
+                {
+                    return item;
+                }
+
+            }
+            return null;
+        }
+
     }
 }
