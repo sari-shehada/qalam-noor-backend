@@ -59,8 +59,6 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
-
-
         public static List<ClassRoom> GetAvailableClassRoomsByClassId(int classId)
         {
             List<ClassRoomSchoolYear> classRoomSchoolYears = ClassRoomSchoolYearManager.
@@ -82,7 +80,6 @@ namespace QalamAndNoor.Manager
             List<ClassRoom> readyToOpenClassrooms = classroomsInClass.Where((e) => !alreadyOpenClassrooms.Contains(e)).ToList();
             return readyToOpenClassrooms;
         }
-
         public static List<ClassRoom> GetAlreadyOpenClassRoomsByClassId(int classId)
         {
             List<ClassRoomSchoolYear> classRoomSchoolYears = ClassRoomSchoolYearManager.
@@ -110,7 +107,7 @@ namespace QalamAndNoor.Manager
             {
                 return null;
             }
-            ClassRoomSchoolYear? classRoomSchoolYear = ClassRoomSchoolYearManager.GetClassRoomSchoolYearById(yearRecord.ClassRoomSchoolYearId.Value);
+            ClassRoomSchoolYear? classRoomSchoolYear = ClassRoomSchoolYearManager.GetClassRoomSchoolYearById(yearRecord.ClassRoomSchoolYearId!.Value);
             if (classRoomSchoolYear is null)
             {
                 return null;
@@ -134,6 +131,17 @@ namespace QalamAndNoor.Manager
         public static int GetClassRoomsCountInCurrentSchoolYear()
         {
           return  GetClassRoomsInCurrentSchoolYear().Count;
+        }
+        public static List<ClassRoom> GetClassRoomsBySchoolYearId(int schoolYearId)
+        {
+            List<ClassRoomSchoolYear> classRoomSchoolYears = ClassRoomSchoolYearManager.GetClassRoomSchoolYearsBySchoolYearId(schoolYearId);
+            List<ClassRoom> classRooms = GetClassRooms();
+            List<ClassRoom> result = new List<ClassRoom>();
+            foreach (var item in classRoomSchoolYears)
+            {
+                result.Add(classRooms.First((x) => x.ID == item.ClassRoomId));
+            }
+            return result;
         }
     }
 }

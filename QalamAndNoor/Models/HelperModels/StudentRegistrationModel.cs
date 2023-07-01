@@ -8,8 +8,8 @@
         public Mother Mother { get; set; }
         public ResponsiblePerson? ResponsiblePerson { get; set; }
         public MedicalRecord MedicalRecord { get; set; }
-        public List< Ilness> Illnesses { get; set; }
-        public List <TokenVaccine> TakenVaccines { get; set; }
+        public List<Ilness> Illnesses { get; set; } = new List<Ilness>();
+        public List<TokenVaccine> TakenVaccines { get; set; } = new List<TokenVaccine>();
         public StudentPreviousSchool? StudentPreviousSchool { get; set; }
         public Class EnrolledClass { get; set; }
     }

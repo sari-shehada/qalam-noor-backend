@@ -641,80 +641,80 @@ namespace QalamAndNoor.Manager
 
         }
 
-
-
-
-        public static object RegistrationLateStudent(int yearRecordId, int classRoomId)
+        public static object RegistrationLateStudent(LateStudent lateStudent)
         {
-            int previousSemesterId = SemesterManager.GetCurrentSemesterInCurrentSchoolYear().PreviousSemesterId.Value;
+            Class studentClass = ClassManager.GetClassById(lateStudent.CLassId);
             int schoolYearId = SchoolYearManager.GetCurrentSchoolYear().ID;
-            YearRecord yearRecord = YearRecordManager.GetYearRecordById(yearRecordId);
-            ClassRoomSchoolYear classRoomSchoolYear = ClassRoomSchoolYearManager.GetClassRoomSchoolYearByClassRoomIdAndSchoolYearId(classRoomId, schoolYearId);
-            if (classRoomSchoolYear is null)
+            ClassRoomSchoolYear classRoomSchoolYear = ClassRoomSchoolYearManager.
+                GetClassRoomSchoolYearByClassRoomIdAndSchoolYearId(lateStudent.ClassRoomId, schoolYearId)!;
+
+            try
+            {
+                YearRecord record = YearRecordManager.GetYearRecordById(lateStudent.YearRecordId);
+                record = new YearRecord()
+                {
+                    ID = record.ID,
+                    ClassRoomSchoolYearId = classRoomSchoolYear.ID,
+                    ClassId = record.ClassId,
+                    StudentId = record.StudentId,
+                    Status = StudentStatusEnum.NotDefined,
+                    YearGrade = record.YearGrade,
+                };
+
+                YearRecordManager.UpdateYearRecord(record);
+                int currentSemesterId = SemesterManager.GetCurrentSemesterInCurrentSchoolYear().ID;
+                SemesterYearRecordManager.InsertSemsterYearRecord(new SemesterYearRecord
+                {
+                    ID=-1,
+                    SemesterId=currentSemesterId,
+                    YearRecordId=lateStudent.YearRecordId
+                });
+
+                foreach (var item in lateStudent.SemesterResults)
+                {
+                    int semesterYearRecordId = SemesterYearRecordManager.InsertSemsterYearRecord(new SemesterYearRecord
+                    {
+                        ID = -1,
+                        SemesterId = item.SemesterId,
+                        YearRecordId = lateStudent.YearRecordId
+                    });
+
+                    foreach (var courseResult in item.CourseResults)
+                    {
+                        foreach (int examId in courseResult.Grades.Keys)
+                        {
+                            SemesterExamManager.InsertSemesterExam(new SemesterExam
+                            {
+                                ID = -1,
+                                CourseId = courseResult.CourseId,
+                                SemesterYearecordId = semesterYearRecordId,
+                                ExamId = examId,
+                                ObtainedGrade = courseResult.Grades[examId],
+                            });
+                        }
+                    }
+                }
+
+
+                return new
+                {
+                    message = "تمت عملية تسجيل طالب متأخر واضافة جميع العلامات الخاصة بالفصل السابق",
+                    success = true,
+                };
+            }
+            catch (Exception)
             {
                 return new
                 {
-                    message = "هذه الشعبة غير متاحة في هذا العام الدراسي",
+                    message = "فشلت عملية تسجيل الطالب ",
                     success = false,
                 };
             }
-            YearRecord currentRecord = YearRecordManager.GetYearRecordById(yearRecordId);
-            currentRecord = new YearRecord()
-            {
-                ID = yearRecordId,
-                ClassRoomSchoolYearId = classRoomSchoolYear.ID,
-                ClassId = currentRecord.ClassId,
-                StudentId = currentRecord.StudentId,
-                Status = StudentStatusEnum.NotDefined,
-                YearGrade = currentRecord.YearGrade,
-            };
-            YearRecordManager.UpdateYearRecord(currentRecord);
-
-            SemesterYearRecordManager.InsertSemsterYearRecord(new SemesterYearRecord
-            {
-                ID = -1,
-                SemesterId = previousSemesterId,
-                YearRecordId = yearRecordId
-            });
-            return new
-            {
-                message = "تمت عملية تسجيل الطالب بنجاح",
-                success = true,
-            };
 
         }
 
-        public static object InsertLateStudentsMark(StudentExamMarkInsertion studentExamMarkInsertion)
-        {
-            int previouseSemesterId = SemesterManager.GetCurrentSemesterInCurrentSchoolYear().PreviousSemesterId.Value;
-            foreach (int item in studentExamMarkInsertion.StudentMark.Keys)
-            {
-                int semesterYearecordId = SemesterYearRecordManager.GetSemesterYearRecordByYearRecordIdAndSemesterId(item, previouseSemesterId).ID;
-                int res = SemesterExamManager.InsertSemesterExam(new SemesterExam
-                {
-                    ID = -1,
-                    CourseId = studentExamMarkInsertion.CourseId,
-                    ExamId = studentExamMarkInsertion.ExamId,
-                    SemesterYearecordId =semesterYearecordId,
-                    ObtainedGrade = studentExamMarkInsertion.StudentMark[item]
-                });
-                if (res == 0)
-                {
-                    return new
-                    {
-                        Message = "فشلت عملية ادخال العلامات",
-                        Success = false
-                    };
-                }
-            }
-            return new
-            {
-                Message = "تمت عملية ادخال العلامات بنجاح",
-                Success = true
-            };
 
 
-        }
 
 
 

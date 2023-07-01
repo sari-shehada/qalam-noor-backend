@@ -76,5 +76,7 @@ namespace QalamAndNoor.Manager
             Exam exam = ExamManager.GetExamById(examId);
             return GetClassById(exam.ClassId)!;
         }
+        
+        
     }
 }

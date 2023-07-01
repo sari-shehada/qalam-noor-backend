@@ -1,5 +1,6 @@
 ﻿using QalamAndNoor.DataManager;
 using QalamAndNoor.Models;
+using QalamAndNoor.Shared;
 
 namespace QalamAndNoor.Manager
 {
@@ -60,32 +61,7 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
-        //public static List<YearRecord> GetDidPassedYearRescord()
-        //{
-        //    List<YearRecord> yearRecords = GetYearRecords();
-        //    List<YearRecord> result = new List<YearRecord>();
-        //    foreach (YearRecord yearRecord in yearRecords)
-        //    {
-        //        if (yearRecord.DidPass == true)
-        //        {
-        //            result.Add(yearRecord);
-        //        }
-        //    }
-        //    return result;
-        //}
-        //public static List<YearRecord> GetDidPassedYearRecordsByStudentId(int studentId)
-        //{
-        //    List<YearRecord> yearRecords = GetDidPassedYearRescord();
-        //    List<YearRecord> result = new List<YearRecord>();
-        //    foreach (YearRecord yearRecord in yearRecords)
-        //    {
-        //        if (yearRecord.StudentId == studentId)
-        //        {
-        //            result.Add(yearRecord);
-        //        }
-        //    }
-        //    return result;
-        //}
+       
         public static List<YearRecord> GetNewYearRecords()
         {
             Dictionary<int, YearRecord> uniqueStudents = new Dictionary<int, YearRecord>();
@@ -177,6 +153,25 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
+
+        public static List<YearRecord> GetYearRecordsBySchoolYearId(int schoolYearId)
+        {
+            List<int> classRoomSchoolYearsIds = ClassRoomSchoolYearManager.
+                GetClassRoomSchoolYearsBySchoolYearId(schoolYearId).Select((e) => e.ID).ToList();
+            List<YearRecord> yearRecords = GetYearRecords();
+            List<YearRecord> result = new List<YearRecord>();
+            result = yearRecords.Where((e) => classRoomSchoolYearsIds.Contains(e.ClassRoomSchoolYearId ?? -1)).ToList();
+            return result;
+        }
+        public static List<YearRecord> GetPassYearRecordsBySchoolYearId(int schoolYearId)
+        {
+            return GetYearRecordsBySchoolYearId(schoolYearId).Where(x =>x.Status== StudentStatusEnum.Pass).ToList();
+        }
+        public static List<YearRecord> GetFailYearRecordsBySchoolYearId(int schoolYearId)
+        {
+            return GetYearRecordsBySchoolYearId(schoolYearId).Where(x => x.Status == StudentStatusEnum.Fail).ToList();
+        }
+
 
     }
 }

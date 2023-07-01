@@ -34,7 +34,7 @@ namespace QalamAndNoor.Controllers
         }
         [Route("ClassRoomController/GetClassRoomById")]
         [HttpGet]
-        public ClassRoom GetClassRoomById(int id)
+        public ClassRoom? GetClassRoomById(int id)
         {
             return ClassRoomManager.GetClassRoomById(id);
         }
@@ -73,6 +73,12 @@ namespace QalamAndNoor.Controllers
         public int GetClassRoomsCountInCurrentSchoolYear()
         {
             return ClassRoomManager.GetClassRoomsCountInCurrentSchoolYear();
+        }
+        [Route("ClassRoomController/GetClassRoomsCountBySchoolYearId")]
+        [HttpGet]
+        public int GetClassRoomsCountBySchoolYearId(int schoolYearId)
+        {
+            return ClassRoomManager.GetClassRoomsBySchoolYearId(schoolYearId).Count;
         }
     }
 }

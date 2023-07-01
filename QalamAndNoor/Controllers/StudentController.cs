@@ -46,7 +46,7 @@ namespace QalamAndNoor.Controllers
         }
         [Route("StudentController/GetStudentById")]
         [HttpGet]
-        public Student GetStudentById(int id)
+        public Student? GetStudentById(int id)
         {
             return StudentManager.GetStudentById(id);
         }
@@ -227,16 +227,29 @@ namespace QalamAndNoor.Controllers
             return FinalStudentScoreManager.GetFinalStudentScoreByStudentIdAndSchoolYearId(studentId,schoolyearId);
         }
         [Route("StudentController/RegistrationLateStudent")]
-        [HttpGet]
-        public object RegistrationLateStudent( int yearRecordId,int classRoomId)
-        {
-            return StudentManager.RegistrationLateStudent(yearRecordId,classRoomId);
-        }
-        [Route("StudentController/InsertLateStudentsMark")]
         [HttpPost]
-        public object InsertLateStudentsMark([FromBody]StudentExamMarkInsertion studentExamMarkInsertion)
+        public object RegistrationLateStudent([FromBody]LateStudent lateStudent)
         {
-            return StudentManager.InsertLateStudentsMark(studentExamMarkInsertion);
+            return StudentManager.RegistrationLateStudent(lateStudent);
         }
+        [Route("StudentController/GetStudentCountBySchoolYearId")]
+        [HttpGet]
+        public int GetStudentCountBySchoolYearId(int schoolYearId)
+        {
+            return YearRecordManager.GetYearRecordsBySchoolYearId(schoolYearId).Count;
+        }
+        [Route("StudentController/GetPassStudentCountBySchoolYearId")]
+        [HttpGet]
+        public int GetPassStudentCountBySchoolYearId(int schoolYearId)
+        {
+            return YearRecordManager.GetPassYearRecordsBySchoolYearId(schoolYearId).Count;
+        }
+        [Route("StudentController/GetFailStudentCountBySchoolYearId")]
+        [HttpGet]
+        public int GetFailStudentCountBySchoolYearId(int schoolYearId)
+        {
+            return YearRecordManager.GetFailYearRecordsBySchoolYearId(schoolYearId).Count;
+        }
+
     }
 }
