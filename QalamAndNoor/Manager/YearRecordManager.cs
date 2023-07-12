@@ -61,7 +61,7 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
-       
+
         public static List<YearRecord> GetNewYearRecords()
         {
             Dictionary<int, YearRecord> uniqueStudents = new Dictionary<int, YearRecord>();
@@ -85,7 +85,7 @@ namespace QalamAndNoor.Manager
             return GetNewYearRecords().Where((e) => e.ClassId == classID && e.ClassRoomSchoolYearId == null).ToList();
         }
 
-     
+
 
         public static List<YearRecord> GetYearRecordsByClassRoomSchoolYearId(int id)
         {
@@ -134,7 +134,7 @@ namespace QalamAndNoor.Manager
             List<YearRecord> yearRecords = GetYearRecordsinCurrentSchoolYear();
             foreach (YearRecord item in yearRecords)
             {
-                if (item.StudentId==studentId)
+                if (item.StudentId == studentId)
                 {
                     return item;
                 }
@@ -165,13 +165,21 @@ namespace QalamAndNoor.Manager
         }
         public static List<YearRecord> GetPassYearRecordsBySchoolYearId(int schoolYearId)
         {
-            return GetYearRecordsBySchoolYearId(schoolYearId).Where(x =>x.Status== StudentStatusEnum.Pass).ToList();
+            return GetYearRecordsBySchoolYearId(schoolYearId).Where(x => x.Status == StudentStatusEnum.Pass).ToList();
         }
         public static List<YearRecord> GetFailYearRecordsBySchoolYearId(int schoolYearId)
         {
             return GetYearRecordsBySchoolYearId(schoolYearId).Where(x => x.Status == StudentStatusEnum.Fail).ToList();
         }
-
+        public static List<YearRecord> GetYearRecordsBySchoolYearIdAndClassId(int schoolYearId, int classId)
+        {
+            List<int> classRoomSchoolYearsIds = ClassRoomSchoolYearManager.
+                GetClassRoomSchoolYearsBySchoolYearId(schoolYearId).Select((e) => e.ID).ToList();
+            List<YearRecord> yearRecords = GetYearRecords();
+            List<YearRecord> result = new List<YearRecord>();
+            result = yearRecords.Where((e) => classRoomSchoolYearsIds.Contains(e.ClassRoomSchoolYearId ?? -1)&& e.ClassId==classId).ToList();
+            return result;
+        }
 
     }
 }

@@ -38,11 +38,9 @@ namespace QalamAndNoor.DataManager
         }
         public static object InsertSchoolYear(SchoolYear schoolYear)
         {
-            if (SchoolYearManager.GetCurrentSchoolYear().IsFinished == true)
+            SchoolYear schoolYear1 = SchoolYearManager.GetCurrentSchoolYear();
+            if (schoolYear1 is null||schoolYear1.IsFinished==true)
           {
-
-
-
                 if (schoolYear == null) return 0;
 
                 string sqlStatement = "INSERT INTO  [dbo].[SchoolYear] (Details,IsDone,PreviousSchoolYearId) " +

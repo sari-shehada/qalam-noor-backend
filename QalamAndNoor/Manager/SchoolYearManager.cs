@@ -74,12 +74,26 @@ namespace QalamAndNoor.Manager
 
         private static int GetMaxSchoolYearID()
         {
-            List<SchoolYear> schoolYears = GetSchoolYears();
-            return schoolYears.Max(x => x.ID);
+            try
+            {
+                List<SchoolYear> schoolYears = GetSchoolYears();
+                return schoolYears.Max(x => x.ID);
+            }
+            catch (InvalidOperationException)
+            {
+                return -1;
+            }
+         
+
         }
-        public static SchoolYear GetCurrentSchoolYear()
+        public static SchoolYear? GetCurrentSchoolYear()
         {
-            return GetSchoolYearById(GetMaxSchoolYearID());
+            SchoolYear? schoolYear = GetSchoolYearById(GetMaxSchoolYearID());
+            if (schoolYear is null)
+            {
+                return null;
+            }
+            return schoolYear;
         }
         public static List<SchoolYear> GetSchoolYearsByStudentId(int studentId)
         {

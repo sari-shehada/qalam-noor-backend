@@ -52,5 +52,11 @@ namespace QalamAndNoor.Controllers
         {
             return ClassDataManager.GetOpentClassesinCurrentSchoolYear();
         }
+        [Route("ClassController/GetClassesBySchoolYearId")]
+        [HttpGet]
+        public List<Class> GetClassesBySchoolYearId(int schoolYearId)
+        {
+            return ClassDataManager.GetClassesBySchoolYearId(schoolYearId);
+        }
     }
 }

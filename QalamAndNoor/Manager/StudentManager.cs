@@ -12,6 +12,7 @@ namespace QalamAndNoor.Manager
 {
     public abstract class StudentManager
     {
+        #region Main Of Student
         public static List<Student> GetStudents()
         {
             return StudentDataManager.GetStudents().ToList();
@@ -106,6 +107,10 @@ namespace QalamAndNoor.Manager
             }
             return result;
         }
+
+        #endregion
+
+        #region To RegisterStudent
         public static object RegisterStudent(StudentRegistrationModel obj)
         {
             //TODO: Later Added ErrorCodes Into ENUM
@@ -164,7 +169,8 @@ namespace QalamAndNoor.Manager
                 StudentId = obj.Student.ID,
                 ClassId = obj.EnrolledClass.ID,
                 Status = 0,
-                ClassRoomSchoolYearId = -1,
+                ClassRoomSchoolYearId = null,
+                YearGrade = null
             });
             #endregion
 
@@ -430,6 +436,9 @@ namespace QalamAndNoor.Manager
             }
 
         }
+        #endregion
+
+        #region StudentScore And Marks
         public static List<StudentExamMark> GetStudentExamMarks(int courseId, int examId, int classRoomId)
         {
 
@@ -595,8 +604,6 @@ namespace QalamAndNoor.Manager
 
         }
 
-
-
         public static StudentSchoolYearScore GetStudentSchoolYearScoreByStudentIdAndSchoolYearId(int studentId, int schoolYearId)
         {
             List<Semester> semesters = SemesterManager.GetSemestersBySchoolYearId(schoolYearId);
@@ -641,6 +648,7 @@ namespace QalamAndNoor.Manager
 
         }
 
+        #endregion
         public static object RegistrationLateStudent(LateStudent lateStudent)
         {
             Class studentClass = ClassManager.GetClassById(lateStudent.CLassId);
@@ -665,9 +673,9 @@ namespace QalamAndNoor.Manager
                 int currentSemesterId = SemesterManager.GetCurrentSemesterInCurrentSchoolYear().ID;
                 SemesterYearRecordManager.InsertSemsterYearRecord(new SemesterYearRecord
                 {
-                    ID=-1,
-                    SemesterId=currentSemesterId,
-                    YearRecordId=lateStudent.YearRecordId
+                    ID = -1,
+                    SemesterId = currentSemesterId,
+                    YearRecordId = lateStudent.YearRecordId
                 });
 
                 foreach (var item in lateStudent.SemesterResults)
@@ -713,10 +721,36 @@ namespace QalamAndNoor.Manager
 
         }
 
-
-
-
-
+        public static List<StudentFatherYearRecord> GetStudentsBySchoolYearIdAndClassId(int schoolYearId, int classId)
+        {
+            List<YearRecord> yearRecords = YearRecordManager.GetYearRecordsBySchoolYearIdAndClassId(schoolYearId, classId);
+            List<StudentFatherYearRecord> result = new List<StudentFatherYearRecord>();
+            foreach (var item in yearRecords)
+            {
+                result.Add(new StudentFatherYearRecord
+                {
+                    YearRecord=YearRecordManager.GetYearRecordById(item.ID),
+                    Student=GetStudentById(item.StudentId),
+                    Father=FatherManager.GetFatherByStudentId(item.StudentId)
+                });
+            }
+            return result;
+        }
+        public static List<StudentFatherYearRecord> GetStudentsBySchoolYearId(int schoolYearId)
+        {
+            List<YearRecord> yearRecords = YearRecordManager.GetYearRecordsBySchoolYearId(schoolYearId);
+            List<StudentFatherYearRecord> result = new List<StudentFatherYearRecord>();
+            foreach (var item in yearRecords)
+            {
+                result.Add(new StudentFatherYearRecord
+                {
+                    YearRecord = YearRecordManager.GetYearRecordById(item.ID),
+                    Student = GetStudentById(item.StudentId),
+                    Father = FatherManager.GetFatherByStudentId(item.StudentId)
+                });
+            }
+            return result;
+        }
 
 
         #region Private Helper Methods

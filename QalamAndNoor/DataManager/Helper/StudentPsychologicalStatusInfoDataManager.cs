@@ -21,7 +21,7 @@ namespace QalamAndNoor.DataManager.Helper
         }
         public static List<StudentPsychologicalStatusInfo> GetStudentStudentPsychologicalStatusInfoByStudentId(int studentId)
         {
-            string sqlStatement = $"select PsychologicalStatus.Name as Name,PsychologicalStatusMedicalRecord.StatusLevel as StatusLevel,PsychologicalStatusMedicalRecord.ID as ID from PsychologicalStatus,PsychologicalStatusMedicalRecord where PsychologicalStatus.ID=PsychologicalStatusMedicalRecord.PsychologicalStatusId and PsychologicalStatusMedicalRecord.ID={studentId}";
+            string sqlStatement = $"select PsychologicalStatus.Name as Name,PsychologicalStatusMedicalRecord.StatusLevel as StatusLevel,PsychologicalStatusMedicalRecord.ID as ID from PsychologicalStatus,PsychologicalStatusMedicalRecord where PsychologicalStatus.ID=PsychologicalStatusMedicalRecord.PsychologicalStatusId and PsychologicalStatusMedicalRecord.MedicalRecordId={studentId}";
             //Preparing SQL Command
             SqlCommand sqlCommand = new SqlCommand()
             {

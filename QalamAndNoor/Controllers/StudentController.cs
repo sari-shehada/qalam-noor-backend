@@ -37,6 +37,8 @@ namespace QalamAndNoor.Controllers
         public int DeleteStudent([FromBody] Student student)
         {
             return StudentDataManager.DeleteStudent(student);
+
+
         }
         [Route("StudentController/GetStudents")]
         [HttpGet]
@@ -250,6 +252,19 @@ namespace QalamAndNoor.Controllers
         {
             return YearRecordManager.GetFailYearRecordsBySchoolYearId(schoolYearId).Count;
         }
+        [Route("StudentController/GetStudentsBySchoolYearIdAndClassId")]
+        [HttpGet]
+        public List<StudentFatherYearRecord> GetStudentsBySchoolYearIdAndClassId(int schoolYearId,int classId)
+        {
+            return StudentManager.GetStudentsBySchoolYearIdAndClassId(schoolYearId,classId);
+        }
+        [Route("StudentController/GetStudentsBySchoolYearId")]
+        [HttpGet]
+        public List<StudentFatherYearRecord> GetStudentsBySchoolYearId(int schoolYearId)
+        {
+            return StudentManager.GetStudentsBySchoolYearId(schoolYearId);
+        }
+
 
     }
 }
