@@ -1,0 +1,2057 @@
+{
+    "extension": "linecounter",
+    "version": "0.2.7",
+    "workspace": "c:\\Users\\Sari\\source\\repos\\qalam-noor-backend",
+    "linecount": [
+        {
+            "version": "0.2.7",
+            "counttime": "2023-07-15 03:09:01",
+            "filesum": 318,
+            "codesum": 13135,
+            "commentsum": 292,
+            "blanksum": 1082,
+            "statistics": {
+                ".cs": {
+                    "code": 9795,
+                    "comment": 256,
+                    "blank": 1032
+                },
+                ".json": {
+                    "code": 1756,
+                    "comment": 0,
+                    "blank": 30
+                },
+                ".sln": {
+                    "code": 25,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".config": {
+                    "code": 995,
+                    "comment": 0,
+                    "blank": 16
+                },
+                ".xml": {
+                    "code": 40,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".csproj": {
+                    "code": 14,
+                    "comment": 0,
+                    "blank": 3
+                },
+                ".targets": {
+                    "code": 6,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".cache": {
+                    "code": 28,
+                    "comment": 0,
+                    "blank": 1
+                },
+                ".user": {
+                    "code": 130,
+                    "comment": 11,
+                    "blank": 0
+                },
+                ".props": {
+                    "code": 22,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".lock": {
+                    "code": 0,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".pubxml": {
+                    "code": 233,
+                    "comment": 25,
+                    "blank": 0
+                },
+                ".BuildWithSkipAnalyzers": {
+                    "code": 0,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".txt": {
+                    "code": 57,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".editorconfig": {
+                    "code": 34,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".CopyComplete": {
+                    "code": 0,
+                    "comment": 0,
+                    "blank": 0
+                }
+            },
+            "filelist": [
+                {
+                    "filename": ".vs\\ProjectEvaluation\\qalamandnoor.metadata.v5.2",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".vs\\ProjectEvaluation\\qalamandnoor.projects.v5.2",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 16,
+                    "code": 983,
+                    "comment": 0,
+                    "filename": ".vs\\QalamAndNoor\\config\\applicationhost.config"
+                },
+                {
+                    "filename": ".vs\\QalamAndNoor\\DesignTimeBuild\\.dtbcache.v2",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".vs\\QalamAndNoor\\FileContentIndex\\2fee6930-ca27-42ea-8dd3-129896ccd1e8.vsidx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".vs\\QalamAndNoor\\FileContentIndex\\37c3a198-2131-4135-b6c3-7bc748329d4d.vsidx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".vs\\QalamAndNoor\\FileContentIndex\\ab957801-e7b7-4848-b75e-e60b2c7575eb.vsidx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".vs\\QalamAndNoor\\FileContentIndex\\c8ddb3ec-24d7-4604-a022-81d139b6964a.vsidx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": ".vs\\QalamAndNoor\\FileContentIndex\\read.lock"
+                },
+                {
+                    "filename": ".vs\\QalamAndNoor\\v17\\.futdcache.v2",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".vs\\QalamAndNoor\\v17\\.suo",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": ".vs\\QalamAndNoor\\xs\\project-cache\\QalamAndNoor-Debug.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 31,
+                    "comment": 0,
+                    "filename": ".vs\\QalamAndNoor\\xs\\UserPrefs.xml"
+                },
+                {
+                    "blank": 0,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "QalamAndNoor.sln"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\appsettings.Development.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\appsettings.json"
+                },
+                {
+                    "filename": "QalamAndNoor\\bin\\Debug\\net7.0\\QalamAndNoor",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\bin\\Release\\net7.0\\appsettings.Development.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\bin\\Release\\net7.0\\appsettings.json"
+                },
+                {
+                    "filename": "QalamAndNoor\\bin\\Release\\net7.0\\Microsoft.AspNetCore.OpenApi.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\bin\\Release\\net7.0\\Microsoft.OpenApi.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 273,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\bin\\Release\\net7.0\\QalamAndNoor.deps.json"
+                },
+                {
+                    "filename": "QalamAndNoor\\bin\\Release\\net7.0\\QalamAndNoor.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\bin\\Release\\net7.0\\QalamAndNoor.exe",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\bin\\Release\\net7.0\\QalamAndNoor.pdb",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\bin\\Release\\net7.0\\QalamAndNoor.runtimeconfig.json"
+                },
+                {
+                    "filename": "QalamAndNoor\\bin\\Release\\net7.0\\runtimes\\unix\\lib\\netcoreapp2.1\\System.Data.SqlClient.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\bin\\Release\\net7.0\\runtimes\\win-arm64\\native\\sni.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\bin\\Release\\net7.0\\runtimes\\win-x64\\native\\sni.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\bin\\Release\\net7.0\\runtimes\\win-x86\\native\\sni.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\bin\\Release\\net7.0\\runtimes\\win\\lib\\netcoreapp2.1\\System.Data.SqlClient.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\bin\\Release\\net7.0\\Swashbuckle.AspNetCore.Swagger.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\bin\\Release\\net7.0\\Swashbuckle.AspNetCore.SwaggerGen.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\bin\\Release\\net7.0\\Swashbuckle.AspNetCore.SwaggerUI.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\bin\\Release\\net7.0\\System.Data.SqlClient.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 6,
+                    "code": 69,
+                    "comment": 1,
+                    "filename": "QalamAndNoor\\Controllers\\AddressController.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 51,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\AreaController.cs"
+                },
+                {
+                    "blank": 8,
+                    "code": 58,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\CityController.cs"
+                },
+                {
+                    "blank": 4,
+                    "code": 58,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\ClassController.cs"
+                },
+                {
+                    "blank": 3,
+                    "code": 81,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\ClassRoomController.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 71,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\ClassRoomSchoolYearController.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 52,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\ConversationController.cs"
+                },
+                {
+                    "blank": 3,
+                    "code": 70,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\CourseController.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\EmployeeAuthenticationController.cs"
+                },
+                {
+                    "blank": 3,
+                    "code": 63,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\EmployeeController.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 45,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\ExamController.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\FamilyAuthenticationController.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 45,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\FamilyController.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 45,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\FatherController.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 47,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\IlnessController.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\IlnessMedicalRecordController.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 51,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\JobTitleController.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 51,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\MassegeController.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\MedicalRecordController.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\MotherController.cs"
+                },
+                {
+                    "blank": 5,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\PreviousSchoolController.cs"
+                },
+                {
+                    "blank": 4,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\PsychologicalStatusController.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 45,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\PsychologicalStatusMedicalRecordController.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\ResponsiblePersonController.cs"
+                },
+                {
+                    "blank": 5,
+                    "code": 51,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\SchoolYearController.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 64,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\SemesterController.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\SemesterExamController.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 33,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\SemesterYearRecordController.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\statisticsController.cs"
+                },
+                {
+                    "blank": 12,
+                    "code": 258,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\StudentController.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\StudentPreviousSchoolController.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\TokenVaccineController.cs"
+                },
+                {
+                    "blank": 6,
+                    "code": 53,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\VaccineController.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\ViewsController\\PublicRecordViewController.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\ViewsController\\StudnetProfileViewController.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 28,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Controllers\\ViewsController\\WebConversationController.cs"
+                },
+                {
+                    "blank": 4,
+                    "code": 58,
+                    "comment": 6,
+                    "filename": "QalamAndNoor\\Controllers\\YearRecordController.cs"
+                },
+                {
+                    "blank": 15,
+                    "code": 87,
+                    "comment": 8,
+                    "filename": "QalamAndNoor\\DataManager\\AddressDataManager.cs"
+                },
+                {
+                    "blank": 14,
+                    "code": 84,
+                    "comment": 8,
+                    "filename": "QalamAndNoor\\DataManager\\AreaDataManager.cs"
+                },
+                {
+                    "blank": 3,
+                    "code": 56,
+                    "comment": 7,
+                    "filename": "QalamAndNoor\\DataManager\\BaseDataManager.cs"
+                },
+                {
+                    "blank": 14,
+                    "code": 81,
+                    "comment": 4,
+                    "filename": "QalamAndNoor\\DataManager\\CityDataManager.cs"
+                },
+                {
+                    "blank": 18,
+                    "code": 109,
+                    "comment": 9,
+                    "filename": "QalamAndNoor\\DataManager\\ClassDataManager.cs"
+                },
+                {
+                    "blank": 18,
+                    "code": 87,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\DataManager\\ClassRoomDataManager.cs"
+                },
+                {
+                    "blank": 18,
+                    "code": 84,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\DataManager\\ClassRoomSchoolYearDataManager.cs"
+                },
+                {
+                    "blank": 22,
+                    "code": 108,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\DataManager\\ConversationsDataManager.cs"
+                },
+                {
+                    "blank": 18,
+                    "code": 112,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\DataManager\\CourseDataManager.cs"
+                },
+                {
+                    "blank": 22,
+                    "code": 122,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\DataManager\\EmployeeDataManager.cs"
+                },
+                {
+                    "blank": 17,
+                    "code": 91,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\DataManager\\ExamDataManager.cs"
+                },
+                {
+                    "blank": 12,
+                    "code": 95,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\DataManager\\FamilyDataManager.cs"
+                },
+                {
+                    "blank": 14,
+                    "code": 131,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\DataManager\\FatherDataManager.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 61,
+                    "comment": 9,
+                    "filename": "QalamAndNoor\\DataManager\\Helper\\PsychologicalStatusStudentCountDataManager.cs"
+                },
+                {
+                    "blank": 3,
+                    "code": 46,
+                    "comment": 6,
+                    "filename": "QalamAndNoor\\DataManager\\Helper\\StudentIdYearRecordDataManager.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 30,
+                    "comment": 2,
+                    "filename": "QalamAndNoor\\DataManager\\Helper\\StudentIllnessesDataManager.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 34,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\DataManager\\Helper\\StudentInfoDataManager.cs"
+                },
+                {
+                    "blank": 3,
+                    "code": 32,
+                    "comment": 2,
+                    "filename": "QalamAndNoor\\DataManager\\Helper\\StudentPsychologicalStatusInfoDataManager.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 32,
+                    "comment": 2,
+                    "filename": "QalamAndNoor\\DataManager\\Helper\\StudentTakenVaccineDataManager.cs"
+                },
+                {
+                    "blank": 5,
+                    "code": 34,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\DataManager\\Helper\\TotalStudentMarkDataManager.cs"
+                },
+                {
+                    "blank": 14,
+                    "code": 81,
+                    "comment": 4,
+                    "filename": "QalamAndNoor\\DataManager\\IlnessDataManager.cs"
+                },
+                {
+                    "blank": 16,
+                    "code": 87,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\DataManager\\IlnessMedicalRecordDataManager.cs"
+                },
+                {
+                    "blank": 15,
+                    "code": 84,
+                    "comment": 4,
+                    "filename": "QalamAndNoor\\DataManager\\JobTitleDataManager.cs"
+                },
+                {
+                    "blank": 28,
+                    "code": 109,
+                    "comment": 7,
+                    "filename": "QalamAndNoor\\DataManager\\MassegeDataManager.cs"
+                },
+                {
+                    "blank": 18,
+                    "code": 85,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\DataManager\\MedicalRecordDataManager.cs"
+                },
+                {
+                    "blank": 20,
+                    "code": 123,
+                    "comment": 2,
+                    "filename": "QalamAndNoor\\DataManager\\MotherDataManager.cs"
+                },
+                {
+                    "blank": 15,
+                    "code": 84,
+                    "comment": 8,
+                    "filename": "QalamAndNoor\\DataManager\\PreviousSchoolDataManager.cs"
+                },
+                {
+                    "blank": 17,
+                    "code": 81,
+                    "comment": 8,
+                    "filename": "QalamAndNoor\\DataManager\\psychologicalStatusDataManager.cs"
+                },
+                {
+                    "blank": 18,
+                    "code": 88,
+                    "comment": 8,
+                    "filename": "QalamAndNoor\\DataManager\\PsychologicalStausMedicalRecordDataManager.cs"
+                },
+                {
+                    "blank": 22,
+                    "code": 97,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\DataManager\\ResponsiblePersonDataManager.cs"
+                },
+                {
+                    "blank": 15,
+                    "code": 117,
+                    "comment": 7,
+                    "filename": "QalamAndNoor\\DataManager\\SchoolYearDataManager.cs"
+                },
+                {
+                    "blank": 16,
+                    "code": 107,
+                    "comment": 4,
+                    "filename": "QalamAndNoor\\DataManager\\SemesterDataManager.cs"
+                },
+                {
+                    "blank": 15,
+                    "code": 135,
+                    "comment": 12,
+                    "filename": "QalamAndNoor\\DataManager\\SemesterExamDataManager.cs"
+                },
+                {
+                    "blank": 13,
+                    "code": 82,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\DataManager\\SemesterYearRecordDataManager.cs"
+                },
+                {
+                    "blank": 25,
+                    "code": 164,
+                    "comment": 7,
+                    "filename": "QalamAndNoor\\DataManager\\StudentDataManager.cs"
+                },
+                {
+                    "blank": 16,
+                    "code": 88,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\DataManager\\StudentPreviousSchoolDataManager.cs"
+                },
+                {
+                    "blank": 19,
+                    "code": 91,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\DataManager\\TokenVaccineDataManager.cs"
+                },
+                {
+                    "blank": 14,
+                    "code": 81,
+                    "comment": 4,
+                    "filename": "QalamAndNoor\\DataManager\\VccineDataManager.cs"
+                },
+                {
+                    "blank": 4,
+                    "code": 50,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\DataManager\\ViewsDataManager\\PublicRecordViewDataManager.cs"
+                },
+                {
+                    "blank": 7,
+                    "code": 80,
+                    "comment": 7,
+                    "filename": "QalamAndNoor\\DataManager\\ViewsDataManager\\StudentProfileDataManager.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 39,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\DataManager\\ViewsDataManager\\StudentReportViewDataManager.cs"
+                },
+                {
+                    "blank": 3,
+                    "code": 46,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\DataManager\\ViewsDataManager\\WebConversationViewDataManager.cs"
+                },
+                {
+                    "blank": 28,
+                    "code": 127,
+                    "comment": 8,
+                    "filename": "QalamAndNoor\\DataManager\\YearRecordDataManager.cs"
+                },
+                {
+                    "blank": 6,
+                    "code": 84,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\AddressManager.cs"
+                },
+                {
+                    "blank": 5,
+                    "code": 66,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\AreaManager.cs"
+                },
+                {
+                    "blank": 6,
+                    "code": 77,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\CityManager.cs"
+                },
+                {
+                    "blank": 5,
+                    "code": 77,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\ClassManager.cs"
+                },
+                {
+                    "blank": 5,
+                    "code": 142,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\ClassRoomManager.cs"
+                },
+                {
+                    "blank": 10,
+                    "code": 136,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\ClassRoomSchoolYearManager.cs"
+                },
+                {
+                    "blank": 6,
+                    "code": 50,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\ConversationManager.cs"
+                },
+                {
+                    "blank": 7,
+                    "code": 87,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\CourseManager.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 38,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\EmployeeAuthenticationManager.cs"
+                },
+                {
+                    "blank": 8,
+                    "code": 91,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\EmployeeManager.cs"
+                },
+                {
+                    "blank": 6,
+                    "code": 49,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\ExamManager.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 35,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\FamilyAuthenticationManager.cs"
+                },
+                {
+                    "blank": 7,
+                    "code": 65,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\FamilyManager.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 54,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\FatherManager.cs"
+                },
+                {
+                    "blank": 6,
+                    "code": 40,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\FinalStudentScoreManager.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 36,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\IlnessManager.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 36,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\IlnessMedicalRecordManager.cs"
+                },
+                {
+                    "blank": 4,
+                    "code": 62,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\JobTitleManager.cs"
+                },
+                {
+                    "blank": 3,
+                    "code": 47,
+                    "comment": 1,
+                    "filename": "QalamAndNoor\\Manager\\MassegeManager.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 47,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\MedicalRecordManager.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 41,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\MotherManager.cs"
+                },
+                {
+                    "blank": 5,
+                    "code": 47,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\PreviousSchoolManager.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 36,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\PsychologicalStatusManager.cs"
+                },
+                {
+                    "blank": 4,
+                    "code": 62,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\PsychologicalStatusMedicalRecordManager.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 45,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\ResponsiblePersonManager.cs"
+                },
+                {
+                    "blank": 19,
+                    "code": 130,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\SchoolYearManager.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 48,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\SemesterExamManager.cs"
+                },
+                {
+                    "blank": 24,
+                    "code": 189,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\SemesterManager.cs"
+                },
+                {
+                    "blank": 5,
+                    "code": 66,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\SemesterYearRecordManager.cs"
+                },
+                {
+                    "blank": 3,
+                    "code": 31,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\StatisticsManager.cs"
+                },
+                {
+                    "blank": 82,
+                    "code": 751,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\Manager\\StudentManager.cs"
+                },
+                {
+                    "blank": 5,
+                    "code": 49,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\StudentPreviousSchoolManager.cs"
+                },
+                {
+                    "blank": 4,
+                    "code": 31,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\StudentYearRecordsManager.cs"
+                },
+                {
+                    "blank": 3,
+                    "code": 49,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\TokenVaccineManager.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 47,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\VaccineManager.cs"
+                },
+                {
+                    "blank": 3,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\ViewsManager\\PublicRecordViewManager.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\ViewsManager\\StudentInfoViewManager.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\ViewsManager\\StudentProfileViewManager.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\ViewsManager\\WebConversationManager.cs"
+                },
+                {
+                    "blank": 10,
+                    "code": 175,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Manager\\YearRecordManager.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\Address.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\Area.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\City.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\Class.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\ClassRoom.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\ClassRoomSchoolYear.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\Conversation.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\Course.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\Employee.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\Exam.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\Family.cs"
+                },
+                {
+                    "blank": 3,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\Father.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\CityToDescendentCount.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\DbHelper\\ClassArchitecture.cs"
+                },
+                {
+                    "blank": 6,
+                    "code": 32,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\DbHelper\\CLassReportDto.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\DbHelper\\FinalStudentScore.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\DbHelper\\FullStudentInfo.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\DbHelper\\StudentFatherYearRecord.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\DbHelper\\StudentProfileDto.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\DbHelper\\StudentReport.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\DbHelper\\StudentSchoolYear.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\DbHelper\\StudentSchoolYearScore.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\DbHelper\\StudentSemesterGrades.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\DbHelper\\StudentSemesterScore.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\DbHelper\\TotalStudentMark.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\ItemOr.cs"
+                },
+                {
+                    "blank": 3,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\LateStudent.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\LateStudentEnrollmentCourseResult.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\LateStudentEnrollmentSemesterResult.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\NewStudentRegistrationInSchoolYear.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\NewStudentSchoolYear.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\OldStudentRegistration.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\PsychologicalStatusStudentCount.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\PsychologicalStatusStudentInfo.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\StudentExamMark.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\StudentExamMarkInsertion.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\StudentIdYearRecord.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\StudentIllnesses.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\StudentIllnessInfo.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\StudentInfo.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\StudentRegistrationModel.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\StudentTakenVaccine.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\StudentVaccineInfo.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\StudentYearRecords.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\HelperModels\\WebConversation.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\Ilness.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\IlnessMedicalRecord.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\JobTitle.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\Massege.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\MedicalRecord.cs"
+                },
+                {
+                    "blank": 4,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\Mother.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\PreviousSchool.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\PsychologicalStatus.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\PsychologicalStatusMedicalRecord.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\ResponsiblePerson.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\SchoolYear.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\Semester.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\SemesterExam.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\SemesterYearRecord.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\Student.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\StudentPreviousSchool.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\TokenVaccine.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\Vaccine.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Models\\YearRecord.cs"
+                },
+                {
+                    "blank": 5,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\MyViews\\PublicRecordView.cs"
+                },
+                {
+                    "blank": 2,
+                    "code": 54,
+                    "comment": 4,
+                    "filename": "QalamAndNoor\\MyViews\\StudentProfileView.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 1,
+                    "filename": "QalamAndNoor\\obj\\Debug\\net7.0\\.NETCoreApp,Version=v7.0.AssemblyAttributes.cs"
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Debug\\net7.0\\25830cc9-2fed-452d-8f45-99c76894e3e4_QalamAndNoor.pdb",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Debug\\net7.0\\apphost",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Debug\\net7.0\\apphost.exe",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 4,
+                    "code": 9,
+                    "comment": 10,
+                    "filename": "QalamAndNoor\\obj\\Debug\\net7.0\\QalamAndNoor.AssemblyInfo.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Debug\\net7.0\\QalamAndNoor.AssemblyInfoInputs.cache"
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Debug\\net7.0\\QalamAndNoor.assets.cache",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Debug\\net7.0\\QalamAndNoor.csproj.AssemblyReference.cache",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Debug\\net7.0\\QalamAndNoor.csproj.BuildWithSkipAnalyzers"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Debug\\net7.0\\QalamAndNoor.csproj.FileListAbsolute.txt"
+                },
+                {
+                    "blank": 0,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Debug\\net7.0\\QalamAndNoor.GeneratedMSBuildEditorConfig.editorconfig"
+                },
+                {
+                    "blank": 0,
+                    "code": 16,
+                    "comment": 1,
+                    "filename": "QalamAndNoor\\obj\\Debug\\net7.0\\QalamAndNoor.GlobalUsings.g.cs"
+                },
+                {
+                    "blank": 25,
+                    "code": 976,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\project.assets.json"
+                },
+                {
+                    "blank": 1,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\project.nuget.cache"
+                },
+                {
+                    "blank": 5,
+                    "code": 79,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\QalamAndNoor.csproj.nuget.dgspec.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\QalamAndNoor.csproj.nuget.g.props"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\QalamAndNoor.csproj.nuget.g.targets"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 1,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\.NETCoreApp,Version=v7.0.AssemblyAttributes.cs"
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\apphost.exe",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\PublishOutputs.579938923d.txt"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\PubTmp\\Out\\appsettings.Development.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\PubTmp\\Out\\appsettings.json"
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\PubTmp\\Out\\Microsoft.AspNetCore.OpenApi.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\PubTmp\\Out\\Microsoft.OpenApi.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 273,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\PubTmp\\Out\\QalamAndNoor.deps.json"
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\PubTmp\\Out\\QalamAndNoor.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\PubTmp\\Out\\QalamAndNoor.exe",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\PubTmp\\Out\\QalamAndNoor.pdb",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\PubTmp\\Out\\QalamAndNoor.runtimeconfig.json"
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\PubTmp\\Out\\runtimes\\unix\\lib\\netcoreapp2.1\\System.Data.SqlClient.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\PubTmp\\Out\\runtimes\\win-arm64\\native\\sni.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\PubTmp\\Out\\runtimes\\win-x64\\native\\sni.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\PubTmp\\Out\\runtimes\\win-x86\\native\\sni.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\PubTmp\\Out\\runtimes\\win\\lib\\netcoreapp2.1\\System.Data.SqlClient.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\PubTmp\\Out\\Swashbuckle.AspNetCore.Swagger.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\PubTmp\\Out\\Swashbuckle.AspNetCore.SwaggerGen.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\PubTmp\\Out\\Swashbuckle.AspNetCore.SwaggerUI.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\PubTmp\\Out\\System.Data.SqlClient.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\PubTmp\\Out\\web.config"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\PubTmp\\QalamAndNoor.Parameters.xml"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\PubTmp\\QalamAndNoor.SourceManifest.xml"
+                },
+                {
+                    "blank": 4,
+                    "code": 9,
+                    "comment": 10,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\QalamAndNoor.AssemblyInfo.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\QalamAndNoor.AssemblyInfoInputs.cache"
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\QalamAndNoor.assets.cache",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\QalamAndNoor.csproj.AssemblyReference.cache",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\QalamAndNoor.csproj.CopyComplete"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\QalamAndNoor.csproj.CoreCompileInputs.cache"
+                },
+                {
+                    "blank": 0,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\QalamAndNoor.csproj.FileListAbsolute.txt"
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\QalamAndNoor.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\QalamAndNoor.GeneratedMSBuildEditorConfig.editorconfig"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\QalamAndNoor.genruntimeconfig.cache"
+                },
+                {
+                    "blank": 0,
+                    "code": 16,
+                    "comment": 1,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\QalamAndNoor.GlobalUsings.g.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\QalamAndNoor.MvcApplicationPartsAssemblyInfo.cache"
+                },
+                {
+                    "blank": 4,
+                    "code": 4,
+                    "comment": 10,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\QalamAndNoor.MvcApplicationPartsAssemblyInfo.cs"
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\QalamAndNoor.pdb",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\ref\\QalamAndNoor.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\refint\\QalamAndNoor.dll",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\staticwebassets.build.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\staticwebassets.publish.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\staticwebassets\\msbuild.build.QalamAndNoor.props"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.QalamAndNoor.props"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\obj\\Release\\net7.0\\staticwebassets\\msbuild.buildTransitive.QalamAndNoor.props"
+                },
+                {
+                    "blank": 8,
+                    "code": 31,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\Program.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 41,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Properties\\launchSettings.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 22,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\Properties\\PublishProfiles\\finalqalamnoor-001-site1 - FTP.pubxml"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 1,
+                    "filename": "QalamAndNoor\\Properties\\PublishProfiles\\finalqalamnoor-001-site1 - FTP.pubxml.user"
+                },
+                {
+                    "blank": 0,
+                    "code": 25,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\Properties\\PublishProfiles\\finalqalamnoor-001-site1 - Web Deploy.pubxml"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 1,
+                    "filename": "QalamAndNoor\\Properties\\PublishProfiles\\finalqalamnoor-001-site1 - Web Deploy.pubxml.user"
+                },
+                {
+                    "blank": 0,
+                    "code": 22,
+                    "comment": 1,
+                    "filename": "QalamAndNoor\\Properties\\PublishProfiles\\FTPProfile.pubxml"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 1,
+                    "filename": "QalamAndNoor\\Properties\\PublishProfiles\\FTPProfile.pubxml.user"
+                },
+                {
+                    "blank": 0,
+                    "code": 22,
+                    "comment": 2,
+                    "filename": "QalamAndNoor\\Properties\\PublishProfiles\\FTPProfile1.pubxml"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 1,
+                    "filename": "QalamAndNoor\\Properties\\PublishProfiles\\FTPProfile1.pubxml.user"
+                },
+                {
+                    "blank": 0,
+                    "code": 26,
+                    "comment": 1,
+                    "filename": "QalamAndNoor\\Properties\\PublishProfiles\\IISProfile.pubxml"
+                },
+                {
+                    "blank": 0,
+                    "code": 12,
+                    "comment": 1,
+                    "filename": "QalamAndNoor\\Properties\\PublishProfiles\\IISProfile.pubxml.user"
+                },
+                {
+                    "blank": 0,
+                    "code": 22,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\Properties\\PublishProfiles\\qalamandnoor-001-site1 - FTP.pubxml"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 1,
+                    "filename": "QalamAndNoor\\Properties\\PublishProfiles\\qalamandnoor-001-site1 - FTP.pubxml.user"
+                },
+                {
+                    "blank": 0,
+                    "code": 25,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\Properties\\PublishProfiles\\qalamandnoor-001-site1 - Web Deploy.pubxml"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 1,
+                    "filename": "QalamAndNoor\\Properties\\PublishProfiles\\qalamandnoor-001-site1 - Web Deploy.pubxml.user"
+                },
+                {
+                    "blank": 0,
+                    "code": 22,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\Properties\\PublishProfiles\\qalamnoor-001-site1 - FTP.pubxml"
+                },
+                {
+                    "blank": 0,
+                    "code": 14,
+                    "comment": 2,
+                    "filename": "QalamAndNoor\\Properties\\PublishProfiles\\qalamnoor-001-site1 - FTP.pubxml.user"
+                },
+                {
+                    "blank": 0,
+                    "code": 22,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\Properties\\PublishProfiles\\qalamnoorschool-001-site1 - FTP.pubxml"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 1,
+                    "filename": "QalamAndNoor\\Properties\\PublishProfiles\\qalamnoorschool-001-site1 - FTP.pubxml.user"
+                },
+                {
+                    "blank": 0,
+                    "code": 25,
+                    "comment": 3,
+                    "filename": "QalamAndNoor\\Properties\\PublishProfiles\\qalamnoorschool-001-site1 - Web Deploy.pubxml"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 1,
+                    "filename": "QalamAndNoor\\Properties\\PublishProfiles\\qalamnoorschool-001-site1 - Web Deploy.pubxml.user"
+                },
+                {
+                    "blank": 3,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\QalamAndNoor.csproj"
+                },
+                {
+                    "blank": 0,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\QalamAndNoor.csproj.user"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Shared\\ConversationPartyEnum.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Shared\\ConversationStatusEnum.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Shared\\EducationalStatusEnum.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Shared\\ExamTypeEnum.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Shared\\LevelEnum.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Shared\\MassegeSenderEnum.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Shared\\PsychologicalStatusEnum.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Shared\\ReligionEnum.cs"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Shared\\SemesterTypeEnum.cs"
+                },
+                {
+                    "blank": 1,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\Shared\\StudentStatusEnum.cs"
+                },
+                {
+                    "blank": 3,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "QalamAndNoor\\WeatherForecast.cs"
+                }
+            ]
+        }
+    ]
+}

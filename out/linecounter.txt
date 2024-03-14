@@ -1,0 +1,686 @@
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2023-07-15 03:07:43
+count workspace : c:\Users\Sari\source\repos\qalam-noor-backend
+total files : 304
+total code lines : 12703
+total comment lines : 299
+total blank lines : 1071
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |           .sln|             25|              0|              0|   0.20|
+   |            .cs|           9538|            278|           1021|     75|
+   |        .csproj|             14|              0|              3|   0.11|
+   |          .json|           1754|              0|             30|     14|
+   |         .cache|             28|              0|              1|   0.22|
+   |          .user|             74|              6|              0|   0.58|
+   |          .lock|              0|              0|              0|    0.0|
+   |           .xml|             40|              0|              0|   0.31|
+   |       .targets|              6|              0|              0|  0.047|
+   |        .pubxml|            116|             15|              0|   0.91|
+   |         .props|             22|              0|              0|   0.17|
+   |  .editorconfig|             34|              0|              0|   0.27|
+   |.BuildWithSkipAnalyzers|              0|              0|              0|    0.0|
+   |           .txt|             57|              0|              0|   0.45|
+   |        .config|            995|              0|             16|    7.8|
+   |  .CopyComplete|              0|              0|              0|    0.0|
+   -------------------------------------------------------------------------
+.vs\ProjectEvaluation\qalamandnoor.metadata.v5.2, it is a binary file.
+.vs\ProjectEvaluation\qalamandnoor.projects.v5.2, it is a binary file.
+.vs\QalamAndNoor\config\applicationhost.config, code is 983, comment is 0, blank is 16.
+.vs\QalamAndNoor\DesignTimeBuild\.dtbcache.v2, it is a binary file.
+.vs\QalamAndNoor\FileContentIndex\6162da68-61e5-48eb-a4c5-39ab64bc3866.vsidx, it is a binary file.
+.vs\QalamAndNoor\FileContentIndex\7d0501e9-3e2a-4fb4-be2c-ceb87ad26c51.vsidx, it is a binary file.
+.vs\QalamAndNoor\FileContentIndex\ab9ddf20-9cd8-4f6b-b5d6-69fbc572d481.vsidx, it is a binary file.
+.vs\QalamAndNoor\FileContentIndex\be6657a9-6781-4873-a768-5fc60addff25.vsidx, it is a binary file.
+.vs\QalamAndNoor\FileContentIndex\read.lock, code is 0, comment is 0, blank is 0.
+.vs\QalamAndNoor\v17\.futdcache.v2, it is a binary file.
+.vs\QalamAndNoor\v17\.suo, it is a binary file.
+.vs\QalamAndNoor\xs\project-cache\QalamAndNoor-Debug.json, code is 1, comment is 0, blank is 0.
+.vs\QalamAndNoor\xs\UserPrefs.xml, code is 31, comment is 0, blank is 0.
+QalamAndNoor.sln, code is 25, comment is 0, blank is 0.
+QalamAndNoor\appsettings.Development.json, code is 8, comment is 0, blank is 0.
+QalamAndNoor\appsettings.json, code is 9, comment is 0, blank is 0.
+QalamAndNoor\bin\Debug\net7.0\QalamAndNoor, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\appsettings.Development.json, code is 8, comment is 0, blank is 0.
+QalamAndNoor\bin\Release\net7.0\appsettings.json, code is 9, comment is 0, blank is 0.
+QalamAndNoor\bin\Release\net7.0\Microsoft.AspNetCore.OpenApi.dll, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\Microsoft.OpenApi.dll, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\QalamAndNoor.deps.json, code is 273, comment is 0, blank is 0.
+QalamAndNoor\bin\Release\net7.0\QalamAndNoor.dll, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\QalamAndNoor.exe, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\QalamAndNoor.pdb, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\QalamAndNoor.runtimeconfig.json, code is 20, comment is 0, blank is 0.
+QalamAndNoor\bin\Release\net7.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\runtimes\win-arm64\native\sni.dll, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\runtimes\win-x64\native\sni.dll, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\runtimes\win-x86\native\sni.dll, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\Swashbuckle.AspNetCore.Swagger.dll, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\System.Data.SqlClient.dll, it is a binary file.
+QalamAndNoor\Controllers\AddressController.cs, code is 69, comment is 1, blank is 6.
+QalamAndNoor\Controllers\AreaController.cs, code is 51, comment is 0, blank is 2.
+QalamAndNoor\Controllers\CityController.cs, code is 58, comment is 0, blank is 8.
+QalamAndNoor\Controllers\ClassController.cs, code is 52, comment is 0, blank is 4.
+QalamAndNoor\Controllers\ClassRoomController.cs, code is 75, comment is 0, blank is 3.
+QalamAndNoor\Controllers\ClassRoomSchoolYearController.cs, code is 71, comment is 0, blank is 1.
+QalamAndNoor\Controllers\ConversationController.cs, code is 52, comment is 0, blank is 1.
+QalamAndNoor\Controllers\CourseController.cs, code is 70, comment is 0, blank is 3.
+QalamAndNoor\Controllers\EmployeeAuthenticationController.cs, code is 14, comment is 0, blank is 1.
+QalamAndNoor\Controllers\EmployeeController.cs, code is 63, comment is 0, blank is 3.
+QalamAndNoor\Controllers\ExamController.cs, code is 45, comment is 0, blank is 2.
+QalamAndNoor\Controllers\FamilyAuthenticationController.cs, code is 15, comment is 0, blank is 1.
+QalamAndNoor\Controllers\FamilyController.cs, code is 45, comment is 0, blank is 2.
+QalamAndNoor\Controllers\FatherController.cs, code is 45, comment is 0, blank is 2.
+QalamAndNoor\Controllers\IlnessController.cs, code is 47, comment is 0, blank is 1.
+QalamAndNoor\Controllers\IlnessMedicalRecordController.cs, code is 39, comment is 0, blank is 1.
+QalamAndNoor\Controllers\JobTitleController.cs, code is 51, comment is 0, blank is 2.
+QalamAndNoor\Controllers\MassegeController.cs, code is 51, comment is 0, blank is 2.
+QalamAndNoor\Controllers\MedicalRecordController.cs, code is 39, comment is 0, blank is 2.
+QalamAndNoor\Controllers\MotherController.cs, code is 39, comment is 0, blank is 2.
+QalamAndNoor\Controllers\PreviousSchoolController.cs, code is 39, comment is 0, blank is 5.
+QalamAndNoor\Controllers\PsychologicalStatusController.cs, code is 39, comment is 0, blank is 4.
+QalamAndNoor\Controllers\PsychologicalStatusMedicalRecordController.cs, code is 45, comment is 0, blank is 1.
+QalamAndNoor\Controllers\ResponsiblePersonController.cs, code is 39, comment is 0, blank is 1.
+QalamAndNoor\Controllers\SchoolYearController.cs, code is 51, comment is 0, blank is 5.
+QalamAndNoor\Controllers\SemesterController.cs, code is 64, comment is 0, blank is 1.
+QalamAndNoor\Controllers\SemesterExamController.cs, code is 39, comment is 0, blank is 1.
+QalamAndNoor\Controllers\SemesterYearRecordController.cs, code is 33, comment is 0, blank is 2.
+QalamAndNoor\Controllers\statisticsController.cs, code is 34, comment is 0, blank is 1.
+QalamAndNoor\Controllers\StudentController.cs, code is 222, comment is 0, blank is 9.
+QalamAndNoor\Controllers\StudentPreviousSchoolController.cs, code is 39, comment is 0, blank is 2.
+QalamAndNoor\Controllers\TokenVaccineController.cs, code is 39, comment is 0, blank is 1.
+QalamAndNoor\Controllers\VaccineController.cs, code is 53, comment is 0, blank is 6.
+QalamAndNoor\Controllers\ViewsController\PublicRecordViewController.cs, code is 21, comment is 0, blank is 1.
+QalamAndNoor\Controllers\ViewsController\StudnetProfileViewController.cs, code is 21, comment is 0, blank is 1.
+QalamAndNoor\Controllers\ViewsController\WebConversationController.cs, code is 28, comment is 0, blank is 1.
+QalamAndNoor\Controllers\YearRecordController.cs, code is 52, comment is 6, blank is 4.
+QalamAndNoor\DataManager\AddressDataManager.cs, code is 87, comment is 8, blank is 15.
+QalamAndNoor\DataManager\AreaDataManager.cs, code is 84, comment is 8, blank is 14.
+QalamAndNoor\DataManager\BaseDataManager.cs, code is 56, comment is 6, blank is 3.
+QalamAndNoor\DataManager\CityDataManager.cs, code is 81, comment is 4, blank is 14.
+QalamAndNoor\DataManager\ClassDataManager.cs, code is 98, comment is 6, blank is 19.
+QalamAndNoor\DataManager\ClassRoomDataManager.cs, code is 87, comment is 3, blank is 18.
+QalamAndNoor\DataManager\ClassRoomSchoolYearDataManager.cs, code is 84, comment is 3, blank is 18.
+QalamAndNoor\DataManager\ConversationsDataManager.cs, code is 108, comment is 3, blank is 22.
+QalamAndNoor\DataManager\CourseDataManager.cs, code is 112, comment is 3, blank is 18.
+QalamAndNoor\DataManager\EmployeeDataManager.cs, code is 122, comment is 3, blank is 22.
+QalamAndNoor\DataManager\ExamDataManager.cs, code is 91, comment is 3, blank is 17.
+QalamAndNoor\DataManager\FamilyDataManager.cs, code is 95, comment is 3, blank is 12.
+QalamAndNoor\DataManager\FatherDataManager.cs, code is 131, comment is 3, blank is 14.
+QalamAndNoor\DataManager\Helper\PsychologicalStatusStudentCountDataManager.cs, code is 61, comment is 9, blank is 1.
+QalamAndNoor\DataManager\Helper\StudentIdYearRecordDataManager.cs, code is 46, comment is 6, blank is 2.
+QalamAndNoor\DataManager\Helper\StudentIllnessesDataManager.cs, code is 30, comment is 2, blank is 2.
+QalamAndNoor\DataManager\Helper\StudentInfoDataManager.cs, code is 34, comment is 3, blank is 1.
+QalamAndNoor\DataManager\Helper\StudentPsychologicalStatusInfoDataManager.cs, code is 32, comment is 2, blank is 3.
+QalamAndNoor\DataManager\Helper\StudentTakenVaccineDataManager.cs, code is 32, comment is 2, blank is 2.
+QalamAndNoor\DataManager\Helper\TotalStudentMarkDataManager.cs, code is 34, comment is 3, blank is 5.
+QalamAndNoor\DataManager\IlnessDataManager.cs, code is 81, comment is 4, blank is 14.
+QalamAndNoor\DataManager\IlnessMedicalRecordDataManager.cs, code is 87, comment is 3, blank is 16.
+QalamAndNoor\DataManager\JobTitleDataManager.cs, code is 84, comment is 4, blank is 15.
+QalamAndNoor\DataManager\MassegeDataManager.cs, code is 109, comment is 7, blank is 28.
+QalamAndNoor\DataManager\MedicalRecordDataManager.cs, code is 85, comment is 3, blank is 18.
+QalamAndNoor\DataManager\MotherDataManager.cs, code is 123, comment is 2, blank is 20.
+QalamAndNoor\DataManager\PreviousSchoolDataManager.cs, code is 84, comment is 8, blank is 15.
+QalamAndNoor\DataManager\psychologicalStatusDataManager.cs, code is 81, comment is 8, blank is 17.
+QalamAndNoor\DataManager\PsychologicalStausMedicalRecordDataManager.cs, code is 88, comment is 8, blank is 18.
+QalamAndNoor\DataManager\ResponsiblePersonDataManager.cs, code is 97, comment is 3, blank is 22.
+QalamAndNoor\DataManager\SchoolYearDataManager.cs, code is 116, comment is 7, blank is 18.
+QalamAndNoor\DataManager\SemesterDataManager.cs, code is 107, comment is 4, blank is 16.
+QalamAndNoor\DataManager\SemesterExamDataManager.cs, code is 135, comment is 12, blank is 15.
+QalamAndNoor\DataManager\SemesterYearRecordDataManager.cs, code is 82, comment is 3, blank is 13.
+QalamAndNoor\DataManager\StudentDataManager.cs, code is 164, comment is 7, blank is 25.
+QalamAndNoor\DataManager\StudentPreviousSchoolDataManager.cs, code is 88, comment is 3, blank is 16.
+QalamAndNoor\DataManager\TokenVaccineDataManager.cs, code is 91, comment is 3, blank is 19.
+QalamAndNoor\DataManager\VccineDataManager.cs, code is 81, comment is 4, blank is 14.
+QalamAndNoor\DataManager\ViewsDataManager\PublicRecordViewDataManager.cs, code is 50, comment is 3, blank is 4.
+QalamAndNoor\DataManager\ViewsDataManager\StudentProfileDataManager.cs, code is 80, comment is 7, blank is 7.
+QalamAndNoor\DataManager\ViewsDataManager\StudentReportViewDataManager.cs, code is 39, comment is 3, blank is 1.
+QalamAndNoor\DataManager\ViewsDataManager\WebConversationViewDataManager.cs, code is 46, comment is 3, blank is 3.
+QalamAndNoor\DataManager\YearRecordDataManager.cs, code is 127, comment is 8, blank is 28.
+QalamAndNoor\Manager\AddressManager.cs, code is 84, comment is 0, blank is 6.
+QalamAndNoor\Manager\AreaManager.cs, code is 66, comment is 0, blank is 5.
+QalamAndNoor\Manager\CityManager.cs, code is 77, comment is 0, blank is 6.
+QalamAndNoor\Manager\ClassManager.cs, code is 77, comment is 0, blank is 3.
+QalamAndNoor\Manager\ClassRoomManager.cs, code is 131, comment is 0, blank is 8.
+QalamAndNoor\Manager\ClassRoomSchoolYearManager.cs, code is 135, comment is 0, blank is 9.
+QalamAndNoor\Manager\ConversationManager.cs, code is 50, comment is 0, blank is 6.
+QalamAndNoor\Manager\CourseManager.cs, code is 87, comment is 0, blank is 7.
+QalamAndNoor\Manager\EmployeeAuthenticationManager.cs, code is 38, comment is 0, blank is 2.
+QalamAndNoor\Manager\EmployeeManager.cs, code is 91, comment is 0, blank is 8.
+QalamAndNoor\Manager\ExamManager.cs, code is 49, comment is 0, blank is 6.
+QalamAndNoor\Manager\FamilyAuthenticationManager.cs, code is 35, comment is 0, blank is 2.
+QalamAndNoor\Manager\FamilyManager.cs, code is 65, comment is 0, blank is 7.
+QalamAndNoor\Manager\FatherManager.cs, code is 54, comment is 0, blank is 2.
+QalamAndNoor\Manager\FinalStudentScoreManager.cs, code is 41, comment is 0, blank is 6.
+QalamAndNoor\Manager\IlnessManager.cs, code is 36, comment is 0, blank is 2.
+QalamAndNoor\Manager\IlnessMedicalRecordManager.cs, code is 36, comment is 0, blank is 1.
+QalamAndNoor\Manager\JobTitleManager.cs, code is 62, comment is 0, blank is 4.
+QalamAndNoor\Manager\MassegeManager.cs, code is 47, comment is 1, blank is 3.
+QalamAndNoor\Manager\MedicalRecordManager.cs, code is 47, comment is 0, blank is 2.
+QalamAndNoor\Manager\MotherManager.cs, code is 41, comment is 0, blank is 1.
+QalamAndNoor\Manager\PreviousSchoolManager.cs, code is 47, comment is 0, blank is 5.
+QalamAndNoor\Manager\PsychologicalStatusManager.cs, code is 36, comment is 0, blank is 2.
+QalamAndNoor\Manager\PsychologicalStatusMedicalRecordManager.cs, code is 62, comment is 0, blank is 4.
+QalamAndNoor\Manager\ResponsiblePersonManager.cs, code is 45, comment is 0, blank is 2.
+QalamAndNoor\Manager\SchoolYearManager.cs, code is 118, comment is 0, blank is 17.
+QalamAndNoor\Manager\SemesterExamManager.cs, code is 48, comment is 0, blank is 2.
+QalamAndNoor\Manager\SemesterManager.cs, code is 189, comment is 0, blank is 24.
+QalamAndNoor\Manager\SemesterYearRecordManager.cs, code is 54, comment is 0, blank is 4.
+QalamAndNoor\Manager\StatisticsManager.cs, code is 31, comment is 0, blank is 3.
+QalamAndNoor\Manager\StudentManager.cs, code is 646, comment is 3, blank is 81.
+QalamAndNoor\Manager\StudentPreviousSchoolManager.cs, code is 49, comment is 0, blank is 5.
+QalamAndNoor\Manager\StudentYearRecordsManager.cs, code is 31, comment is 0, blank is 4.
+QalamAndNoor\Manager\TokenVaccineManager.cs, code is 49, comment is 0, blank is 3.
+QalamAndNoor\Manager\VaccineManager.cs, code is 47, comment is 0, blank is 2.
+QalamAndNoor\Manager\ViewsManager\PublicRecordViewManager.cs, code is 25, comment is 0, blank is 3.
+QalamAndNoor\Manager\ViewsManager\StudentInfoViewManager.cs, code is 25, comment is 0, blank is 1.
+QalamAndNoor\Manager\ViewsManager\StudentProfileViewManager.cs, code is 24, comment is 0, blank is 1.
+QalamAndNoor\Manager\ViewsManager\WebConversationManager.cs, code is 39, comment is 0, blank is 1.
+QalamAndNoor\Manager\YearRecordManager.cs, code is 159, comment is 26, blank is 8.
+QalamAndNoor\Models\Address.cs, code is 10, comment is 0, blank is 2.
+QalamAndNoor\Models\Area.cs, code is 9, comment is 0, blank is 0.
+QalamAndNoor\Models\City.cs, code is 8, comment is 0, blank is 0.
+QalamAndNoor\Models\Class.cs, code is 10, comment is 0, blank is 0.
+QalamAndNoor\Models\ClassRoom.cs, code is 10, comment is 0, blank is 0.
+QalamAndNoor\Models\ClassRoomSchoolYear.cs, code is 9, comment is 0, blank is 1.
+QalamAndNoor\Models\Conversation.cs, code is 14, comment is 0, blank is 1.
+QalamAndNoor\Models\Course.cs, code is 14, comment is 0, blank is 0.
+QalamAndNoor\Models\Employee.cs, code is 20, comment is 0, blank is 1.
+QalamAndNoor\Models\Exam.cs, code is 12, comment is 0, blank is 1.
+QalamAndNoor\Models\Family.cs, code is 12, comment is 0, blank is 0.
+QalamAndNoor\Models\Father.cs, code is 23, comment is 0, blank is 3.
+QalamAndNoor\Models\HelperModels\CityToDescendentCount.cs, code is 8, comment is 0, blank is 2.
+QalamAndNoor\Models\HelperModels\DbHelper\ClassArchitecture.cs, code is 6, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\DbHelper\CLassReportDto.cs, code is 32, comment is 0, blank is 6.
+QalamAndNoor\Models\HelperModels\DbHelper\FinalStudentScore.cs, code is 9, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\DbHelper\FullStudentInfo.cs, code is 8, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\DbHelper\StudentProfileDto.cs, code is 21, comment is 0, blank is 2.
+QalamAndNoor\Models\HelperModels\DbHelper\StudentReport.cs, code is 17, comment is 0, blank is 1.
+QalamAndNoor\Models\HelperModels\DbHelper\StudentSchoolYear.cs, code is 12, comment is 0, blank is 1.
+QalamAndNoor\Models\HelperModels\DbHelper\StudentSchoolYearScore.cs, code is 10, comment is 0, blank is 1.
+QalamAndNoor\Models\HelperModels\DbHelper\StudentSemesterGrades.cs, code is 16, comment is 0, blank is 2.
+QalamAndNoor\Models\HelperModels\DbHelper\StudentSemesterScore.cs, code is 9, comment is 0, blank is 1.
+QalamAndNoor\Models\HelperModels\DbHelper\TotalStudentMark.cs, code is 12, comment is 0, blank is 1.
+QalamAndNoor\Models\HelperModels\ItemOr.cs, code is 9, comment is 0, blank is 1.
+QalamAndNoor\Models\HelperModels\NewStudentRegistrationInSchoolYear.cs, code is 9, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\NewStudentSchoolYear.cs, code is 8, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\OldStudentRegistration.cs, code is 10, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\PsychologicalStatusStudentCount.cs, code is 9, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\PsychologicalStatusStudentInfo.cs, code is 10, comment is 0, blank is 1.
+QalamAndNoor\Models\HelperModels\StudentExamMark.cs, code is 10, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\StudentExamMarkInsertion.cs, code is 9, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\StudentIdYearRecord.cs, code is 7, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\StudentIllnesses.cs, code is 9, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\StudentIllnessInfo.cs, code is 9, comment is 0, blank is 1.
+QalamAndNoor\Models\HelperModels\StudentInfo.cs, code is 12, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\StudentRegistrationModel.cs, code is 16, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\StudentTakenVaccine.cs, code is 10, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\StudentVaccineInfo.cs, code is 10, comment is 0, blank is 1.
+QalamAndNoor\Models\HelperModels\StudentYearRecords.cs, code is 11, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\WebConversation.cs, code is 19, comment is 0, blank is 1.
+QalamAndNoor\Models\Ilness.cs, code is 8, comment is 0, blank is 0.
+QalamAndNoor\Models\IlnessMedicalRecord.cs, code is 10, comment is 0, blank is 0.
+QalamAndNoor\Models\JobTitle.cs, code is 9, comment is 0, blank is 0.
+QalamAndNoor\Models\Massege.cs, code is 12, comment is 0, blank is 2.
+QalamAndNoor\Models\MedicalRecord.cs, code is 9, comment is 0, blank is 0.
+QalamAndNoor\Models\Mother.cs, code is 21, comment is 0, blank is 4.
+QalamAndNoor\Models\PreviousSchool.cs, code is 9, comment is 0, blank is 0.
+QalamAndNoor\Models\PsychologicalStatus.cs, code is 8, comment is 0, blank is 0.
+QalamAndNoor\Models\PsychologicalStatusMedicalRecord.cs, code is 11, comment is 0, blank is 1.
+QalamAndNoor\Models\ResponsiblePerson.cs, code is 13, comment is 0, blank is 0.
+QalamAndNoor\Models\SchoolYear.cs, code is 10, comment is 0, blank is 0.
+QalamAndNoor\Models\Semester.cs, code is 12, comment is 0, blank is 1.
+QalamAndNoor\Models\SemesterExam.cs, code is 11, comment is 0, blank is 0.
+QalamAndNoor\Models\SemesterYearRecord.cs, code is 9, comment is 0, blank is 0.
+QalamAndNoor\Models\Student.cs, code is 24, comment is 0, blank is 2.
+QalamAndNoor\Models\StudentPreviousSchool.cs, code is 10, comment is 0, blank is 0.
+QalamAndNoor\Models\TokenVaccine.cs, code is 11, comment is 0, blank is 0.
+QalamAndNoor\Models\Vaccine.cs, code is 8, comment is 0, blank is 0.
+QalamAndNoor\Models\YearRecord.cs, code is 13, comment is 0, blank is 1.
+QalamAndNoor\MyViews\PublicRecordView.cs, code is 26, comment is 0, blank is 5.
+QalamAndNoor\MyViews\StudentProfileView.cs, code is 54, comment is 4, blank is 2.
+QalamAndNoor\obj\Debug\net7.0\.NETCoreApp,Version=v7.0.AssemblyAttributes.cs, code is 3, comment is 1, blank is 0.
+QalamAndNoor\obj\Debug\net7.0\25830cc9-2fed-452d-8f45-99c76894e3e4_QalamAndNoor.pdb, it is a binary file.
+QalamAndNoor\obj\Debug\net7.0\apphost, it is a binary file.
+QalamAndNoor\obj\Debug\net7.0\apphost.exe, it is a binary file.
+QalamAndNoor\obj\Debug\net7.0\QalamAndNoor.AssemblyInfo.cs, code is 9, comment is 10, blank is 4.
+QalamAndNoor\obj\Debug\net7.0\QalamAndNoor.AssemblyInfoInputs.cache, code is 1, comment is 0, blank is 0.
+QalamAndNoor\obj\Debug\net7.0\QalamAndNoor.assets.cache, it is a binary file.
+QalamAndNoor\obj\Debug\net7.0\QalamAndNoor.csproj.AssemblyReference.cache, it is a binary file.
+QalamAndNoor\obj\Debug\net7.0\QalamAndNoor.csproj.BuildWithSkipAnalyzers, code is 0, comment is 0, blank is 0.
+QalamAndNoor\obj\Debug\net7.0\QalamAndNoor.csproj.FileListAbsolute.txt, code is 0, comment is 0, blank is 0.
+QalamAndNoor\obj\Debug\net7.0\QalamAndNoor.GeneratedMSBuildEditorConfig.editorconfig, code is 17, comment is 0, blank is 0.
+QalamAndNoor\obj\Debug\net7.0\QalamAndNoor.GlobalUsings.g.cs, code is 16, comment is 1, blank is 0.
+QalamAndNoor\obj\project.assets.json, code is 975, comment is 0, blank is 25.
+QalamAndNoor\obj\project.nuget.cache, code is 24, comment is 0, blank is 1.
+QalamAndNoor\obj\QalamAndNoor.csproj.nuget.dgspec.json, code is 78, comment is 0, blank is 5.
+QalamAndNoor\obj\QalamAndNoor.csproj.nuget.g.props, code is 13, comment is 0, blank is 0.
+QalamAndNoor\obj\QalamAndNoor.csproj.nuget.g.targets, code is 6, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\.NETCoreApp,Version=v7.0.AssemblyAttributes.cs, code is 3, comment is 1, blank is 0.
+QalamAndNoor\obj\Release\net7.0\apphost.exe, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PublishOutputs.579938923d.txt, code is 18, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\appsettings.Development.json, code is 8, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\appsettings.json, code is 9, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\Microsoft.AspNetCore.OpenApi.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\Microsoft.OpenApi.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\QalamAndNoor.deps.json, code is 273, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\QalamAndNoor.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\QalamAndNoor.exe, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\QalamAndNoor.pdb, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\QalamAndNoor.runtimeconfig.json, code is 20, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\runtimes\win-arm64\native\sni.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\runtimes\win-x64\native\sni.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\runtimes\win-x86\native\sni.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\System.Data.SqlClient.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\web.config, code is 12, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\PubTmp\QalamAndNoor.Parameters.xml, code is 6, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\PubTmp\QalamAndNoor.SourceManifest.xml, code is 3, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.AssemblyInfo.cs, code is 9, comment is 10, blank is 4.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.AssemblyInfoInputs.cache, code is 1, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.assets.cache, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.csproj.AssemblyReference.cache, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.csproj.CopyComplete, code is 0, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.csproj.CoreCompileInputs.cache, code is 1, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.csproj.FileListAbsolute.txt, code is 39, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.GeneratedMSBuildEditorConfig.editorconfig, code is 17, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.genruntimeconfig.cache, code is 1, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.GlobalUsings.g.cs, code is 16, comment is 1, blank is 0.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.MvcApplicationPartsAssemblyInfo.cache, code is 0, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.MvcApplicationPartsAssemblyInfo.cs, code is 4, comment is 10, blank is 4.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.pdb, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\ref\QalamAndNoor.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\refint\QalamAndNoor.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\staticwebassets.build.json, code is 11, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\staticwebassets.publish.json, code is 11, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\staticwebassets\msbuild.build.QalamAndNoor.props, code is 3, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\staticwebassets\msbuild.buildMultiTargeting.QalamAndNoor.props, code is 3, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\staticwebassets\msbuild.buildTransitive.QalamAndNoor.props, code is 3, comment is 0, blank is 0.
+QalamAndNoor\Program.cs, code is 31, comment is 3, blank is 8.
+QalamAndNoor\Properties\launchSettings.json, code is 41, comment is 0, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\qalamandnoor-001-site1 - FTP.pubxml, code is 22, comment is 3, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\qalamandnoor-001-site1 - FTP.pubxml.user, code is 11, comment is 1, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\qalamandnoor-001-site1 - Web Deploy.pubxml, code is 25, comment is 3, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\qalamandnoor-001-site1 - Web Deploy.pubxml.user, code is 13, comment is 1, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\qalamnoor-001-site1 - FTP.pubxml, code is 22, comment is 3, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\qalamnoor-001-site1 - FTP.pubxml.user, code is 14, comment is 2, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\qalamnoorschool-001-site1 - FTP.pubxml, code is 22, comment is 3, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\qalamnoorschool-001-site1 - FTP.pubxml.user, code is 11, comment is 1, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\qalamnoorschool-001-site1 - Web Deploy.pubxml, code is 25, comment is 3, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\qalamnoorschool-001-site1 - Web Deploy.pubxml.user, code is 13, comment is 1, blank is 0.
+QalamAndNoor\QalamAndNoor.csproj, code is 14, comment is 0, blank is 3.
+QalamAndNoor\QalamAndNoor.csproj.user, code is 12, comment is 0, blank is 0.
+QalamAndNoor\Shared\ConversationPartyEnum.cs, code is 10, comment is 0, blank is 0.
+QalamAndNoor\Shared\ConversationStatusEnum.cs, code is 8, comment is 0, blank is 0.
+QalamAndNoor\Shared\EducationalStatusEnum.cs, code is 14, comment is 0, blank is 1.
+QalamAndNoor\Shared\ExamTypeEnum.cs, code is 12, comment is 0, blank is 0.
+QalamAndNoor\Shared\LevelEnum.cs, code is 6, comment is 0, blank is 0.
+QalamAndNoor\Shared\MassegeSenderEnum.cs, code is 10, comment is 0, blank is 0.
+QalamAndNoor\Shared\PsychologicalStatusEnum.cs, code is 11, comment is 0, blank is 0.
+QalamAndNoor\Shared\ReligionEnum.cs, code is 10, comment is 0, blank is 0.
+QalamAndNoor\Shared\SemesterTypeEnum.cs, code is 8, comment is 0, blank is 0.
+QalamAndNoor\Shared\StudentStatusEnum.cs, code is 10, comment is 0, blank is 1.
+QalamAndNoor\WeatherForecast.cs, code is 10, comment is 0, blank is 3.
+===============================================================================
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2023-07-15 03:09:01
+count workspace : c:\Users\Sari\source\repos\qalam-noor-backend
+total files : 318
+total code lines : 13135
+total comment lines : 292
+total blank lines : 1082
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |            .cs|           9795|            256|           1032|     75|
+   |          .json|           1756|              0|             30|     13|
+   |           .sln|             25|              0|              0|   0.19|
+   |        .config|            995|              0|             16|    7.6|
+   |           .xml|             40|              0|              0|   0.30|
+   |        .csproj|             14|              0|              3|   0.11|
+   |       .targets|              6|              0|              0|  0.046|
+   |         .cache|             28|              0|              1|   0.21|
+   |          .user|            130|             11|              0|   0.99|
+   |         .props|             22|              0|              0|   0.17|
+   |          .lock|              0|              0|              0|    0.0|
+   |        .pubxml|            233|             25|              0|    1.8|
+   |.BuildWithSkipAnalyzers|              0|              0|              0|    0.0|
+   |           .txt|             57|              0|              0|   0.43|
+   |  .editorconfig|             34|              0|              0|   0.26|
+   |  .CopyComplete|              0|              0|              0|    0.0|
+   -------------------------------------------------------------------------
+.vs\ProjectEvaluation\qalamandnoor.metadata.v5.2, it is a binary file.
+.vs\ProjectEvaluation\qalamandnoor.projects.v5.2, it is a binary file.
+.vs\QalamAndNoor\config\applicationhost.config, code is 983, comment is 0, blank is 16.
+.vs\QalamAndNoor\DesignTimeBuild\.dtbcache.v2, it is a binary file.
+.vs\QalamAndNoor\FileContentIndex\2fee6930-ca27-42ea-8dd3-129896ccd1e8.vsidx, it is a binary file.
+.vs\QalamAndNoor\FileContentIndex\37c3a198-2131-4135-b6c3-7bc748329d4d.vsidx, it is a binary file.
+.vs\QalamAndNoor\FileContentIndex\ab957801-e7b7-4848-b75e-e60b2c7575eb.vsidx, it is a binary file.
+.vs\QalamAndNoor\FileContentIndex\c8ddb3ec-24d7-4604-a022-81d139b6964a.vsidx, it is a binary file.
+.vs\QalamAndNoor\FileContentIndex\read.lock, code is 0, comment is 0, blank is 0.
+.vs\QalamAndNoor\v17\.futdcache.v2, it is a binary file.
+.vs\QalamAndNoor\v17\.suo, it is a binary file.
+.vs\QalamAndNoor\xs\project-cache\QalamAndNoor-Debug.json, code is 1, comment is 0, blank is 0.
+.vs\QalamAndNoor\xs\UserPrefs.xml, code is 31, comment is 0, blank is 0.
+QalamAndNoor.sln, code is 25, comment is 0, blank is 0.
+QalamAndNoor\appsettings.Development.json, code is 8, comment is 0, blank is 0.
+QalamAndNoor\appsettings.json, code is 9, comment is 0, blank is 0.
+QalamAndNoor\bin\Debug\net7.0\QalamAndNoor, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\appsettings.Development.json, code is 8, comment is 0, blank is 0.
+QalamAndNoor\bin\Release\net7.0\appsettings.json, code is 9, comment is 0, blank is 0.
+QalamAndNoor\bin\Release\net7.0\Microsoft.AspNetCore.OpenApi.dll, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\Microsoft.OpenApi.dll, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\QalamAndNoor.deps.json, code is 273, comment is 0, blank is 0.
+QalamAndNoor\bin\Release\net7.0\QalamAndNoor.dll, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\QalamAndNoor.exe, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\QalamAndNoor.pdb, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\QalamAndNoor.runtimeconfig.json, code is 20, comment is 0, blank is 0.
+QalamAndNoor\bin\Release\net7.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\runtimes\win-arm64\native\sni.dll, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\runtimes\win-x64\native\sni.dll, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\runtimes\win-x86\native\sni.dll, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\Swashbuckle.AspNetCore.Swagger.dll, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll, it is a binary file.
+QalamAndNoor\bin\Release\net7.0\System.Data.SqlClient.dll, it is a binary file.
+QalamAndNoor\Controllers\AddressController.cs, code is 69, comment is 1, blank is 6.
+QalamAndNoor\Controllers\AreaController.cs, code is 51, comment is 0, blank is 2.
+QalamAndNoor\Controllers\CityController.cs, code is 58, comment is 0, blank is 8.
+QalamAndNoor\Controllers\ClassController.cs, code is 58, comment is 0, blank is 4.
+QalamAndNoor\Controllers\ClassRoomController.cs, code is 81, comment is 0, blank is 3.
+QalamAndNoor\Controllers\ClassRoomSchoolYearController.cs, code is 71, comment is 0, blank is 1.
+QalamAndNoor\Controllers\ConversationController.cs, code is 52, comment is 0, blank is 1.
+QalamAndNoor\Controllers\CourseController.cs, code is 70, comment is 0, blank is 3.
+QalamAndNoor\Controllers\EmployeeAuthenticationController.cs, code is 14, comment is 0, blank is 1.
+QalamAndNoor\Controllers\EmployeeController.cs, code is 63, comment is 0, blank is 3.
+QalamAndNoor\Controllers\ExamController.cs, code is 45, comment is 0, blank is 2.
+QalamAndNoor\Controllers\FamilyAuthenticationController.cs, code is 15, comment is 0, blank is 1.
+QalamAndNoor\Controllers\FamilyController.cs, code is 45, comment is 0, blank is 2.
+QalamAndNoor\Controllers\FatherController.cs, code is 45, comment is 0, blank is 2.
+QalamAndNoor\Controllers\IlnessController.cs, code is 47, comment is 0, blank is 1.
+QalamAndNoor\Controllers\IlnessMedicalRecordController.cs, code is 39, comment is 0, blank is 1.
+QalamAndNoor\Controllers\JobTitleController.cs, code is 51, comment is 0, blank is 2.
+QalamAndNoor\Controllers\MassegeController.cs, code is 51, comment is 0, blank is 2.
+QalamAndNoor\Controllers\MedicalRecordController.cs, code is 39, comment is 0, blank is 2.
+QalamAndNoor\Controllers\MotherController.cs, code is 39, comment is 0, blank is 2.
+QalamAndNoor\Controllers\PreviousSchoolController.cs, code is 39, comment is 0, blank is 5.
+QalamAndNoor\Controllers\PsychologicalStatusController.cs, code is 39, comment is 0, blank is 4.
+QalamAndNoor\Controllers\PsychologicalStatusMedicalRecordController.cs, code is 45, comment is 0, blank is 1.
+QalamAndNoor\Controllers\ResponsiblePersonController.cs, code is 39, comment is 0, blank is 1.
+QalamAndNoor\Controllers\SchoolYearController.cs, code is 51, comment is 0, blank is 5.
+QalamAndNoor\Controllers\SemesterController.cs, code is 64, comment is 0, blank is 1.
+QalamAndNoor\Controllers\SemesterExamController.cs, code is 39, comment is 0, blank is 1.
+QalamAndNoor\Controllers\SemesterYearRecordController.cs, code is 33, comment is 0, blank is 2.
+QalamAndNoor\Controllers\statisticsController.cs, code is 34, comment is 0, blank is 1.
+QalamAndNoor\Controllers\StudentController.cs, code is 258, comment is 0, blank is 12.
+QalamAndNoor\Controllers\StudentPreviousSchoolController.cs, code is 39, comment is 0, blank is 2.
+QalamAndNoor\Controllers\TokenVaccineController.cs, code is 39, comment is 0, blank is 1.
+QalamAndNoor\Controllers\VaccineController.cs, code is 53, comment is 0, blank is 6.
+QalamAndNoor\Controllers\ViewsController\PublicRecordViewController.cs, code is 21, comment is 0, blank is 1.
+QalamAndNoor\Controllers\ViewsController\StudnetProfileViewController.cs, code is 21, comment is 0, blank is 1.
+QalamAndNoor\Controllers\ViewsController\WebConversationController.cs, code is 28, comment is 0, blank is 1.
+QalamAndNoor\Controllers\YearRecordController.cs, code is 58, comment is 6, blank is 4.
+QalamAndNoor\DataManager\AddressDataManager.cs, code is 87, comment is 8, blank is 15.
+QalamAndNoor\DataManager\AreaDataManager.cs, code is 84, comment is 8, blank is 14.
+QalamAndNoor\DataManager\BaseDataManager.cs, code is 56, comment is 7, blank is 3.
+QalamAndNoor\DataManager\CityDataManager.cs, code is 81, comment is 4, blank is 14.
+QalamAndNoor\DataManager\ClassDataManager.cs, code is 109, comment is 9, blank is 18.
+QalamAndNoor\DataManager\ClassRoomDataManager.cs, code is 87, comment is 3, blank is 18.
+QalamAndNoor\DataManager\ClassRoomSchoolYearDataManager.cs, code is 84, comment is 3, blank is 18.
+QalamAndNoor\DataManager\ConversationsDataManager.cs, code is 108, comment is 3, blank is 22.
+QalamAndNoor\DataManager\CourseDataManager.cs, code is 112, comment is 3, blank is 18.
+QalamAndNoor\DataManager\EmployeeDataManager.cs, code is 122, comment is 3, blank is 22.
+QalamAndNoor\DataManager\ExamDataManager.cs, code is 91, comment is 3, blank is 17.
+QalamAndNoor\DataManager\FamilyDataManager.cs, code is 95, comment is 3, blank is 12.
+QalamAndNoor\DataManager\FatherDataManager.cs, code is 131, comment is 3, blank is 14.
+QalamAndNoor\DataManager\Helper\PsychologicalStatusStudentCountDataManager.cs, code is 61, comment is 9, blank is 1.
+QalamAndNoor\DataManager\Helper\StudentIdYearRecordDataManager.cs, code is 46, comment is 6, blank is 3.
+QalamAndNoor\DataManager\Helper\StudentIllnessesDataManager.cs, code is 30, comment is 2, blank is 2.
+QalamAndNoor\DataManager\Helper\StudentInfoDataManager.cs, code is 34, comment is 3, blank is 1.
+QalamAndNoor\DataManager\Helper\StudentPsychologicalStatusInfoDataManager.cs, code is 32, comment is 2, blank is 3.
+QalamAndNoor\DataManager\Helper\StudentTakenVaccineDataManager.cs, code is 32, comment is 2, blank is 2.
+QalamAndNoor\DataManager\Helper\TotalStudentMarkDataManager.cs, code is 34, comment is 3, blank is 5.
+QalamAndNoor\DataManager\IlnessDataManager.cs, code is 81, comment is 4, blank is 14.
+QalamAndNoor\DataManager\IlnessMedicalRecordDataManager.cs, code is 87, comment is 3, blank is 16.
+QalamAndNoor\DataManager\JobTitleDataManager.cs, code is 84, comment is 4, blank is 15.
+QalamAndNoor\DataManager\MassegeDataManager.cs, code is 109, comment is 7, blank is 28.
+QalamAndNoor\DataManager\MedicalRecordDataManager.cs, code is 85, comment is 3, blank is 18.
+QalamAndNoor\DataManager\MotherDataManager.cs, code is 123, comment is 2, blank is 20.
+QalamAndNoor\DataManager\PreviousSchoolDataManager.cs, code is 84, comment is 8, blank is 15.
+QalamAndNoor\DataManager\psychologicalStatusDataManager.cs, code is 81, comment is 8, blank is 17.
+QalamAndNoor\DataManager\PsychologicalStausMedicalRecordDataManager.cs, code is 88, comment is 8, blank is 18.
+QalamAndNoor\DataManager\ResponsiblePersonDataManager.cs, code is 97, comment is 3, blank is 22.
+QalamAndNoor\DataManager\SchoolYearDataManager.cs, code is 117, comment is 7, blank is 15.
+QalamAndNoor\DataManager\SemesterDataManager.cs, code is 107, comment is 4, blank is 16.
+QalamAndNoor\DataManager\SemesterExamDataManager.cs, code is 135, comment is 12, blank is 15.
+QalamAndNoor\DataManager\SemesterYearRecordDataManager.cs, code is 82, comment is 3, blank is 13.
+QalamAndNoor\DataManager\StudentDataManager.cs, code is 164, comment is 7, blank is 25.
+QalamAndNoor\DataManager\StudentPreviousSchoolDataManager.cs, code is 88, comment is 3, blank is 16.
+QalamAndNoor\DataManager\TokenVaccineDataManager.cs, code is 91, comment is 3, blank is 19.
+QalamAndNoor\DataManager\VccineDataManager.cs, code is 81, comment is 4, blank is 14.
+QalamAndNoor\DataManager\ViewsDataManager\PublicRecordViewDataManager.cs, code is 50, comment is 3, blank is 4.
+QalamAndNoor\DataManager\ViewsDataManager\StudentProfileDataManager.cs, code is 80, comment is 7, blank is 7.
+QalamAndNoor\DataManager\ViewsDataManager\StudentReportViewDataManager.cs, code is 39, comment is 3, blank is 1.
+QalamAndNoor\DataManager\ViewsDataManager\WebConversationViewDataManager.cs, code is 46, comment is 3, blank is 3.
+QalamAndNoor\DataManager\YearRecordDataManager.cs, code is 127, comment is 8, blank is 28.
+QalamAndNoor\Manager\AddressManager.cs, code is 84, comment is 0, blank is 6.
+QalamAndNoor\Manager\AreaManager.cs, code is 66, comment is 0, blank is 5.
+QalamAndNoor\Manager\CityManager.cs, code is 77, comment is 0, blank is 6.
+QalamAndNoor\Manager\ClassManager.cs, code is 77, comment is 0, blank is 5.
+QalamAndNoor\Manager\ClassRoomManager.cs, code is 142, comment is 0, blank is 5.
+QalamAndNoor\Manager\ClassRoomSchoolYearManager.cs, code is 136, comment is 0, blank is 10.
+QalamAndNoor\Manager\ConversationManager.cs, code is 50, comment is 0, blank is 6.
+QalamAndNoor\Manager\CourseManager.cs, code is 87, comment is 0, blank is 7.
+QalamAndNoor\Manager\EmployeeAuthenticationManager.cs, code is 38, comment is 0, blank is 2.
+QalamAndNoor\Manager\EmployeeManager.cs, code is 91, comment is 0, blank is 8.
+QalamAndNoor\Manager\ExamManager.cs, code is 49, comment is 0, blank is 6.
+QalamAndNoor\Manager\FamilyAuthenticationManager.cs, code is 35, comment is 0, blank is 2.
+QalamAndNoor\Manager\FamilyManager.cs, code is 65, comment is 0, blank is 7.
+QalamAndNoor\Manager\FatherManager.cs, code is 54, comment is 0, blank is 2.
+QalamAndNoor\Manager\FinalStudentScoreManager.cs, code is 40, comment is 0, blank is 6.
+QalamAndNoor\Manager\IlnessManager.cs, code is 36, comment is 0, blank is 2.
+QalamAndNoor\Manager\IlnessMedicalRecordManager.cs, code is 36, comment is 0, blank is 1.
+QalamAndNoor\Manager\JobTitleManager.cs, code is 62, comment is 0, blank is 4.
+QalamAndNoor\Manager\MassegeManager.cs, code is 47, comment is 1, blank is 3.
+QalamAndNoor\Manager\MedicalRecordManager.cs, code is 47, comment is 0, blank is 2.
+QalamAndNoor\Manager\MotherManager.cs, code is 41, comment is 0, blank is 1.
+QalamAndNoor\Manager\PreviousSchoolManager.cs, code is 47, comment is 0, blank is 5.
+QalamAndNoor\Manager\PsychologicalStatusManager.cs, code is 36, comment is 0, blank is 2.
+QalamAndNoor\Manager\PsychologicalStatusMedicalRecordManager.cs, code is 62, comment is 0, blank is 4.
+QalamAndNoor\Manager\ResponsiblePersonManager.cs, code is 45, comment is 0, blank is 2.
+QalamAndNoor\Manager\SchoolYearManager.cs, code is 130, comment is 0, blank is 19.
+QalamAndNoor\Manager\SemesterExamManager.cs, code is 48, comment is 0, blank is 2.
+QalamAndNoor\Manager\SemesterManager.cs, code is 189, comment is 0, blank is 24.
+QalamAndNoor\Manager\SemesterYearRecordManager.cs, code is 66, comment is 0, blank is 5.
+QalamAndNoor\Manager\StatisticsManager.cs, code is 31, comment is 0, blank is 3.
+QalamAndNoor\Manager\StudentManager.cs, code is 751, comment is 3, blank is 82.
+QalamAndNoor\Manager\StudentPreviousSchoolManager.cs, code is 49, comment is 0, blank is 5.
+QalamAndNoor\Manager\StudentYearRecordsManager.cs, code is 31, comment is 0, blank is 4.
+QalamAndNoor\Manager\TokenVaccineManager.cs, code is 49, comment is 0, blank is 3.
+QalamAndNoor\Manager\VaccineManager.cs, code is 47, comment is 0, blank is 2.
+QalamAndNoor\Manager\ViewsManager\PublicRecordViewManager.cs, code is 25, comment is 0, blank is 3.
+QalamAndNoor\Manager\ViewsManager\StudentInfoViewManager.cs, code is 25, comment is 0, blank is 1.
+QalamAndNoor\Manager\ViewsManager\StudentProfileViewManager.cs, code is 24, comment is 0, blank is 1.
+QalamAndNoor\Manager\ViewsManager\WebConversationManager.cs, code is 39, comment is 0, blank is 1.
+QalamAndNoor\Manager\YearRecordManager.cs, code is 175, comment is 0, blank is 10.
+QalamAndNoor\Models\Address.cs, code is 10, comment is 0, blank is 2.
+QalamAndNoor\Models\Area.cs, code is 9, comment is 0, blank is 0.
+QalamAndNoor\Models\City.cs, code is 8, comment is 0, blank is 0.
+QalamAndNoor\Models\Class.cs, code is 10, comment is 0, blank is 0.
+QalamAndNoor\Models\ClassRoom.cs, code is 10, comment is 0, blank is 0.
+QalamAndNoor\Models\ClassRoomSchoolYear.cs, code is 9, comment is 0, blank is 1.
+QalamAndNoor\Models\Conversation.cs, code is 14, comment is 0, blank is 1.
+QalamAndNoor\Models\Course.cs, code is 14, comment is 0, blank is 0.
+QalamAndNoor\Models\Employee.cs, code is 20, comment is 0, blank is 1.
+QalamAndNoor\Models\Exam.cs, code is 12, comment is 0, blank is 1.
+QalamAndNoor\Models\Family.cs, code is 12, comment is 0, blank is 0.
+QalamAndNoor\Models\Father.cs, code is 23, comment is 0, blank is 3.
+QalamAndNoor\Models\HelperModels\CityToDescendentCount.cs, code is 8, comment is 0, blank is 2.
+QalamAndNoor\Models\HelperModels\DbHelper\ClassArchitecture.cs, code is 6, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\DbHelper\CLassReportDto.cs, code is 32, comment is 0, blank is 6.
+QalamAndNoor\Models\HelperModels\DbHelper\FinalStudentScore.cs, code is 9, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\DbHelper\FullStudentInfo.cs, code is 8, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\DbHelper\StudentFatherYearRecord.cs, code is 9, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\DbHelper\StudentProfileDto.cs, code is 21, comment is 0, blank is 2.
+QalamAndNoor\Models\HelperModels\DbHelper\StudentReport.cs, code is 17, comment is 0, blank is 1.
+QalamAndNoor\Models\HelperModels\DbHelper\StudentSchoolYear.cs, code is 12, comment is 0, blank is 1.
+QalamAndNoor\Models\HelperModels\DbHelper\StudentSchoolYearScore.cs, code is 10, comment is 0, blank is 1.
+QalamAndNoor\Models\HelperModels\DbHelper\StudentSemesterGrades.cs, code is 16, comment is 0, blank is 2.
+QalamAndNoor\Models\HelperModels\DbHelper\StudentSemesterScore.cs, code is 9, comment is 0, blank is 1.
+QalamAndNoor\Models\HelperModels\DbHelper\TotalStudentMark.cs, code is 12, comment is 0, blank is 1.
+QalamAndNoor\Models\HelperModels\ItemOr.cs, code is 9, comment is 0, blank is 1.
+QalamAndNoor\Models\HelperModels\LateStudent.cs, code is 10, comment is 0, blank is 3.
+QalamAndNoor\Models\HelperModels\LateStudentEnrollmentCourseResult.cs, code is 8, comment is 0, blank is 1.
+QalamAndNoor\Models\HelperModels\LateStudentEnrollmentSemesterResult.cs, code is 8, comment is 0, blank is 1.
+QalamAndNoor\Models\HelperModels\NewStudentRegistrationInSchoolYear.cs, code is 9, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\NewStudentSchoolYear.cs, code is 8, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\OldStudentRegistration.cs, code is 10, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\PsychologicalStatusStudentCount.cs, code is 9, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\PsychologicalStatusStudentInfo.cs, code is 10, comment is 0, blank is 1.
+QalamAndNoor\Models\HelperModels\StudentExamMark.cs, code is 10, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\StudentExamMarkInsertion.cs, code is 9, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\StudentIdYearRecord.cs, code is 7, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\StudentIllnesses.cs, code is 9, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\StudentIllnessInfo.cs, code is 9, comment is 0, blank is 1.
+QalamAndNoor\Models\HelperModels\StudentInfo.cs, code is 12, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\StudentRegistrationModel.cs, code is 16, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\StudentTakenVaccine.cs, code is 10, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\StudentVaccineInfo.cs, code is 10, comment is 0, blank is 1.
+QalamAndNoor\Models\HelperModels\StudentYearRecords.cs, code is 11, comment is 0, blank is 0.
+QalamAndNoor\Models\HelperModels\WebConversation.cs, code is 19, comment is 0, blank is 1.
+QalamAndNoor\Models\Ilness.cs, code is 8, comment is 0, blank is 0.
+QalamAndNoor\Models\IlnessMedicalRecord.cs, code is 10, comment is 0, blank is 0.
+QalamAndNoor\Models\JobTitle.cs, code is 9, comment is 0, blank is 0.
+QalamAndNoor\Models\Massege.cs, code is 12, comment is 0, blank is 2.
+QalamAndNoor\Models\MedicalRecord.cs, code is 9, comment is 0, blank is 0.
+QalamAndNoor\Models\Mother.cs, code is 21, comment is 0, blank is 4.
+QalamAndNoor\Models\PreviousSchool.cs, code is 9, comment is 0, blank is 0.
+QalamAndNoor\Models\PsychologicalStatus.cs, code is 8, comment is 0, blank is 0.
+QalamAndNoor\Models\PsychologicalStatusMedicalRecord.cs, code is 11, comment is 0, blank is 1.
+QalamAndNoor\Models\ResponsiblePerson.cs, code is 13, comment is 0, blank is 0.
+QalamAndNoor\Models\SchoolYear.cs, code is 10, comment is 0, blank is 0.
+QalamAndNoor\Models\Semester.cs, code is 12, comment is 0, blank is 1.
+QalamAndNoor\Models\SemesterExam.cs, code is 11, comment is 0, blank is 0.
+QalamAndNoor\Models\SemesterYearRecord.cs, code is 9, comment is 0, blank is 0.
+QalamAndNoor\Models\Student.cs, code is 24, comment is 0, blank is 2.
+QalamAndNoor\Models\StudentPreviousSchool.cs, code is 10, comment is 0, blank is 0.
+QalamAndNoor\Models\TokenVaccine.cs, code is 11, comment is 0, blank is 0.
+QalamAndNoor\Models\Vaccine.cs, code is 8, comment is 0, blank is 0.
+QalamAndNoor\Models\YearRecord.cs, code is 13, comment is 0, blank is 1.
+QalamAndNoor\MyViews\PublicRecordView.cs, code is 26, comment is 0, blank is 5.
+QalamAndNoor\MyViews\StudentProfileView.cs, code is 54, comment is 4, blank is 2.
+QalamAndNoor\obj\Debug\net7.0\.NETCoreApp,Version=v7.0.AssemblyAttributes.cs, code is 3, comment is 1, blank is 0.
+QalamAndNoor\obj\Debug\net7.0\25830cc9-2fed-452d-8f45-99c76894e3e4_QalamAndNoor.pdb, it is a binary file.
+QalamAndNoor\obj\Debug\net7.0\apphost, it is a binary file.
+QalamAndNoor\obj\Debug\net7.0\apphost.exe, it is a binary file.
+QalamAndNoor\obj\Debug\net7.0\QalamAndNoor.AssemblyInfo.cs, code is 9, comment is 10, blank is 4.
+QalamAndNoor\obj\Debug\net7.0\QalamAndNoor.AssemblyInfoInputs.cache, code is 1, comment is 0, blank is 0.
+QalamAndNoor\obj\Debug\net7.0\QalamAndNoor.assets.cache, it is a binary file.
+QalamAndNoor\obj\Debug\net7.0\QalamAndNoor.csproj.AssemblyReference.cache, it is a binary file.
+QalamAndNoor\obj\Debug\net7.0\QalamAndNoor.csproj.BuildWithSkipAnalyzers, code is 0, comment is 0, blank is 0.
+QalamAndNoor\obj\Debug\net7.0\QalamAndNoor.csproj.FileListAbsolute.txt, code is 0, comment is 0, blank is 0.
+QalamAndNoor\obj\Debug\net7.0\QalamAndNoor.GeneratedMSBuildEditorConfig.editorconfig, code is 17, comment is 0, blank is 0.
+QalamAndNoor\obj\Debug\net7.0\QalamAndNoor.GlobalUsings.g.cs, code is 16, comment is 1, blank is 0.
+QalamAndNoor\obj\project.assets.json, code is 976, comment is 0, blank is 25.
+QalamAndNoor\obj\project.nuget.cache, code is 24, comment is 0, blank is 1.
+QalamAndNoor\obj\QalamAndNoor.csproj.nuget.dgspec.json, code is 79, comment is 0, blank is 5.
+QalamAndNoor\obj\QalamAndNoor.csproj.nuget.g.props, code is 13, comment is 0, blank is 0.
+QalamAndNoor\obj\QalamAndNoor.csproj.nuget.g.targets, code is 6, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\.NETCoreApp,Version=v7.0.AssemblyAttributes.cs, code is 3, comment is 1, blank is 0.
+QalamAndNoor\obj\Release\net7.0\apphost.exe, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PublishOutputs.579938923d.txt, code is 18, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\appsettings.Development.json, code is 8, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\appsettings.json, code is 9, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\Microsoft.AspNetCore.OpenApi.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\Microsoft.OpenApi.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\QalamAndNoor.deps.json, code is 273, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\QalamAndNoor.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\QalamAndNoor.exe, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\QalamAndNoor.pdb, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\QalamAndNoor.runtimeconfig.json, code is 20, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\runtimes\win-arm64\native\sni.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\runtimes\win-x64\native\sni.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\runtimes\win-x86\native\sni.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\System.Data.SqlClient.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\PubTmp\Out\web.config, code is 12, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\PubTmp\QalamAndNoor.Parameters.xml, code is 6, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\PubTmp\QalamAndNoor.SourceManifest.xml, code is 3, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.AssemblyInfo.cs, code is 9, comment is 10, blank is 4.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.AssemblyInfoInputs.cache, code is 1, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.assets.cache, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.csproj.AssemblyReference.cache, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.csproj.CopyComplete, code is 0, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.csproj.CoreCompileInputs.cache, code is 1, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.csproj.FileListAbsolute.txt, code is 39, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.GeneratedMSBuildEditorConfig.editorconfig, code is 17, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.genruntimeconfig.cache, code is 1, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.GlobalUsings.g.cs, code is 16, comment is 1, blank is 0.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.MvcApplicationPartsAssemblyInfo.cache, code is 0, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.MvcApplicationPartsAssemblyInfo.cs, code is 4, comment is 10, blank is 4.
+QalamAndNoor\obj\Release\net7.0\QalamAndNoor.pdb, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\ref\QalamAndNoor.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\refint\QalamAndNoor.dll, it is a binary file.
+QalamAndNoor\obj\Release\net7.0\staticwebassets.build.json, code is 11, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\staticwebassets.publish.json, code is 11, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\staticwebassets\msbuild.build.QalamAndNoor.props, code is 3, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\staticwebassets\msbuild.buildMultiTargeting.QalamAndNoor.props, code is 3, comment is 0, blank is 0.
+QalamAndNoor\obj\Release\net7.0\staticwebassets\msbuild.buildTransitive.QalamAndNoor.props, code is 3, comment is 0, blank is 0.
+QalamAndNoor\Program.cs, code is 31, comment is 3, blank is 8.
+QalamAndNoor\Properties\launchSettings.json, code is 41, comment is 0, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\finalqalamnoor-001-site1 - FTP.pubxml, code is 22, comment is 3, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\finalqalamnoor-001-site1 - FTP.pubxml.user, code is 11, comment is 1, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\finalqalamnoor-001-site1 - Web Deploy.pubxml, code is 25, comment is 3, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\finalqalamnoor-001-site1 - Web Deploy.pubxml.user, code is 13, comment is 1, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\FTPProfile.pubxml, code is 22, comment is 1, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\FTPProfile.pubxml.user, code is 10, comment is 1, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\FTPProfile1.pubxml, code is 22, comment is 2, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\FTPProfile1.pubxml.user, code is 10, comment is 1, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\IISProfile.pubxml, code is 26, comment is 1, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\IISProfile.pubxml.user, code is 12, comment is 1, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\qalamandnoor-001-site1 - FTP.pubxml, code is 22, comment is 3, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\qalamandnoor-001-site1 - FTP.pubxml.user, code is 11, comment is 1, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\qalamandnoor-001-site1 - Web Deploy.pubxml, code is 25, comment is 3, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\qalamandnoor-001-site1 - Web Deploy.pubxml.user, code is 13, comment is 1, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\qalamnoor-001-site1 - FTP.pubxml, code is 22, comment is 3, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\qalamnoor-001-site1 - FTP.pubxml.user, code is 14, comment is 2, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\qalamnoorschool-001-site1 - FTP.pubxml, code is 22, comment is 3, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\qalamnoorschool-001-site1 - FTP.pubxml.user, code is 11, comment is 1, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\qalamnoorschool-001-site1 - Web Deploy.pubxml, code is 25, comment is 3, blank is 0.
+QalamAndNoor\Properties\PublishProfiles\qalamnoorschool-001-site1 - Web Deploy.pubxml.user, code is 13, comment is 1, blank is 0.
+QalamAndNoor\QalamAndNoor.csproj, code is 14, comment is 0, blank is 3.
+QalamAndNoor\QalamAndNoor.csproj.user, code is 12, comment is 0, blank is 0.
+QalamAndNoor\Shared\ConversationPartyEnum.cs, code is 10, comment is 0, blank is 0.
+QalamAndNoor\Shared\ConversationStatusEnum.cs, code is 8, comment is 0, blank is 0.
+QalamAndNoor\Shared\EducationalStatusEnum.cs, code is 14, comment is 0, blank is 1.
+QalamAndNoor\Shared\ExamTypeEnum.cs, code is 12, comment is 0, blank is 0.
+QalamAndNoor\Shared\LevelEnum.cs, code is 6, comment is 0, blank is 0.
+QalamAndNoor\Shared\MassegeSenderEnum.cs, code is 10, comment is 0, blank is 0.
+QalamAndNoor\Shared\PsychologicalStatusEnum.cs, code is 11, comment is 0, blank is 0.
+QalamAndNoor\Shared\ReligionEnum.cs, code is 10, comment is 0, blank is 0.
+QalamAndNoor\Shared\SemesterTypeEnum.cs, code is 8, comment is 0, blank is 0.
+QalamAndNoor\Shared\StudentStatusEnum.cs, code is 10, comment is 0, blank is 1.
+QalamAndNoor\WeatherForecast.cs, code is 10, comment is 0, blank is 3.
+===============================================================================
